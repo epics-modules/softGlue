@@ -57,13 +57,10 @@ typedef struct {
     unsigned char model;
     char *portName;
     asynUser *pasynUser;
-    int supportsInterrupts;
-    int rebooting;
     epicsUInt32 oldBits;
     epicsUInt32 risingMask;
     epicsUInt32 fallingMask;
     volatile ip1k125Registers *regs;
-    int forceCallback;
     double pollTime;
     epicsMessageQueueId msgQId;
     int messagesSent;
@@ -76,39 +73,50 @@ typedef struct {
     int key;
 } drvIp1k125Pvt;
 
-/* These functions are in the asynCommon interface */
+/*
+ * asynCommon interface
+ */
 static void report                 	(void *drvPvt, FILE *fp, int details);
 static asynStatus connect          	(void *drvPvt, asynUser *pasynUser);
 static asynStatus disconnect       	(void *drvPvt, asynUser *pasynUser);
 
-/* These functions are in the asynUInt32Digital interface */
-static asynStatus readUInt32D      	(void *drvPvt, asynUser *pasynUser,
-                                    	epicsUInt32 *value, epicsUInt32 mask);
-static asynStatus writeUInt32D     	(void *drvPvt, asynUser *pasynUser,
-                                    	epicsUInt32 value, epicsUInt32 mask);
-
-/* These are private functions */
-static void pollerThread           	(drvIp1k125Pvt *pPvt);
-static void intFunc                	(void *); /* Interrupt function */
-static void rebootCallback         	(void *);
-
-/* asynCommon methods */
 static const struct asynCommon ip1k125Common = {
     report,
     connect,
     disconnect
 };
 
-/* asynUInt32Digital methods */
+/*
+ * asynUInt32Digital interface - we only implement part of this interface.
+ */
+static asynStatus readUInt32D      	(void *drvPvt, asynUser *pasynUser,
+                                    	epicsUInt32 *value, epicsUInt32 mask);
+static asynStatus writeUInt32D     	(void *drvPvt, asynUser *pasynUser,
+                                    	epicsUInt32 value, epicsUInt32 mask);
+
+/* default implementations are provided by asynUInt32DigitalBase. */
 static struct asynUInt32Digital ip1k125UInt32D = {
-    writeUInt32D,
-    readUInt32D,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL
+    writeUInt32D, /* write */
+    readUInt32D,  /* read */
+    NULL,         /* setInterrupt: default does nothing */
+    NULL,         /* clearInterrupt: default does nothing */
+    NULL,         /* getInterrupt: default does nothing */
+    NULL,         /* registerInterruptUser: default adds user to pollerThread's clientList. */
+    NULL          /* cancelInterruptUser: default removes user from pollerThread's clientList. */
 };
+
+
+/*
+ * asynInt32 interface - we don't implement any of this interface.
+ * We just accept the default implementations provided by asynInt32Base.
+ */
+
+/* These are private functions */
+static void pollerThread           	(drvIp1k125Pvt *pPvt);
+static void intFunc                	(void *); /* Interrupt function */
+static void rebootCallback         	(void *);
+
+
 
 /* Initialize IP module */
 int initIp1k125(const char *portName, ushort_t carrier, ushort_t slot,
@@ -154,7 +162,7 @@ int initIp1k125(const char *portName, ushort_t carrier, ushort_t slot,
     pPvt->uint32D.pinterface  = (void *)&ip1k125UInt32D;
     pPvt->uint32D.drvPvt = pPvt;
     status = pasynManager->registerPort(pPvt->portName,
-                                        1, /* multiDevice */
+                                        1, /* multiDevice, cannot block */
                                         1, /* autoconnect */
                                         0, /* medium priority */
                                         0);/* default stack size */
@@ -207,11 +215,12 @@ int initIp1k125(const char *portName, ushort_t carrier, ushort_t slot,
 					  
     /* Interrupt support */
     /* If the risingMask and the fallingMask are zero, don't bother with interrupts, 
-     * since the user probably didn't pass this parameter to Ip1k125::init()*/
+     * since the user probably didn't pass this parameter to Ip1k125::init()
+     */
     if (pPvt->risingMask || pPvt->fallingMask) {
 	
 	/* For COS interrupts both the rising and falling masks must be the same 
-	 	indicating COS for desired bit
+		indicating COS for desired bit
 	*/
 	pPvt->regs->risingIntStatus = risingMask;
 	pPvt->regs->fallingIntStatus = fallingMask;
@@ -224,13 +233,13 @@ int initIp1k125(const char *portName, ushort_t carrier, ushort_t slot,
 	if (pPvt->fallingMask) {  
 		pPvt->regs->fallingIntEnable = pPvt->fallingMask;
 	}
-    	if (devConnectInterruptVME(pPvt->intVector, intFunc, (void *)pPvt)) {
-    	    errlogPrintf("ip1k125 interrupt connect failure\n");
-           return(-1);
-    	}
-       /* Enable IPAC module interrupts and set module status. */
-       ipmIrqCmd(carrier, slot, 0, ipac_irqEnable);
-       ipmIrqCmd(carrier, slot, 0, ipac_statActive);
+	if (devConnectInterruptVME(pPvt->intVector, intFunc, (void *)pPvt)) {
+		errlogPrintf("ip1k125 interrupt connect failure\n");
+		return(-1);
+	}
+	/* Enable IPAC module interrupts and set module status. */
+	ipmIrqCmd(carrier, slot, 0, ipac_irqEnable);
+	ipmIrqCmd(carrier, slot, 0, ipac_statActive);
     }
     epicsAtExit(rebootCallback, pPvt);
     return(0);
@@ -272,7 +281,10 @@ static asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 va
     return(asynSuccess);
 }
 
-
+/*
+ * This is the interrupt-service routine associated with the interrupt
+ * vector pPvt->intVector supplied in the drvPvt structure.
+ */
 static void intFunc(void *drvPvt)
 {
     drvIp1k125Pvt *pPvt = (drvIp1k125Pvt *)drvPvt;
@@ -307,7 +319,7 @@ static void intFunc(void *drvPvt)
 /* This function runs in a separate thread.  It waits for the poll
  * time, or an interrupt, whichever comes first.  If the bits read from
  * the ip1k125 have changed then it does callbacks to all clients that
- * have registered with registerDevCallback */
+ * have registered with registerInterruptUser */
 
 static void pollerThread(drvIp1k125Pvt *pPvt)
 {
@@ -340,9 +352,7 @@ static void pollerThread(drvIp1k125Pvt *pPvt)
          * hardware interrupts) and changedBits, which works for polling */
         changedBits = newBits ^ pPvt->oldBits;
         interruptMask = interruptMask | changedBits;
-        if (pPvt->forceCallback) interruptMask = 0xffff;
         if (interruptMask) {
-            pPvt->forceCallback = 0;
             pPvt->oldBits = newBits;
             pasynManager->interruptStart(pPvt->interruptPvt, &pclientList);
             pnode = (interruptNode *)ellFirst(pclientList);
@@ -373,7 +383,6 @@ static void rebootCallback(void *drvPvt)
     pPvt->regs->risingIntEnable = 0;
     pPvt->regs->fallingIntEnable = 0;
     epicsInterruptUnlock(key);
-    pPvt->rebooting = 1;
 }
 
 /* asynCommon routines */
