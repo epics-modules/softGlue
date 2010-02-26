@@ -47,86 +47,105 @@ typedef struct ip1k125regs {
     epicsUInt16 fallingIntEnable;  	/* Falling Int Enable Register */
 } ip1k125Registers;
 
+typedef struct ip1k125SingleReg {
+    epicsUInt16 dataRegister;  		/* 16-bit data write/read      */
+} ip1k125SingleReg;
+
 typedef struct {
     epicsUInt32 bits;
     epicsUInt32 interruptMask;
 } ip1k125Message;
 
+/* drvIp1k125Pvt split into drvIp1k125CommonPvt and [drvIp1k125RegisterSetPvt or drvIp1k125SingleRegPvt]
 typedef struct {
     unsigned char manufacturer;
     unsigned char model;
-    char *portName;
-    asynUser *pasynUser;
-    epicsUInt32 oldBits;
-    epicsUInt32 risingMask;
-    epicsUInt32 fallingMask;
-    volatile ip1k125Registers *regs;
-    double pollTime;
-    epicsMessageQueueId msgQId;
     int messagesSent;
     int messagesFailed;
     asynInterface common;
     asynInterface uint32D;
     asynInterface int32;
-    void *interruptPvt;
     int intVector;
-    int key;
-} drvIp1k125Pvt;
+} drvIp1k125CommonPvt;
 
-/*
- * asynCommon interface
- */
+typedef struct {
+    char *portName;
+    epicsUInt32 address;
+    asynUser *pasynUser;
+    epicsUInt32 oldBits;
+    epicsUInt32 risingMask;
+    epicsUInt32 fallingMask;
+    volatile ip1k125Registers *regs;
+    void *interruptPvt;
+} drvIp1k125RegisterSetPvt;
+
+typedef struct {
+    char *portName;
+    epicsUInt32 address;
+    asynUser *pasynUser;
+    epicsUInt32 oldBits;
+    volatile ip1k125SingleReg *regList;
+} drvIp1k125SingleRegPvt;
+
+double pollTime;
+epicsMessageQueueId msgQId;
+
+/* These functions are in the asynCommon interface */
 static void report                 	(void *drvPvt, FILE *fp, int details);
 static asynStatus connect          	(void *drvPvt, asynUser *pasynUser);
 static asynStatus disconnect       	(void *drvPvt, asynUser *pasynUser);
 
-static const struct asynCommon ip1k125Common = {
-    report,
-    connect,
-    disconnect
-};
-
-/*
- * asynUInt32Digital interface - we only implement part of this interface.
- */
+/* These functions are in the asynUInt32Digital interface */
 static asynStatus readUInt32D      	(void *drvPvt, asynUser *pasynUser,
                                     	epicsUInt32 *value, epicsUInt32 mask);
 static asynStatus writeUInt32D     	(void *drvPvt, asynUser *pasynUser,
                                     	epicsUInt32 value, epicsUInt32 mask);
 
-/* default implementations are provided by asynUInt32DigitalBase. */
-static struct asynUInt32Digital ip1k125UInt32D = {
-    writeUInt32D, /* write */
-    readUInt32D,  /* read */
-    NULL,         /* setInterrupt: default does nothing */
-    NULL,         /* clearInterrupt: default does nothing */
-    NULL,         /* getInterrupt: default does nothing */
-    NULL,         /* registerInterruptUser: default adds user to pollerThread's clientList. */
-    NULL          /* cancelInterruptUser: default removes user from pollerThread's clientList. */
-};
-
-
-/*
- * asynInt32 interface - we don't implement any of this interface.
- * We just accept the default implementations provided by asynInt32Base.
- */
+static asynStatus readUInt32DSingle    	(void *drvPvt, asynUser *pasynUser,
+                                    	epicsUInt32 *value, epicsUInt32 mask);
+static asynStatus writeUInt32DSingle   	(void *drvPvt, asynUser *pasynUser,
+                                    	epicsUInt32 value, epicsUInt32 mask);
 
 /* These are private functions */
 static void pollerThread           	(drvIp1k125Pvt *pPvt);
 static void intFunc                	(void *); /* Interrupt function */
 static void rebootCallback         	(void *);
 
+/* asynCommon methods */
+static const struct asynCommon ip1k125Common = {
+    report,
+    connect,
+    disconnect
+};
 
+/* asynUInt32Digital methods */
+/* default implementations for all these routines are provided by asynUInt32DigitalBase */
+static struct asynUInt32Digital ip1k125UInt32D = {
+    writeUInt32D, /* write */
+    readUInt32D,  /* read */
+    NULL,         /* setInterrupt: use default implementation, which does nothing */
+    NULL,         /* clearInterrupt: use default implementation, which does nothing */
+    NULL,         /* getInterrupt: use default implementation, which does nothing */
+    NULL,         /* registerInterruptUser: use default implementation, which adds user to clientList used by pollerThread */
+    NULL          /* cancelInterruptUser: use default implementation which removes user from clientList used by pollerThread */
+};
+
+/* asynUInt32Digital methods */
+static struct asynUInt32Digital ip1k125UInt32DSingle = {
+    writeUInt32DSingle, /* write */
+    readUInt32DSingle,  /* read */
+    NULL,               /* setInterrupt: use default implementation, which does nothing */
+    NULL,               /* clearInterrupt: use default implementation, which does nothing */
+    NULL,               /* getInterrupt: use default implementation, which does nothing */
+    NULL,               /* registerInterruptUser: use default implementation, which adds user to clientList used by pollerThread */
+    NULL                /* cancelInterruptUser: use default implementation which removes user from clientList used by pollerThread */
+};
 
 /* Initialize IP module */
-int initIp1k125(const char *portName, ushort_t carrier, ushort_t slot,
-                 int msecPoll, int dataDir, int sopcOffset, int sopcVector,
-    	    	    int risingMask, int fallingMask)
+int initIp1k125(const char *portName, ushort_t carrier, ushort_t slot, int msecPoll)
 {
     drvIp1k125Pvt *pPvt;
     ipac_idProm_t *id;
-    unsigned char manufacturer;
-    unsigned char model;
     int status;
 
     pPvt = callocMustSucceed(1, sizeof(*pPvt), "initIp1k125");
@@ -148,11 +167,8 @@ int initIp1k125(const char *portName, ushort_t carrier, ushort_t slot,
     pPvt->regs = (ip1k125Registers *) (ipmBaseAddr(carrier, slot, ipac_addrIO)+sopcOffset);
     pPvt->intVector = sopcVector;
 
-    manufacturer = id->manufacturerId & 0xff;
-    model = id->modelId & 0xff;
-
-    pPvt->manufacturer = manufacturer;
-    pPvt->model = model;
+    pPvt->manufacturer = id->manufacturerId & 0xff;
+    pPvt->model = id->modelId & 0xff;
 
     /* Link with higher level routines */
     pPvt->common.interfaceType = asynCommonType;
@@ -210,17 +226,16 @@ int initIp1k125(const char *portName, ushort_t carrier, ushort_t slot,
     epicsThreadCreate("ip1k125",
                       epicsThreadPriorityHigh,
                       epicsThreadGetStackSize(epicsThreadStackBig),
-                      (EPICSTHREADFUNC)pollerThread, 
-					  pPvt);
+                      (EPICSTHREADFUNC)pollerThread, pPvt);
 					  
     /* Interrupt support */
     /* If the risingMask and the fallingMask are zero, don't bother with interrupts, 
      * since the user probably didn't pass this parameter to Ip1k125::init()
-     */
+	 */
     if (pPvt->risingMask || pPvt->fallingMask) {
 	
 	/* For COS interrupts both the rising and falling masks must be the same 
-		indicating COS for desired bit
+	 	indicating COS for desired bit
 	*/
 	pPvt->regs->risingIntStatus = risingMask;
 	pPvt->regs->fallingIntStatus = fallingMask;
@@ -233,17 +248,18 @@ int initIp1k125(const char *portName, ushort_t carrier, ushort_t slot,
 	if (pPvt->fallingMask) {  
 		pPvt->regs->fallingIntEnable = pPvt->fallingMask;
 	}
-	if (devConnectInterruptVME(pPvt->intVector, intFunc, (void *)pPvt)) {
-		errlogPrintf("ip1k125 interrupt connect failure\n");
-		return(-1);
-	}
-	/* Enable IPAC module interrupts and set module status. */
-	ipmIrqCmd(carrier, slot, 0, ipac_irqEnable);
-	ipmIrqCmd(carrier, slot, 0, ipac_statActive);
+    	if (devConnectInterruptVME(pPvt->intVector, intFunc, (void *)pPvt)) {
+    	    errlogPrintf("ip1k125 interrupt connect failure\n");
+           return(-1);
+    	}
+       /* Enable IPAC module interrupts and set module status. */
+       ipmIrqCmd(carrier, slot, 0, ipac_irqEnable);
+       ipmIrqCmd(carrier, slot, 0, ipac_statActive);
     }
     epicsAtExit(rebootCallback, pPvt);
     return(0);
 }
+
 
 /* readUInt32D
  *	Reads the data registers of the IP1k125 Acromag IP module
