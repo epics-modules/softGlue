@@ -8,9 +8,9 @@ DBD_INSTALLS += softGlueSupport.dbd
 LIBRARY_IOC_vxWorks = softGlue
 LIB_SRCS_vxWorks += drvIp1k125.c devAsynSoftGlue.c
 
-LIB__vxWorks_LIBS += asyn Ipac
+LIB_vxWorks_LIBS += asyn Ipac
 
-LIB__vxWorks_LIBS += $(EPICS_BASE_IOC_LIBS)
+LIB_vxWorks_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 include $(TOP)/configure/RULES
 #----------------------------------------
