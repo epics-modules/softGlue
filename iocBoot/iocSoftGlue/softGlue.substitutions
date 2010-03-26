@@ -120,6 +120,14 @@ pattern {P  H 	SIG					PORT	ADDR}
 #
 {xxx: softGlue: MUX2-2_OUT			SOFTGLUE 0x800308}
 #
+{xxx: softGlue: UpCntr-1_ENABLE		SOFTGLUE 0x800xxx}
+{xxx: softGlue: UpCntr-1_CLOCK		SOFTGLUE 0x800xxx}
+{xxx: softGlue: UpCntr-1_CLEAR		SOFTGLUE 0x800xxx}
+#
+{xxx: softGlue: UpCntr-2_ENABLE		SOFTGLUE 0x800xxx}
+{xxx: softGlue: UpCntr-2_CLOCK		SOFTGLUE 0x800xxx}
+{xxx: softGlue: UpCntr-2_CLEAR		SOFTGLUE 0x800xxx}
+#
 {xxx: softGlue: FO1				SOFTGLUE 0x800070}
 {xxx: softGlue: FO2				SOFTGLUE 0x800078}
 {xxx: softGlue: FO3				SOFTGLUE 0x800080}
@@ -155,4 +163,11 @@ pattern {P  H 	SIG					PORT	ADDR	CALC}
 {xxx: softGlue: DivByN-1_N			SOFTGLUE 0x800208	'A-1'}
 {xxx: softGlue: DivByN-2_N			SOFTGLUE 0x800268	'A-1'}
 #
+}
+
+file "$(SOFTGLUE)/softGlueApp/Db/softGlue_InRegister.db"
+{
+pattern {P  H 	SIG					PORT	ADDR}
+{xxx: softGlue: UpCntr-1_COUNTS		SOFTGLUE 0x800xxx}
+{xxx: softGlue: UpCntr-2_COUNTS		SOFTGLUE 0x800xxx}
 }
