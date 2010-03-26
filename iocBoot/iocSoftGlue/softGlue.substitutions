@@ -60,6 +60,14 @@ pattern {P  H 	SIG					PORT	ADDR}
 {xxx: softGlue: MUX2-2_IN1			SOFTGLUE 0x8002F8}
 {xxx: softGlue: MUX2-2_SEL			SOFTGLUE 0x800300}
 #
+{xxx: softGlue: UpCntr-1_ENABLE		SOFTGLUE 0x800xxx}
+{xxx: softGlue: UpCntr-1_CLOCK		SOFTGLUE 0x800xxx}
+{xxx: softGlue: UpCntr-1_CLEAR		SOFTGLUE 0x800xxx}
+#
+{xxx: softGlue: UpCntr-2_ENABLE		SOFTGLUE 0x800xxx}
+{xxx: softGlue: UpCntr-2_CLOCK		SOFTGLUE 0x800xxx}
+{xxx: softGlue: UpCntr-2_CLEAR		SOFTGLUE 0x800xxx}
+#
 {xxx: softGlue: FI1				SOFTGLUE 0x800030}
 {xxx: softGlue: FI2				SOFTGLUE 0x800038}
 {xxx: softGlue: FI3				SOFTGLUE 0x800040}
@@ -119,14 +127,6 @@ pattern {P  H 	SIG					PORT	ADDR}
 {xxx: softGlue: MUX2-1_OUT			SOFTGLUE 0x8002E8}
 #
 {xxx: softGlue: MUX2-2_OUT			SOFTGLUE 0x800308}
-#
-{xxx: softGlue: UpCntr-1_ENABLE		SOFTGLUE 0x800xxx}
-{xxx: softGlue: UpCntr-1_CLOCK		SOFTGLUE 0x800xxx}
-{xxx: softGlue: UpCntr-1_CLEAR		SOFTGLUE 0x800xxx}
-#
-{xxx: softGlue: UpCntr-2_ENABLE		SOFTGLUE 0x800xxx}
-{xxx: softGlue: UpCntr-2_CLOCK		SOFTGLUE 0x800xxx}
-{xxx: softGlue: UpCntr-2_CLEAR		SOFTGLUE 0x800xxx}
 #
 {xxx: softGlue: FO1				SOFTGLUE 0x800070}
 {xxx: softGlue: FO2				SOFTGLUE 0x800078}
