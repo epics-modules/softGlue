@@ -1,14 +1,14 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlueAll.adl"
+	name="/home/oxygen/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlueAll.adl"
 	version=030104
 }
 display {
 	object {
 		x=6
-		y=14
+		y=25
 		width=970
-		height=950
+		height=980
 	}
 	clr=14
 	bclr=2
@@ -140,7 +140,7 @@ composite {
 composite {
 	object {
 		x=470
-		y=120
+		y=110
 		width=495
 		height=74
 	}
@@ -150,7 +150,7 @@ composite {
 composite {
 	object {
 		x=470
-		y=220
+		y=200
 		width=443
 		height=101
 	}
@@ -160,7 +160,7 @@ composite {
 composite {
 	object {
 		x=470
-		y=340
+		y=320
 		width=443
 		height=101
 	}
@@ -190,7 +190,7 @@ composite {
 composite {
 	object {
 		x=470
-		y=460
+		y=440
 		width=495
 		height=75
 	}
@@ -200,7 +200,7 @@ composite {
 composite {
 	object {
 		x=470
-		y=560
+		y=530
 		width=495
 		height=75
 	}
@@ -210,7 +210,7 @@ composite {
 composite {
 	object {
 		x=470
-		y=660
+		y=620
 		width=437
 		height=73
 	}
@@ -220,7 +220,7 @@ composite {
 composite {
 	object {
 		x=470
-		y=760
+		y=710
 		width=437
 		height=73
 	}
@@ -256,4 +256,24 @@ composite {
 	}
 	"composite name"=""
 	"composite file"="softGlueFieldIO.adl;P=$(P),H=$(H)"
+}
+composite {
+	object {
+		x=470
+		y=800
+		width=439
+		height=74
+	}
+	"composite name"=""
+	"composite file"="softGlue_UpCntr_bare.adl;P=$(P),H=$(H),N=1"
+}
+composite {
+	object {
+		x=470
+		y=890
+		width=439
+		height=74
+	}
+	"composite name"=""
+	"composite file"="softGlue_UpCntr_bare.adl;P=$(P),H=$(H),N=2"
 }

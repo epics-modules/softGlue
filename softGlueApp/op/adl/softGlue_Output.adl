@@ -1,12 +1,12 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue_Output.adl"
+	name="/home/oxygen/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlue_Output.adl"
 	version=030104
 }
 display {
 	object {
-		x=10
-		y=4
+		x=981
+		y=512
 		width=156
 		height=26
 	}
@@ -87,6 +87,23 @@ display {
 		1a7309,
 	}
 }
+oval {
+	object {
+		x=0
+		y=7
+		width=13
+		height=13
+	}
+	"basic attribute" {
+		clr=14
+		width=2
+	}
+	"dynamic attribute" {
+		vis="if zero"
+		calc="a"
+		chan="$(P)$(H)$(SIG)_BI"
+	}
+}
 polyline {
 	object {
 		x=10
@@ -137,23 +154,6 @@ oval {
 		chan="$(P)$(H)$(SIG)_BI"
 	}
 }
-oval {
-	object {
-		x=0
-		y=7
-		width=13
-		height=13
-	}
-	"basic attribute" {
-		clr=24
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		calc="a"
-		chan="$(P)$(H)$(SIG)_BI"
-	}
-}
 rectangle {
 	object {
 		x=31
@@ -187,4 +187,19 @@ rectangle {
 	label="="
 	press_msg="1"
 	release_msg="0"
+}
+"text update" {
+	object {
+		x=15
+		y=3
+		width=10
+		height=10
+	}
+	monitor {
+		chan="$(P)$(H)$(SIG)_BI"
+		clr=14
+		bclr=2
+	}
+	limits {
+	}
 }

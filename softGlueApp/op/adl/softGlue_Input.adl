@@ -1,13 +1,13 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue_Input.adl"
+	name="/home/oxygen/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlue_Input.adl"
 	version=030104
 }
 display {
 	object {
-		x=2
-		y=3
-		width=183
+		x=385
+		y=25
+		width=156
 		height=26
 	}
 	clr=14
@@ -87,6 +87,23 @@ display {
 		1a7309,
 	}
 }
+oval {
+	object {
+		x=142
+		y=7
+		width=13
+		height=13
+	}
+	"basic attribute" {
+		clr=14
+		width=2
+	}
+	"dynamic attribute" {
+		vis="if zero"
+		calc="a"
+		chan="$(P)$(H)$(SIG)_BI"
+	}
+}
 "message button" {
 	object {
 		x=0
@@ -123,9 +140,9 @@ rectangle {
 }
 polyline {
 	object {
-		x=120
+		x=123
 		y=13
-		width=64
+		width=31
 		height=2
 	}
 	"basic attribute" {
@@ -134,8 +151,8 @@ polyline {
 		width=2
 	}
 	points {
-		(183,14)
-		(121,14)
+		(153,14)
+		(124,14)
 	}
 }
 "text entry" {
@@ -154,48 +171,35 @@ polyline {
 	limits {
 	}
 }
-composite {
+oval {
 	object {
-		x=170
+		x=142
 		y=7
 		width=13
 		height=13
 	}
-	"composite name"=""
-	children {
-		oval {
-			object {
-				x=170
-				y=7
-				width=13
-				height=13
-			}
-			"basic attribute" {
-				clr=20
-				width=2
-			}
-			"dynamic attribute" {
-				vis="if not zero"
-				calc="a"
-				chan="$(P)$(H)$(SIG)_BI"
-			}
-		}
-		oval {
-			object {
-				x=170
-				y=7
-				width=13
-				height=13
-			}
-			"basic attribute" {
-				clr=24
-				width=2
-			}
-			"dynamic attribute" {
-				vis="if zero"
-				calc="a"
-				chan="$(P)$(H)$(SIG)_BI"
-			}
-		}
+	"basic attribute" {
+		clr=20
+		width=2
+	}
+	"dynamic attribute" {
+		vis="if not zero"
+		calc="a"
+		chan="$(P)$(H)$(SIG)_BI"
+	}
+}
+"text update" {
+	object {
+		x=134
+		y=3
+		width=10
+		height=10
+	}
+	monitor {
+		chan="$(P)$(H)$(SIG)_BI"
+		clr=14
+		bclr=2
+	}
+	limits {
 	}
 }

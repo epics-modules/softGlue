@@ -1,13 +1,13 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue_AND.adl"
+	name="/home/oxygen/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlue_AND.adl"
 	version=030104
 }
 display {
 	object {
-		x=1
-		y=1
-		width=427
+		x=97
+		y=270
+		width=400
 		height=95
 	}
 	clr=14
@@ -91,7 +91,7 @@ rectangle {
 	object {
 		x=0
 		y=0
-		width=427
+		width=403
 		height=25
 	}
 	"basic attribute" {
@@ -102,7 +102,7 @@ text {
 	object {
 		x=0
 		y=0
-		width=420
+		width=400
 		height=25
 	}
 	"basic attribute" {
@@ -115,7 +115,7 @@ polyline {
 	object {
 		x=-1
 		y=24
-		width=429
+		width=403
 		height=3
 	}
 	"basic attribute" {
@@ -124,15 +124,15 @@ polyline {
 	}
 	points {
 		(0,25)
-		(426,25)
+		(400,25)
 	}
 }
 composite {
 	object {
 		x=10
 		y=35
-		width=401
-		height=51
+		width=376
+		height=52
 	}
 	"composite name"=""
 	"composite file"="softGlue_AND_bare.adl;P=$(P),H=$(H),N=$(N)"

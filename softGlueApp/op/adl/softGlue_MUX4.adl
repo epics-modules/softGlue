@@ -1,13 +1,13 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue_MUX4.adl"
+	name="/home/oxygen/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlue_MUX4.adl"
 	version=030104
 }
 display {
 	object {
-		x=10
-		y=1
-		width=456
+		x=236
+		y=822
+		width=435
 		height=175
 	}
 	clr=14
@@ -91,7 +91,7 @@ rectangle {
 	object {
 		x=0
 		y=0
-		width=456
+		width=438
 		height=25
 	}
 	"basic attribute" {
@@ -102,7 +102,7 @@ text {
 	object {
 		x=0
 		y=0
-		width=450
+		width=435
 		height=25
 	}
 	"basic attribute" {
@@ -115,7 +115,7 @@ polyline {
 	object {
 		x=0
 		y=25
-		width=460
+		width=439
 		height=3
 	}
 	"basic attribute" {
@@ -124,14 +124,14 @@ polyline {
 	}
 	points {
 		(1,26)
-		(458,26)
+		(437,26)
 	}
 }
 composite {
 	object {
 		x=10
 		y=35
-		width=437
+		width=413
 		height=128
 	}
 	"composite name"=""

@@ -1,13 +1,13 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue_DnCntr_bare.adl"
+	name="/home/oxygen/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlue_DnCntr_bare.adl"
 	version=030104
 }
 display {
 	object {
 		x=991
 		y=654
-		width=512
+		width=490
 		height=90
 	}
 	clr=14
@@ -87,10 +87,40 @@ display {
 		1a7309,
 	}
 }
+composite {
+	object {
+		x=10
+		y=56
+		width=155
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=DnCntr-$(N)_LOAD"
+}
+composite {
+	object {
+		x=10
+		y=8
+		width=155
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=DnCntr-$(N)_ENABLE"
+}
+composite {
+	object {
+		x=10
+		y=31
+		width=155
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=DnCntr-$(N)_CLOCK"
+}
 polyline {
 	object {
-		x=190
-		y=43
+		x=163
+		y=44
 		width=13
 		height=2
 	}
@@ -100,14 +130,14 @@ polyline {
 		width=2
 	}
 	points {
-		(202,44)
-		(191,44)
+		(175,45)
+		(164,45)
 	}
 }
 polyline {
 	object {
-		x=190
-		y=20
+		x=163
+		y=21
 		width=13
 		height=2
 	}
@@ -117,13 +147,13 @@ polyline {
 		width=2
 	}
 	points {
-		(202,21)
-		(191,21)
+		(175,22)
+		(164,22)
 	}
 }
 polyline {
 	object {
-		x=190
+		x=163
 		y=69
 		width=54
 		height=2
@@ -134,14 +164,14 @@ polyline {
 		width=2
 	}
 	points {
-		(243,70)
-		(191,70)
+		(216,70)
+		(164,70)
 	}
 }
 rectangle {
 	object {
-		x=200
-		y=15
+		x=173
+		y=16
 		width=132
 		height=37
 	}
@@ -153,8 +183,8 @@ rectangle {
 }
 polyline {
 	object {
-		x=199
-		y=36
+		x=172
+		y=37
 		width=11
 		height=16
 	}
@@ -163,15 +193,15 @@ polyline {
 		width=2
 	}
 	points {
-		(200,37)
-		(209,44)
-		(200,51)
+		(173,38)
+		(182,45)
+		(173,52)
 	}
 }
 text {
 	object {
-		x=226
-		y=21
+		x=199
+		y=22
 		width=85
 		height=13
 	}
@@ -183,8 +213,8 @@ text {
 }
 polyline {
 	object {
-		x=337
-		y=43
+		x=310
+		y=44
 		width=13
 		height=2
 	}
@@ -194,14 +224,14 @@ polyline {
 		width=2
 	}
 	points {
-		(349,44)
-		(338,44)
+		(322,45)
+		(311,45)
 	}
 }
 polyline {
 	object {
-		x=331
-		y=21
+		x=304
+		y=22
 		width=19
 		height=2
 	}
@@ -211,14 +241,14 @@ polyline {
 		width=2
 	}
 	points {
-		(349,22)
-		(332,22)
+		(322,23)
+		(305,23)
 	}
 }
 text {
 	object {
-		x=317
-		y=18
+		x=290
+		y=19
 		width=10
 		height=13
 	}
@@ -230,8 +260,8 @@ text {
 }
 text {
 	object {
-		x=317
-		y=36
+		x=290
+		y=37
 		width=10
 		height=13
 	}
@@ -243,8 +273,8 @@ text {
 }
 text {
 	object {
-		x=206
-		y=18
+		x=179
+		y=19
 		width=10
 		height=13
 	}
@@ -256,8 +286,8 @@ text {
 }
 text {
 	object {
-		x=267
-		y=40
+		x=240
+		y=41
 		width=40
 		height=10
 	}
@@ -269,8 +299,8 @@ text {
 }
 polyline {
 	object {
-		x=286
-		y=50
+		x=259
+		y=51
 		width=2
 		height=16
 	}
@@ -279,14 +309,14 @@ polyline {
 		width=2
 	}
 	points {
-		(287,51)
-		(287,65)
+		(260,52)
+		(260,66)
 	}
 }
 "text entry" {
 	object {
-		x=262
-		y=60
+		x=235
+		y=61
 		width=50
 		height=20
 	}
@@ -300,8 +330,8 @@ polyline {
 }
 text {
 	object {
-		x=222
-		y=40
+		x=195
+		y=41
 		width=40
 		height=10
 	}
@@ -313,24 +343,24 @@ text {
 }
 polyline {
 	object {
-		x=241
-		y=50
+		x=214
+		y=51
 		width=2
-		height=22
+		height=21
 	}
 	"basic attribute" {
 		clr=14
 		width=2
 	}
 	points {
-		(242,51)
-		(242,71)
+		(215,52)
+		(215,71)
 	}
 }
 rectangle {
 	object {
-		x=223
-		y=20
+		x=196
+		y=21
 		width=89
 		height=14
 	}
@@ -341,8 +371,8 @@ rectangle {
 }
 composite {
 	object {
-		x=348
-		y=8
+		x=321
+		y=9
 		width=157
 		height=26
 	}
@@ -351,48 +381,18 @@ composite {
 }
 composite {
 	object {
-		x=348
-		y=30
+		x=321
+		y=31
 		width=157
 		height=26
 	}
 	"composite name"=""
 	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=DnCntr-$(N)_NOUT"
 }
-composite {
-	object {
-		x=10
-		y=56
-		width=184
-		height=26
-	}
-	"composite name"=""
-	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=DnCntr-$(N)_LOAD"
-}
-composite {
-	object {
-		x=10
-		y=8
-		width=184
-		height=26
-	}
-	"composite name"=""
-	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=DnCntr-$(N)_ENABLE"
-}
-composite {
-	object {
-		x=10
-		y=31
-		width=184
-		height=26
-	}
-	"composite name"=""
-	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=DnCntr-$(N)_CLOCK"
-}
 oval {
 	object {
-		x=330
-		y=39
+		x=303
+		y=40
 		width=10
 		height=10
 	}

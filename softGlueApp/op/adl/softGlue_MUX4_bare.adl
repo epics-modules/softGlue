@@ -1,13 +1,13 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue_MUX4_bare.adl"
+	name="/home/oxygen/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlue_MUX4_bare.adl"
 	version=030104
 }
 display {
 	object {
-		x=540
-		y=113
-		width=456
+		x=761
+		y=789
+		width=435
 		height=150
 	}
 	clr=14
@@ -87,100 +87,11 @@ display {
 		1a7309,
 	}
 }
-polyline {
-	object {
-		x=189
-		y=23
-		width=12
-		height=2
-	}
-	"basic attribute" {
-		clr=14
-		fill="outline"
-		width=2
-	}
-	points {
-		(200,24)
-		(190,24)
-	}
-}
-rectangle {
-	object {
-		x=200
-		y=16
-		width=82
-		height=87
-	}
-	"basic attribute" {
-		clr=14
-		fill="outline"
-		width=2
-	}
-}
-text {
-	object {
-		x=210
-		y=19
-		width=10
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="IN0"
-	align="horiz. centered"
-}
-text {
-	object {
-		x=237
-		y=87
-		width=25
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="SEL"
-	align="horiz. centered"
-}
-polyline {
-	object {
-		x=248
-		y=100
-		width=2
-		height=25
-	}
-	"basic attribute" {
-		clr=14
-		width=2
-	}
-	points {
-		(249,101)
-		(249,124)
-	}
-}
-polyline {
-	object {
-		x=189
-		y=124
-		width=62
-		height=2
-	}
-	"basic attribute" {
-		clr=14
-		fill="outline"
-		width=2
-	}
-	points {
-		(250,125)
-		(190,125)
-	}
-}
 composite {
 	object {
 		x=10
 		y=10
-		width=184
+		width=155
 		height=26
 	}
 	"composite name"=""
@@ -190,7 +101,7 @@ composite {
 	object {
 		x=10
 		y=32
-		width=184
+		width=155
 		height=26
 	}
 	"composite name"=""
@@ -200,136 +111,46 @@ composite {
 	object {
 		x=10
 		y=112
-		width=184
+		width=155
 		height=26
 	}
 	"composite name"=""
 	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=MUX2-$(N)_SEL"
 }
-polyline {
-	object {
-		x=189
-		y=45
-		width=13
-		height=2
-	}
-	"basic attribute" {
-		clr=14
-		fill="outline"
-		width=2
-	}
-	points {
-		(201,46)
-		(190,46)
-	}
-}
-text {
-	object {
-		x=210
-		y=38
-		width=10
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="IN1"
-	align="horiz. centered"
-}
 composite {
 	object {
 		x=10
 		y=54
-		width=184
+		width=155
 		height=26
 	}
 	"composite name"=""
 	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=MUX2-$(N)_IN2"
 }
-polyline {
-	object {
-		x=190
-		y=67
-		width=13
-		height=2
-	}
-	"basic attribute" {
-		clr=14
-		fill="outline"
-		width=2
-	}
-	points {
-		(202,68)
-		(191,68)
-	}
-}
-text {
-	object {
-		x=210
-		y=61
-		width=10
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="IN2"
-	align="horiz. centered"
-}
 composite {
 	object {
 		x=10
 		y=76
-		width=184
+		width=155
 		height=26
 	}
 	"composite name"=""
 	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=MUX2-$(N)_IN3"
 }
-polyline {
-	object {
-		x=190
-		y=89
-		width=13
-		height=2
-	}
-	"basic attribute" {
-		clr=14
-		fill="outline"
-		width=2
-	}
-	points {
-		(202,90)
-		(191,90)
-	}
-}
-text {
-	object {
-		x=210
-		y=83
-		width=10
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="IN3"
-	align="horiz. centered"
-}
 composite {
 	object {
-		x=260
-		y=48
-		width=187
-		height=26
+		x=163
+		y=16
+		width=258
+		height=110
 	}
 	"composite name"=""
 	children {
 		polyline {
 			object {
-				x=281
-				y=61
-				width=14
+				x=163
+				y=23
+				width=12
 				height=2
 			}
 			"basic attribute" {
@@ -338,32 +159,222 @@ composite {
 				width=2
 			}
 			points {
-				(294,62)
-				(282,62)
+				(174,24)
+				(164,24)
+			}
+		}
+		rectangle {
+			object {
+				x=174
+				y=16
+				width=82
+				height=87
+			}
+			"basic attribute" {
+				clr=14
+				fill="outline"
+				width=2
 			}
 		}
 		text {
 			object {
-				x=260
-				y=56
-				width=15
+				x=184
+				y=19
+				width=10
 				height=14
 			}
 			"basic attribute" {
 				clr=14
 			}
-			textix="OUT"
+			textix="IN0"
+			align="horiz. centered"
+		}
+		text {
+			object {
+				x=211
+				y=87
+				width=25
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SEL"
+			align="horiz. centered"
+		}
+		polyline {
+			object {
+				x=222
+				y=100
+				width=2
+				height=25
+			}
+			"basic attribute" {
+				clr=14
+				width=2
+			}
+			points {
+				(223,101)
+				(223,124)
+			}
+		}
+		polyline {
+			object {
+				x=163
+				y=124
+				width=62
+				height=2
+			}
+			"basic attribute" {
+				clr=14
+				fill="outline"
+				width=2
+			}
+			points {
+				(224,125)
+				(164,125)
+			}
+		}
+		polyline {
+			object {
+				x=163
+				y=45
+				width=13
+				height=2
+			}
+			"basic attribute" {
+				clr=14
+				fill="outline"
+				width=2
+			}
+			points {
+				(175,46)
+				(164,46)
+			}
+		}
+		text {
+			object {
+				x=184
+				y=38
+				width=10
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="IN1"
+			align="horiz. centered"
+		}
+		polyline {
+			object {
+				x=164
+				y=67
+				width=13
+				height=2
+			}
+			"basic attribute" {
+				clr=14
+				fill="outline"
+				width=2
+			}
+			points {
+				(176,68)
+				(165,68)
+			}
+		}
+		text {
+			object {
+				x=184
+				y=61
+				width=10
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="IN2"
+			align="horiz. centered"
+		}
+		polyline {
+			object {
+				x=164
+				y=89
+				width=13
+				height=2
+			}
+			"basic attribute" {
+				clr=14
+				fill="outline"
+				width=2
+			}
+			points {
+				(176,90)
+				(165,90)
+			}
+		}
+		text {
+			object {
+				x=184
+				y=83
+				width=10
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="IN3"
 			align="horiz. centered"
 		}
 		composite {
 			object {
-				x=290
+				x=234
 				y=48
-				width=157
+				width=187
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=MUX2-$(N)_OUT"
+			children {
+				polyline {
+					object {
+						x=255
+						y=61
+						width=14
+						height=2
+					}
+					"basic attribute" {
+						clr=14
+						fill="outline"
+						width=2
+					}
+					points {
+						(268,62)
+						(256,62)
+					}
+				}
+				text {
+					object {
+						x=234
+						y=56
+						width=15
+						height=14
+					}
+					"basic attribute" {
+						clr=14
+					}
+					textix="OUT"
+					align="horiz. centered"
+				}
+				composite {
+					object {
+						x=264
+						y=48
+						width=157
+						height=26
+					}
+					"composite name"=""
+					"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=MUX2-$(N)_OUT"
+				}
+			}
 		}
 	}
 }

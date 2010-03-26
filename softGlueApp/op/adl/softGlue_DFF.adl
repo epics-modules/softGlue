@@ -1,13 +1,13 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue_DFF.adl"
+	name="/home/oxygen/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlue_DFF.adl"
 	version=030104
 }
 display {
 	object {
-		x=2
-		y=3
-		width=456
+		x=635
+		y=500
+		width=440
 		height=145
 	}
 	clr=14
@@ -91,7 +91,7 @@ rectangle {
 	object {
 		x=0
 		y=0
-		width=456
+		width=443
 		height=25
 	}
 	"basic attribute" {
@@ -102,7 +102,7 @@ text {
 	object {
 		x=0
 		y=0
-		width=450
+		width=440
 		height=25
 	}
 	"basic attribute" {
@@ -115,7 +115,7 @@ polyline {
 	object {
 		x=0
 		y=25
-		width=460
+		width=444
 		height=3
 	}
 	"basic attribute" {
@@ -124,15 +124,15 @@ polyline {
 	}
 	points {
 		(1,26)
-		(458,26)
+		(442,26)
 	}
 }
 composite {
 	object {
 		x=10
 		y=35
-		width=443
-		height=101
+		width=420
+		height=102
 	}
 	"composite name"=""
 	"composite file"="softGlue_DFF_bare.adl;P=$(P),H=$(H),N=$(N)"
