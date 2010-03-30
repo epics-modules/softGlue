@@ -91,8 +91,8 @@ composite {
 	object {
 		x=10
 		y=20
-		width=401
-		height=51
+		width=374
+		height=52
 	}
 	"composite name"=""
 	"composite file"="softGlue_AND_bare.adl;P=$(P),H=$(H),N=1"
@@ -101,8 +101,8 @@ composite {
 	object {
 		x=10
 		y=90
-		width=401
-		height=51
+		width=374
+		height=52
 	}
 	"composite name"=""
 	"composite file"="softGlue_AND_bare.adl;P=$(P),H=$(H),N=2"
@@ -111,8 +111,8 @@ composite {
 	object {
 		x=10
 		y=160
-		width=399
-		height=49
+		width=373
+		height=50
 	}
 	"composite name"=""
 	"composite file"="softGlue_OR_bare.adl;P=$(P),H=$(H),N=1"
@@ -121,8 +121,8 @@ composite {
 	object {
 		x=10
 		y=230
-		width=399
-		height=49
+		width=373
+		height=50
 	}
 	"composite name"=""
 	"composite file"="softGlue_OR_bare.adl;P=$(P),H=$(H),N=2"
@@ -131,7 +131,7 @@ composite {
 	object {
 		x=470
 		y=20
-		width=495
+		width=468
 		height=74
 	}
 	"composite name"=""
@@ -141,7 +141,7 @@ composite {
 	object {
 		x=470
 		y=110
-		width=495
+		width=468
 		height=74
 	}
 	"composite name"=""
@@ -151,8 +151,8 @@ composite {
 	object {
 		x=470
 		y=200
-		width=443
-		height=101
+		width=418
+		height=102
 	}
 	"composite name"=""
 	"composite file"="softGlue_DFF_bare.adl;P=$(P),H=$(H),N=1"
@@ -161,8 +161,8 @@ composite {
 	object {
 		x=470
 		y=320
-		width=443
-		height=101
+		width=418
+		height=102
 	}
 	"composite name"=""
 	"composite file"="softGlue_DFF_bare.adl;P=$(P),H=$(H),N=2"
@@ -171,7 +171,7 @@ composite {
 	object {
 		x=10
 		y=300
-		width=407
+		width=379
 		height=50
 	}
 	"composite name"=""
@@ -181,7 +181,7 @@ composite {
 	object {
 		x=10
 		y=370
-		width=407
+		width=379
 		height=50
 	}
 	"composite name"=""
@@ -191,7 +191,7 @@ composite {
 	object {
 		x=470
 		y=440
-		width=495
+		width=469
 		height=75
 	}
 	"composite name"=""
@@ -201,7 +201,7 @@ composite {
 	object {
 		x=470
 		y=530
-		width=495
+		width=469
 		height=75
 	}
 	"composite name"=""
@@ -211,7 +211,7 @@ composite {
 	object {
 		x=470
 		y=620
-		width=437
+		width=411
 		height=73
 	}
 	"composite name"=""
@@ -221,7 +221,7 @@ composite {
 	object {
 		x=470
 		y=710
-		width=437
+		width=411
 		height=73
 	}
 	"composite name"=""
@@ -231,7 +231,7 @@ composite {
 	object {
 		x=10
 		y=440
-		width=437
+		width=412
 		height=81
 	}
 	"composite name"=""
@@ -240,8 +240,8 @@ composite {
 composite {
 	object {
 		x=10
-		y=540
-		width=437
+		y=530
+		width=412
 		height=81
 	}
 	"composite name"=""
@@ -250,9 +250,9 @@ composite {
 composite {
 	object {
 		x=22
-		y=650
-		width=430
-		height=245
+		y=620
+		width=410
+		height=345
 	}
 	"composite name"=""
 	"composite file"="softGlueFieldIO.adl;P=$(P),H=$(H)"
@@ -261,7 +261,7 @@ composite {
 	object {
 		x=470
 		y=800
-		width=439
+		width=412
 		height=74
 	}
 	"composite name"=""
@@ -271,7 +271,7 @@ composite {
 	object {
 		x=470
 		y=890
-		width=439
+		width=412
 		height=74
 	}
 	"composite name"=""
