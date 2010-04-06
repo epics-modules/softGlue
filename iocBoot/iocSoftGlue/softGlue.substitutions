@@ -167,7 +167,14 @@ pattern {P  H 	SIG					PORT	ADDR	CALC}
 
 file "$(SOFTGLUE)/softGlueApp/Db/softGlue_InRegister.db"
 {
-pattern {P  H 	SIG					PORT	ADDR}
-{xxx: softGlue: UpCntr-1_COUNTS		SOFTGLUE 0x800xxx}
-{xxx: softGlue: UpCntr-2_COUNTS		SOFTGLUE 0x800xxx}
+pattern {P  H 	SIG					PORT		ADDR}
+{xxx: softGlue: UpCntr-1_COUNTS		SOFTGLUE	0x800xxx}
+{xxx: softGlue: UpCntr-2_COUNTS		SOFTGLUE	0x800xxx}
+}
+
+file "$(SOFTGLUE)/softGlueApp/Db/softGlue_InRegister32.db"
+{
+pattern {P  H 	SIG					PORT		ADDR_MSW	ADDR_LSW}
+{xxx: softGlue: UpCntr-1_COUNTS		SOFTGLUE	0x800xxx	0x800xxx}
+{xxx: softGlue: UpCntr-2_COUNTS		SOFTGLUE	0x800xxx	0x800xxx}
 }
