@@ -190,7 +190,7 @@ oval {
 }
 "text update" {
 	object {
-		x=134
+		x=130
 		y=3
 		width=10
 		height=10
