@@ -190,7 +190,7 @@ rectangle {
 }
 "text update" {
 	object {
-		x=15
+		x=16
 		y=3
 		width=10
 		height=10
