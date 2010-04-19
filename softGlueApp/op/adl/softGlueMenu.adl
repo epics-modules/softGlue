@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlueMenu.adl"
+	name="/home/oxygen/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlueMenu.adl"
 	version=030104
 }
 display {
@@ -156,11 +156,13 @@ display {
 		args="P=$(P),H=$(H),N=2"
 	}
 	display[5] {
-		name="softGlue_XOR.adl"
+		label="UpCounter 1"
+		name="softGlue_UpCntr.adl"
 		args="P=$(P),H=$(H),N=1"
 	}
 	display[6] {
-		name="softGlue_XOR.adl"
+		label="UpCounter 2"
+		name="softGlue_UpCntr.adl"
 		args="P=$(P),H=$(H),N=2"
 	}
 	display[7] {
