@@ -60,13 +60,13 @@ pattern {P  H 	SIG					PORT	ADDR}
 {xxx: softGlue: MUX2-2_IN1			SOFTGLUE 0x8002F8}
 {xxx: softGlue: MUX2-2_SEL			SOFTGLUE 0x800300}
 #
-{yyy: softGlue: UpCntr-1_ENABLE		SOFTGLUE 0x800318}
-{yyy: softGlue: UpCntr-1_CLOCK		SOFTGLUE 0x800310}
-{yyy: softGlue: UpCntr-1_CLEAR		SOFTGLUE 0x800320}
+{xxx: softGlue: UpCntr-1_ENABLE		SOFTGLUE 0x800318}
+{xxx: softGlue: UpCntr-1_CLOCK		SOFTGLUE 0x800310}
+{xxx: softGlue: UpCntr-1_CLEAR		SOFTGLUE 0x800320}
 #
-{yyy: softGlue: UpCntr-2_ENABLE		SOFTGLUE 0x800338}
-{yyy: softGlue: UpCntr-2_CLOCK		SOFTGLUE 0x800330}
-{yyy: softGlue: UpCntr-2_CLEAR		SOFTGLUE 0x800340}
+{xxx: softGlue: UpCntr-2_ENABLE		SOFTGLUE 0x800338}
+{xxx: softGlue: UpCntr-2_CLOCK		SOFTGLUE 0x800330}
+{xxx: softGlue: UpCntr-2_CLEAR		SOFTGLUE 0x800340}
 #
 {xxx: softGlue: FI1				SOFTGLUE 0x800030}
 {xxx: softGlue: FI2				SOFTGLUE 0x800038}
@@ -76,14 +76,14 @@ pattern {P  H 	SIG					PORT	ADDR}
 {xxx: softGlue: FI6				SOFTGLUE 0x800058}
 {xxx: softGlue: FI7				SOFTGLUE 0x800060}
 {xxx: softGlue: FI8				SOFTGLUE 0x800068}
-{yyy: softGlue: FI9				SOFTGLUE 0x800350}
-{yyy: softGlue: FI10			SOFTGLUE 0x800358}
-{yyy: softGlue: FI11			SOFTGLUE 0x800360}
-{yyy: softGlue: FI12			SOFTGLUE 0x800368}
-{yyy: softGlue: FI13			SOFTGLUE 0x800370}
-{yyy: softGlue: FI14			SOFTGLUE 0x800378}
-{yyy: softGlue: FI15			SOFTGLUE 0x800380}
-{yyy: softGlue: FI16			SOFTGLUE 0x800388}
+{xxx: softGlue: FI9				SOFTGLUE 0x800350}
+{xxx: softGlue: FI10			SOFTGLUE 0x800358}
+{xxx: softGlue: FI11			SOFTGLUE 0x800360}
+{xxx: softGlue: FI12			SOFTGLUE 0x800368}
+{xxx: softGlue: FI13			SOFTGLUE 0x800370}
+{xxx: softGlue: FI14			SOFTGLUE 0x800378}
+{xxx: softGlue: FI15			SOFTGLUE 0x800380}
+{xxx: softGlue: FI16			SOFTGLUE 0x800388}
 }
 
 file "$(SOFTGLUE)/softGlueApp/Db/softGlue_Output.db"
@@ -144,14 +144,14 @@ pattern {P  H 	SIG					PORT	ADDR}
 {xxx: softGlue: FO6				SOFTGLUE 0x800098}
 {xxx: softGlue: FO7				SOFTGLUE 0x8000A0}
 {xxx: softGlue: FO8				SOFTGLUE 0x8000A8}
-{yyy: softGlue: FO9				SOFTGLUE 0x800390}
-{yyy: softGlue: FO10			SOFTGLUE 0x800398}
-{yyy: softGlue: FO11			SOFTGLUE 0x8003A0}
-{yyy: softGlue: FO12			SOFTGLUE 0x8003A8}
-{yyy: softGlue: FO13			SOFTGLUE 0x8003B0}
-{yyy: softGlue: FO14			SOFTGLUE 0x8003B8}
-{yyy: softGlue: FO15			SOFTGLUE 0x8003C0}
-{yyy: softGlue: FO16			SOFTGLUE 0x8003C8}
+{xxx: softGlue: FO9				SOFTGLUE 0x800390}
+{xxx: softGlue: FO10			SOFTGLUE 0x800398}
+{xxx: softGlue: FO11			SOFTGLUE 0x8003A0}
+{xxx: softGlue: FO12			SOFTGLUE 0x8003A8}
+{xxx: softGlue: FO13			SOFTGLUE 0x8003B0}
+{xxx: softGlue: FO14			SOFTGLUE 0x8003B8}
+{xxx: softGlue: FO15			SOFTGLUE 0x8003C0}
+{xxx: softGlue: FO16			SOFTGLUE 0x8003C8}
 }
 
 
@@ -169,16 +169,9 @@ pattern {P  H 	SIG					PORT	ADDR	CALC}
 #
 }
 
-file "$(SOFTGLUE)/softGlueApp/Db/softGlue_InRegister.db"
-{
-pattern {P  H 	SIG					PORT		ADDR}
-{yyy: softGlue: UpCntr-1_COUNTS		SOFTGLUE 0x800328}
-{yyy: softGlue: UpCntr-2_COUNTS		SOFTGLUE 0x800348}
-}
-
 file "$(SOFTGLUE)/softGlueApp/Db/softGlue_InRegister32.db"
 {
 pattern {P  H 	SIG					PORT		ADDR_MSW	ADDR_LSW}
-{xxx: softGlue: UpCntr-1_COUNTS		SOFTGLUE	0x800xxx	0x800xxx}
-{xxx: softGlue: UpCntr-2_COUNTS		SOFTGLUE	0x800xxx	0x800xxx}
+{xxx: softGlue: UpCntr-1_COUNTS		SOFTGLUE	0x8003D0	0x800328}
+{xxx: softGlue: UpCntr-2_COUNTS		SOFTGLUE	0x8003D8	0x800348}
 }
