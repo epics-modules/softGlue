@@ -24,6 +24,10 @@ initIp1k125("sg_out1",0,2,0,0x101, 0x10 ,0x81,0,0)
 	
 initIp1k125SingleRegisterPort("SOFTGLUE", 0, 2)
 
+# Write content to the FPGA
+# initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filename)
+#initIP_EP200_FPGA(0, 2, "EP200_FPGA.hex")
+
 # Load a single database that all database fragments supporting single-register
 # components can use to show which signals are connected together.  This
 # database is not needed for the functioning of the components, it's purely
