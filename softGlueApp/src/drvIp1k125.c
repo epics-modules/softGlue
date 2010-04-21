@@ -455,6 +455,53 @@ int initIp1k125SingleRegisterPort(const char *portName, ushort_t carrier, ushort
 	return(0);
 }
 
+/* Initialize IP module's FPGA from file in Intel hex format */
+#define MAXREAD 1000000
+#define BUF_SIZE 1000
+int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filename)
+{
+	ipac_idProm_t *id;
+	unsigned char *pModeReg, *pStatusReg, *pConfigReg;
+	int i, j;
+	FILE *source_fd;
+	unsigned char buffer[BUF_SIZE];
+
+	if ((source_fd = fopen(filename,"rb")) == NULL) {
+		errlogPrintf("initIP_EP200_FPGA: Can't open file '%s'.\n", filename);
+		return(-1);
+	}
+
+	id = (ipac_idProm_t *) ipmBaseAddr(carrier, slot, ipac_addrID);
+	pModeReg = (unsigned char *)(id) + 0x0a;
+	if (*pModeReg != 0x48) {
+		errlogPrintf("initIP_EP200_FPGA: not in config mode.  Nothing done.\n");
+		return(-1);
+	}
+	pStatusReg = (unsigned char *)(id);
+	pConfigReg = (unsigned char *)(id)+0x02;
+	*pStatusReg = (*pStatusReg | 0x01);	/* start config */
+	for (i=0; i<MAXREAD; i++) if (*pStatusReg&0x01) break;
+	if (i == MAXREAD) {
+		errlogPrintf("initIP_EP200_FPGA: timeout entering data-transfer mode.  Nothing done.\n");
+		return(-1);
+	}
+
+	while ((i=fread(buffer, 1, BUF_SIZE, source_fd))) {
+		for (j=0; j<i; j++) {
+			*pConfigReg = buffer[j];
+			if ((*pStatusReg & 0x03) != 0x10) {
+				errlogPrintf("initIP_EP200_FPGA: Bad status abort during data-transfer.\n");
+				return(-1);
+			}
+		}
+	}
+	for (i=0; i<MAXREAD; i++) if (*pStatusReg&0x02) break;
+	if (*pStatusReg & 0x02) {
+		errlogPrintf("initIP_EP200_FPGA: FPGA config done.\n");
+	}
+	return(0);
+}
+
 /*
  * calcRegisterAddress - For single-register components, the sopc address is
  * specified in the EPICS record's INP or OUT field, and we need to translate
@@ -772,7 +819,12 @@ static asynStatus disconnect(void *drvPvt, asynUser *pasynUser)
 	return(asynSuccess);
 }
 
-/* iocsh functions */
+/*** iocsh functions ***/
+
+/* int initIp1k125(const char *portName, ushort_t carrier, ushort_t slot,
+ *				int msecPoll, int dataDir, int sopcOffset, int sopcVector,
+ *				int risingMask, int fallingMask)
+ */
 static const iocshArg initArg0 = { "Server name",iocshArgString};
 static const iocshArg initArg1 = { "Carrier",iocshArgInt};
 static const iocshArg initArg2 = { "Slot",iocshArgInt};
@@ -798,9 +850,35 @@ static void initCallFunc(const iocshArgBuf *args)
 	            args[3].ival, args[4].ival, args[5].ival,
 	            args[6].ival, args[7].ival, args[8].ival);
 }
+
+/* int initIp1k125SingleRegisterPort(const char *portName, ushort_t carrier, ushort_t slot) */
+static const iocshArg initSRArg0 = { "Port name",iocshArgString};
+static const iocshArg * const initSRArgs[3] = {&initSRArg0, &initArg1, &initArg2};
+static const iocshFuncDef initSRFuncDef = {"initIp1k125SingleRegisterPort",3,initSRArgs};
+static void initSRCallFunc(const iocshArgBuf *args)
+{
+	initIp1k125SingleRegisterPort(args[0].sval, args[1].ival, args[2].ival);
+}
+
+/* int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char filename) */
+static const iocshArg initFPGAArg2 = { "File name",iocshArgString};
+static const iocshArg * const initFPGAArgs[3] = {&initArg1, &initArg2, &initFPGAArg2};
+static const iocshFuncDef initFPGAFuncDef = {"initIP_EP200_FPGA",3,initFPGAArgs};
+static void initFPGACallFunc(const iocshArgBuf *args)
+{
+	initIP_EP200_FPGA(args[0].ival, args[1].ival, args[2].sval);
+}
+
+
+
+
+
+
 void ip1k125Register(void)
 {
 	iocshRegister(&initFuncDef,initCallFunc);
+	iocshRegister(&initSRFuncDef,initSRCallFunc);
+	iocshRegister(&initFPGAFuncDef,initFPGACallFunc);
 }
 
 epicsExportRegistrar(ip1k125Register);
