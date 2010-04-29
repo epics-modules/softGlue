@@ -235,7 +235,7 @@ The IP-EP201 board has to be prepared for this by moving the DIP jumper to
 "IP BUS".
 
 The hex file to be loaded is included in the softGlueApp/Db directory.
-It is prepared as follows, in Quartus:
+It was prepared as follows, in Quartus:
 
 1. Under programming type select the Hexadecimal file format for Intel
 2. Select your file name
