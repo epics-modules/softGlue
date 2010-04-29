@@ -107,6 +107,7 @@ x    space, though if it's located in MEM space, we won't be able to read it.
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <ctype.h>
 
 /* EPICS includes */
 #include <drvIpac.h>
@@ -455,50 +456,95 @@ int initIp1k125SingleRegisterPort(const char *portName, ushort_t carrier, ushort
 	return(0);
 }
 
-/* Initialize IP module's FPGA from file in Intel hex format */
-#define MAXREAD 1000000
+#define HEX2INT(c)	(isdigit(c) ? ((c) - (int)('0')) : (10 + (toupper(c) - (int)('A'))))
+#define HEXHEX2INT(s)	(HEX2INT((int)((s)[0]))<<4 | HEX2INT((int)((s)[1])))
+#define SHOW_STATUS 0
+
+/* Initialize IP module's FPGA from file in Intel hex format.  In Quartus, select .sof file,
+ * choose the following options: compressed; mode = "1-bit Passive Serial"; count up.
+ */
+#define MAXREAD 1000
 #define BUF_SIZE 1000
 int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filename)
 {
-	ipac_idProm_t *id;
-	unsigned char *pModeReg, *pStatusReg, *pConfigReg;
-	int i, j;
+	volatile epicsUInt16 *id, *io;
+	volatile epicsUInt16 *pModeReg, *pStatusControlReg, *pConfigDataReg;
+	epicsUInt16 c;
+	int i, j, maxwait, total_bytes;
 	FILE *source_fd;
-	unsigned char buffer[BUF_SIZE];
+	unsigned char buffer[BUF_SIZE], *bp;
 
 	if ((source_fd = fopen(filename,"rb")) == NULL) {
 		errlogPrintf("initIP_EP200_FPGA: Can't open file '%s'.\n", filename);
 		return(-1);
 	}
 
-	id = (ipac_idProm_t *) ipmBaseAddr(carrier, slot, ipac_addrID);
-	pModeReg = (unsigned char *)(id) + 0x0a;
-	if (*pModeReg != 0x48) {
+	id = (epicsUInt16 *) ipmBaseAddr(carrier, slot, ipac_addrID);
+	io = (epicsUInt16 *) ipmBaseAddr(carrier, slot, ipac_addrIO);
+	pModeReg = id + 0x0a/2;
+	if ((*pModeReg&0xff) != 0x48) {
 		errlogPrintf("initIP_EP200_FPGA: not in config mode.  Nothing done.\n");
 		return(-1);
 	}
-	pStatusReg = (unsigned char *)(id);
-	pConfigReg = (unsigned char *)(id)+0x02;
-	*pStatusReg = (*pStatusReg | 0x01);	/* start config */
-	for (i=0; i<MAXREAD; i++) if (*pStatusReg&0x01) break;
+	pStatusControlReg = io;
+	pConfigDataReg = io + 0x02/2;
+	*pStatusControlReg = (*pStatusControlReg | 0x01);	/* start config */
+	for (i=0; i<MAXREAD; i++) {
+		c = *pStatusControlReg;
+		if (SHOW_STATUS) printf("%x", c&0xf);
+		if ((c&0x01) == 1) break; /* wait for ack */
+	}
+	if (SHOW_STATUS) printf("\nDone checking for ack\n");
 	if (i == MAXREAD) {
 		errlogPrintf("initIP_EP200_FPGA: timeout entering data-transfer mode.  Nothing done.\n");
 		return(-1);
 	}
 
-	while ((i=fread(buffer, 1, BUF_SIZE, source_fd))) {
-		for (j=0; j<i; j++) {
-			*pConfigReg = buffer[j];
-			if ((*pStatusReg & 0x03) != 0x10) {
-				errlogPrintf("initIP_EP200_FPGA: Bad status abort during data-transfer.\n");
-				return(-1);
+	maxwait = 0;
+	total_bytes = 0;
+	while ((bp=fgets(buffer, BUF_SIZE, source_fd))) {
+		int bytes;
+		int recType;
+		
+		if (bp[0] != ':') {
+			errlogPrintf("initIP_EP200_FPGA: Bad file content.\n");
+			return(-1);
+		}
+		bytes = HEXHEX2INT(bp+1);
+		recType = HEXHEX2INT(bp+7);
+		if (recType == 0) {
+			for (bp+=9, j=0; j<bytes; j++) {
+				for (i=0; i<50; i++) {
+					c = *pStatusControlReg;
+					/*if (SHOW_STATUS) printf("%x", (unsigned char)(c&0x0f));*/
+					if ((c&3) == 3) break;
+					if (i > maxwait) maxwait = i;
+				}
+				if (i==20) printf("\ntimeout waiting for pStatusControlReg==3\n");
+				if ((*pStatusControlReg & 3) != 3) {
+					errlogPrintf("initIP_EP200_FPGA: Bad status abort at byte %d during data-transfer.\n", j);
+					errlogPrintf("buffer='%s'\n", buffer);
+					return(-1);
+				}
+				c = (HEXHEX2INT(bp))&0xff;
+				*pConfigDataReg = c; bp += 2;
+				total_bytes++;
+				/*if (SHOW_STATUS) printf(" - %d %x\n", total_bytes, c);*/
 			}
 		}
 	}
-	for (i=0; i<MAXREAD; i++) if (*pStatusReg&0x02) break;
-	if (*pStatusReg & 0x02) {
+	if (SHOW_STATUS) printf("initIP_EP200_FPGA: Sent %d bytes (maxwait=%d).\n", total_bytes, maxwait);
+	for (i=0; i<200; i++) {
+		c = *pStatusControlReg;
+		if (SHOW_STATUS) printf("stat:%x mode:%x\n", c&0x0f, *pModeReg&0xff);
+		if ((c&0x04) || ((*pModeReg&0xff) == 0x49)) break;
+	}
+	if (SHOW_STATUS) printf("\n");
+	if ((*pStatusControlReg & 0x04) || ((*pModeReg&0xff) == 0x49)) {
 		errlogPrintf("initIP_EP200_FPGA: FPGA config done.\n");
 	}
+	/* issue a software reset */
+	*pStatusControlReg = *pStatusControlReg | 0x80;
 	return(0);
 }
 
