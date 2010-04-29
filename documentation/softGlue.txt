@@ -226,3 +226,24 @@ The FPGA is programmed by setting bit 0 of the Config/control register, and
 writing FPGA-program data, a byte at a time, to the Config Data register.
 The procedure is detailed in section 3 of the Acromag Series IP-EP201
 user's manual, IP_EP20x_797a.pdf
+
+
+------------------------------------------------------------------------------
+After v1.0, we added the ability to program the FPGA via the IP bus.
+
+The IP-EP201 board has to be prepared for this by moving the DIP jumper to
+"IP BUS".
+
+The hex file to be loaded is included in the softGlueApp/Db directory.
+It is prepared as follows, in Quartus:
+
+1. Under programming type select the Hexadecimal file format for Intel
+2. Select your file name
+3. Add your .sof file
+4. Select the sof file and hit the properties button
+5. Select the compression box
+6. Make sure that you have selected 1-bit Passive Serial above for the mode
+7. Select the options button under programming file type
+    make sure that you have a start address of 0x0 and that the count up
+    radio button is selected
+8. Generate your file
