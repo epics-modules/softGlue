@@ -35,6 +35,7 @@
 #include <menuFtype.h>
 #include <recSup.h>
 #include <devSup.h>
+#include <dbEvent.h>
 
 #include <epicsExport.h>
 #include "asynDriver.h"
@@ -103,8 +104,13 @@ static struct portInfo {
 	char			portName[40];
 	epicsMutexId	sig_mutex;
 	struct sigEntry	sigList[MAXSIGNALS];
+	ELLLIST			recordList;
 } portInfo[MAXPORTS];
 
+struct recordListItem {
+    ELLNODE node;
+	stringoutRecord *precord;
+};
 
 static long init(int after) {
 	int i, j;
@@ -116,6 +122,7 @@ static long init(int after) {
 			portInfo[i].sigList[j].name[0] = '\0';
 			portInfo[i].sigList[j].numUsers = 0;
 		}
+		ellInit(&(portInfo[i].recordList));
 	}
 	return(0);
 }
@@ -142,6 +149,32 @@ static long checkSignal(stringoutRecord *pso) {
 
 	if (devAsynSoftGlueDebug)
 		printf("checkSignal:entry: val='%s', old signal=%d\n", pso->val, pdevPvt->signalNum);
+
+	/* See if this signal's new name is the PVname of some other signal attached to the same port.
+	 * If so, user is probably trying to use Drag-N-Drop to connect signals, and probably expects
+	 * this to connect the signals.  If the source signal has a name, we can do what user wants;
+	 * otherwise, we can at least make the signal names the same empty string.
+	 */
+	{
+		int portNum=-1;
+		struct recordListItem *pitem;
+		for (i=0; i<MAXPORTS; i++) {
+			if (strcmp(pi->portName, portInfo[i].portName) == 0) portNum = i;
+		}
+		if (portNum >= 0) {
+			pitem = (struct recordListItem *)ellFirst(&(portInfo[portNum].recordList));
+			while (pitem) {
+				if (strcmp(pitem->precord->name, pso->val) == 0) {
+					strcpy(pso->val, pitem->precord->val);
+					db_post_events(pso, &pso->val, DBE_VALUE);
+					break;
+				}
+				pitem = (struct recordListItem *)ellNext(&(pitem->node));
+			}
+		}
+	}
+
+
 	epicsMutexLock(pi->sig_mutex);
 	if (pdevPvt->signalNum) {
 		/* We're attached to a nonzero signal.  Should we stay attached? */
@@ -350,6 +383,12 @@ static long initCommon(dbCommon *precord, DBLINK *plink, userCallback callback)
 		goto bad;
 	}
 
+	/* Add the record to the port's recordList */
+    {
+		struct recordListItem *pitem = (struct recordListItem *) malloc(sizeof(struct recordListItem));
+		pitem->precord = (stringoutRecord *)(pdevPvt->precord);
+		ellAdd(&(portInfo[pdevPvt->portInfoNum].recordList), &pitem->node);
+	}
 	return(0);
 
 bad:
