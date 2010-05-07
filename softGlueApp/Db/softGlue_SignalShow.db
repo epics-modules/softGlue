@@ -21,6 +21,6 @@ record(bo,"$(P)$(H)ReadRateON") {
 	field(UDF,"0")
 }
 record(bo,"$(P)$(H)ReadRateOFF") {
-	field(SCAN,"Passive")
+	field(SCAN,"1 second")
 	field(UDF,"0")
 }
