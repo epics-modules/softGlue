@@ -1,14 +1,14 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlueAll.adl"
+	name="/home/oxygen/MOONEY/epics/synApps_5_5/support/softGlue/softGlueApp/op/adl/softGlueAll.adl"
 	version=030104
 }
 display {
 	object {
 		x=6
-		y=25
+		y=41
 		width=970
-		height=980
+		height=1030
 	}
 	clr=14
 	bclr=2
@@ -100,7 +100,7 @@ composite {
 composite {
 	object {
 		x=10
-		y=90
+		y=85
 		width=374
 		height=52
 	}
@@ -110,7 +110,7 @@ composite {
 composite {
 	object {
 		x=10
-		y=160
+		y=150
 		width=373
 		height=50
 	}
@@ -120,7 +120,7 @@ composite {
 composite {
 	object {
 		x=10
-		y=230
+		y=215
 		width=373
 		height=50
 	}
@@ -170,7 +170,7 @@ composite {
 composite {
 	object {
 		x=10
-		y=300
+		y=280
 		width=379
 		height=50
 	}
@@ -180,7 +180,7 @@ composite {
 composite {
 	object {
 		x=10
-		y=370
+		y=345
 		width=379
 		height=50
 	}
@@ -230,7 +230,7 @@ composite {
 composite {
 	object {
 		x=10
-		y=440
+		y=410
 		width=412
 		height=81
 	}
@@ -240,22 +240,12 @@ composite {
 composite {
 	object {
 		x=10
-		y=530
+		y=495
 		width=412
 		height=81
 	}
 	"composite name"=""
 	"composite file"="softGlue_DEMUX2_bare.adl;P=$(P),H=$(H),N=2"
-}
-composite {
-	object {
-		x=22
-		y=620
-		width=410
-		height=345
-	}
-	"composite name"=""
-	"composite file"="softGlueFieldIO.adl;P=$(P),H=$(H)"
 }
 composite {
 	object {
@@ -276,4 +266,1164 @@ composite {
 	}
 	"composite name"=""
 	"composite file"="softGlue_UpCntr_bare.adl;P=$(P),H=$(H),N=2"
+}
+composite {
+	object {
+		x=32
+		y=590
+		width=380
+		height=15
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=232
+				y=590
+				width=180
+				height=15
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="Field Output Bits"
+			align="horiz. centered"
+		}
+		text {
+			object {
+				x=32
+				y=590
+				width=180
+				height=15
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="Field Input Bits"
+			align="horiz. centered"
+		}
+	}
+}
+composite {
+	object {
+		x=232
+		y=605
+		width=155
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=FO1"
+}
+composite {
+	object {
+		x=232
+		y=630
+		width=155
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=FO2"
+}
+composite {
+	object {
+		x=232
+		y=655
+		width=155
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=FO3"
+}
+composite {
+	object {
+		x=232
+		y=680
+		width=155
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=FO4"
+}
+composite {
+	object {
+		x=56
+		y=630
+		width=157
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=FI2"
+}
+composite {
+	object {
+		x=56
+		y=655
+		width=157
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=FI3"
+}
+composite {
+	object {
+		x=56
+		y=680
+		width=157
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=FI4"
+}
+composite {
+	object {
+		x=56
+		y=605
+		width=157
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=FI1"
+}
+text {
+	object {
+		x=37
+		y=635
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="2"
+}
+text {
+	object {
+		x=37
+		y=660
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="3"
+}
+text {
+	object {
+		x=37
+		y=685
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="4"
+}
+text {
+	object {
+		x=37
+		y=610
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="1"
+}
+text {
+	object {
+		x=22
+		y=640
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="2"
+}
+text {
+	object {
+		x=22
+		y=665
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="3"
+}
+text {
+	object {
+		x=22
+		y=690
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="4"
+}
+text {
+	object {
+		x=22
+		y=615
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="1"
+}
+text {
+	object {
+		x=402
+		y=635
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="2"
+}
+text {
+	object {
+		x=402
+		y=660
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="3"
+}
+text {
+	object {
+		x=402
+		y=685
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="4"
+}
+text {
+	object {
+		x=402
+		y=610
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="1"
+}
+text {
+	object {
+		x=417
+		y=640
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="18"
+}
+text {
+	object {
+		x=417
+		y=665
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="19"
+}
+text {
+	object {
+		x=417
+		y=690
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="20"
+}
+text {
+	object {
+		x=417
+		y=615
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="17"
+}
+composite {
+	object {
+		x=232
+		y=705
+		width=155
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=FO5"
+}
+composite {
+	object {
+		x=232
+		y=730
+		width=155
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=FO6"
+}
+composite {
+	object {
+		x=232
+		y=755
+		width=155
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=FO7"
+}
+composite {
+	object {
+		x=56
+		y=730
+		width=157
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=FI6"
+}
+composite {
+	object {
+		x=56
+		y=755
+		width=157
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=FI7"
+}
+composite {
+	object {
+		x=56
+		y=780
+		width=157
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=FI8"
+}
+composite {
+	object {
+		x=56
+		y=705
+		width=157
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=FI5"
+}
+composite {
+	object {
+		x=232
+		y=780
+		width=155
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=FO8"
+}
+text {
+	object {
+		x=37
+		y=735
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="6"
+}
+text {
+	object {
+		x=37
+		y=760
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="7"
+}
+text {
+	object {
+		x=37
+		y=785
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="8"
+}
+text {
+	object {
+		x=37
+		y=710
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="5"
+}
+text {
+	object {
+		x=22
+		y=740
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="6"
+}
+text {
+	object {
+		x=22
+		y=765
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="7"
+}
+text {
+	object {
+		x=22
+		y=790
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="8"
+}
+text {
+	object {
+		x=22
+		y=715
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="5"
+}
+text {
+	object {
+		x=402
+		y=735
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="6"
+}
+text {
+	object {
+		x=402
+		y=710
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="5"
+}
+text {
+	object {
+		x=402
+		y=785
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="8"
+}
+text {
+	object {
+		x=402
+		y=760
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="7"
+}
+text {
+	object {
+		x=417
+		y=740
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="22"
+}
+text {
+	object {
+		x=417
+		y=765
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="23"
+}
+text {
+	object {
+		x=417
+		y=790
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="24"
+}
+text {
+	object {
+		x=417
+		y=715
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="21"
+}
+composite {
+	object {
+		x=232
+		y=805
+		width=155
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=FO9"
+}
+composite {
+	object {
+		x=232
+		y=830
+		width=155
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=FO10"
+}
+composite {
+	object {
+		x=232
+		y=855
+		width=155
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=FO11"
+}
+composite {
+	object {
+		x=56
+		y=830
+		width=157
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=FI10"
+}
+composite {
+	object {
+		x=56
+		y=855
+		width=157
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=FI11"
+}
+composite {
+	object {
+		x=56
+		y=880
+		width=157
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=FI12"
+}
+composite {
+	object {
+		x=56
+		y=805
+		width=157
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=FI9"
+}
+composite {
+	object {
+		x=232
+		y=880
+		width=155
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=FO12"
+}
+text {
+	object {
+		x=37
+		y=835
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="10"
+}
+text {
+	object {
+		x=37
+		y=860
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="11"
+}
+text {
+	object {
+		x=37
+		y=885
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="12"
+}
+text {
+	object {
+		x=37
+		y=810
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="9"
+}
+text {
+	object {
+		x=22
+		y=840
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="10"
+}
+text {
+	object {
+		x=22
+		y=865
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="11"
+}
+text {
+	object {
+		x=22
+		y=890
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="12"
+}
+text {
+	object {
+		x=22
+		y=815
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="9"
+}
+text {
+	object {
+		x=392
+		y=835
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="10"
+}
+text {
+	object {
+		x=402
+		y=810
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="9"
+}
+text {
+	object {
+		x=392
+		y=885
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="12"
+}
+text {
+	object {
+		x=392
+		y=860
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="11"
+}
+text {
+	object {
+		x=417
+		y=840
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="26"
+}
+text {
+	object {
+		x=417
+		y=865
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="27"
+}
+text {
+	object {
+		x=417
+		y=890
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="28"
+}
+text {
+	object {
+		x=417
+		y=815
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="25"
+}
+composite {
+	object {
+		x=232
+		y=905
+		width=155
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=FO13"
+}
+composite {
+	object {
+		x=56
+		y=905
+		width=157
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=FI13"
+}
+composite {
+	object {
+		x=232
+		y=930
+		width=155
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=FO14"
+}
+composite {
+	object {
+		x=56
+		y=930
+		width=157
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=FI14"
+}
+text {
+	object {
+		x=37
+		y=910
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="13"
+}
+text {
+	object {
+		x=37
+		y=935
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="14"
+}
+text {
+	object {
+		x=22
+		y=915
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="13"
+}
+text {
+	object {
+		x=22
+		y=940
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="14"
+}
+text {
+	object {
+		x=392
+		y=910
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="13"
+}
+text {
+	object {
+		x=392
+		y=935
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="14"
+}
+text {
+	object {
+		x=417
+		y=915
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="29"
+}
+text {
+	object {
+		x=417
+		y=940
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="30"
+}
+composite {
+	object {
+		x=232
+		y=955
+		width=155
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=FO15"
+}
+composite {
+	object {
+		x=232
+		y=980
+		width=155
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=FO16"
+}
+composite {
+	object {
+		x=56
+		y=980
+		width=157
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=FI16"
+}
+composite {
+	object {
+		x=56
+		y=955
+		width=157
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=FI15"
+}
+text {
+	object {
+		x=37
+		y=985
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="16"
+}
+text {
+	object {
+		x=37
+		y=960
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="15"
+}
+text {
+	object {
+		x=22
+		y=990
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="16"
+}
+text {
+	object {
+		x=22
+		y=965
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="15"
+}
+text {
+	object {
+		x=392
+		y=985
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="16"
+}
+text {
+	object {
+		x=392
+		y=960
+		width=15
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="15"
+}
+text {
+	object {
+		x=417
+		y=990
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="32"
+}
+text {
+	object {
+		x=417
+		y=965
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="31"
+}
+composite {
+	object {
+		x=22
+		y=1010
+		width=410
+		height=10
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=362
+				y=1010
+				width=70
+				height=10
+			}
+			"basic attribute" {
+				clr=20
+			}
+			textix="CONNECTOR #"
+		}
+		text {
+			object {
+				x=22
+				y=1010
+				width=80
+				height=10
+			}
+			"basic attribute" {
+				clr=20
+			}
+			textix="CONNECTOR #"
+		}
+	}
 }
