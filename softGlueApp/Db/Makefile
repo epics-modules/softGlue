@@ -15,7 +15,11 @@ include $(TOP)/configure/CONFIG
 # If <anyname>.db template is not named <anyname>*.template add
 # <anyname>_template = <templatename>
 
+DB += softGlue_FPGAContent.db
+DB_INSTALLS += ../softGlue_SignalShow.db
+DB_INSTALLS += ../EP200_FPGA.hex
+DB_INSTALLS += ../softGlue_settings.req
+
 include $(TOP)/configure/RULES
 #----------------------------------------
 #  ADD RULES AFTER THIS LINE
-
