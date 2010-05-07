@@ -1,0 +1,138 @@
+file "softGlue_Input.db"
+{
+pattern {SIG   ADDR}
+
+{AND-1_IN1       0x8000B0}
+{AND-1_IN2       0x8000B8}
+{AND-2_IN1       0x8000D0}
+{AND-2_IN2       0x8000D8}
+{OR-1_IN1        0x8000F0}
+{OR-1_IN2        0x8000F8}
+{OR-2_IN1        0x800110}
+{OR-2_IN2        0x800118}
+{XOR-1_IN1       0x800130}
+{XOR-1_IN2       0x800138}
+{XOR-2_IN1       0x800150}
+{XOR-2_IN2       0x800158}
+{DEMUX2-1_IN     0x800170}
+{DEMUX2-1_SEL    0x800178}
+{DEMUX2-2_IN     0x800190}
+{DEMUX2-2_SEL    0x800198}
+{DFF-1_D         0x800270}
+{DFF-1_CLOCK     0x800278}
+{DFF-1_SET       0x800280}
+{DFF-1_CLEAR     0x800288}
+{DFF-2_D         0x8002A0}
+{DFF-2_CLOCK     0x8002A8}
+{DFF-2_SET       0x8002B0}
+{DFF-2_CLEAR     0x8002B8}
+{DivByN-1_ENABLE 0x8001e0}
+{DivByN-1_CLOCK  0x8001e8}
+{DivByN-1_RESET  0x8001f0}
+{DivByN-2_ENABLE 0x800240}
+{DivByN-2_CLOCK  0x800248}
+{DivByN-2_RESET  0x800250}
+{DnCntr-1_ENABLE 0x8001B8}
+{DnCntr-1_CLOCK  0x8001B0}
+{DnCntr-1_LOAD   0x8001C0}
+{DnCntr-2_ENABLE 0x800218}
+{DnCntr-2_CLOCK  0x800210}
+{DnCntr-2_LOAD   0x800220}
+{MUX2-1_IN0      0x8002D0}
+{MUX2-1_IN1      0x8002D8}
+{MUX2-1_SEL      0x8002E0}
+{MUX2-2_IN0      0x8002F0}
+{MUX2-2_IN1      0x8002F8}
+{MUX2-2_SEL      0x800300}
+{UpCntr-1_ENABLE 0x800318}
+{UpCntr-1_CLOCK  0x800310}
+{UpCntr-1_CLEAR  0x800320}
+{UpCntr-2_ENABLE 0x800338}
+{UpCntr-2_CLOCK  0x800330}
+{UpCntr-2_CLEAR  0x800340}
+{FI1             0x800030}
+{FI2             0x800038}
+{FI3             0x800040}
+{FI4             0x800048}
+{FI5             0x800050}
+{FI6             0x800058}
+{FI7             0x800060}
+{FI8             0x800068}
+{FI9             0x800350}
+{FI10            0x800358}
+{FI11            0x800360}
+{FI12            0x800368}
+{FI13            0x800370}
+{FI14            0x800378}
+{FI15            0x800380}
+{FI16            0x800388}
+}
+
+file "softGlue_Output.db"
+{
+pattern {SIG   ADDR}
+
+{AND-1_POUT    0x8000C0}
+{AND-1_NOUT    0x8000C8}
+{AND-2_POUT    0x8000E0}
+{AND-2_NOUT    0x8000E8}
+{OR-1_POUT     0x800100}
+{OR-1_NOUT     0x800108}
+{OR-2_POUT     0x800120}
+{OR-2_NOUT     0x800128}
+{XOR-1_POUT    0x800140}
+{XOR-1_NOUT    0x800148}
+{XOR-2_POUT    0x800160}
+{XOR-2_NOUT    0x800168}
+{DEMUX2-1_OUT0 0x800180}
+{DEMUX2-1_OUT1 0x800188}
+{DEMUX2-2_OUT0 0x8001A0}
+{DEMUX2-2_OUT1 0x8001A8}
+{DFF-1_POUT    0x800290}
+{DFF-1_NOUT    0x800298}
+{DFF-2_POUT    0x8002C0}
+{DFF-2_NOUT    0x8002C8}
+{DivByN-1_POUT 0x8001f8}
+{DivByN-1_NOUT 0x800200}
+{DivByN-2_POUT 0x800258}
+{DivByN-2_NOUT 0x800260}
+{DnCntr-1_POUT 0x8001C8}
+{DnCntr-1_NOUT 0x8001D0}
+{DnCntr-2_POUT 0x800228}
+{DnCntr-2_NOUT 0x800230}
+{MUX2-1_OUT    0x8002E8}
+{MUX2-2_OUT    0x800308}
+{FO1           0x800070}
+{FO2           0x800078}
+{FO3           0x800080}
+{FO4           0x800088}
+{FO5           0x800090}
+{FO6           0x800098}
+{FO7           0x8000A0}
+{FO8           0x8000A8}
+{FO9           0x800390}
+{FO10          0x800398}
+{FO11          0x8003A0}
+{FO12          0x8003A8}
+{FO13          0x8003B0}
+{FO14          0x8003B8}
+{FO15          0x8003C0}
+{FO16          0x8003C8}
+}
+
+
+file "softGlue_Register.db"
+{
+pattern {SIG     ADDR CALC}
+{DnCntr-1_PRESET 0x8001D8 'A'}
+{DnCntr-2_PRESET 0x800238 'A'}
+{DivByN-1_N      0x800208 'A-1'}
+{DivByN-2_N      0x800268 'A-1'}
+}
+
+file "softGlue_InRegister32.db"
+{
+pattern {SIG     ADDR_MSW ADDR_LSW}
+{UpCntr-1_COUNTS 0x8003D0 0x800328}
+{UpCntr-2_COUNTS 0x8003D8 0x800348}
+}
