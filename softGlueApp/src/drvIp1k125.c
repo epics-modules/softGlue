@@ -465,7 +465,8 @@ int initIp1k125SingleRegisterPort(const char *portName, ushort_t carrier, ushort
  */
 #define MAXREAD 1000
 #define BUF_SIZE 1000
-int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filename)
+#include "macLib.h"
+int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filepath)
 {
 	volatile epicsUInt16 *id, *io;
 	volatile epicsUInt16 *pModeReg, *pStatusControlReg, *pConfigDataReg;
@@ -473,11 +474,18 @@ int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filename)
 	int i, j, maxwait, total_bytes;
 	FILE *source_fd;
 	unsigned char buffer[BUF_SIZE], *bp;
+	char *filename;
 
+	filename = macEnvExpand(filepath); /* in case filepath = '$(SOFTGLUE)/...' */
+	if (filename == NULL) {
+		errlogPrintf("initIP_EP200_FPGA: macEnvExpand() returned NULL.  I quit.\n");
+		return(-1);
+	}
 	if ((source_fd = fopen(filename,"rb")) == NULL) {
 		errlogPrintf("initIP_EP200_FPGA: Can't open file '%s'.\n", filename);
 		return(-1);
 	}
+	free(filename); /* macEnvExpand() allocated this for us. We're done with it now. */
 
 	id = (epicsUInt16 *) ipmBaseAddr(carrier, slot, ipac_addrID);
 	io = (epicsUInt16 *) ipmBaseAddr(carrier, slot, ipac_addrIO);
@@ -907,7 +915,7 @@ static void initSRCallFunc(const iocshArgBuf *args)
 }
 
 /* int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char filename) */
-static const iocshArg initFPGAArg2 = { "File name",iocshArgString};
+static const iocshArg initFPGAArg2 = { "File pathStart",iocshArgString};
 static const iocshArg * const initFPGAArgs[3] = {&initArg1, &initArg2, &initFPGAArg2};
 static const iocshFuncDef initFPGAFuncDef = {"initIP_EP200_FPGA",3,initFPGAArgs};
 static void initFPGACallFunc(const iocshArgBuf *args)
