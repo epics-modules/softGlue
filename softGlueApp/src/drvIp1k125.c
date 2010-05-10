@@ -1,24 +1,28 @@
-/* drvIp1k125.cc
+/* drvIP_EP201.cc
 
-    Author: Marty Smith
+    Original Author: Marty Smith (as drvIp1k125.c)
+	Modified: Tim Mooney - comments, added single-register component, added
+		ability to program FPGA over the IP bus, renamed.
 
-    This is the driver for the Acromag IP1K125 series of reconfigurable
+
+    This is the driver for the Acromag IP_EP201 series of reconfigurable
     digital I/O IP modules.
 
     Modifications:
     12-Aug-2008  MLS  Initial release based on the IpUnidig driver
     16-Nov-2009  TMM  Allow port to handle more than one address, access
                       IP module's mem space, add the following docs.
+					  Other changes described in subversion commit messages:
+					  https://subversion.xor.aps.anl.gov/synApps/softGlue/
 
-    This driver cooperates with specific FPGA firmware loaded into the
-    Acromag IP-EP200 (and probably also the IP-1K125, for which the support
-    was originally written).  The loaded FPGA firmware includes Eric Norum's
-    IndustryPack Bridge, which is an interface between the IndustryPack bus
-    and the Altera FPGA's Avalon bus.  The IndustryPack Bridge does not
-    define anything we can write to in the FPGA.  It's job is to support
-    additional firmware loaded into the FPGA.  The additional firmware
-    defines registers that we can read and write, and it can take one of the
-    two forms (sopc components) supported by this driver:
+	This driver cooperates with specific FPGA firmware loaded into the Acromag
+	IP-EP201 (and probably other IP-EP200-series modules).  The loaded FPGA
+	firmware includes Eric Norum's IndustryPack Bridge, which is an interface
+	between the IndustryPack bus and the Altera FPGA's Avalon bus.  The
+	IndustryPack Bridge does not define anything we can write to in the FPGA. 
+	It's job is to support additional firmware loaded into the FPGA.  The
+	additional firmware defines registers that we can read and write, and it can
+	take one of the two forms (sopc components) supported by this driver:
 
         1) fieldIO_registerSet component
 
@@ -34,18 +38,10 @@
            register, which can be written to or read.  This driver doesn't know
            or care what the register might be connected to inside the FPGA.
 
-x The following is no longer true:
-x    Currently, a fieldIO_registerSet must be located in the IndustryPack
-x    module's IO space, because we believe there is a bug in the IP-EP200's
-x    implementation that prevents us from reading from this module's MEM
-x    space, and because there's no point to the a fieldIO_registerSet that
-x    cannot be read.  The single register can be functional in either address
-x    space, though if it's located in MEM space, we won't be able to read it.
-    
     Each fieldIO_registerSet component must be initialized by a separate call to
-    initIp1k125(), because the component's sopc address must be specified at
+    initIP_EP201(), because the component's sopc address must be specified at
     init time, so that the interrupt-service routine associated with the
-    component can use the sopc address.  Currently, each call to initIp1k125()
+    component can use the sopc address.  Currently, each call to initIP_EP201()
     defines a new asyn port, connects an interrupt-service routine, creates a
     message queue, and launches a thread.
 
@@ -130,7 +126,6 @@ x    space, though if it's located in MEM space, we won't be able to read it.
 
 #define SIMULATE 0
 #define APS_ID	0x53
-#define CAN_READ_MEM_SPACE 1
 #define MAX_MESSAGES 1000
 #define MAX_PORTS 10
 
@@ -174,7 +169,7 @@ typedef struct {
     asynInterface int32;
     void *interruptPvt;
     int intVector;
-} drvIp1k125Pvt;
+} drvIP_EP201Pvt;
 
 
 /*
@@ -184,7 +179,7 @@ static void report                 	(void *drvPvt, FILE *fp, int details);
 static asynStatus connect          	(void *drvPvt, asynUser *pasynUser);
 static asynStatus disconnect       	(void *drvPvt, asynUser *pasynUser);
 
-static const struct asynCommon ip1k125Common = {
+static const struct asynCommon IP_EP201Common = {
     report,
     connect,
     disconnect
@@ -199,7 +194,7 @@ static asynStatus writeUInt32D     	(void *drvPvt, asynUser *pasynUser,
                                     	epicsUInt32 value, epicsUInt32 mask);
 
 /* default implementations are provided by asynUInt32DigitalBase. */
-static struct asynUInt32Digital ip1k125UInt32D = {
+static struct asynUInt32Digital IP_EP201UInt32D = {
     writeUInt32D, /* write */
     readUInt32D,  /* read */
     NULL,         /* setInterrupt: default does nothing */
@@ -218,7 +213,7 @@ static asynStatus writeInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 value
 static asynStatus readInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 *value);
 static asynStatus getBounds(void *drvPvt, asynUser *pasynUser, epicsInt32 *low, epicsInt32 *high);
 
-static struct asynInt32 ip1k125Int32 = {
+static struct asynInt32 IP_EP201Int32 = {
     writeInt32, /* write */
     readInt32,  /* read */
 	getBounds,	/* getBounds */
@@ -227,22 +222,22 @@ static struct asynInt32 ip1k125Int32 = {
 };
 
 /* These are private functions */
-static void pollerThread           	(drvIp1k125Pvt *pPvt);
+static void pollerThread           	(drvIP_EP201Pvt *pPvt);
 static void intFunc                	(void *); /* Interrupt function */
 static void rebootCallback         	(void *);
 
 
 
 /* Initialize IP module */
-int initIp1k125(const char *portName, ushort_t carrier, ushort_t slot,
-				int msecPoll, int dataDir, int sopcOffset, int sopcVector,
-				int risingMask, int fallingMask)
+int initIP_EP201(const char *portName, ushort_t carrier, ushort_t slot,
+	int msecPoll, int dataDir, int sopcAddress, int interruptVector,
+	int risingMask, int fallingMask)
 {
-	drvIp1k125Pvt *pPvt;
+	drvIP_EP201Pvt *pPvt;
 	int status;
 	char threadName[80] = "";
 
-	pPvt = callocMustSucceed(1, sizeof(*pPvt), "initIp1k125");
+	pPvt = callocMustSucceed(1, sizeof(*pPvt), "initIP_EP201");
 	pPvt->portName = epicsStrDup(portName);
 	pPvt->is_fieldIO_registerSet = 1;
 
@@ -252,7 +247,7 @@ int initIp1k125(const char *portName, ushort_t carrier, ushort_t slot,
 	pPvt->msgQId = epicsMessageQueueCreate(MAX_MESSAGES, sizeof(interruptMessage));
 
 	if (ipmCheck(carrier, slot)) {
-		errlogPrintf("initIp1k125: bad carrier or slot\n");
+		errlogPrintf("initIP_EP201: bad carrier or slot\n");
 		return(-1);
 	}
 	
@@ -260,37 +255,32 @@ int initIp1k125(const char *portName, ushort_t carrier, ushort_t slot,
 	pPvt->id = (ipac_idProm_t *) ipmBaseAddr(carrier, slot, ipac_addrID);
 	pPvt->io = (epicsUInt16 *) ipmBaseAddr(carrier, slot, ipac_addrIO);
 	pPvt->mem = (epicsUInt16 *) ipmBaseAddr(carrier, slot, ipac_addrMem);
-	printf("initIp1k125: ID:%p, IO:%p, MEM:%p\n", pPvt->id, pPvt->io, pPvt->mem);
+	printf("initIP_EP201: ID:%p, IO:%p, MEM:%p\n", pPvt->id, pPvt->io, pPvt->mem);
 	/* Get address of fieldIO_registerSet */
 	if (sopcOffset & 0x800000) {
 		/* The component is in the module's MEM space */
-#if CAN_READ_MEM_SPACE
 		pPvt->regs = (fieldIO_registerSet *) ((char *)(pPvt->mem) + (sopcOffset & 0x7fffff));
-#else
-		errlogPrintf("initIp1k125: Can't use MEM space for this component\n");
-		return(-1);
-#endif
 	} else {
 		/* The component is in the module's IO space */
 		pPvt->regs = (fieldIO_registerSet *) ((char *)(pPvt->io) + sopcOffset);
 	}
 
-	pPvt->intVector = sopcVector;
+	pPvt->intVector = interruptVector;
 
 	pPvt->manufacturer = pPvt->id->manufacturerId & 0xff;
 	pPvt->model = pPvt->id->modelId & 0xff;
 
 	/* Link with higher level routines */
 	pPvt->common.interfaceType = asynCommonType;
-	pPvt->common.pinterface  = (void *)&ip1k125Common;
+	pPvt->common.pinterface  = (void *)&IP_EP201Common;
 	pPvt->common.drvPvt = pPvt;
 
 	pPvt->uint32D.interfaceType = asynUInt32DigitalType;
-	pPvt->uint32D.pinterface  = (void *)&ip1k125UInt32D;
+	pPvt->uint32D.pinterface  = (void *)&IP_EP201UInt32D;
 	pPvt->uint32D.drvPvt = pPvt;
 
 	pPvt->int32.interfaceType = asynInt32Type;
-	pPvt->int32.pinterface  = (void *)&ip1k125Int32;
+	pPvt->int32.pinterface  = (void *)&IP_EP201Int32;
 	pPvt->int32.drvPvt = pPvt;
 
 	status = pasynManager->registerPort(pPvt->portName,
@@ -299,17 +289,17 @@ int initIp1k125(const char *portName, ushort_t carrier, ushort_t slot,
 	                                    0, /* medium priority */
 	                                    0);/* default stack size */
 	if (status != asynSuccess) {
-		errlogPrintf("initIp1k125 ERROR: Can't register port\n");
+		errlogPrintf("initIP_EP201 ERROR: Can't register port\n");
 		return(-1);
 	}
 	status = pasynManager->registerInterface(pPvt->portName,&pPvt->common);
 	if (status != asynSuccess) {
-		errlogPrintf("initIp1k125 ERROR: Can't register common.\n");
+		errlogPrintf("initIP_EP201 ERROR: Can't register common.\n");
 		return(-1);
 	}
 	status = pasynUInt32DigitalBase->initialize(pPvt->portName, &pPvt->uint32D);
 	if (status != asynSuccess) {
-		errlogPrintf("initIp1k125 ERROR: Can't register UInt32Digital.\n");
+		errlogPrintf("initIP_EP201 ERROR: Can't register UInt32Digital.\n");
 		return(-1);
 	}
 	pasynManager->registerInterruptSource(pPvt->portName, &pPvt->uint32D,
@@ -317,7 +307,7 @@ int initIp1k125(const char *portName, ushort_t carrier, ushort_t slot,
 
 	status = pasynInt32Base->initialize(pPvt->portName,&pPvt->int32);
 	if (status != asynSuccess) {
-		errlogPrintf("initIp1k125 ERROR: Can't register Int32.\n");
+		errlogPrintf("initIP_EP201 ERROR: Can't register Int32.\n");
 		return(-1);
 	}
 
@@ -328,18 +318,18 @@ int initIp1k125(const char *portName, ushort_t carrier, ushort_t slot,
 	/* Connect to device */
 	status = pasynManager->connectDevice(pPvt->pasynUser, pPvt->portName, 0);
 	if (status != asynSuccess) {
-		errlogPrintf("initIp1k125, connectDevice failed %s\n",
+		errlogPrintf("initIP_EP201, connectDevice failed %s\n",
 			pPvt->pasynUser->errorMessage);
 		return(-1);
 	}
 
 	/* Set up the control register */
-	pPvt->regs->controlRegister = dataDir;  /* Set Data Direction Reg IP1k125 */  
+	pPvt->regs->controlRegister = dataDir;  /* Set Data Direction Reg IP_EP201 */  
 	pPvt->risingMask = risingMask;
 	pPvt->fallingMask = fallingMask;
 	
 	/* Start the thread to poll and handle interrupt callbacks to device support */
-	strcat(threadName, "ip1k125");
+	strcat(threadName, "IP_EP201");
 	strcat(threadName, portName);
 	epicsThreadCreate(threadName, epicsThreadPriorityHigh,
 		epicsThreadGetStackSize(epicsThreadStackBig),
@@ -347,7 +337,7 @@ int initIp1k125(const char *portName, ushort_t carrier, ushort_t slot,
 
 	/* Interrupt support
 	 * If the risingMask and the fallingMask are zero, don't bother with interrupts, 
-	 * since the user probably didn't pass this parameter to Ip1k125::init()
+	 * since the user probably didn't pass this parameter to initIP_EP201()
 	 */
 	if (pPvt->risingMask || pPvt->fallingMask) {
 	
@@ -364,7 +354,7 @@ int initIp1k125(const char *portName, ushort_t carrier, ushort_t slot,
 
 		/* Associate interrupt service routine with intVector */
 		if (devConnectInterruptVME(pPvt->intVector, intFunc, (void *)pPvt)) {
-			errlogPrintf("ip1k125 interrupt connect failure\n");
+			errlogPrintf("IP_EP201 interrupt connect failure\n");
 			return(-1);
 		}
 		/* Enable IPAC module interrupts and set module status. */
@@ -376,18 +366,18 @@ int initIp1k125(const char *portName, ushort_t carrier, ushort_t slot,
 }
 
 /* Initialize IP module */
-int initIp1k125SingleRegisterPort(const char *portName, ushort_t carrier, ushort_t slot)
+int initIP_EP201SingleRegisterPort(const char *portName, ushort_t carrier, ushort_t slot)
 {
-	drvIp1k125Pvt *pPvt;
+	drvIP_EP201Pvt *pPvt;
 	int status;
 
-	pPvt = callocMustSucceed(1, sizeof(*pPvt), "drvIp1k125Pvt");
+	pPvt = callocMustSucceed(1, sizeof(*pPvt), "drvIP_EP201Pvt");
 	pPvt->portName = epicsStrDup(portName);
 	pPvt->is_fieldIO_registerSet = 0;
 
 #if !SIMULATE
 	if (ipmCheck(carrier, slot)) {
-		errlogPrintf("initIp1k125SingleRegisterPort: bad carrier or slot\n");
+		errlogPrintf("initIP_EP201SingleRegisterPort: bad carrier or slot\n");
 		return(-1);
 	}
 #endif
@@ -401,15 +391,15 @@ int initIp1k125SingleRegisterPort(const char *portName, ushort_t carrier, ushort
 
 	/* Link with higher level routines */
 	pPvt->common.interfaceType = asynCommonType;
-	pPvt->common.pinterface  = (void *)&ip1k125Common;
+	pPvt->common.pinterface  = (void *)&IP_EP201Common;
 	pPvt->common.drvPvt = pPvt;
 
 	pPvt->uint32D.interfaceType = asynUInt32DigitalType;
-	pPvt->uint32D.pinterface  = (void *)&ip1k125UInt32D;
+	pPvt->uint32D.pinterface  = (void *)&IP_EP201UInt32D;
 	pPvt->uint32D.drvPvt = pPvt;
 
 	pPvt->int32.interfaceType = asynInt32Type;
-	pPvt->int32.pinterface  = (void *)&ip1k125Int32;
+	pPvt->int32.pinterface  = (void *)&IP_EP201Int32;
 	pPvt->int32.drvPvt = pPvt;
 
 	status = pasynManager->registerPort(pPvt->portName,
@@ -418,17 +408,17 @@ int initIp1k125SingleRegisterPort(const char *portName, ushort_t carrier, ushort
 	                                    0, /* medium priority */
 	                                    0);/* default stack size */
 	if (status != asynSuccess) {
-		errlogPrintf("initIp1k125SingleRegisterPort ERROR: Can't register port\n");
+		errlogPrintf("initIP_EP201SingleRegisterPort ERROR: Can't register port\n");
 		return(-1);
 	}
 	status = pasynManager->registerInterface(pPvt->portName,&pPvt->common);
 	if (status != asynSuccess) {
-		errlogPrintf("initIp1k125SingleRegisterPort ERROR: Can't register common.\n");
+		errlogPrintf("initIP_EP201SingleRegisterPort ERROR: Can't register common.\n");
 		return(-1);
 	}
 	status = pasynUInt32DigitalBase->initialize(pPvt->portName, &pPvt->uint32D);
 	if (status != asynSuccess) {
-		errlogPrintf("initIp1k125SingleRegisterPort ERROR: Can't register UInt32Digital.\n");
+		errlogPrintf("initIP_EP201SingleRegisterPort ERROR: Can't register UInt32Digital.\n");
 		return(-1);
 	}
 	pasynManager->registerInterruptSource(pPvt->portName, &pPvt->uint32D,
@@ -436,7 +426,7 @@ int initIp1k125SingleRegisterPort(const char *portName, ushort_t carrier, ushort
 
 	status = pasynInt32Base->initialize(pPvt->portName,&pPvt->int32);
 	if (status != asynSuccess) {
-		errlogPrintf("initIp1k125SingleRegisterPort ERROR: Can't register Int32.\n");
+		errlogPrintf("initIP_EP201SingleRegisterPort ERROR: Can't register Int32.\n");
 		return(-1);
 	}
 
@@ -449,7 +439,7 @@ int initIp1k125SingleRegisterPort(const char *portName, ushort_t carrier, ushort
 	/* Connect our asynUser to device */
 	status = pasynManager->connectDevice(pPvt->pasynUser, pPvt->portName, 0);
 	if (status != asynSuccess) {
-		errlogPrintf("initIp1k125SingleRegisterPort, connectDevice failed %s\n",
+		errlogPrintf("initIP_EP201SingleRegisterPort, connectDevice failed %s\n",
 			pPvt->pasynUser->errorMessage);
 		return(-1);
 	}
@@ -560,14 +550,14 @@ int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filepath)
  * calcRegisterAddress - For single-register components, the sopc address is
  * specified in the EPICS record's INP or OUT field, and we need to translate
  * that into a VME address.  Part of the job was done by
- * initIp1k125SingleRegisterPort(), which got the VME base addresses of the
+ * initIP_EP201SingleRegisterPort(), which got the VME base addresses of the
  * IndustryPack module's IO and MEM spaces.
  * See "The addressing of sopc components", in comments at the top of this file
  * for a complete description of how addresses are handled.
  */
 static epicsUInt16 *calcRegisterAddress(void *drvPvt, asynUser *pasynUser)
 {
-	drvIp1k125Pvt *pPvt = (drvIp1k125Pvt *)drvPvt;
+	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	int addr;
 	epicsUInt16 *reg;
 
@@ -594,7 +584,7 @@ static epicsUInt16 *calcRegisterAddress(void *drvPvt, asynUser *pasynUser)
 static asynStatus readUInt32D(void *drvPvt, asynUser *pasynUser,
 	epicsUInt32 *value, epicsUInt32 mask)
 {
-	drvIp1k125Pvt *pPvt = (drvIp1k125Pvt *)drvPvt;
+	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	volatile epicsUInt16 *reg;
 
 	*value = 0;
@@ -609,7 +599,7 @@ static asynStatus readUInt32D(void *drvPvt, asynUser *pasynUser,
 	}
 #endif
 	asynPrint(pasynUser, ASYN_TRACEIO_DRIVER,
-		"drvIp1k125::readUInt32D, value=0x%X, mask=0x%X\n", *value,mask);
+		"drvIP_EP201::readUInt32D, value=0x%X, mask=0x%X\n", *value,mask);
 	return(asynSuccess);
 }
 
@@ -626,7 +616,7 @@ static asynStatus readUInt32D(void *drvPvt, asynUser *pasynUser,
 static asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 value,
 	epicsUInt32 mask)
 {
-	drvIp1k125Pvt *pPvt = (drvIp1k125Pvt *)drvPvt;
+	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	volatile epicsUInt16 *reg=0;
 
 #if SIMULATE
@@ -650,7 +640,7 @@ static asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 va
 #endif
 
 	asynPrint(pasynUser, ASYN_TRACEIO_DRIVER,
-		"drvIp1k125::writeUInt32D, addr=0x%X, value=0x%X, mask=0x%X\n", reg, value, mask);
+		"drvIP_EP201::writeUInt32D, addr=0x%X, value=0x%X, mask=0x%X\n", reg, value, mask);
 	return(asynSuccess);
 }
 
@@ -663,7 +653,7 @@ static asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 va
  */
 static asynStatus readInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 *value)
 {
-	drvIp1k125Pvt *pPvt = (drvIp1k125Pvt *)drvPvt;
+	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	volatile epicsUInt16 *reg;
 
 	*value = 0;
@@ -676,7 +666,7 @@ static asynStatus readInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 *value
 	}
 
 	asynPrint(pasynUser, ASYN_TRACEIO_DRIVER,
-		"drvIp1k125::readInt32, value=0x%X\n", *value);
+		"drvIP_EP201::readInt32, value=0x%X\n", *value);
 	return(asynSuccess);
 }
 
@@ -688,7 +678,7 @@ static asynStatus readInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 *value
  */
 static asynStatus writeInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 value)
 {
-	drvIp1k125Pvt *pPvt = (drvIp1k125Pvt *)drvPvt;
+	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	volatile epicsUInt16 *reg;
 
 	if (pPvt->is_fieldIO_registerSet) {
@@ -699,7 +689,7 @@ static asynStatus writeInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 value
 	}
 
 	asynPrint(pasynUser, ASYN_TRACEIO_DRIVER,
-		"drvIp1k125::writeInt32, value=0x%X\n",value);
+		"drvIP_EP201::writeInt32, value=0x%X\n",value);
 	return(asynSuccess);
 }
 
@@ -727,7 +717,7 @@ static asynStatus getBounds(void *drvPvt, asynUser *pasynUser, epicsInt32 *low, 
  */
 static void intFunc(void *drvPvt)
 {
-	drvIp1k125Pvt *pPvt = (drvIp1k125Pvt *)drvPvt;
+	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	epicsUInt32 inputs=0, pendingLow, pendingHigh, pendingMask;
 	interruptMessage msg;
 
@@ -758,11 +748,11 @@ static void intFunc(void *drvPvt)
 
 /* This function runs in a separate thread.  It waits for the poll
  * time, or an interrupt, whichever comes first.  If the bits read from
- * the ip1k125 have changed then it does callbacks to all clients that
+ * the IP_EP201 have changed then it does callbacks to all clients that
  * have registered with registerInterruptUser
  */
 
-static void pollerThread(drvIp1k125Pvt *pPvt)
+static void pollerThread(drvIP_EP201Pvt *pPvt)
 {
 	epicsUInt32 newBits, changedBits, interruptMask=0;
 	interruptMessage msg;
@@ -784,10 +774,10 @@ static void pollerThread(drvIp1k125Pvt *pPvt)
 			newBits = msg.bits;
 			interruptMask = msg.interruptMask;
 			asynPrint(pPvt->pasynUser, ASYN_TRACE_FLOW,
-				"drvIp1k125::pollerThread, got interrupt\n");
+				"drvIP_EP201::pollerThread, got interrupt\n");
 		}
 		asynPrint(pPvt->pasynUser, ASYN_TRACEIO_DRIVER,
-			"drvIp1k125::pollerThread, bits=%x\n", newBits);
+			"drvIP_EP201::pollerThread, bits=%x\n", newBits);
 
 		/* We detect change both from interruptMask (which only works for
 		 * hardware interrupts) and changedBits, which works for polling */
@@ -801,7 +791,7 @@ static void pollerThread(drvIp1k125Pvt *pPvt)
 				pUInt32D = pnode->drvPvt;
 				if (pUInt32D->mask & interruptMask) {
 					asynPrint(pPvt->pasynUser, ASYN_TRACE_FLOW,
-						"drvIp1k125::pollerThread, calling client %p"
+						"drvIP_EP201::pollerThread, calling client %p"
 						" mask=%x, callback=%p\n",
 						pUInt32D, pUInt32D->mask, pUInt32D->callback);
 					pUInt32D->callback(pUInt32D->userPvt, pUInt32D->pasynUser,
@@ -817,7 +807,7 @@ static void pollerThread(drvIp1k125Pvt *pPvt)
 
 static void rebootCallback(void *drvPvt)
 {
-	drvIp1k125Pvt *pPvt = (drvIp1k125Pvt *)drvPvt;
+	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	int key = epicsInterruptLock();
 
 	/* Disable interrupts first so no interrupts during reboot */
@@ -833,11 +823,11 @@ static void rebootCallback(void *drvPvt)
 /* Report  parameters */
 static void report(void *drvPvt, FILE *fp, int details)
 {
-	drvIp1k125Pvt *pPvt = (drvIp1k125Pvt *)drvPvt;
+	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	interruptNode *pnode;
 	ELLLIST *pclientList;
 
-	fprintf(fp, "drvIp1k125 %s: connected at base address %p\n",
+	fprintf(fp, "drvIP_EP201 %s: connected at base address %p\n",
 		pPvt->portName, pPvt->regs);
 	if (details >= 1) {
 		fprintf(fp, "  controlRegister=%x\n", pPvt->regs->controlRegister);
@@ -875,43 +865,36 @@ static asynStatus disconnect(void *drvPvt, asynUser *pasynUser)
 
 /*** iocsh functions ***/
 
-/* int initIp1k125(const char *portName, ushort_t carrier, ushort_t slot,
- *				int msecPoll, int dataDir, int sopcOffset, int sopcVector,
+/* int initIP_EP201(const char *portName, ushort_t carrier, ushort_t slot,
+ *				int msecPoll, int dataDir, int sopcOffset, int interruptVector,
  *				int risingMask, int fallingMask)
  */
-static const iocshArg initArg0 = { "Server name",iocshArgString};
-static const iocshArg initArg1 = { "Carrier",iocshArgInt};
-static const iocshArg initArg2 = { "Slot",iocshArgInt};
+static const iocshArg initArg0 = { "Port Name",iocshArgString};
+static const iocshArg initArg1 = { "Carrier Number",iocshArgInt};
+static const iocshArg initArg2 = { "Slot Number",iocshArgInt};
 static const iocshArg initArg3 = { "msecPoll",iocshArgInt};
 static const iocshArg initArg4 = { "Data Dir Reg",iocshArgInt};
-static const iocshArg initArg5 = { "sopc Offset Addr",iocshArgInt};
-static const iocshArg initArg6 = { "sopc Vector Addr",iocshArgInt};
+static const iocshArg initArg5 = { "SOPC Offset Addr",iocshArgInt};
+static const iocshArg initArg6 = { "Interrupt Vector",iocshArgInt};
 static const iocshArg initArg7 = { "Rising Edge Mask",iocshArgInt};
 static const iocshArg initArg8 = { "Falling Edge Mask",iocshArgInt};
-static const iocshArg * const initArgs[9] = {&initArg0,
-                                             &initArg1,
-                                             &initArg2,
-                                             &initArg3,
-                                             &initArg4,
-                                             &initArg5,
-                                             &initArg6,
-                                             &initArg7,
-                                             &initArg8};
-static const iocshFuncDef initFuncDef = {"initIp1k125",9,initArgs};
+static const iocshArg * const initArgs[9] = {&initArg0, &initArg1, &initArg2,
+	&initArg3, &initArg4, &initArg5, &initArg6, &initArg7, &initArg8};
+static const iocshFuncDef initFuncDef = {"initIP_EP201",9,initArgs};
 static void initCallFunc(const iocshArgBuf *args)
 {
-	initIp1k125(args[0].sval, args[1].ival, args[2].ival,
+	initIP_EP201(args[0].sval, args[1].ival, args[2].ival,
 	            args[3].ival, args[4].ival, args[5].ival,
 	            args[6].ival, args[7].ival, args[8].ival);
 }
 
-/* int initIp1k125SingleRegisterPort(const char *portName, ushort_t carrier, ushort_t slot) */
+/* int initIP_EP201SingleRegisterPort(const char *portName, ushort_t carrier, ushort_t slot) */
 static const iocshArg initSRArg0 = { "Port name",iocshArgString};
 static const iocshArg * const initSRArgs[3] = {&initSRArg0, &initArg1, &initArg2};
-static const iocshFuncDef initSRFuncDef = {"initIp1k125SingleRegisterPort",3,initSRArgs};
+static const iocshFuncDef initSRFuncDef = {"initIP_EP201SingleRegisterPort",3,initSRArgs};
 static void initSRCallFunc(const iocshArgBuf *args)
 {
-	initIp1k125SingleRegisterPort(args[0].sval, args[1].ival, args[2].ival);
+	initIP_EP201SingleRegisterPort(args[0].sval, args[1].ival, args[2].ival);
 }
 
 /* int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char filename) */
@@ -924,16 +907,12 @@ static void initFPGACallFunc(const iocshArgBuf *args)
 }
 
 
-
-
-
-
-void ip1k125Register(void)
+void IP_EP201Register(void)
 {
 	iocshRegister(&initFuncDef,initCallFunc);
 	iocshRegister(&initSRFuncDef,initSRCallFunc);
 	iocshRegister(&initFPGAFuncDef,initFPGACallFunc);
 }
 
-epicsExportRegistrar(ip1k125Register);
+epicsExportRegistrar(IP_EP201Register);
 
