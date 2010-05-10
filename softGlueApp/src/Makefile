@@ -6,7 +6,7 @@ include $(TOP)/configure/CONFIG
 DBD_INSTALLS += softGlueSupport.dbd
 
 LIBRARY_IOC_vxWorks = softGlue
-LIB_SRCS_vxWorks += drvIp1k125.c devAsynSoftGlue.c
+LIB_SRCS_vxWorks += drvIP_EP201.c devAsynSoftGlue.c
 
 LIB_vxWorks_LIBS += asyn Ipac
 
