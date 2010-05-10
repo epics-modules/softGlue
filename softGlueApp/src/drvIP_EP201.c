@@ -257,12 +257,12 @@ int initIP_EP201(const char *portName, ushort_t carrier, ushort_t slot,
 	pPvt->mem = (epicsUInt16 *) ipmBaseAddr(carrier, slot, ipac_addrMem);
 	printf("initIP_EP201: ID:%p, IO:%p, MEM:%p\n", pPvt->id, pPvt->io, pPvt->mem);
 	/* Get address of fieldIO_registerSet */
-	if (sopcOffset & 0x800000) {
+	if (sopcAddress & 0x800000) {
 		/* The component is in the module's MEM space */
-		pPvt->regs = (fieldIO_registerSet *) ((char *)(pPvt->mem) + (sopcOffset & 0x7fffff));
+		pPvt->regs = (fieldIO_registerSet *) ((char *)(pPvt->mem) + (sopcAddress & 0x7fffff));
 	} else {
 		/* The component is in the module's IO space */
-		pPvt->regs = (fieldIO_registerSet *) ((char *)(pPvt->io) + sopcOffset);
+		pPvt->regs = (fieldIO_registerSet *) ((char *)(pPvt->io) + sopcAddress);
 	}
 
 	pPvt->intVector = interruptVector;
