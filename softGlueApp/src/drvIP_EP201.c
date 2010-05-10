@@ -124,7 +124,7 @@
 #include <asynInt32.h>
 #include <epicsInterrupt.h>
 
-#define SIMULATE 0
+#define DO_IPMODULE_CHECK 1
 #define APS_ID	0x53
 #define MAX_MESSAGES 1000
 #define MAX_PORTS 10
@@ -375,7 +375,7 @@ int initIP_EP201SingleRegisterPort(const char *portName, ushort_t carrier, ushor
 	pPvt->portName = epicsStrDup(portName);
 	pPvt->is_fieldIO_registerSet = 0;
 
-#if !SIMULATE
+#if DO_IPMODULE_CHECK
 	if (ipmCheck(carrier, slot)) {
 		errlogPrintf("initIP_EP201SingleRegisterPort: bad carrier or slot\n");
 		return(-1);
@@ -588,16 +588,12 @@ static asynStatus readUInt32D(void *drvPvt, asynUser *pasynUser,
 	volatile epicsUInt16 *reg;
 
 	*value = 0;
-#if SIMULATE
-	*value = 1234;
-#else
 	if (pPvt->is_fieldIO_registerSet) {
 		*value = (epicsUInt32) (pPvt->regs->readDataRegister & mask);
 	} else {
 		reg = calcRegisterAddress(drvPvt, pasynUser);
 		*value = (epicsUInt32) (*reg & mask);
 	}
-#endif
 	asynPrint(pasynUser, ASYN_TRACEIO_DRIVER,
 		"drvIP_EP201::readUInt32D, value=0x%X, mask=0x%X\n", *value,mask);
 	return(asynSuccess);
@@ -619,8 +615,6 @@ static asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 va
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	volatile epicsUInt16 *reg=0;
 
-#if SIMULATE
-#else
 	if (pPvt->is_fieldIO_registerSet) {
 		pPvt->regs->writeDataRegister = (pPvt->regs->writeDataRegister & ~mask) | (value & mask);	
 	} else {
@@ -628,16 +622,11 @@ static asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 va
 		pasynManager->getAddr(pasynUser, &addr);
 		reg = calcRegisterAddress(drvPvt, pasynUser);
 		if (addr & 0x800000) {
-#if CAN_READ_MEM_SPACE
 			*reg = (*reg & ~mask) | (epicsUInt16) (value & mask);
-#else
-			*reg = (epicsUInt16) (value & mask);
-#endif
 		} else {
 			*reg = (*reg & ~mask) | (epicsUInt16) (value & mask);
 		}
 	}
-#endif
 
 	asynPrint(pasynUser, ASYN_TRACEIO_DRIVER,
 		"drvIP_EP201::writeUInt32D, addr=0x%X, value=0x%X, mask=0x%X\n", reg, value, mask);
