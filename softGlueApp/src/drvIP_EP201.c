@@ -246,11 +246,13 @@ int initIP_EP201(const char *portName, ushort_t carrier, ushort_t slot,
 	pPvt->pollTime = msecPoll / 1000.;
 	pPvt->msgQId = epicsMessageQueueCreate(MAX_MESSAGES, sizeof(interruptMessage));
 
+#if DO_IPMODULE_CHECK
 	if (ipmCheck(carrier, slot)) {
 		errlogPrintf("initIP_EP201: bad carrier or slot\n");
 		return(-1);
 	}
-	
+#endif
+
 	/* Set up ID and I/O space addresses for IP module */
 	pPvt->id = (ipac_idProm_t *) ipmBaseAddr(carrier, slot, ipac_addrID);
 	pPvt->io = (epicsUInt16 *) ipmBaseAddr(carrier, slot, ipac_addrIO);
