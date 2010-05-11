@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlue_Output.adl"
+	name="/home/oxygen/MOONEY/epics/synApps_5_5/support/softGlue/softGlueApp/op/adl/softGlue_Output.adl"
 	version=030104
 }
 display {
@@ -131,7 +131,7 @@ polyline {
 	control {
 		chan="$(P)$(H)$(SIG)_Signal"
 		clr=14
-		bclr=30
+		bclr=31
 	}
 	format="string"
 	limits {
