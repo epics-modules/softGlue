@@ -282,7 +282,7 @@ polyline {
 	object {
 		x=304
 		y=45
-		width=19
+		width=17
 		height=2
 	}
 	"basic attribute" {
@@ -291,7 +291,7 @@ polyline {
 		width=2
 	}
 	points {
-		(322,46)
+		(320,46)
 		(305,46)
 	}
 }
@@ -305,8 +305,61 @@ polyline {
 	monitor {
 		chan="$(P)$(H)UpCntr-$(N)_COUNTS"
 		clr=54
-		bclr=0
+		bclr=2
 	}
 	limits {
+	}
+}
+composite {
+	object {
+		x=318
+		y=35
+		width=106
+		height=24
+	}
+	"composite name"=""
+	children {
+		polyline {
+			object {
+				x=318
+				y=35
+				width=106
+				height=24
+			}
+			"basic attribute" {
+				clr=10
+				fill="outline"
+				width=2
+			}
+			"dynamic attribute" {
+				chan="$(P)$(H)UpCntr-$(N)_COUNTS"
+			}
+			points {
+				(319,58)
+				(319,36)
+				(423,36)
+			}
+		}
+		polyline {
+			object {
+				x=318
+				y=35
+				width=106
+				height=24
+			}
+			"basic attribute" {
+				clr=0
+				fill="outline"
+				width=2
+			}
+			"dynamic attribute" {
+				chan="$(P)$(H)UpCntr-$(N)_COUNTS"
+			}
+			points {
+				(423,36)
+				(423,58)
+				(319,58)
+			}
+		}
 	}
 }
