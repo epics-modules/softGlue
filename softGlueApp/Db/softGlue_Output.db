@@ -1,5 +1,6 @@
 record(stringout,"$(P)$(H)$(SIG)_Signal") {
 	field(DESC,"OUT")
+	field(PINI,"YES")
 	field(DTYP,"softGlue")
 	field(OUT,"@asynMask($(PORT),$(ADDR),0x2f)")
 }
