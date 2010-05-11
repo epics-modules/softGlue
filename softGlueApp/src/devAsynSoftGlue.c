@@ -144,17 +144,19 @@ static int isBusLine(char *s) {
  */
 static long checkSignal(stringoutRecord *pso) {
 	devPvt *pdevPvt = (devPvt *)pso->dpvt;
-	int i, leadingWhite=0;
+	int i, needPost=0;
+	char *c;
 	struct portInfo *pi = &(portInfo[pdevPvt->portInfoNum]);
 
 	if (devAsynSoftGlueDebug)
 		printf("checkSignal:entry: val='%s', old signal=%d\n", pso->val, pdevPvt->signalNum);
 
+	/* Delete leading whitespace */
 	while (isspace((int)pso->val[0])) {
-		strcpy(pso->val, &(pso->val[1]));
-		leadingWhite = 1;
+		for (c=&(pso->val[1]); *c; c++) *(c-1) = *c;
+		*(c-1) = '\0';
+		needPost = 1;
 	}
-	if (leadingWhite) db_post_events(pso, &pso->val, DBE_VALUE);
 
 	/* See if this signal's new name is the PVname of some other signal attached to the same port.
 	 * If so, user is probably trying to use Drag-N-Drop to connect signals, and probably expects
@@ -172,7 +174,7 @@ static long checkSignal(stringoutRecord *pso) {
 			while (pitem) {
 				if (strcmp(pitem->precord->name, pso->val) == 0) {
 					strcpy(pso->val, pitem->precord->val);
-					db_post_events(pso, &pso->val, DBE_VALUE);
+					needPost = 1;
 					break;
 				}
 				pitem = (struct recordListItem *)ellNext(&(pitem->node));
@@ -180,6 +182,17 @@ static long checkSignal(stringoutRecord *pso) {
 		}
 	}
 
+	/* If signal is an output, leading decimal digit is illegal */
+	if (pso->desc[0] == 'O') {
+		/* signal is an output.  If deleted leading digit leaves a leading space, delete that too. */
+		while (isdigit((int)pso->val[0]) || isspace((int)pso->val[0])) {
+			for (c=&(pso->val[1]); *c; c++) *(c-1) = *c;
+			*(c-1) = '\0';
+			needPost = 1;
+		}
+	}
+
+	if (needPost) db_post_events(pso, &pso->val, DBE_VALUE);
 
 	epicsMutexLock(pi->sig_mutex);
 	if (pdevPvt->signalNum) {
