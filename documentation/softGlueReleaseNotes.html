@@ -7,6 +7,27 @@
 <BODY LANG="en-US" BGCOLOR="#ffffff" DIR="LTR">
 <H2 ALIGN=CENTER>softGlue Release Notes</H2>
 
+<H2 ALIGN=LEFT>Release 1-1 (May 11, 2010)</H2>
+<UL>
+	<li>Added the ability to load FPGA content at boot time, from a file, via
+		the IP bus.
+	<li>Modified the recommended method of loading EPICS support.  Now, user is
+		expected to load the database directly from the softGlue module, so it's
+		more likely to agree with FPGA content also loaded from softGlue.
+	<li>Renamed ip1k125 to IP_EP200 or IP_EP201.
+	<li>Now supporting 16 field-input bits, and 16-field output bits.
+	<li>Added 32-bit up counters.
+	<li>Added limited support for using Drag-And-Drop to connect signals.  If
+		the string written to a signal is the PVname of some other signal
+		pertaining to the same IP-EP201 module, device support will replace the
+		PVname with the string value of the PV.  This connects signals only if
+		the Drag-And-Drop source PV was not the empty string.
+	<li>Tighten up notion of legal signal names: leading spaces removed; for
+		outputs, leading decimal digits alse removed.  Added PINI=YES to *Signal
+		PV's, so rules are enforced also boot time.
+	<li>Documentation
+</UL>
+
 <H2 ALIGN=LEFT>Release 1-0 (Mar. 30, 2010)</H2>
 <UL>
 	<li>Initial release
