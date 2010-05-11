@@ -144,11 +144,17 @@ static int isBusLine(char *s) {
  */
 static long checkSignal(stringoutRecord *pso) {
 	devPvt *pdevPvt = (devPvt *)pso->dpvt;
-	int i;
+	int i, leadingWhite=0;
 	struct portInfo *pi = &(portInfo[pdevPvt->portInfoNum]);
 
 	if (devAsynSoftGlueDebug)
 		printf("checkSignal:entry: val='%s', old signal=%d\n", pso->val, pdevPvt->signalNum);
+
+	while (isspace((int)pso->val[0])) {
+		strcpy(pso->val, &(pso->val[1]));
+		leadingWhite = 1;
+	}
+	if (leadingWhite) db_post_events(pso, &pso->val, DBE_VALUE);
 
 	/* See if this signal's new name is the PVname of some other signal attached to the same port.
 	 * If so, user is probably trying to use Drag-N-Drop to connect signals, and probably expects
