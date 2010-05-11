@@ -1,4 +1,5 @@
 record(longin,"$(P)$(H)$(SIG)") {
+	field(DRVH,"65535")
 	field(DTYP,"asynUInt32Digital")
 	field(INP,"@asynMask($(PORT),$(ADDR),0xffff)")
 }
