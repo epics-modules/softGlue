@@ -7,7 +7,7 @@ display {
 	object {
 		x=132
 		y=202
-		width=100
+		width=110
 		height=180
 	}
 	clr=14
@@ -91,7 +91,7 @@ display {
 	object {
 		x=10
 		y=10
-		width=80
+		width=88
 		height=20
 	}
 	display[1] {
@@ -132,7 +132,7 @@ display {
 	object {
 		x=10
 		y=30
-		width=80
+		width=88
 		height=20
 	}
 	display[1] {
@@ -203,7 +203,7 @@ display {
 	object {
 		x=10
 		y=50
-		width=80
+		width=88
 		height=20
 	}
 	display[0] {
@@ -219,7 +219,7 @@ composite {
 	object {
 		x=10
 		y=100
-		width=80
+		width=88
 		height=70
 	}
 	"composite name"=""
@@ -228,7 +228,7 @@ composite {
 			object {
 				x=10
 				y=110
-				width=80
+				width=88
 				height=20
 			}
 			control {
@@ -241,7 +241,7 @@ composite {
 			object {
 				x=10
 				y=100
-				width=80
+				width=88
 				height=10
 			}
 			"basic attribute" {
@@ -254,7 +254,7 @@ composite {
 			object {
 				x=10
 				y=150
-				width=80
+				width=88
 				height=20
 			}
 			control {
@@ -267,7 +267,7 @@ composite {
 			object {
 				x=10
 				y=140
-				width=80
+				width=88
 				height=10
 			}
 			"basic attribute" {
@@ -282,7 +282,7 @@ composite {
 	object {
 		x=10
 		y=70
-		width=80
+		width=88
 		height=20
 	}
 	display[0] {
