@@ -1,0 +1,275 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
+	<TITLE>softGlue</TITLE>
+	<style type="text/css">
+	<!--
+	blockquote { font-size:smaller;}
+	-->
+	</style>
+
+</HEAD>
+<BODY LANG="en-US" BGCOLOR="#ffffff" DIR="LTR">
+
+<h1><center>softGlue</center></h1>
+<h2>Overview</h2>
+<P>The softGlue module is intended to provide to EPICS users the ability to
+construct small, simple, digital electronic circuits, and to connect those
+circuits to field wiring, all by writing to EPICS PV's.  Because the circuits
+are specified entirely by EPICS-PV name/value pairs, circuits built using
+softGlue can be <a hfer="">autosave</a>d and restored, saved as text files (e.g., as a BURT
+snapshot file), emailed from one user to another, etc.</p>
+
+<blockquote>
+The name <em>softGlue</em> is intended to suggest <em>glue electronics</em> rendered
+in software, where <em>glue electronics</em> is intended to represent those little
+bits of digital circuitry needed to connect two or more larger pieces of digital
+electronics into a single working whole.
+</blockquote>
+
+<h3>Requirements</h3>
+
+<P>To use softGlue, you must have the following hardware and software:
+
+<ul>
+<li><h4>hardware</h4>
+<ul>
+<li>An IndustryPack carrier board.
+<li>An Acromag IP-EP201 FPGA IP module.
+<li>Some way of connecting the field I/O bits of the IP_EP201 module to your field
+wiring.
+</ul>
+<li><h4>software</h4>
+<ul>
+<li>The EPICS asyn module, version 4.6 or higher.
+<li>The EPICS ipac module, version 2.11 or higher.  (You can use
+earlier versions if you disable the IP-module identity check -- the call
+to ipmCheck() in drvIP_EP201.c.  Look for "<code>#define DO_IPMODULE_CHECK 1</code>",
+and set it to zero.)
+
+</ul>
+</ul>
+<p>You do <em>not</em> need to be able to program the IP-EP201 module.  In the
+default implementation, the FPGA content is programmed into the module at IOC-boot
+time, via the IP bus.  A text file is included with softGlue for this purpose.
+
+<blockquote>
+
+If you have a copy of Altera's "Quartus" software, you can probably load your own
+custom FPGA content into the module, and use softGlue to talk to it.  The software
+was designed with this use in mind, though we don't yet have documentation on how
+it's done.
+
+</blockquote>
+
+<h3>Capabilities</h3>
+
+<P>Here are a few examples of the sorts of things that can be accomplished with softGlue: 
+<ul>
+<li>Send a trigger signal to a detector after every N steps of a stepper motor.
+<li>Divide a high-frequency clock down for use as input to a 16-bit interval timer.
+<li>Send a trigger to a detector 23 ms after sending a trigger to a shutter.
+<li>Conditionally trigger the execution of an EPICS record on the change of state of
+an external signal.
+</ul>
+
+
+<h4>Implemented circuits</h4>
+In this version of softGlue, the FPGA contains the following circuit elements:
+<ul>
+<li>2 AND/NAND gates
+<li>2 OR/NOR gates
+<li>2 XOR/XNOR gates
+<li>2 D flip-flops
+<li>2 2-input/1-output multiplexers
+<li>2 1-input/2-output demultiplexers
+<li>2 32-bit Counters
+<li>2 16-bit preset counters
+<li>2 divide-by-N circuits
+<li>16 field-input bits
+<li>16 field-output bits
+</ul>
+
+<h2>Installation and deployment</h2>
+	general remarks
+	<h3>how to get the software</h3>
+	<h3>build procedure</h3>
+	<h3>deploying to an ioc</h3>
+		<h3>configure/RELEASE</h3>
+		<h3>xxxApp/src</h3>
+		<h3>iocBoot</h3>
+		<h3>xxxApp/op/adl</h3>
+
+<h2>User's Manual</h2>
+	<h3>graphical user interface</h3>
+
+<P><table border>
+<tr><th>Graphic<th>purpose
+<tr><td><img src="Menu.gif" name="User Menu"><td>User Menu
+<tr><td><img src="AND.gif" name="AND/NAND"><td>AND/NAND
+<tr><td><img src="OR.gif" name="OR/NOR"><td>OR/NOR
+<tr><td><img src="XOR.gif" name="XOR/XNOR"><td>XOR/XNOR
+<tr><td><img src="DFF.gif" name="D FlipFlop"><td>D FlipFlop
+<tr><td><img src="MUX2.gif" name="2-Input Multiplexer"><td>2-Input Multiplexer
+<tr><td><img src="DEMUX2.gif" name="2-Output Demultiplexer"><td>2-Output Demultiplexer
+<tr><td><img src="UpCntr.gif" name="32-bit Counter"><td>32-bit Counter
+<tr><td><img src="DnCntr.gif" name="16-bit Preset Counter"><td>16-bit Preset Counter
+<tr><td><img src="DivByN.gif" name="Divide By N"><td>Divide By N
+<tr><td><img src="Field_IO.gif" name="Field I/O"><td>Field I/O
+</table>
+
+
+	<h3>wiring model</h3>
+	<h3>signal names</h3>
+	<h3>field wiring</h3>
+	<h3>interrupts</h3>
+	<h3>examples</h3>
+		<h4>motor-pulse gate</h4>
+		<h4>motor-pulse accel-time gate</h4>
+		<h4>pulse stretcher</h4>
+
+
+<h2>Implementation</h2>
+
+<pre>
+Somehow we have to associate devices in the FPGA with EPICS records.  It would
+be nice to be able to do this in a way that permits software to discover and
+configure itself to FPGA content.  In any case, somewhere there must exist a
+list of the devices, the EPICS-addressable elements of those devices, and the
+information required to access them.  Here's a first shot at the items such a
+list might contain:
+
+------------------------------------------------------------------------
+device	device	element	element	SOPC		EPICS			
+type	number	type	name	address		PV				description
+------------------------------------------------------------------------
+AND		1		IN		IN1		?			AND_1_IN1		AND gate input
+AND		1		IN		IN2		?			AND_1_IN2		AND gate input
+AND		1		OUT		POUT	?			AND_1_POUT		AND gate output
+AND		1		OUT		NOUT	?			AND_1_NOUT		AND gate output
+
+DLY		1		IN		IN		?			DLY_1_IN		Time delay input
+DLY		1		IN		CLOCK	?			DLY_1_CLOCK		Time delay clock
+DLY		1		OUT		OUT		?			DLY_1_OUT		Time delay output
+DLY		1		REG		PERIOD	?			DLY_1_PERIOD	Clock period
+
+DivByN	1		IN		CLOCK	?			DivByN_1_CLOCK	Signal to be divided
+DivByN	1		IN		ENABLE	?			DivByN_1_ENABLE Allow count to proceed
+DivByN	1		IN		RESET	?			DivByN_1_RESET	Restart count at 0
+DivByN	1		OUT		POUT	?			DivByN_1_POUT	Positive output
+DivByN	1		OUT		NOUT	?			DivByN_1_NOUT	Negative output
+DivByN	1		REG		N		?			DivByN_1_N		Divisor
+
+FO		1		OUT		OUT		?			FO_1_OUT		field-output pin
+
+FI		1		IN		IN		?			FI_1_IN			field-input pin
+------------------------------------------------------------------------
+
+device type:
+-----------
+
+We need to show the user a picture of each device implemented in the FPGA,
+and provide medm control fields associated with the device's elements (e.g,
+inputs).
+
+element types:
+-------------
+
+IN	input, routed via a multiplexer from any of NBUS bus signals.  NBUS is a
+	fixed feature of an FPGA implementation.  Bus signal 0 is connected to
+	ground.
+
+OUT	output, routed via a demultiplexer to any of NBUS bus signals, except that
+	no connection is made to the signal selected by the demultiplexer address 0.
+
+REG	integer value written by EPICS to a parameter register with a fixed connection to a
+	specific device instance.
+
+
+========================================================================
+Deployment considerations
+
+We need to ensure that the software agrees with the FPGA programming.  Thus
+far, the software dependence on FPGA content is of two kinds:
+
+1) Dependence on the register-set with which SOPC components are implemented.
+   There are two different register sets currently in use: Marty's original
+   register set (called 'fieldIO_registerSet' in comments within drvIP_EP201.c),
+   and Kurt's register set (called 'single 16-bit register' -- a misnomer,
+   because there are several registers, but thus far only one register is used.)
+   This dependence is restricted to the driver code, drvIP_EP201.c.
+
+2) Dependence on the user circuits attached to 'single 16-bit register' SOPC
+   components.  For example, the trial implementation of softGlue has several
+   AND/NAND gates, several OR/NOR gates, some counters, etc., controlled by
+   'single 16-bit register' components.
+   This dependence is restricted to the database, autosave-request file, and
+   MEDM displays, which should have an analog for each 'single 16-bit register'
+   component, and should know which component address corresponds with which
+   user circuit, and with which part of the user circuit.
+   For example, the inverting output of AND/NAND gate #1 is associated by
+   address with a 'single 16-bit register' component.  In the future, it might
+   also be associated with a particular bit of a particular readback register,
+   and it also might be associated with some interrupt-related infrastructure.
+
+There are several possible ways to manage software dependence on FPGA content:
+
+1) Deploy softGlue as a module, with fixed FPGA content loaded at IOC boot time,
+and matching EPICS software.  To upgrade, one would link one's IOC software to
+a new version of the softGlue module, and rebuild.
+
+2) Write the content in flash memory on the IP module, and also write a unique
+version number into the FPGA, and have the software read the version number and
+check it against the software version number.  This method would require flash
+programming to upgrade.  If this cannot be done via the IP bus, then upgrades
+would be a problem.
+
+3) Some other way.
+
+For now, alternative (1) is assumed.  To accomplish this, we need to do the
+following:
+
+1) Use Quartus to write a file, in the Intel Hex format, that can be loaded into
+   the FPGA via the IP bus.
+
+2) Write software to do the loading, and invoke it from the st.cmd file before
+   the software intended to use the FPGA has started running.
+
+3) Configure the IP module to permit programming via the IP bus (as opposed to
+   programming from the onboard flash memory).  This is done by setting the DIP
+   jumper labelled 'CONFIGURE FPGA OVER IP BUS' to the 'IP BUS' position.
+
+The FPGA is programmed by setting bit 0 of the Config/control register, and
+writing FPGA-program data, a byte at a time, to the Config Data register.
+The procedure is detailed in section 3 of the Acromag Series IP-EP201
+user's manual, IP_EP20x_797a.pdf
+
+
+------------------------------------------------------------------------------
+After v1.0, we added the ability to program the FPGA via the IP bus.
+
+The IP-EP201 board has to be prepared for this by moving the DIP jumper to
+"IP BUS".
+
+The hex file to be loaded is included in the softGlueApp/Db directory.
+It was prepared as follows, in Quartus, according to an email from Marty Smith:
+
+1. Under programming type select the Hexadecimal file format for Intel
+2. Select your file name
+3. Add your .sof file
+4. Select the sof file and hit the properties button
+5. Select the compression box
+6. Make sure that you have selected 1-bit Passive Serial above for the mode
+7. Select the options button under programming file type
+    make sure that you have a start address of 0x0 and that the count up
+    radio button is selected
+8. Generate your file
+
+</pre>
+
+<ADDRESS STYLE="text-align: left">Suggestions and Comments to: <BR><A HREF="mailto:mooney@aps.anl.gov">
+Tim Mooney </A>: (mooney@aps.anl.gov) 
+</ADDRESS>
+</BODY>
+</HTML>
