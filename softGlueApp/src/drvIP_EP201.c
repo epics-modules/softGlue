@@ -705,6 +705,9 @@ static asynStatus getBounds(void *drvPvt, asynUser *pasynUser, epicsInt32 *low, 
 /*
  * This is the interrupt-service routine associated with the interrupt
  * vector pPvt->intVector supplied in the drvPvt structure.
+ * On interrupt, we check to see if the interrupt could have come from
+ * the fieldIO_registerSet named in caller's drvPvt.  If so, we collect
+ * information, and send a message to pollerThread().
  */
 static void intFunc(void *drvPvt)
 {
@@ -712,7 +715,7 @@ static void intFunc(void *drvPvt)
 	epicsUInt32 inputs=0, pendingLow, pendingHigh, pendingMask;
 	interruptMessage msg;
 
-	/* Make sure interrupt is from this hardware otherwise just leave */
+	/* Make sure interrupt is from this hardware.  Otherwise just leave. */
 	if (pPvt->regs->risingIntStatus || pPvt->regs->fallingIntStatus) {
 		pendingLow = pPvt->regs->fallingIntStatus;
 		pendingHigh = pPvt->regs->risingIntStatus;
