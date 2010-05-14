@@ -12,21 +12,23 @@
 </HEAD>
 <BODY LANG="en-US" BGCOLOR="#ffffff" DIR="LTR">
 
-<h1><center>softGlue</center></h1>
-<h2>Overview</h2>
-<P>The softGlue module is intended to provide to EPICS users the ability to
-construct small, simple, digital electronic circuits, and to connect those
-circuits to field wiring, all by writing to EPICS PV's.  Because the circuits
-are specified entirely by EPICS-PV name/value pairs, circuits built using
-softGlue can be <a hfer="">autosave</a>d and restored, saved as text files (e.g., as a BURT
-snapshot file), emailed from one user to another, etc.</p>
+<h1><center>The synApps softGlue module</center></h1>
+<hr>
+<h2><center>Overview</center></h2>
 
-<blockquote>
-The name <em>softGlue</em> is intended to suggest <em>glue electronics</em> rendered
-in software, where <em>glue electronics</em> is intended to represent those little
-bits of digital circuitry needed to connect two or more larger pieces of digital
-electronics into a single working whole.
-</blockquote>
+The <a href="http:www.aps.anl.gov/bcda/synApps">synApps</a> softGlue module is intended to
+enable <a href="http:www.aps.anl.gov/epics">EPICS</a> users and application developers to
+construct small, simple, digital electronic circuits, and to connect those circuits to field
+wiring, all by writing to EPICS PV's.  Because the circuits are constructed and connected
+entirely with EPICS-PV name/value pairs, circuits built using softGlue can be <a
+hfer="">autosave</a>d and restored, saved as text files (e.g., as a
+<a href="http://www.aps.anl.gov/epics/extensions/burt/index.php">BURT</a> snapshot file),
+emailed from one user to another, etc.
+
+<blockquote> The name <em>softGlue</em> is intended to suggest <em>glue electronics</em>
+rendered in software, where <em>glue electronics</em> means those little bits of digital
+circuitry needed to connect two or more larger pieces of digital electronics into a single
+working whole. </blockquote>
 
 <h3>Requirements</h3>
 
@@ -35,18 +37,19 @@ electronics into a single working whole.
 <ul>
 <li><h4>hardware</h4>
 <ul>
-<li>An IndustryPack carrier board.
+<li>An IndustryPack (IP) carrier board.
 <li>An Acromag IP-EP201 FPGA IP module.
 <li>Some way of connecting the field I/O bits of the IP_EP201 module to your field
 wiring.
 </ul>
 <li><h4>software</h4>
 <ul>
-<li>The EPICS asyn module, version 4.6 or higher.
-<li>The EPICS ipac module, version 2.11 or higher.  (You can use
-earlier versions if you disable the IP-module identity check -- the call
-to ipmCheck() in drvIP_EP201.c.  Look for "<code>#define DO_IPMODULE_CHECK 1</code>",
-and set it to zero.)
+
+<li>The EPICS <a href="http://www.aps.anl.gov/epics/modules/soft/asyn">asyn</a> module, version
+	4.6 or higher.
+
+<li>The EPICS <a href="https://svn.aps.anl.gov/trac/epics/ipac">ipac</a> module, version 2.11
+	or higher.  (To use an earlier version, see "Build procedure" below.)
 
 </ul>
 </ul>
@@ -71,12 +74,12 @@ it's done.
 <li>Divide a high-frequency clock down for use as input to a 16-bit interval timer.
 <li>Send a trigger to a detector 23 ms after sending a trigger to a shutter.
 <li>Conditionally trigger the execution of an EPICS record on the change of state of
-an external signal.
+an external signal. <br>(Intended; interrupts not yet proven.)
 </ul>
 
 
 <h4>Implemented circuits</h4>
-In this version of softGlue, the FPGA contains the following circuit elements:
+In this version of softGlue, the FPGA is programmed with the following circuit elements:
 <ul>
 <li>2 AND/NAND gates
 <li>2 OR/NOR gates
@@ -91,33 +94,213 @@ In this version of softGlue, the FPGA contains the following circuit elements:
 <li>16 field-output bits
 </ul>
 
-<h2>Installation and deployment</h2>
-	general remarks
-	<h3>how to get the software</h3>
-	<h3>build procedure</h3>
-	<h3>deploying to an ioc</h3>
-		<h3>configure/RELEASE</h3>
-		<h3>xxxApp/src</h3>
-		<h3>iocBoot</h3>
-		<h3>xxxApp/op/adl</h3>
+<blockquote>softGlue uses AND/NAND gates (etc.) as opposed to separate AND and NAND gates because we
+guess that this choice will make more efficient use of FPGA resources, for the sorts of
+circuits we imagine people building.  (But make no mistake: softGlue is, nevertheless, an
+extremely inefficient application of FPGA resources -- roughly on par with, say, using a
+personal computer to write documentation.)</blockquote>
 
-<h2>User's Manual</h2>
-	<h3>graphical user interface</h3>
+<hr>
+<h2><center>Installation and deployment</center></h2>
 
-<P><table border>
-<tr><th>Graphic<th>purpose
-<tr><td><img src="Menu.gif" name="User Menu"><td>User Menu
-<tr><td><img src="AND.gif" name="AND/NAND"><td>AND/NAND
-<tr><td><img src="OR.gif" name="OR/NOR"><td>OR/NOR
-<tr><td><img src="XOR.gif" name="XOR/XNOR"><td>XOR/XNOR
-<tr><td><img src="DFF.gif" name="D FlipFlop"><td>D FlipFlop
-<tr><td><img src="MUX2.gif" name="2-Input Multiplexer"><td>2-Input Multiplexer
-<tr><td><img src="DEMUX2.gif" name="2-Output Demultiplexer"><td>2-Output Demultiplexer
-<tr><td><img src="UpCntr.gif" name="32-bit Counter"><td>32-bit Counter
-<tr><td><img src="DnCntr.gif" name="16-bit Preset Counter"><td>16-bit Preset Counter
-<tr><td><img src="DivByN.gif" name="Divide By N"><td>Divide By N
-<tr><td><img src="Field_IO.gif" name="Field I/O"><td>Field I/O
-</table>
+	softGlue is a synApps module, so if you've used any other synApps module, you probably can
+	guess already how to install and deploy it.  The important thing is that softGlue is pure
+	support: you are not expected to run an ioc directly with it, but instead to draw from
+	the module into your own ioc application.  Unlike most other synApps modules, however,
+	softGlue publishes the text files needed to boot an ioc in its <code>db</code> directory
+	(as an EPICS module really should, I suppose -- most synApps modules are nonstandard in
+	this respect), rather than in the <code>softGlueApp/Db</code> directory.
+
+	<h3>How to get the software</h3>
+	softGlue is available as part of synApps 5.5 and higher, as a tar file from
+	the <a href="http://www.aps.anl.gov/bcda/synApps/softGlue/softGlue.html">softGlue web page</a>,
+	or directly from the <a href="https://subversion.xor.aps.anl.gov/synApps">synApps subversion repository</a>.
+	To export from the repository,
+	<pre>
+	svn export https://subversion.xor.aps.anl.gov/synApps/softGlue/tags/R1-1 softGlue-1-1
+	</pre>
+
+	<h3>Build procedure</h3>
+
+	<ul>
+
+	<li>Edit configure/RELEASE, to specify the path to EPICS_BASE, ASYN, and IPAC, all of which
+	must already have been built.
+
+	<li>If you're using a version of IPAC older than 2.11, edit softGlueApp/src/drvIP_EP201.c
+	to change the definition of the macro, <code>DO_IPMODULE_CHECK</code>, like so:
+	<pre>#define DO_IPMODULE_CHECK 0</pre>
+
+
+	<li>Run <code>make</code> in the top-level directory, using the same make executable used to
+	build EPICS base.
+
+	</ul>
+
+	<h3>Deploying to an ioc</h3>
+	
+	To configure an EPICS ioc application to use softGlue, you must make modifications in the
+	following directories, and then rebuild the application:
+
+		<ul>
+		<li><code>configure/RELEASE</code>
+			<ul>
+
+			<li>Edit the <code>RELEASE</code> file to add the following line:
+			<pre>SOFTGLUE=&lt;path to the softGlue module's top-level directory&gt;</pre>
+
+			</ul>
+		<li><code>xxxApp/src</code>
+			<ul>
+
+			<li>Edit <code>Makefile</code> or a <code>*Include.dbd</code> file so that the file
+				<code>softGlueSupport.dbd</code> is included in the <code>.dbd</code> file the
+				ioc loads at boot time.  For a Makefile: <pre>iocxxxVX_DBD +=
+				softGlueSupport.dbd</pre>
+
+				For a .dbd file:
+
+				<pre>include "softGlueSupport.dbd"</pre>
+
+			<li>Edit Makefile so that the ioc executable is linked with the softGlue library.
+				For example:
+				<pre>xxx_LIBS_vxWorks += softGlue</pre>
+			</ul>
+		<li><code>iocBoot/ioc<em>xxx</em></code>
+			<ul>
+
+			<li>Copy <code>softGlue/iocBoot/iocSoftGlue/softGlue.cmd</code> to
+				iocBoot/ioc<em>xxx</em>, and edit the <code>dbLoadRecords()</code> commands
+				to define the macros <code>P</code>, and <code>H</code>.
+
+			<li>If you'll have more than one IP_EP201 module running softGlue, you'll also need
+				to maintain separate asyn port names for the modules.  Port names are the first
+				arguments to the functions <code>initIP_EP201(),
+				initIP_EP201SingleRegisterPort()</code>, and the value of the macro 
+				<code>PORT</code>, supplied in <code>dbLoadRecords()</code> commands.
+
+			<li>Edit one of your command files to add the line
+				<pre>&lt; softGlue.cmd</pre>
+
+			<li>If you use autosave, edit <code>auto_settings.req</code> (or whatever you've
+				named the file that can restore any type of PV) to contain the line
+				<pre>file softGlue_settings.req P=$(P) H=softGlue:</pre>
+				making sure that the macros <code>P</code>, and <code>H</code> agree with 
+				those in softGlue.cmd.
+
+			</ul>
+			<br>
+		<li><code>xxxApp/op/adl</code>
+			<ul>
+
+			<li>If you use MEDM, add a related-display button to call up the
+				<code>softGlueMenu.adl</code> display with the macros <code>P</code>, and
+				<code>H</code>.  If you figure out how to use some other display manager,
+				please tell us about it, so we can include your work in the next version of
+				softGlue.
+
+			</ul>
+		</ul>
+
+<hr>
+<h2><center>User's Manual</center></h2>
+
+First of all, let's get one thing straight.  I'm not going to describe how a NAND gate works.
+There are so many good descriptions of digital electronics on the web that another one here
+would make little sense.  What I'm going to describe is the user interface (how you connect
+things), and those circuit elements that are not in the "standard library" of digital
+electronics.
+
+	<h3>MEDM user interface</h3>
+
+<ul>
+
+<li><P>User Menu
+<P><img src="Menu.gif" name="User Menu">
+
+<P> This is the top-level display, which serves mostly to call up other displays, but the
+<code>CONNECTED</code> and <code>UNCONNECTED</code> menus need comment.  softGlue displays are
+not interrupt driven.  (That would be a disaster, because inevitably some signals will change
+state at high frequency.)  So, the states of inputs and outputs must be polled periodically. 
+There seems little need to poll signals that aren't being used, but we don't have very good
+information about which signals those are.  A signal that has been connected to some other
+signal is <em>certainly</em> being used, so it makes sense to discriminate on that basis.
+
+<P>We've found that it's confusing for users if either of these poll periods are greater than
+around 1 second.  We've also found that polling everything at .1 second uses only a few
+percent of an MVME2700 CPU.
+
+<li><P>AND/NAND
+<P><img src="AND.gif" name="AND/NAND">
+
+<P> On the left are the inputs, each comprised of an "= button", a yellow text-entry field, a
+number, and what's intended to look like an LED.  On the right are essentially the same things,
+but an output's text-entry field is a different color.  The difference is important, because
+you're allowed to connect any number of inputs together, but if you connect two or more outputs
+together, the circuit won't work.  (You won't break anything, but the circuit won't be useful,
+because the states of outputs connected together are undefined.)
+
+<P>The text-entry box is what you use to control an input.  You have three options:
+<ul>
+
+<li>Enter a string that begins with a digit.  This sets the input to a logic value: 0 if the
+number is close to zero, 1 if it's not.  (Allowing floats means you can drive softGlue inputs
+with, say, calc records.)
+
+<li>Enter a string that begins with something other than a number.  This <em>names</em> the
+signal, and connects it to all other signals with exactly the same name.
+
+<li>Enter the PV name of another signal's name.  Most likely you would do this using MEDM's
+Drag-And-Drop feature, by clicking the middle mouse button in a signal's text-entry box,
+holding the button down while you move the mouse pointer to another signal's text-entry box,
+releasing the button, and hitting &lt;Enter&gt; while the mouse pointer is in the box.  When
+softGlue sees the PVname of another signal associated with the same FPGA module, it copies the
+source signal name to the drop signal name, connecting the signals together.
+
+</ul>
+
+<P>Whatever option you choose, you can define at most fifteen different signal names.
+
+
+<li><P>OR/NOR, XOR/XNOR
+<P><img src="OR.gif" name="OR/NOR">
+<img src="XOR.gif" name="XOR/XNOR">
+
+<li><P>D FlipFlop
+<P><img src="DFF.gif" name="D FlipFlop">
+
+<P> description
+
+<li><P>2-Input Multiplexer
+<P><img src="MUX2.gif" name="2-Input Multiplexer">
+
+<P> description
+
+<li><P>2-Output Demultiplexer
+<P><img src="DEMUX2.gif" name="2-Output Demultiplexer">
+
+<P> description
+
+<li><P>32-bit Counter
+<P><img src="UpCntr.gif" name="32-bit Counter">
+
+<P> description
+
+<li><P>16-bit Preset Counter
+<P><img src="DnCntr.gif" name="16-bit Preset Counter">
+
+<P> description
+
+<li><P>Divide By N
+<P><img src="DivByN.gif" name="Divide By N">
+
+<P> description
+
+<li><P>Field I/O
+<P><img src="Field_IO.gif" name="Field I/O">
+
+<P> description
+</ul>
 
 
 	<h3>wiring model</h3>
@@ -130,7 +313,8 @@ In this version of softGlue, the FPGA contains the following circuit elements:
 		<h4>pulse stretcher</h4>
 
 
-<h2>Implementation</h2>
+<hr>
+<h2><center>Implementation</center></h2>
 
 <pre>
 Somehow we have to associate devices in the FPGA with EPICS records.  It would
@@ -266,9 +450,60 @@ It was prepared as follows, in Quartus, according to an email from Marty Smith:
     radio button is selected
 8. Generate your file
 
+
+
 </pre>
 
-<ADDRESS STYLE="text-align: left">Suggestions and Comments to: <BR><A HREF="mailto:mooney@aps.anl.gov">
+From Marty Smith's spreadsheet: Field I/O registers
+
+Acromag FPGA Field I/O Quartus SOPC Interface using DIO16 Module
+<P> base address 0x800000					
+
+<table border>
+<tr><th>Address Offset<th>Function<th>Description<th>Read/Write
+<tr><td>0<td>Control/Status<td>Field-I/O direction, IRQ status<td>Read/Write
+<tr><td>1<td>Field I/O Write Data<td>Write Field I/O ONLY when dir = 1<td>Read/Write
+<tr><td>2<td>Field I/O Read Data<td>Read Field I/O ONLY when dir = 0<td>Read
+<tr><td>3<td>Rising IRQ Status Bits<td>Which Bits are causing interrupt from field I/O on transition to 1<td>Read/Write
+<tr><td>4<td>Rising IRQ Intterupt Enable Bits<td>Which Rising edge bits have IRQ Enabled<td>Read/Write
+<tr><td>5<td>Falling IRQ Status Bits<td>Which bits are causing interrupt from field I/O on transition to 0<td>Read/Write
+<tr><td>6<td>Falling IRQ Interrupt enable bits<td>Which bits have falling IRQ enabled<td>Read/Write
+</table>
+
+<P>
+<table border>
+<tr><th>Bit<th>Function<th>Value<th>Description<th>Reg type
+<tr><td>0<td>Field I/O Direction Lower 8-Bits<td>0=Input, 1=Output<td>Sets direction for field I/O Lower 8-Bits<td>Control/Status
+<tr><td>1<td>-<td>0<td>-<td>Control/Status
+<tr><td>2<td>-<td>0<td>-<td>Control/Status
+<tr><td>3<td>-<td>0<td>-<td>Control/Status
+<tr><td>4<td>-<td>0<td>-<td>Control/Status
+<tr><td>5<td>Falling Edge IRQ Present<td>Lower 8-Bits<td>Set bit to 1 for Falling Edge INT<td>Control/Status
+<tr><td>6<td>Rising Edge IRQ Present<td>Lower 8-Bits<td>Set bit to 1 for Rising Edge INT<td>Control/Status
+<tr><td>7<td>Lower 8-bits IRQ Present<td>-<td>-<td>Control/Status
+<tr><td>8<td>Field I/O Direction Upper 8-Bits<td>0=Input, 1=Output<td>Sets direction for field I/O Upper 8-Bits<td>Control/Status
+<tr><td>9<td>-<td>-<td>-<td>Control/Status
+<tr><td>10<td>-<td>-<td>-<td>Control/Status
+<tr><td>11<td>-<td>-<td>-<td>Control/Status
+<tr><td>12<td>-<td>-<td>-<td>Control/Status
+<tr><td>13<td>Falling Edge IRQ Present Upper 8-Bits<td>-<td>-<td>Control/Status
+<tr><td>14<td>Rising Edge IRQ Present  Upper 8-Bits<td>-<td>-<td>Control/Status
+<tr><td>15<td>Upper 8-bits IRQ Present<td>-<td>-<td>Control/Status
+</table>
+
+<h3>Credits</h3>
+
+The essential enabling work underlying softGlue is Eric Norum's <a
+href="IndustryPackBridge.html">IndustryPack Bridge</a>.  David Kline engineered a
+proof-of-principle implementation working from another of Eric's bus-interface solutions, for a
+non-VME architecture.  Marty Smith wrote a driver to talk to custom FPGA content interfaced to
+Eric's IndustryPack Bridge.  Marty Smith and Kurt Goetze implemented the FPGA content included
+with softGlue, and Tim Mooney extended Marty's driver, wrote some device support, and did the
+EPICS-application stuff.
+
+<hr>
+<ADDRESS STYLE="text-align: left">Suggestions and Comments to: <br>
+<A HREF="mailto:mooney@aps.anl.gov">
 Tim Mooney </A>: (mooney@aps.anl.gov) 
 </ADDRESS>
 </BODY>
