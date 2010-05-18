@@ -105,6 +105,10 @@
 #include <stdio.h>
 #include <ctype.h>
 
+#ifdef vxWorks
+extern int logMsg(char *fmt, ...);
+#endif
+
 /* EPICS includes */
 #include <drvIpac.h>
 #include <errlog.h>
@@ -373,16 +377,16 @@ int initIP_EP201SingleRegisterPort(const char *portName, ushort_t carrier, ushor
 	drvIP_EP201Pvt *pPvt;
 	int status;
 
-	pPvt = callocMustSucceed(1, sizeof(*pPvt), "drvIP_EP201Pvt");
-	pPvt->portName = epicsStrDup(portName);
-	pPvt->is_fieldIO_registerSet = 0;
-
 #if DO_IPMODULE_CHECK
 	if (ipmCheck(carrier, slot)) {
 		errlogPrintf("initIP_EP201SingleRegisterPort: bad carrier or slot\n");
 		return(-1);
 	}
 #endif
+	pPvt = callocMustSucceed(1, sizeof(*pPvt), "drvIP_EP201Pvt");
+	pPvt->portName = epicsStrDup(portName);
+	pPvt->is_fieldIO_registerSet = 0;
+
 	/* Set up ID and I/O space addresses for IP module */
 	pPvt->id = (ipac_idProm_t *) ipmBaseAddr(carrier, slot, ipac_addrID);
 	pPvt->io = (epicsUInt16 *) ipmBaseAddr(carrier, slot, ipac_addrIO);
@@ -720,6 +724,9 @@ static void intFunc(void *drvPvt)
 		pendingLow = pPvt->regs->fallingIntStatus;
 		pendingHigh = pPvt->regs->risingIntStatus;
 		pendingMask = pendingLow | pendingHigh;
+		/* any write to these registers clears respective IntStatus */
+		pPvt->regs->fallingIntStatus = 0;
+		pPvt->regs->risingIntStatus = 0;
 
 		/* Read the current input */
 		inputs = (epicsUInt16) pPvt->regs->readDataRegister;
@@ -768,15 +775,17 @@ static void pollerThread(drvIP_EP201Pvt *pPvt)
 			newBits = msg.bits;
 			interruptMask = msg.interruptMask;
 			asynPrint(pPvt->pasynUser, ASYN_TRACE_FLOW,
-				"drvIP_EP201::pollerThread, got interrupt\n");
+				"drvIP_EP201:pollerThread, got interrupt for port %s\n", pPvt->portName);
 		}
 		asynPrint(pPvt->pasynUser, ASYN_TRACEIO_DRIVER,
-			"drvIP_EP201::pollerThread, bits=%x\n", newBits);
+			"drvIP_EP201:pollerThread, bits=%x\n", newBits);
 
 		/* We detect change both from interruptMask (which only works for
 		 * hardware interrupts) and changedBits, which works for polling */
+		/* printf("drvIP_EP201:pollerThread: new=%d, old=%d\n", newBits, pPvt->oldBits); */
 		changedBits = newBits ^ pPvt->oldBits;
-		interruptMask = interruptMask | changedBits;
+		interruptMask = interruptMask & changedBits;
+		/* printf("drvIP_EP201:pollerThread: changed=%d, IntMask=%d\n", changedBits, interruptMask); */
 		if (interruptMask) {
 			pPvt->oldBits = newBits;
 			pasynManager->interruptStart(pPvt->interruptPvt, &pclientList);
@@ -785,7 +794,7 @@ static void pollerThread(drvIP_EP201Pvt *pPvt)
 				pUInt32D = pnode->drvPvt;
 				if (pUInt32D->mask & interruptMask) {
 					asynPrint(pPvt->pasynUser, ASYN_TRACE_FLOW,
-						"drvIP_EP201::pollerThread, calling client %p"
+						"drvIP_EP201:pollerThread, calling client %p"
 						" mask=%x, callback=%p\n",
 						pUInt32D, pUInt32D->mask, pUInt32D->callback);
 					pUInt32D->callback(pUInt32D->userPvt, pUInt32D->pasynUser,
