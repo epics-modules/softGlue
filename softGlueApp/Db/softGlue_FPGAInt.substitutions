@@ -1,0 +1,37 @@
+file "softGlue_IntBit.db"
+{
+pattern {NAM PORT ADDR MASK}
+{In_1  $(IPORT) $(IADDR) 0x0001}
+{In_2  $(IPORT) $(IADDR) 0x0002}
+{In_3  $(IPORT) $(IADDR) 0x0004}
+{In_4  $(IPORT) $(IADDR) 0x0008}
+{In_5  $(IPORT) $(IADDR) 0x0010}
+{In_6  $(IPORT) $(IADDR) 0x0020}
+{In_7  $(IPORT) $(IADDR) 0x0040}
+{In_8  $(IPORT) $(IADDR) 0x0080}
+{In_9  $(IPORT) $(IADDR) 0x0100}
+{In_10 $(IPORT) $(IADDR) 0x0200}
+{In_11 $(IPORT) $(IADDR) 0x0400}
+{In_12 $(IPORT) $(IADDR) 0x0800}
+{In_13 $(IPORT) $(IADDR) 0x1000}
+{In_14 $(IPORT) $(IADDR) 0x2000}
+{In_15 $(IPORT) $(IADDR) 0x4000}
+{In_16 $(IPORT) $(IADDR) 0x8000}
+
+{Out_1  $(OPORT) $(OADDR) 0x0001}
+{Out_2  $(OPORT) $(OADDR) 0x0002}
+{Out_3  $(OPORT) $(OADDR) 0x0004}
+{Out_4  $(OPORT) $(OADDR) 0x0008}
+{Out_5  $(OPORT) $(OADDR) 0x0010}
+{Out_6  $(OPORT) $(OADDR) 0x0020}
+{Out_7  $(OPORT) $(OADDR) 0x0040}
+{Out_8  $(OPORT) $(OADDR) 0x0080}
+{Out_9  $(OPORT) $(OADDR) 0x0100}
+{Out_10 $(OPORT) $(OADDR) 0x0200}
+{Out_11 $(OPORT) $(OADDR) 0x0400}
+{Out_12 $(OPORT) $(OADDR) 0x0800}
+{Out_13 $(OPORT) $(OADDR) 0x1000}
+{Out_14 $(OPORT) $(OADDR) 0x2000}
+{Out_15 $(OPORT) $(OADDR) 0x4000}
+{Out_16 $(OPORT) $(OADDR) 0x8000}
+}
