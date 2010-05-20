@@ -1,0 +1,52 @@
+record(busy,"$(P)$(H)busy") {
+}
+record(asyn,"$(P)$(H)asyn$(PORT)") {
+	field(PORT,$(PORT))
+}
+
+# positive going pulse
+record(bo,"$(P)$(H)pulse") {
+	field(ZNAM,"0")
+	field(ONAM,"1")
+	field(DOL,"1")
+	field(OMSL,"closed_loop")
+	field(OUT,"$(P)$(H)pulseOut PP")
+	field(FLNK,"$(P)$(H)pulse0")
+}
+record(bo,"$(P)$(H)pulse0") {
+	field(ZNAM,"0")
+	field(ONAM,"1")
+	field(DOL,"0")
+	field(OMSL,"closed_loop")
+	field(OUT,"$(P)$(H)pulseOut PP")
+}
+
+record(bo,"$(P)$(H)pulseOut") {
+	field(ZNAM,"0")
+	field(ONAM,"1")
+	field(DOL,"0")
+}
+
+# negative going pulse
+record(bo,"$(P)$(H)npulse") {
+	field(ZNAM,"0")
+	field(ONAM,"1")
+	field(DOL,"0")
+	field(OMSL,"closed_loop")
+	field(OUT,"$(P)$(H)npulseOut PP")
+	field(FLNK,"$(P)$(H)npulse1")
+}
+record(bo,"$(P)$(H)npulse1") {
+	field(ZNAM,"0")
+	field(ONAM,"1")
+	field(DOL,"1")
+	field(OMSL,"closed_loop")
+	field(OUT,"$(P)$(H)npulseOut PP")
+}
+
+record(bo,"$(P)$(H)npulseOut") {
+	field(ZNAM,"0")
+	field(ONAM,"1")
+	field(DOL,"1")
+}
+
