@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlue_OR_bare.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue_OR_bare.adl"
 	version=030104
 }
 display {
@@ -288,4 +288,16 @@ composite {
 			"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=OR-$(N)_POUT"
 		}
 	}
+}
+text {
+	object {
+		x=182
+		y=31
+		width=25
+		height=10
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="OR-$(N)"
 }

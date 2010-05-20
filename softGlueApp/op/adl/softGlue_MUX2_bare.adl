@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlue_MUX2_bare.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue_MUX2_bare.adl"
 	version=030104
 }
 display {
@@ -154,9 +154,9 @@ polyline {
 rectangle {
 	object {
 		x=174
-		y=17
+		y=13
 		width=82
-		height=37
+		height=43
 	}
 	"basic attribute" {
 		clr=14
@@ -166,8 +166,8 @@ rectangle {
 }
 text {
 	object {
-		x=184
-		y=20
+		x=181
+		y=18
 		width=10
 		height=13
 	}
@@ -180,7 +180,7 @@ text {
 text {
 	object {
 		x=194
-		y=42
+		y=44
 		width=40
 		height=10
 	}
@@ -193,16 +193,16 @@ text {
 polyline {
 	object {
 		x=214
-		y=52
+		y=54
 		width=2
-		height=21
+		height=19
 	}
 	"basic attribute" {
 		clr=14
 		width=2
 	}
 	points {
-		(215,53)
+		(215,55)
 		(215,72)
 	}
 }
@@ -226,7 +226,7 @@ polyline {
 polyline {
 	object {
 		x=255
-		y=34
+		y=22
 		width=14
 		height=2
 	}
@@ -236,14 +236,14 @@ polyline {
 		width=2
 	}
 	points {
-		(268,35)
-		(256,35)
+		(268,23)
+		(256,23)
 	}
 }
 text {
 	object {
 		x=238
-		y=29
+		y=15
 		width=10
 		height=13
 	}
@@ -256,7 +256,7 @@ text {
 composite {
 	object {
 		x=264
-		y=21
+		y=9
 		width=157
 		height=26
 	}
@@ -265,7 +265,7 @@ composite {
 }
 text {
 	object {
-		x=184
+		x=181
 		y=38
 		width=10
 		height=13
@@ -275,4 +275,28 @@ text {
 	}
 	textix="IN1"
 	align="horiz. centered"
+}
+text {
+	object {
+		x=199
+		y=30
+		width=35
+		height=10
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="MUX2-$(N)"
+}
+rectangle {
+	object {
+		x=196
+		y=27
+		width=45
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+		fill="outline"
+	}
 }

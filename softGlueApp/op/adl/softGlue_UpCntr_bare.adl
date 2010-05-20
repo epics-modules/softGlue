@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps_5_5/support/softGlue/softGlueApp/op/adl/softGlue_UpCntr_bare.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue_UpCntr_bare.adl"
 	version=030104
 }
 display {
@@ -200,19 +200,6 @@ polyline {
 }
 text {
 	object {
-		x=199
-		y=22
-		width=85
-		height=13
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="UP COUNTER"
-	align="horiz. centered"
-}
-text {
-	object {
 		x=179
 		y=19
 		width=10
@@ -274,7 +261,7 @@ rectangle {
 		height=14
 	}
 	"basic attribute" {
-		clr=14
+		clr=53
 		fill="outline"
 	}
 }
@@ -362,4 +349,16 @@ composite {
 			}
 		}
 	}
+}
+text {
+	object {
+		x=216
+		y=24
+		width=50
+		height=10
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="UpCntr-$(N)"
 }

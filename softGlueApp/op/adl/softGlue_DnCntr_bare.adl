@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlue_DnCntr_bare.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue_DnCntr_bare.adl"
 	version=030104
 }
 display {
@@ -198,19 +198,6 @@ polyline {
 		(173,52)
 	}
 }
-text {
-	object {
-		x=199
-		y=22
-		width=85
-		height=13
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="DOWN COUNTER"
-	align="horiz. centered"
-}
 polyline {
 	object {
 		x=310
@@ -365,7 +352,7 @@ rectangle {
 		height=14
 	}
 	"basic attribute" {
-		clr=14
+		clr=53
 		fill="outline"
 	}
 }
@@ -401,4 +388,16 @@ oval {
 		fill="outline"
 		width=2
 	}
+}
+text {
+	object {
+		x=214
+		y=24
+		width=50
+		height=10
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="DnCntr-$(N)"
 }

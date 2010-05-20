@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlue_DFF_bare.adl"
+	name="/home/oxygen/MOONEY/epics/synApps_5_5/support/softGlue/softGlueApp/op/adl/softGlue_DFF_bare.adl"
 	version=030104
 }
 display {
@@ -127,302 +127,315 @@ composite {
 	"composite name"=""
 	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=DFF-$(N)_SET"
 }
-composite {
+polyline {
+	object {
+		x=264
+		y=69
+		width=14
+		height=2
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+		width=2
+	}
+	points {
+		(277,70)
+		(265,70)
+	}
+}
+polyline {
 	object {
 		x=164
+		y=69
+		width=13
+		height=2
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+		width=2
+	}
+	points {
+		(176,70)
+		(165,70)
+	}
+}
+polyline {
+	object {
+		x=164
+		y=45
+		width=12
+		height=2
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+		width=2
+	}
+	points {
+		(175,46)
+		(165,46)
+	}
+}
+rectangle {
+	object {
+		x=175
+		y=38
+		width=82
+		height=41
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+		width=2
+	}
+}
+polyline {
+	object {
+		x=174
+		y=61
+		width=11
+		height=16
+	}
+	"basic attribute" {
+		clr=14
+		width=2
+	}
+	points {
+		(175,62)
+		(184,69)
+		(175,76)
+	}
+}
+text {
+	object {
+		x=179
+		y=41
+		width=10
+		height=13
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="D"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=195
+		y=41
+		width=40
+		height=10
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="SET"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=195
+		y=67
+		width=40
+		height=10
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="CLEAR"
+	align="horiz. centered"
+}
+polyline {
+	object {
+		x=214
+		y=85
+		width=2
+		height=13
+	}
+	"basic attribute" {
+		clr=14
+		width=2
+	}
+	points {
+		(215,86)
+		(215,97)
+	}
+}
+polyline {
+	object {
+		x=214
 		y=18
-		width=264
-		height=80
+		width=2
+		height=16
+	}
+	"basic attribute" {
+		clr=14
+		width=2
+	}
+	points {
+		(215,19)
+		(215,33)
+	}
+}
+polyline {
+	object {
+		x=164
+		y=95
+		width=53
+		height=2
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+		width=2
+	}
+	points {
+		(216,96)
+		(165,96)
+	}
+}
+polyline {
+	object {
+		x=164
+		y=19
+		width=53
+		height=2
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+		width=2
+	}
+	points {
+		(216,20)
+		(165,20)
+	}
+}
+polyline {
+	object {
+		x=256
+		y=46
+		width=17
+		height=2
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+		width=2
+	}
+	points {
+		(272,47)
+		(257,47)
+	}
+}
+text {
+	object {
+		x=242
+		y=41
+		width=10
+		height=13
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Q"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=242
+		y=63
+		width=10
+		height=13
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Q"
+	align="horiz. centered"
+}
+composite {
+	object {
+		x=271
+		y=56
+		width=157
+		height=26
 	}
 	"composite name"=""
-	children {
-		polyline {
-			object {
-				x=264
-				y=69
-				width=14
-				height=2
-			}
-			"basic attribute" {
-				clr=14
-				fill="outline"
-				width=2
-			}
-			points {
-				(277,70)
-				(265,70)
-			}
-		}
-		polyline {
-			object {
-				x=164
-				y=69
-				width=13
-				height=2
-			}
-			"basic attribute" {
-				clr=14
-				fill="outline"
-				width=2
-			}
-			points {
-				(176,70)
-				(165,70)
-			}
-		}
-		polyline {
-			object {
-				x=164
-				y=45
-				width=12
-				height=2
-			}
-			"basic attribute" {
-				clr=14
-				fill="outline"
-				width=2
-			}
-			points {
-				(175,46)
-				(165,46)
-			}
-		}
-		rectangle {
-			object {
-				x=175
-				y=40
-				width=82
-				height=37
-			}
-			"basic attribute" {
-				clr=14
-				fill="outline"
-				width=2
-			}
-		}
-		polyline {
-			object {
-				x=174
-				y=61
-				width=11
-				height=16
-			}
-			"basic attribute" {
-				clr=14
-				width=2
-			}
-			points {
-				(175,62)
-				(184,69)
-				(175,76)
-			}
-		}
-		text {
-			object {
-				x=181
-				y=43
-				width=10
-				height=13
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="D"
-			align="horiz. centered"
-		}
-		text {
-			object {
-				x=195
-				y=43
-				width=40
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="SET"
-			align="horiz. centered"
-		}
-		text {
-			object {
-				x=195
-				y=65
-				width=40
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="CLEAR"
-			align="horiz. centered"
-		}
-		polyline {
-			object {
-				x=214
-				y=83
-				width=2
-				height=15
-			}
-			"basic attribute" {
-				clr=14
-				width=2
-			}
-			points {
-				(215,84)
-				(215,97)
-			}
-		}
-		polyline {
-			object {
-				x=214
-				y=18
-				width=2
-				height=17
-			}
-			"basic attribute" {
-				clr=14
-				width=2
-			}
-			points {
-				(215,19)
-				(215,34)
-			}
-		}
-		polyline {
-			object {
-				x=164
-				y=95
-				width=53
-				height=2
-			}
-			"basic attribute" {
-				clr=14
-				fill="outline"
-				width=2
-			}
-			points {
-				(216,96)
-				(165,96)
-			}
-		}
-		polyline {
-			object {
-				x=164
-				y=19
-				width=53
-				height=2
-			}
-			"basic attribute" {
-				clr=14
-				fill="outline"
-				width=2
-			}
-			points {
-				(216,20)
-				(165,20)
-			}
-		}
-		polyline {
-			object {
-				x=256
-				y=46
-				width=17
-				height=2
-			}
-			"basic attribute" {
-				clr=14
-				fill="outline"
-				width=2
-			}
-			points {
-				(272,47)
-				(257,47)
-			}
-		}
-		text {
-			object {
-				x=242
-				y=43
-				width=10
-				height=13
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="Q"
-			align="horiz. centered"
-		}
-		text {
-			object {
-				x=242
-				y=61
-				width=10
-				height=13
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="Q"
-			align="horiz. centered"
-		}
-		composite {
-			object {
-				x=271
-				y=56
-				width=157
-				height=26
-			}
-			"composite name"=""
-			"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=DFF-$(N)_NOUT"
-		}
-		composite {
-			object {
-				x=271
-				y=33
-				width=157
-				height=26
-			}
-			"composite name"=""
-			"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=DFF-$(N)_POUT"
-		}
-		oval {
-			object {
-				x=210
-				y=31
-				width=10
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-				fill="outline"
-				width=2
-			}
-		}
-		oval {
-			object {
-				x=210
-				y=76
-				width=10
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-				fill="outline"
-				width=2
-			}
-		}
-		oval {
-			object {
-				x=256
-				y=65
-				width=10
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-				fill="outline"
-				width=2
-			}
-		}
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=DFF-$(N)_NOUT"
+}
+composite {
+	object {
+		x=271
+		y=33
+		width=157
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=DFF-$(N)_POUT"
+}
+oval {
+	object {
+		x=210
+		y=29
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+		width=2
+	}
+}
+oval {
+	object {
+		x=210
+		y=78
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+		width=2
+	}
+}
+oval {
+	object {
+		x=256
+		y=65
+		width=10
+		height=10
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+		width=2
+	}
+}
+text {
+	object {
+		x=199
+		y=54
+		width=30
+		height=10
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="DFF-$(N)"
+}
+rectangle {
+	object {
+		x=192
+		y=51
+		width=45
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+		fill="outline"
 	}
 }

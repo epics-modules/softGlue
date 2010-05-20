@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlue_DivByN_bare.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue_DivByN_bare.adl"
 	version=030104
 }
 display {
@@ -198,19 +198,6 @@ polyline {
 		(174,51)
 	}
 }
-text {
-	object {
-		x=200
-		y=21
-		width=85
-		height=13
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="DIVIDE BY N"
-	align="horiz. centered"
-}
 polyline {
 	object {
 		x=311
@@ -365,7 +352,7 @@ rectangle {
 		height=14
 	}
 	"basic attribute" {
-		clr=14
+		clr=53
 		fill="outline"
 	}
 }
@@ -401,4 +388,16 @@ oval {
 		fill="outline"
 		width=2
 	}
+}
+text {
+	object {
+		x=216
+		y=23
+		width=50
+		height=10
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="DivByN-$(N)"
 }
