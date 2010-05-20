@@ -17,9 +17,8 @@ include $(TOP)/configure/CONFIG
 
 DB += softGlue_FPGAContent.db
 DB += softGlue_FPGAInt.db
-DB_INSTALLS += ../softGlue_SignalShow.db
+DB_INSTALLS += ../softGlue_SignalShow.db  softGlue_convenience.db
 DB_INSTALLS += ../EP200_FPGA.hex
-DB_INSTALLS += ../softGlue_settings.req
 
 include $(TOP)/configure/RULES
 #----------------------------------------
