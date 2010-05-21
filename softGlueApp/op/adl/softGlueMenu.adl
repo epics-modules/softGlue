@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/GOETZE/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlueMenu.adl"
+	name="/home/oxygen/MOONEY/epics/synApps_5_5/support/softGlue/softGlueApp/op/adl/softGlueMenu.adl"
 	version=030104
 }
 display {
@@ -296,9 +296,19 @@ composite {
 		args="P=$(P),H=$(H)"
 	}
 	display[1] {
-		label="half"
+		label="half1"
 		name="softGlueHalf.adl"
-		args="P=$(P),H=$(H)"
+		args="P=$(P),H=$(H),N=1"
+	}
+	display[2] {
+		label="half2"
+		name="softGlueHalf.adl"
+		args="P=$(P),H=$(H),N=2"
+	}
+	display[3] {
+		label="convenience"
+		name="softGlueConvenience.adl"
+		args="P=$(P),H=$(H),PORT=$(PORT)"
 	}
 	clr=0
 	bclr=63
