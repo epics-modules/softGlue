@@ -6,7 +6,7 @@ $(P)$(H)AND-2_IN1_Signal
 $(P)$(H)AND-2_IN2_Signal
 $(P)$(H)AND-2_NOUT_Signal
 $(P)$(H)AND-2_POUT_Signal
-$(P)$(H)CLK_8MHZ_Signal
+$(P)$(H)8MHZ_CLK_Signal
 $(P)$(H)DEMUX2-1_IN_Signal
 $(P)$(H)DEMUX2-1_OUT0_Signal
 $(P)$(H)DEMUX2-1_OUT1_Signal
