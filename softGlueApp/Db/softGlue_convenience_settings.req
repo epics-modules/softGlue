@@ -1,1 +1,4 @@
-file busyRecord_settings.req P=$(P) R=$(H)busy
+$(P)$(H)busy.OUT
+$(P)$(H)busy.FLNK
+$(P)$(H)pulseOut.OUT
+$(P)$(H)npulseOut.OUT
