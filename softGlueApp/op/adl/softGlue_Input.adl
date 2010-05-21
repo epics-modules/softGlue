@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlue_Input.adl"
+	name="/home/oxygen/MOONEY/epics/synApps_5_5/support/softGlue/softGlueApp/op/adl/softGlue_Input.adl"
 	version=030104
 }
 display {
@@ -190,9 +190,9 @@ oval {
 }
 "text update" {
 	object {
-		x=130
+		x=135
 		y=3
-		width=10
+		width=5
 		height=10
 	}
 	monitor {
