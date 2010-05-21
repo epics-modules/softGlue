@@ -136,6 +136,8 @@ pattern {SIG   ADDR}
 {MUX2-1_OUT    0x8002E8}
 {MUX2-2_OUT    0x800308}
 
+{CLK_8MHZ      0x8003E0}
+
 # These are inputs from the user's viewpoint, but they behave like softGlue
 # outputs.
 {FI1             0x800030}

@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps_5_5/support/softGlue/softGlueApp/op/adl/softGlueAll.adl"
+	name="/home/oxygen/GOETZE/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlueAll.adl"
 	version=030104
 }
 display {
@@ -212,7 +212,7 @@ composite {
 		x=470
 		y=620
 		width=411
-		height=73
+		height=74
 	}
 	"composite name"=""
 	"composite file"="softGlue_MUX2_bare.adl;P=$(P),H=$(H),N=1"
@@ -222,7 +222,7 @@ composite {
 		x=470
 		y=710
 		width=411
-		height=73
+		height=74
 	}
 	"composite name"=""
 	"composite file"="softGlue_MUX2_bare.adl;P=$(P),H=$(H),N=2"
@@ -251,7 +251,7 @@ composite {
 	object {
 		x=470
 		y=800
-		width=412
+		width=414
 		height=74
 	}
 	"composite name"=""
@@ -261,7 +261,7 @@ composite {
 	object {
 		x=470
 		y=890
-		width=412
+		width=414
 		height=74
 	}
 	"composite name"=""
@@ -1426,4 +1426,83 @@ composite {
 			textix="CONNECTOR #"
 		}
 	}
+}
+polyline {
+	object {
+		x=701
+		y=992
+		width=41
+		height=2
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+		width=2
+	}
+	points {
+		(741,993)
+		(702,993)
+	}
+}
+"text entry" {
+	object {
+		x=744
+		y=982
+		width=100
+		height=20
+	}
+	control {
+		chan="$(P)$(H)8MHZ_CLK_Signal"
+		clr=14
+		bclr=31
+	}
+	format="string"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=741
+		y=979
+		width=106
+		height=26
+	}
+	"basic attribute" {
+		clr=34
+		fill="outline"
+		width=3
+	}
+	"dynamic attribute" {
+		vis="if not zero"
+		calc="a"
+		chan="$(P)$(H)8MHZ_CLK_SigShow"
+	}
+}
+"message button" {
+	object {
+		x=847
+		y=982
+		width=20
+		height=20
+	}
+	control {
+		chan="$(P)$(H)8MHZ_CLK_Show"
+		clr=14
+		bclr=51
+	}
+	label="="
+	press_msg="1"
+	release_msg="0"
+}
+text {
+	object {
+		x=495
+		y=984
+		width=30
+		height=20
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="8 MHz Internal Clock"
 }

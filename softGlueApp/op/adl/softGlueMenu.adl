@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps_5_5/support/softGlue/softGlueApp/op/adl/softGlueMenu.adl"
+	name="/home/oxygen/GOETZE/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlueMenu.adl"
 	version=030104
 }
 display {
@@ -194,6 +194,11 @@ display {
 		label="Divide By N 2"
 		name="softGlue_DivByN.adl"
 		args="P=$(P),H=$(H),N=2"
+	}
+	display[13] {
+		label="8 MHZ Internal Clock"
+		name="softGlue_8MHZ_CK_bare.adl"
+		args="P=$(P),H=$(H)"
 	}
 	clr=0
 	bclr=63
