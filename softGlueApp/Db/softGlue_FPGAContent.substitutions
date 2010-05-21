@@ -136,7 +136,7 @@ pattern {SIG   ADDR}
 {MUX2-1_OUT    0x8002E8}
 {MUX2-2_OUT    0x800308}
 
-{CLK_8MHZ      0x8003E0}
+{8MHZ_CLK      0x8003E0}
 
 # These are inputs from the user's viewpoint, but they behave like softGlue
 # outputs.
@@ -163,8 +163,8 @@ file "softGlue_Register.db"
 {
 pattern {SIG     ADDR CALC}
 
-{DnCntr-1_PRESET 0x8001D8 A}
-{DnCntr-2_PRESET 0x800238 A}
+{DnCntr-1_PRESET 0x8001D8 A-1}
+{DnCntr-2_PRESET 0x800238 A-1}
 
 {DivByN-1_N      0x800208 A-1}
 {DivByN-2_N      0x800268 A-1}
