@@ -40,4 +40,8 @@ dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent.db", "P=xxx:,H=softGlue:,PORT
 
 # Interrupt support.
 dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAInt.db", "P=xxx:,H=softGlue:,IPORT=SGI1,IADDR=0,OPORT=SGO1,OADDR=0x10")
+
+# some stuff just to make working easier
+dbLoadRecords("$(SOFTGLUE)/db/softGlue_convenience.db", "P=xxx:,H=softGlue:,PORT=SOFTGLUE")
+
 # END softGlue.cmd ------------------------------------------------------------
