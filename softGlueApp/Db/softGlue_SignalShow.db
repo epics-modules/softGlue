@@ -24,3 +24,16 @@ record(bo,"$(P)$(H)ReadRateOFF") {
 	field(SCAN,"1 second")
 	field(UDF,"0")
 }
+# EPICS 3.14.8.2 needs this to get scan rates distributed on startup
+record(transform,"$(P)$(H)ReadRateInit") {
+	field(SCAN,"5 second")
+	# cache ReadRateON.SCAN
+	field(INPA,"$(P)$(H)ReadRateON.SCAN")
+	# set ReadRateON.SCAN to "Passive"
+	field(OUTB,"$(P)$(H)ReadRateON.SCAN CA")
+	# set ReadRateON.SCAN to cached value
+	field(CLCC,"A")
+	field(OUTC,"$(P)$(H)ReadRateON.SCAN CA")
+	# turn ourself off
+	field(OUTD,"$(P)$(H)ReadRateInit.SCAN CA")
+}
