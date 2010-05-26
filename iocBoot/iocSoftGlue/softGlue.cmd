@@ -1,7 +1,11 @@
 # BEGIN softGlue.cmd ----------------------------------------------------------
 # This must run after the IP carrier has been initialized (industryPack.cmd)
-#
-# Write content to the FPGA
+
+#devAsynSoftGlueDebug=1
+
+# Write content to the FPGA.  This command will fail if the FPGA already has
+# content loaded, as it will after a soft reboot.  To load new FPGA content,
+# you must power cycle the ioc.
 # initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filename)
 initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/db/EP200_FPGA.hex")
 
