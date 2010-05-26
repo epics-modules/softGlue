@@ -5,11 +5,11 @@
 	This file provides device support for the stringout record, and uses the
 	record's VAL field to determine a number to be written to a register
 	implemented in the firmware of an FPGA, which we write to using some other
-	asyn driver (drvIp1k125 for now).
+	asyn driver (drvIP_EP201).
 
     asynSoftGlue
         OUT contains <drvParams> which is passed to asynDrvUser.create (however,
-			drvIp1k125 doesn't support this)
+			 drvIP_EP201 doesn't support this)
         VAL is used to derive the value to be sent.
 */
 
@@ -36,12 +36,13 @@
 #include <recSup.h>
 #include <devSup.h>
 #include <dbEvent.h>
+#include <dbStaticLib.h> /* info item */
 
 #include <epicsExport.h>
 #include "asynDriver.h"
 #include "asynDrvUser.h"
 #include "asynUInt32Digital.h"
-/* Ideally, we would use ...SyncIO, but drvIp1k125 doesn't implement this interface. */
+/* Ideally, we would use ...SyncIO, but drvIP_EP201 doesn't implement this interface. */
 /* #include "asynUInt32DigitalSyncIO.h" */
 #include "asynEpicsUtils.h"
 #include <epicsExport.h>
@@ -61,6 +62,7 @@ typedef struct devPvt {
 	CALLBACK	callback;
 	int			portInfoNum;
 	int			signalNum;
+	int 		isOutput;
 } devPvt;
 
 static long report(int level);
@@ -94,6 +96,20 @@ epicsExportAddress(dset, asynSoftGlue);
 #define MAXSIGNALS 16
 #define MAXPORTS 5
 #define ACCEPT_BUS_LINE_NUMBER 0
+
+/* If signal name ends with '*', use inverted value of signal.  Only valid for inputs.
+ * If implemented, output names will have trailing '*' stripped.
+ */
+#define IMPLEMENT_SIGNAL_NAME_STAR 0
+
+/* a softGlue stringout record can identify itself as an input or an output either
+ * by having the first character of its DESC field be 'O', or by defining the info
+ * item 'softGlueIO' as a character string whose first character is 'O'.  DESC is
+ * supported because this permits softGlue to be back ported to versions of EPICS
+ * that don't support info items.  If USE_INFO_ITEM==1, we'll look for the info item,
+ * but we'll check DESC if the item is not found. 
+ */
+#define USE_INFO_ITEM 0
 
 struct sigEntry {
 	char name[40];
@@ -139,6 +155,32 @@ static int isBusLine(char *s) {
 #endif
 }
 
+static void initSignal(stringoutRecord *pso) {
+	devPvt *pdevPvt = (devPvt *)pso->dpvt;
+	const char *info_value=NULL;
+#if USE_INFO_ITEM
+	DBENTRY dbentry;
+	DBENTRY *pdbentry = &dbentry;
+#endif
+
+#if USE_INFO_ITEM
+	dbInitEntry(pdbbase,pdbentry);
+	if (dbFindRecord(pdbentry, pso->name) == 0) {
+		info_value = dbGetInfo(pdbentry, "softGlueIO");
+		if (devAsynSoftGlueDebug)
+			printf("checkSignal: info_value='%s'\n", info_value);
+	}
+	dbFinishEntry(pdbentry);
+#endif
+
+	if (info_value) {
+		pdevPvt->isOutput = (*info_value == 'O');
+	} else {
+		pdevPvt->isOutput = (pso->desc[0] == 'O');
+	}
+}
+
+
 /* Check the signal name (the val field) and the signal number (pdevPvt->signalNum).  If there is
  * a disagreement, reconcile it.  If it can't be reconciled, return -1.
  */
@@ -147,15 +189,27 @@ static long checkSignal(stringoutRecord *pso) {
 	int i, needPost=0;
 	char *c;
 	struct portInfo *pi = &(portInfo[pdevPvt->portInfoNum]);
+	int portNum=-1;
+	struct recordListItem *pitem;
 
-	if (devAsynSoftGlueDebug)
-		printf("checkSignal:entry: val='%s', old signal=%d\n", pso->val, pdevPvt->signalNum);
+	if (devAsynSoftGlueDebug) {
+		printf("checkSignal:entry: val='%s', old signal=%d (%s)\n", pso->val,
+			pdevPvt->signalNum, pdevPvt->isOutput?"output":"input");
+	}
 
-	/* Delete leading whitespace */
+	/* Delete any leading whitespace */
 	while (isspace((int)pso->val[0])) {
 		for (c=&(pso->val[1]); *c; c++) *(c-1) = *c;
 		*(c-1) = '\0';
 		needPost = 1;
+	}
+
+	/* Most traffic will be numeric values written to unassigned inputs.
+	 * Handle with this shortcut.
+	 */
+	if ((pdevPvt->isOutput==0) && (isdigit((int)pso->val[0])) && (pdevPvt->signalNum==0)) {
+		if (needPost) db_post_events(pso, &pso->val, DBE_VALUE);
+		return(0);
 	}
 
 	/* See if this signal's new name is the PVname of some other signal attached to the same port.
@@ -163,33 +217,36 @@ static long checkSignal(stringoutRecord *pso) {
 	 * this to connect the signals.  If the source signal has a name, we can do what user wants;
 	 * otherwise, we can at least make the signal names the same empty string.
 	 */
-	{
-		int portNum=-1;
-		struct recordListItem *pitem;
-		for (i=0; i<MAXPORTS; i++) {
-			if (strcmp(pi->portName, portInfo[i].portName) == 0) portNum = i;
-		}
-		if (portNum >= 0) {
-			pitem = (struct recordListItem *)ellFirst(&(portInfo[portNum].recordList));
-			while (pitem) {
-				if (strcmp(pitem->precord->name, pso->val) == 0) {
-					strcpy(pso->val, pitem->precord->val);
-					needPost = 1;
-					break;
-				}
-				pitem = (struct recordListItem *)ellNext(&(pitem->node));
+	for (i=0; i<MAXPORTS; i++) {
+		if (strcmp(pi->portName, portInfo[i].portName) == 0) portNum = i;
+	}
+	if (portNum >= 0) {
+		pitem = (struct recordListItem *)ellFirst(&(portInfo[portNum].recordList));
+		while (pitem) {
+			if (strcmp(pitem->precord->name, pso->val) == 0) {
+				strcpy(pso->val, pitem->precord->val);
+				needPost = 1;
+				break;
 			}
+			pitem = (struct recordListItem *)ellNext(&(pitem->node));
 		}
 	}
 
 	/* If signal is an output, leading decimal digit is illegal */
-	if (pso->desc[0] == 'O') {
+	if (pdevPvt->isOutput) {
 		/* signal is an output.  If deleted leading digit leaves a leading space, delete that too. */
 		while (isdigit((int)pso->val[0]) || isspace((int)pso->val[0])) {
 			for (c=&(pso->val[1]); *c; c++) *(c-1) = *c;
 			*(c-1) = '\0';
 			needPost = 1;
 		}
+#if IMPLEMENT_SIGNAL_NAME_STAR
+		/* output-signal names are not permitted to end in '*' */
+		if (pso->val[strlen(pso->val)-1] == '*') {
+			pso->val[strlen(pso->val)-1] = '\0';
+			needPost = 1;
+		}
+#endif
 	}
 
 	if (needPost) db_post_events(pso, &pso->val, DBE_VALUE);
@@ -225,6 +282,13 @@ static long checkSignal(stringoutRecord *pso) {
 	}
 
 	/* We're not attached to a nonzero signal. */
+
+	if (isdigit((int)pso->val[0])) {
+		/* shortcut above should already have handled this case */
+		epicsMutexUnlock(pi->sig_mutex);
+		return(0);
+	}
+
 	if (isBusLine(pso->val)) {
 		/* 'B0' .. 'Bnn', where nn is MAXSIGNALS-1. */
 		i = atoi(pso->val+1);
@@ -233,6 +297,7 @@ static long checkSignal(stringoutRecord *pso) {
 		epicsMutexUnlock(pi->sig_mutex);
 		return(0);
 	} else if (pso->val[0]) {
+		if (devAsynSoftGlueDebug) printf("checkSignal: Signal name = '%s'\n", pso->val);
 		/* We have a signal name.  See if it's already assigned. */
 		for (i=1; i<MAXSIGNALS; i++) {
 			if (strcmp(pso->val, pi->sigList[i].name) == 0) {
@@ -402,6 +467,9 @@ static long initCommon(dbCommon *precord, DBLINK *plink, userCallback callback)
 		goto bad;
 	}
 
+	/* initialize the signal */
+	initSignal((stringoutRecord *)precord);
+
 	/* Add the record to the port's recordList */
     {
 		struct recordListItem *pitem = (struct recordListItem *) malloc(sizeof(struct recordListItem));
@@ -542,13 +610,23 @@ static void callbackSoWrite(asynUser *pasynUser)
 		}
 	} else if (pso->val[0] == 0) {
 		/*
-		 * Sstring is empty.  We want unconnected inputs to default to '1'. 
+		 * String is empty.  We want unconnected inputs to default to '1'. 
 		 * If this is an output, the value 0x20 will have no effect in the circuit.
 		 */
 		value = 0x20;
 	} else {
 		/* It's not a number.  Use assigned signalNum. */
 		value = pdevPvt->signalNum;
+
+#if IMPLEMENT_SIGNAL_NAME_STAR
+		/* If signal name end with '*', set bit in control register that tells
+		 * the FPGA component to negate the signal.  We're just thinking about adding
+		 * this feature.
+		 */
+		if (pso->val[strlen(pso->val)-1] == '*') {
+			value |= 0x40;
+		}
+#endif
 
 #if ACCEPT_BUS_LINE_NUMBER
 		/* If 'B0*' or 'B1*', use number directly as signal number. */
