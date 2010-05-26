@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlueTop.adl"
+	name="/home/oxygen/MOONEY/epics/synApps_5_5/support/softGlue/softGlueApp/op/adl/softGlueTop.adl"
 	version=030104
 }
 display {
@@ -147,17 +147,12 @@ display {
 	display[2] {
 		label="softGlueMenu"
 		name="softGlueMenu.adl"
-		args="P=xxx:,H=softGlue:"
+		args="P=xxx:,H=softGlue:,PORT=SOFTGLUE"
 	}
 	display[3] {
 		label="softGlueAll"
 		name="softGlueAll.adl"
-		args="P=xxx:,H=softGlue:"
-	}
-	display[4] {
-		label="softGlueAllDebug"
-		name="softGlueAllDebug.adl"
-		args="P=xxx:,H=softGlue:"
+		args="P=xxx:,H=softGlue:,PORT=SOFTGLUE"
 	}
 	clr=0
 	bclr=17
