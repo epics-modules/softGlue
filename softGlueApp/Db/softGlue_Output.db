@@ -3,6 +3,7 @@ record(stringout,"$(P)$(H)$(SIG)_Signal") {
 	field(PINI,"YES")
 	field(DTYP,"softGlue")
 	field(OUT,"@asynMask($(PORT),$(ADDR),0x2f)")
+	info(softGlueIO,"OUT")
 }
 record(mbbo,"$(P)$(H)$(SIG)_Show") {
 	field(FLNK,"$(P)$(H)$(SIG)_DoShow")
