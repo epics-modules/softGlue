@@ -109,7 +109,7 @@ epicsExportAddress(dset, asynSoftGlue);
  * that don't support info items.  If USE_INFO_ITEM==1, we'll look for the info item,
  * but we'll check DESC if the item is not found. 
  */
-#define USE_INFO_ITEM 0
+#define USE_INFO_ITEM 1
 
 struct sigEntry {
 	char name[40];
