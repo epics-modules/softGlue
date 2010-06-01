@@ -35,3 +35,41 @@ pattern {NAM PORT ADDR MASK}
 {Out_15 $(OPORT) $(OADDR) 0x4000}
 {Out_16 $(OPORT) $(OADDR) 0x8000}
 }
+
+file "softGlue_IntEdge.db"
+{
+pattern {NAM PORT ADDR MASK}
+{In_1  $(IPORT) $(IADDR) 0x00003}
+{In_2  $(IPORT) $(IADDR) 0x00006}
+{In_3  $(IPORT) $(IADDR) 0x0000c}
+{In_4  $(IPORT) $(IADDR) 0x00018}
+{In_5  $(IPORT) $(IADDR) 0x00030}
+{In_6  $(IPORT) $(IADDR) 0x00060}
+{In_7  $(IPORT) $(IADDR) 0x000c0}
+{In_8  $(IPORT) $(IADDR) 0x00180}
+{In_9  $(IPORT) $(IADDR) 0x00300}
+{In_10 $(IPORT) $(IADDR) 0x00600}
+{In_11 $(IPORT) $(IADDR) 0x00c00}
+{In_12 $(IPORT) $(IADDR) 0x01800}
+{In_13 $(IPORT) $(IADDR) 0x03000}
+{In_14 $(IPORT) $(IADDR) 0x06000}
+{In_15 $(IPORT) $(IADDR) 0x0c000}
+{In_16 $(IPORT) $(IADDR) 0x18000}
+
+{Out_1  $(OPORT) $(OADDR) 0x00003}
+{Out_2  $(OPORT) $(OADDR) 0x00006}
+{Out_3  $(OPORT) $(OADDR) 0x0000c}
+{Out_4  $(OPORT) $(OADDR) 0x00018}
+{Out_5  $(OPORT) $(OADDR) 0x00030}
+{Out_6  $(OPORT) $(OADDR) 0x00060}
+{Out_7  $(OPORT) $(OADDR) 0x000c0}
+{Out_8  $(OPORT) $(OADDR) 0x00180}
+{Out_9  $(OPORT) $(OADDR) 0x00300}
+{Out_10 $(OPORT) $(OADDR) 0x00600}
+{Out_11 $(OPORT) $(OADDR) 0x00c00}
+{Out_12 $(OPORT) $(OADDR) 0x01800}
+{Out_13 $(OPORT) $(OADDR) 0x03000}
+{Out_14 $(OPORT) $(OADDR) 0x06000}
+{Out_15 $(OPORT) $(OADDR) 0x0c000}
+{Out_16 $(OPORT) $(OADDR) 0x18000}
+}
