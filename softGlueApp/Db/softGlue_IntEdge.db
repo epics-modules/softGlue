@@ -1,0 +1,20 @@
+# This record controls which edge of a signal causes an interrupt.
+# This is a kludge implemented by softGlue's drvIP_EP201's readUInt32D() and
+# writeUInt32D() to interpret the behavior of the mbbo record, and of
+# asyn asynUInt32Digital support to implement a two-bit menu for the user,
+# and have that menu control one bit of drvIP_EP201's risingIntEnable and
+# fallingIntEnable registers.  The mask $(MASK) must have two adjacent bits
+# set, the lower of which tells drvIP_EP201 which bit actually to read/write.
+record(mbbo,"$(P)$(H)$(NAM)IntEdge") {
+	field(DTYP,"asynUInt32Digital")
+	field(OUT,"@asynMask($(PORT),$(ADDR),$(MASK))INTEDGE")
+	field(NOBT,"2")
+	field(ZRVL,"0")
+	field(ONVL,"1")
+	field(TWVL,"2")
+	field(THVL,"3")
+	field(ZRST,"None")
+	field(ONST,"Rising")
+	field(TWST,"Falling")
+	field(THST,"Both")
+}
