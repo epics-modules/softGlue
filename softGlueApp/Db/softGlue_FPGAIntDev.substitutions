@@ -36,3 +36,41 @@ pattern {P  H 	NAM PORT ADDR MASK}
 {xxx: softGlue: Out_15 SGO1 0x10 0x4000}
 {xxx: softGlue: Out_16 SGO1 0x10 0x8000}
 }
+
+file "$(SOFTGLUE)/softGlueApp/Db/softGlue_IntEdge.db"
+{
+pattern {NAM PORT ADDR MASK}
+{xxx: softGlue: In_1  SGI1 0 0x00003}
+{xxx: softGlue: In_2  SGI1 0 0x00006}
+{xxx: softGlue: In_3  SGI1 0 0x0000c}
+{xxx: softGlue: In_4  SGI1 0 0x00018}
+{xxx: softGlue: In_5  SGI1 0 0x00030}
+{xxx: softGlue: In_6  SGI1 0 0x00060}
+{xxx: softGlue: In_7  SGI1 0 0x000c0}
+{xxx: softGlue: In_8  SGI1 0 0x00180}
+{xxx: softGlue: In_9  SGI1 0 0x00300}
+{xxx: softGlue: In_10 SGI1 0 0x00600}
+{xxx: softGlue: In_11 SGI1 0 0x00c00}
+{xxx: softGlue: In_12 SGI1 0 0x01800}
+{xxx: softGlue: In_13 SGI1 0 0x03000}
+{xxx: softGlue: In_14 SGI1 0 0x06000}
+{xxx: softGlue: In_15 SGI1 0 0x0c000}
+{xxx: softGlue: In_16 SGI1 0 0x18000}
+
+{xxx: softGlue: Out_1  SGO1 0x10 0x00003}
+{xxx: softGlue: Out_2  SGO1 0x10 0x00006}
+{xxx: softGlue: Out_3  SGO1 0x10 0x0000c}
+{xxx: softGlue: Out_4  SGO1 0x10 0x00018}
+{xxx: softGlue: Out_5  SGO1 0x10 0x00030}
+{xxx: softGlue: Out_6  SGO1 0x10 0x00060}
+{xxx: softGlue: Out_7  SGO1 0x10 0x000c0}
+{xxx: softGlue: Out_8  SGO1 0x10 0x00180}
+{xxx: softGlue: Out_9  SGO1 0x10 0x00300}
+{xxx: softGlue: Out_10 SGO1 0x10 0x00600}
+{xxx: softGlue: Out_11 SGO1 0x10 0x00c00}
+{xxx: softGlue: Out_12 SGO1 0x10 0x01800}
+{xxx: softGlue: Out_13 SGO1 0x10 0x03000}
+{xxx: softGlue: Out_14 SGO1 0x10 0x06000}
+{xxx: softGlue: Out_15 SGO1 0x10 0x0c000}
+{xxx: softGlue: Out_16 SGO1 0x10 0x18000}
+}
