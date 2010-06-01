@@ -124,9 +124,12 @@ extern int logMsg(char *fmt, ...);
 #include <epicsExport.h>
 #include <iocsh.h>
 #include <asynDriver.h>
+#include <asynDrvUser.h> /* used for setting interrupt enable to rising, falling, or both */
 #include <asynUInt32Digital.h>
 #include <asynInt32.h>
 #include <epicsInterrupt.h>
+
+volatile int drvIP_EP201Debug = 0;
 
 #define DO_IPMODULE_CHECK 1
 #define APS_ID	0x53
@@ -136,19 +139,23 @@ extern int logMsg(char *fmt, ...);
 #define COMPONENTTYPE_FIELD_IO 0
 #define COMPONENTTYPE_BARE_REG 1
 
+/* drvParams */
+#define INTERRUPT_EDGE	1	/* drvParam INTEDGE */
+#define POLL_TIME		2	/* drvParam POLLTIME */
+
 typedef struct {
     epicsUInt16 controlRegister;    /* control register            */
     epicsUInt16 writeDataRegister;  /* 16-bit data write/read      */
     epicsUInt16 readDataRegister;   /* Input Data Read register    */
-    epicsUInt16 risingIntStatus;    /* Rising Int Status Register  */
-    epicsUInt16 risingIntEnable;    /* Rising Int Enable Reg       */
     epicsUInt16 fallingIntStatus;   /* Falling Int Status Register */
     epicsUInt16 fallingIntEnable;   /* Falling Int Enable Register */
+    epicsUInt16 risingIntStatus;    /* Rising Int Status Register  */
+    epicsUInt16 risingIntEnable;    /* Rising Int Enable Reg       */
 } fieldIO_registerSet;
 
 typedef struct {
-    epicsUInt32 bits;
-    epicsUInt32 interruptMask;
+    epicsUInt16 bits;
+    epicsUInt16 interruptMask;
 } interruptMessage;
 
 typedef struct {
@@ -169,6 +176,7 @@ typedef struct {
     int messagesSent;
     int messagesFailed;
     asynInterface common;
+	asynInterface asynDrvUser;
     asynInterface uint32D;
     asynInterface int32;
     void *interruptPvt;
@@ -190,19 +198,30 @@ static const struct asynCommon IP_EP201Common = {
 };
 
 /*
+ * asynDrvUser interface
+ */
+static asynStatus create_asynDrvUser(void *drvPvt,asynUser *pasynUser,
+    const char *drvInfo, const char **pptypeName,size_t *psize);
+static asynStatus getType_asynDrvUser(void *drvPvt,asynUser *pasynUser,
+    const char **pptypeName,size_t *psize);
+static asynStatus destroy_asynDrvUser(void *drvPvt,asynUser *pasynUser);
+static asynDrvUser drvUser = {create_asynDrvUser, getType_asynDrvUser, destroy_asynDrvUser};
+
+/*
  * asynUInt32Digital interface - we only implement part of this interface.
  */
-static asynStatus readUInt32D      	(void *drvPvt, asynUser *pasynUser,
-                                    	epicsUInt32 *value, epicsUInt32 mask);
-static asynStatus writeUInt32D     	(void *drvPvt, asynUser *pasynUser,
-                                    	epicsUInt32 value, epicsUInt32 mask);
+static asynStatus readUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 *value, epicsUInt32 mask);
+static asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 value, epicsUInt32 mask);
+static asynStatus setInterruptUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 mask, interruptReason reason);
+static asynStatus clearInterruptUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 mask);
+
 
 /* default implementations are provided by asynUInt32DigitalBase. */
 static struct asynUInt32Digital IP_EP201UInt32D = {
     writeUInt32D, /* write */
     readUInt32D,  /* read */
-    NULL,         /* setInterrupt: default does nothing */
-    NULL,         /* clearInterrupt: default does nothing */
+    setInterruptUInt32D,	/* setInterrupt (not used) */
+    clearInterruptUInt32D,	/* clearInterrupt (not used) */
     NULL,         /* getInterrupt: default does nothing */
     NULL,         /* registerInterruptUser: default adds user to pollerThread's clientList. */
     NULL          /* cancelInterruptUser: default removes user from pollerThread's clientList. */
@@ -281,6 +300,10 @@ int initIP_EP201(const char *portName, ushort_t carrier, ushort_t slot,
 	pPvt->common.pinterface  = (void *)&IP_EP201Common;
 	pPvt->common.drvPvt = pPvt;
 
+	pPvt->asynDrvUser.interfaceType = asynDrvUserType;
+	pPvt->asynDrvUser.pinterface = (void *)&drvUser;
+	pPvt->asynDrvUser.drvPvt = pPvt;
+
 	pPvt->uint32D.interfaceType = asynUInt32DigitalType;
 	pPvt->uint32D.pinterface  = (void *)&IP_EP201UInt32D;
 	pPvt->uint32D.drvPvt = pPvt;
@@ -301,6 +324,11 @@ int initIP_EP201(const char *portName, ushort_t carrier, ushort_t slot,
 	status = pasynManager->registerInterface(pPvt->portName,&pPvt->common);
 	if (status != asynSuccess) {
 		errlogPrintf("initIP_EP201 ERROR: Can't register common.\n");
+		return(-1);
+	}
+	status = pasynManager->registerInterface(pPvt->portName,&pPvt->asynDrvUser);
+	if (status != asynSuccess){
+		errlogPrintf("initIP_EP201 ERROR: Can't register asynDrvUser.\n");
 		return(-1);
 	}
 	status = pasynUInt32DigitalBase->initialize(pPvt->portName, &pPvt->uint32D);
@@ -342,10 +370,10 @@ int initIP_EP201(const char *portName, ushort_t carrier, ushort_t slot,
 		(EPICSTHREADFUNC)pollerThread, pPvt);
 
 	/* Interrupt support
-	 * If the risingMask and the fallingMask are zero, don't bother with interrupts, 
+	 * If risingMask, fallingMask, and intVector are zero, don't bother with interrupts, 
 	 * since the user probably didn't pass this parameter to initIP_EP201()
 	 */
-	if (pPvt->risingMask || pPvt->fallingMask) {
+	if (pPvt->intVector || pPvt->risingMask || pPvt->fallingMask) {
 	
 		pPvt->regs->risingIntStatus = risingMask;
 		pPvt->regs->fallingIntStatus = fallingMask;
@@ -370,6 +398,33 @@ int initIP_EP201(const char *portName, ushort_t carrier, ushort_t slot,
 	epicsAtExit(rebootCallback, pPvt);
 	return(0);
 }
+
+static asynStatus create_asynDrvUser(void *drvPvt,asynUser *pasynUser,
+	const char *drvInfo, const char **pptypeName,size_t *psize)
+{
+	/* printf("drvIP_EP201:create_asynDrvUser: entry drvInfo='%s'\n", drvInfo); */
+	if (!drvInfo) {
+		pasynUser->reason = 0;
+	} else {
+		if (strcmp(drvInfo, "INTEDGE") == 0) pasynUser->reason = INTERRUPT_EDGE;
+		if (strcmp(drvInfo, "POLLTIME") == 0) pasynUser->reason = POLL_TIME;
+	}
+	return(asynSuccess);
+}
+
+static asynStatus getType_asynDrvUser(void *drvPvt,asynUser *pasynUser,
+	const char **pptypeName,size_t *psize)
+{
+	printf("drvIP_EP201:getType_asynDrvUser: entry\n");
+	return(asynSuccess);
+}
+
+static asynStatus destroy_asynDrvUser(void *drvPvt,asynUser *pasynUser)
+{
+	printf("drvIP_EP201:destroy_asynDrvUser: entry\n");
+	return(asynSuccess);
+}
+
 
 /* Initialize IP module */
 int initIP_EP201SingleRegisterPort(const char *portName, ushort_t carrier, ushort_t slot)
@@ -595,7 +650,21 @@ static asynStatus readUInt32D(void *drvPvt, asynUser *pasynUser,
 
 	*value = 0;
 	if (pPvt->is_fieldIO_registerSet) {
-		*value = (epicsUInt32) (pPvt->regs->readDataRegister & mask);
+		if (pasynUser->reason == 0) {
+			/* read data */
+			*value = (epicsUInt32) (pPvt->regs->readDataRegister & mask);
+		} else if (pasynUser->reason == INTERRUPT_EDGE) {
+			/* read interrupt-enable edge bits*/
+			epicsUInt16 rising, falling;
+			*value = 0;
+			rising = (epicsUInt16) (pPvt->regs->risingIntEnable & (mask&(mask>>1)) );
+			falling = (epicsUInt16) (pPvt->regs->fallingIntEnable & (mask&(mask>>1)) );
+			if (rising) *value |= 1;
+			if (falling) *value |= 2;
+			for (; mask && ((mask&1) == 0); mask>>=1, *value<<=1);
+		} else if (pasynUser->reason == POLL_TIME) {
+			*value = pPvt->pollTime*1000;
+		}
 	} else {
 		reg = calcRegisterAddress(drvPvt, pasynUser);
 		*value = (epicsUInt32) (*reg & mask);
@@ -620,9 +689,38 @@ static asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 va
 {
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	volatile epicsUInt16 *reg=0;
+	epicsUInt32 maskCopy;
 
 	if (pPvt->is_fieldIO_registerSet) {
-		pPvt->regs->writeDataRegister = (pPvt->regs->writeDataRegister & ~mask) | (value & mask);	
+		if (pasynUser->reason == 0) {
+			/* write data */
+			pPvt->regs->writeDataRegister = (pPvt->regs->writeDataRegister & ~mask) | (value & mask);	
+		} else if (pasynUser->reason == INTERRUPT_EDGE) {
+			/* set interrupt-enable edge bits */
+			/* move value from shifted position to unshifted position */
+			for (maskCopy=mask; maskCopy && ((maskCopy&1) == 0); maskCopy>>=1, value>>=1);
+			maskCopy = mask & (mask>>1); /* use lower bit only of two-bit mask for register write */
+			pPvt->regs->risingIntEnable = (pPvt->regs->risingIntEnable & ~maskCopy);
+			pPvt->regs->fallingIntEnable = (pPvt->regs->fallingIntEnable & ~maskCopy);
+			switch (value) {
+			case 0: /* disable interrupt from this bit */
+				break;
+			case 1: /* rising-edge only */
+				pPvt->regs->risingIntEnable = (pPvt->regs->risingIntEnable & ~maskCopy) | maskCopy;
+				break;
+			case 2: /* falling-edge only */
+				pPvt->regs->fallingIntEnable = (pPvt->regs->fallingIntEnable & ~maskCopy) | maskCopy;
+				break;
+			case 3: /* rising-edge and falling-edge */
+				pPvt->regs->risingIntEnable = (pPvt->regs->risingIntEnable & ~maskCopy) | maskCopy;
+				pPvt->regs->fallingIntEnable = (pPvt->regs->fallingIntEnable & ~maskCopy) | maskCopy;
+				break;
+			}
+			pPvt->risingMask = pPvt->regs->risingIntEnable;
+			pPvt->fallingMask = pPvt->regs->fallingIntEnable;
+		} else if (pasynUser->reason == POLL_TIME) {
+			pPvt->pollTime = value/1000;
+		}
 	} else {
 		int addr;
 		pasynManager->getAddr(pasynUser, &addr);
@@ -635,7 +733,8 @@ static asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 va
 	}
 
 	asynPrint(pasynUser, ASYN_TRACEIO_DRIVER,
-		"drvIP_EP201::writeUInt32D, addr=0x%X, value=0x%X, mask=0x%X\n", reg, value, mask);
+		"drvIP_EP201::writeUInt32D, addr=0x%X, value=0x%X, mask=0x%X, reason=%d\n",
+			reg, value, mask, pasynUser->reason);
 	return(asynSuccess);
 }
 
@@ -653,11 +752,15 @@ static asynStatus readInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 *value
 
 	*value = 0;
 
-	if (pPvt->is_fieldIO_registerSet) {
-		*value = (epicsUInt32) pPvt->regs->readDataRegister;
-	} else {
-		reg = calcRegisterAddress(drvPvt, pasynUser);
-		*value = (epicsUInt32)(*reg);
+	if (pasynUser->reason == 0) {
+		if (pPvt->is_fieldIO_registerSet) {
+			*value = (epicsUInt32) pPvt->regs->readDataRegister;
+		} else {
+			reg = calcRegisterAddress(drvPvt, pasynUser);
+			*value = (epicsUInt32)(*reg);
+		}
+	} else if (pasynUser->reason == POLL_TIME) {
+		*value = (epicsUInt32) (pPvt->pollTime*1000);
 	}
 
 	asynPrint(pasynUser, ASYN_TRACEIO_DRIVER,
@@ -676,15 +779,19 @@ static asynStatus writeInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 value
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	volatile epicsUInt16 *reg;
 
-	if (pPvt->is_fieldIO_registerSet) {
-		pPvt->regs->writeDataRegister = (epicsUInt16) value;	
-	} else {
-		reg = calcRegisterAddress(drvPvt, pasynUser);
-		*reg = (epicsUInt16) value;
+	if (pasynUser->reason == 0) {
+		if (pPvt->is_fieldIO_registerSet) {
+			pPvt->regs->writeDataRegister = (epicsUInt16) value;	
+		} else {
+			reg = calcRegisterAddress(drvPvt, pasynUser);
+			*reg = (epicsUInt16) value;
+		}
+	} else if (pasynUser->reason == POLL_TIME) {
+			pPvt->pollTime = value/1000;
 	}
 
 	asynPrint(pasynUser, ASYN_TRACEIO_DRIVER,
-		"drvIP_EP201::writeInt32, value=0x%X\n",value);
+		"drvIP_EP201::writeInt32, value=0x%X, reason=%d\n",value, pasynUser->reason);
 	return(asynSuccess);
 }
 
@@ -716,31 +823,32 @@ static asynStatus getBounds(void *drvPvt, asynUser *pasynUser, epicsInt32 *low, 
 static void intFunc(void *drvPvt)
 {
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
-	epicsUInt32 inputs=0, pendingLow, pendingHigh, pendingMask;
+	epicsUInt16 pendingLow, pendingHigh, pendingMask;
 	interruptMessage msg;
 
 	/* Make sure interrupt is from this hardware.  Otherwise just leave. */
 	if (pPvt->regs->risingIntStatus || pPvt->regs->fallingIntStatus) {
+		if (drvIP_EP201Debug) {
+			logMsg("fallingIntStatus=0x%x, risingIntStatus=0x%x\n", pPvt->regs->fallingIntStatus, pPvt->regs->risingIntStatus);
+			logMsg("fallingIntEnable=0x%x, risingIntEnable=0x%x\n", pPvt->regs->fallingIntEnable, pPvt->regs->risingIntEnable);
+		}
 		pendingLow = pPvt->regs->fallingIntStatus;
 		pendingHigh = pPvt->regs->risingIntStatus;
-		pendingMask = pendingLow | pendingHigh;
-		/* any write to these registers clears respective IntStatus */
-		pPvt->regs->fallingIntStatus = 0;
-		pPvt->regs->risingIntStatus = 0;
+		msg.interruptMask = (pendingLow & pPvt->regs->fallingIntEnable);
+		msg.interruptMask |= (pendingHigh & pPvt->regs->risingIntEnable);
 
 		/* Read the current input */
-		inputs = (epicsUInt16) pPvt->regs->readDataRegister;
-		msg.bits = inputs;
-		msg.interruptMask = pendingMask;
+		msg.bits = pPvt->regs->readDataRegister;
+		if (drvIP_EP201Debug) logMsg("interruptMask=0x%x\n", msg.interruptMask);
 
 		if (epicsMessageQueueTrySend(pPvt->msgQId, &msg, sizeof(msg)) == 0)
 			pPvt->messagesSent++;
 		else
 			pPvt->messagesFailed++;
-		/* Clear the interrupts */
+		/* Clear the interrupt bits we handled */
 		pPvt->regs->risingIntStatus = pendingHigh;
 		pPvt->regs->fallingIntStatus = pendingLow;
-		
+
 		/* Generate dummy read cycle for PPC */
 		pendingHigh = pPvt->regs->risingIntStatus;
 	}
@@ -755,11 +863,13 @@ static void intFunc(void *drvPvt)
 
 static void pollerThread(drvIP_EP201Pvt *pPvt)
 {
-	epicsUInt32 newBits, changedBits, interruptMask=0;
+	epicsUInt32 newBits32=0;
+	epicsUInt16 newBits=0, changedBits=0, interruptMask=0;
 	interruptMessage msg;
 	ELLLIST *pclientList;
 	interruptNode *pnode;
 	asynUInt32DigitalInterrupt *pUInt32D;
+	int hardware = 0;
 
 	while(1) {
 		/*  Wait for an interrupt or for the poll time, whichever comes first */
@@ -770,22 +880,28 @@ static void pollerThread(drvIP_EP201Pvt *pPvt)
 			 * to read the bits.  If there was an interrupt the bits got
 			 * set in the interrupt routine
 			 */
-			readUInt32D(pPvt, pPvt->pasynUser, &newBits, 0xffff);
+			readUInt32D(pPvt, pPvt->pasynUser, &newBits32, 0xffff);
+			newBits = newBits32;
+			hardware = 0;
 		} else {
 			newBits = msg.bits;
 			interruptMask = msg.interruptMask;
 			asynPrint(pPvt->pasynUser, ASYN_TRACE_FLOW,
 				"drvIP_EP201:pollerThread, got interrupt for port %s\n", pPvt->portName);
+			hardware = 1;
 		}
 		asynPrint(pPvt->pasynUser, ASYN_TRACEIO_DRIVER,
 			"drvIP_EP201:pollerThread, bits=%x\n", newBits);
 
 		/* We detect change both from interruptMask (which only works for
 		 * hardware interrupts) and changedBits, which works for polling */
-		/* printf("drvIP_EP201:pollerThread: new=%d, old=%d\n", newBits, pPvt->oldBits); */
-		changedBits = newBits ^ pPvt->oldBits;
-		interruptMask = interruptMask & changedBits;
-		/* printf("drvIP_EP201:pollerThread: changed=%d, IntMask=%d\n", changedBits, interruptMask); */
+		if (drvIP_EP201Debug) printf("drvIP_EP201:pollerThread: new=%d, old=%d\n", newBits, pPvt->oldBits);
+		if (hardware==0) {
+			changedBits = newBits ^ pPvt->oldBits;
+			interruptMask = interruptMask & changedBits;
+		}
+		if (drvIP_EP201Debug)
+			printf("drvIP_EP201:pollerThread: hardware=%d, IntMask=0x%x\n", hardware, interruptMask);
 		if (interruptMask) {
 			pPvt->oldBits = newBits;
 			pasynManager->interruptStart(pPvt->interruptPvt, &pclientList);
@@ -793,12 +909,9 @@ static void pollerThread(drvIP_EP201Pvt *pPvt)
 			while (pnode) {
 				pUInt32D = pnode->drvPvt;
 				if (pUInt32D->mask & interruptMask) {
-					asynPrint(pPvt->pasynUser, ASYN_TRACE_FLOW,
-						"drvIP_EP201:pollerThread, calling client %p"
-						" mask=%x, callback=%p\n",
-						pUInt32D, pUInt32D->mask, pUInt32D->callback);
-					pUInt32D->callback(pUInt32D->userPvt, pUInt32D->pasynUser,
-						pUInt32D->mask & newBits);
+					asynPrint(pPvt->pasynUser, ASYN_TRACE_FLOW, "drvIP_EP201:pollerThread, calling client %p"
+						" mask=%x, callback=%p\n", pUInt32D, pUInt32D->mask, pUInt32D->callback);
+					pUInt32D->callback(pUInt32D->userPvt, pUInt32D->pasynUser, pUInt32D->mask & newBits);
 				}
 				pnode = (interruptNode *)ellNext(&pnode->node);
 			}
@@ -807,6 +920,18 @@ static void pollerThread(drvIP_EP201Pvt *pPvt)
 	}
 }
 
+static asynStatus setInterruptUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 mask,
+	interruptReason reason)
+{
+	printf("drvIP_EP201:setInterruptUInt32D: entry mask=%d, reason=%d\n", mask, reason);
+	return(0);
+}
+
+static asynStatus clearInterruptUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 mask)
+{
+	printf("drvIP_EP201:clearInterruptUInt32D: entry mask=%d\n", mask);
+	return(0);
+}
 
 static void rebootCallback(void *drvPvt)
 {
