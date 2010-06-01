@@ -7,7 +7,7 @@ display {
 	object {
 		x=900
 		y=200
-		width=275
+		width=345
 		height=20
 	}
 	clr=14
@@ -89,7 +89,7 @@ display {
 }
 menu {
 	object {
-		x=0
+		x=70
 		y=0
 		width=90
 		height=20
@@ -102,7 +102,7 @@ menu {
 }
 "text entry" {
 	object {
-		x=95
+		x=165
 		y=0
 		width=180
 		height=20
@@ -114,5 +114,18 @@ menu {
 	}
 	format="string"
 	limits {
+	}
+}
+menu {
+	object {
+		x=0
+		y=0
+		width=70
+		height=20
+	}
+	control {
+		chan="$(P)$(H)$(NAM)IntEdge"
+		clr=14
+		bclr=51
 	}
 }
