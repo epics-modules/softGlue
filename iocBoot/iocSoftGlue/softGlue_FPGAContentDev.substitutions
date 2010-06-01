@@ -67,25 +67,29 @@ pattern {P  H 	SIG					PORT	ADDR}
 {xxx: softGlue: UpCntr-2_ENABLE		SOFTGLUE 0x800338}
 {xxx: softGlue: UpCntr-2_CLOCK		SOFTGLUE 0x800330}
 {xxx: softGlue: UpCntr-2_CLEAR		SOFTGLUE 0x800340}
+}
 
+file "$(SOFTGLUE)/softGlueApp/Db/softGlue_FieldOutput.db"
+{
+pattern {P  H 	SIG					PORT	ADDR        IOPIN}
 # These are outputs from the user's viewpoint, but they behave like softGlue
 # inputs.
-{xxx: softGlue: FO1					SOFTGLUE 0x800070}
-{xxx: softGlue: FO2					SOFTGLUE 0x800078}
-{xxx: softGlue: FO3					SOFTGLUE 0x800080}
-{xxx: softGlue: FO4					SOFTGLUE 0x800088}
-{xxx: softGlue: FO5					SOFTGLUE 0x800090}
-{xxx: softGlue: FO6					SOFTGLUE 0x800098}
-{xxx: softGlue: FO7					SOFTGLUE 0x8000A0}
-{xxx: softGlue: FO8					SOFTGLUE 0x8000A8}
-{xxx: softGlue: FO9					SOFTGLUE 0x800390}
-{xxx: softGlue: FO10				SOFTGLUE 0x800398}
-{xxx: softGlue: FO11				SOFTGLUE 0x8003A0}
-{xxx: softGlue: FO12				SOFTGLUE 0x8003A8}
-{xxx: softGlue: FO13				SOFTGLUE 0x8003B0}
-{xxx: softGlue: FO14				SOFTGLUE 0x8003B8}
-{xxx: softGlue: FO15				SOFTGLUE 0x8003C0}
-{xxx: softGlue: FO16				SOFTGLUE 0x8003C8}
+{xxx: softGlue: FO1					SOFTGLUE 0x800070   17}
+{xxx: softGlue: FO2					SOFTGLUE 0x800078   18}
+{xxx: softGlue: FO3					SOFTGLUE 0x800080   19}
+{xxx: softGlue: FO4					SOFTGLUE 0x800088   20}
+{xxx: softGlue: FO5					SOFTGLUE 0x800090   21}
+{xxx: softGlue: FO6					SOFTGLUE 0x800098   22}
+{xxx: softGlue: FO7					SOFTGLUE 0x8000A0   23}
+{xxx: softGlue: FO8					SOFTGLUE 0x8000A8   24}
+{xxx: softGlue: FO9					SOFTGLUE 0x800390   25}
+{xxx: softGlue: FO10				SOFTGLUE 0x800398   26}
+{xxx: softGlue: FO11				SOFTGLUE 0x8003A0   27}
+{xxx: softGlue: FO12				SOFTGLUE 0x8003A8   28}
+{xxx: softGlue: FO13				SOFTGLUE 0x8003B0   29}
+{xxx: softGlue: FO14				SOFTGLUE 0x8003B8   30}
+{xxx: softGlue: FO15				SOFTGLUE 0x8003C0   31}
+{xxx: softGlue: FO16				SOFTGLUE 0x8003C8   32}
 }
 
 file "$(SOFTGLUE)/softGlueApp/Db/softGlue_Output.db"
@@ -136,27 +140,29 @@ pattern {P  H 	SIG					PORT	ADDR}
 
 {xxx: softGlue: MUX2-1_OUT			SOFTGLUE 0x8002E8}
 {xxx: softGlue: MUX2-2_OUT			SOFTGLUE 0x800308}
+}
 
-{xxx: softGlue: 8MHZ_CLK			SOFTGLUE 0x8003E0}
-
+file "$(SOFTGLUE)/softGlueApp/Db/softGlue_FieldInput.db"
+{
+pattern {P  H 	SIG					PORT	ADDR        IOPIN}
 # These are inputs from the user's viewpoint, but they behave like softGlue
 # outputs.
-{xxx: softGlue: FI1					SOFTGLUE 0x800030}
-{xxx: softGlue: FI2					SOFTGLUE 0x800038}
-{xxx: softGlue: FI3					SOFTGLUE 0x800040}
-{xxx: softGlue: FI4					SOFTGLUE 0x800048}
-{xxx: softGlue: FI5					SOFTGLUE 0x800050}
-{xxx: softGlue: FI6					SOFTGLUE 0x800058}
-{xxx: softGlue: FI7					SOFTGLUE 0x800060}
-{xxx: softGlue: FI8					SOFTGLUE 0x800068}
-{xxx: softGlue: FI9					SOFTGLUE 0x800350}
-{xxx: softGlue: FI10				SOFTGLUE 0x800358}
-{xxx: softGlue: FI11				SOFTGLUE 0x800360}
-{xxx: softGlue: FI12				SOFTGLUE 0x800368}
-{xxx: softGlue: FI13				SOFTGLUE 0x800370}
-{xxx: softGlue: FI14				SOFTGLUE 0x800378}
-{xxx: softGlue: FI15				SOFTGLUE 0x800380}
-{xxx: softGlue: FI16				SOFTGLUE 0x800388}
+{xxx: softGlue: FI1					SOFTGLUE 0x800030   1}
+{xxx: softGlue: FI2					SOFTGLUE 0x800038   2}
+{xxx: softGlue: FI3					SOFTGLUE 0x800040   3}
+{xxx: softGlue: FI4					SOFTGLUE 0x800048   4}
+{xxx: softGlue: FI5					SOFTGLUE 0x800050   5}
+{xxx: softGlue: FI6					SOFTGLUE 0x800058   6}
+{xxx: softGlue: FI7					SOFTGLUE 0x800060   7}
+{xxx: softGlue: FI8					SOFTGLUE 0x800068   8}
+{xxx: softGlue: FI9					SOFTGLUE 0x800350   9}
+{xxx: softGlue: FI10				SOFTGLUE 0x800358   10}
+{xxx: softGlue: FI11				SOFTGLUE 0x800360   11}
+{xxx: softGlue: FI12				SOFTGLUE 0x800368   12}
+{xxx: softGlue: FI13				SOFTGLUE 0x800370   13}
+{xxx: softGlue: FI14				SOFTGLUE 0x800378   14}
+{xxx: softGlue: FI15				SOFTGLUE 0x800380   15}
+{xxx: softGlue: FI16				SOFTGLUE 0x800388   16}
 }
 
 
