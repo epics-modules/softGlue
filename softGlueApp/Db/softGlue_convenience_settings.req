@@ -2,4 +2,3 @@ $(P)$(H)busy.OUT
 $(P)$(H)busy.FLNK
 $(P)$(H)pulseOut.OUT
 $(P)$(H)npulseOut.OUT
-$(P)$(H)pollTimeMS
