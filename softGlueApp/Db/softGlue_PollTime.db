@@ -1,0 +1,4 @@
+record(longout,"$(P)$(H)pollTimeMS") {
+	field(DTYP,"asynUInt32Digital")
+	field(OUT,"@asynMask($(PORT),0,0)POLLTIME")
+}
