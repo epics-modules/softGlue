@@ -7,7 +7,7 @@ display {
 	object {
 		x=900
 		y=200
-		width=345
+		width=255
 		height=20
 	}
 	clr=14
@@ -87,22 +87,9 @@ display {
 		1a7309,
 	}
 }
-menu {
-	object {
-		x=70
-		y=0
-		width=90
-		height=20
-	}
-	control {
-		chan="$(P)$(H)$(NAM).SCAN"
-		clr=14
-		bclr=51
-	}
-}
 "text entry" {
 	object {
-		x=165
+		x=75
 		y=0
 		width=180
 		height=20
