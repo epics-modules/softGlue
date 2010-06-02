@@ -49,8 +49,3 @@ record(bo,"$(P)$(H)npulseOut") {
 	field(ONAM,"1")
 	field(DOL,"1")
 }
-
-record(longout,"$(P)$(H)pollTimeMS") {
-	field(DTYP,"asynUInt32Digital")
-	field(OUT,"@asynMask($(IPORT),0,0)POLLTIME")
-}
