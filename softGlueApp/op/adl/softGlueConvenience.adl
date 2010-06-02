@@ -170,30 +170,3 @@ display {
 	limits {
 	}
 }
-"text entry" {
-	object {
-		x=130
-		y=15
-		width=90
-		height=17
-	}
-	control {
-		chan="$(P)$(H)pollTimeMS"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
-}
-text {
-	object {
-		x=130
-		y=2
-		width=90
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="POLL TIME (MS)"
-}
