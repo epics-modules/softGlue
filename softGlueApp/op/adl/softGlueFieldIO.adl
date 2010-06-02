@@ -92,12 +92,12 @@ text {
 		x=15
 		y=10
 		width=180
-		height=15
+		height=20
 	}
 	"basic attribute" {
 		clr=14
 	}
-	textix="Field Input Bits"
+	textix="Field Input Bit"
 	align="horiz. centered"
 }
 text {
@@ -105,19 +105,19 @@ text {
 		x=215
 		y=10
 		width=180
-		height=15
+		height=20
 	}
 	"basic attribute" {
 		clr=14
 	}
-	textix="Field Output Bits"
+	textix="Field Output Bit"
 	align="horiz. centered"
 }
 composite {
 	object {
 		x=5
 		y=40
-		width=191
+		width=195
 		height=26
 	}
 	"composite name"=""
@@ -179,7 +179,7 @@ composite {
 	object {
 		x=5
 		y=65
-		width=191
+		width=195
 		height=26
 	}
 	"composite name"=""
@@ -189,7 +189,7 @@ composite {
 	object {
 		x=5
 		y=90
-		width=191
+		width=195
 		height=26
 	}
 	"composite name"=""
@@ -199,7 +199,7 @@ composite {
 	object {
 		x=5
 		y=115
-		width=191
+		width=195
 		height=26
 	}
 	"composite name"=""
@@ -209,7 +209,7 @@ composite {
 	object {
 		x=5
 		y=140
-		width=191
+		width=195
 		height=26
 	}
 	"composite name"=""
@@ -219,7 +219,7 @@ composite {
 	object {
 		x=5
 		y=165
-		width=191
+		width=195
 		height=26
 	}
 	"composite name"=""
@@ -229,7 +229,7 @@ composite {
 	object {
 		x=5
 		y=190
-		width=191
+		width=195
 		height=26
 	}
 	"composite name"=""
@@ -239,7 +239,7 @@ composite {
 	object {
 		x=5
 		y=215
-		width=191
+		width=195
 		height=26
 	}
 	"composite name"=""
@@ -249,7 +249,7 @@ composite {
 	object {
 		x=5
 		y=240
-		width=191
+		width=195
 		height=26
 	}
 	"composite name"=""
@@ -259,7 +259,7 @@ composite {
 	object {
 		x=5
 		y=265
-		width=191
+		width=195
 		height=26
 	}
 	"composite name"=""
@@ -269,7 +269,7 @@ composite {
 	object {
 		x=5
 		y=290
-		width=191
+		width=195
 		height=26
 	}
 	"composite name"=""
@@ -279,7 +279,7 @@ composite {
 	object {
 		x=5
 		y=315
-		width=191
+		width=195
 		height=26
 	}
 	"composite name"=""
@@ -289,7 +289,7 @@ composite {
 	object {
 		x=5
 		y=340
-		width=191
+		width=195
 		height=26
 	}
 	"composite name"=""
@@ -299,7 +299,7 @@ composite {
 	object {
 		x=5
 		y=365
-		width=191
+		width=195
 		height=26
 	}
 	"composite name"=""
@@ -309,7 +309,7 @@ composite {
 	object {
 		x=5
 		y=390
-		width=191
+		width=195
 		height=26
 	}
 	"composite name"=""
@@ -319,7 +319,7 @@ composite {
 	object {
 		x=5
 		y=415
-		width=191
+		width=195
 		height=26
 	}
 	"composite name"=""
@@ -329,7 +329,7 @@ composite {
 	object {
 		x=215
 		y=40
-		width=195
+		width=197
 		height=26
 	}
 	"composite name"=""
@@ -339,7 +339,7 @@ composite {
 	object {
 		x=215
 		y=65
-		width=195
+		width=197
 		height=26
 	}
 	"composite name"=""
@@ -349,7 +349,7 @@ composite {
 	object {
 		x=215
 		y=90
-		width=195
+		width=197
 		height=26
 	}
 	"composite name"=""
@@ -359,7 +359,7 @@ composite {
 	object {
 		x=215
 		y=115
-		width=195
+		width=197
 		height=26
 	}
 	"composite name"=""
@@ -369,7 +369,7 @@ composite {
 	object {
 		x=215
 		y=140
-		width=195
+		width=197
 		height=26
 	}
 	"composite name"=""
@@ -379,7 +379,7 @@ composite {
 	object {
 		x=215
 		y=165
-		width=195
+		width=197
 		height=26
 	}
 	"composite name"=""
@@ -389,7 +389,7 @@ composite {
 	object {
 		x=215
 		y=190
-		width=195
+		width=197
 		height=26
 	}
 	"composite name"=""
@@ -399,7 +399,7 @@ composite {
 	object {
 		x=215
 		y=215
-		width=195
+		width=197
 		height=26
 	}
 	"composite name"=""
@@ -409,7 +409,7 @@ composite {
 	object {
 		x=215
 		y=240
-		width=195
+		width=197
 		height=26
 	}
 	"composite name"=""
@@ -419,7 +419,7 @@ composite {
 	object {
 		x=215
 		y=265
-		width=195
+		width=197
 		height=26
 	}
 	"composite name"=""
@@ -429,7 +429,7 @@ composite {
 	object {
 		x=215
 		y=290
-		width=195
+		width=197
 		height=26
 	}
 	"composite name"=""
@@ -439,7 +439,7 @@ composite {
 	object {
 		x=215
 		y=315
-		width=195
+		width=197
 		height=26
 	}
 	"composite name"=""
@@ -449,7 +449,7 @@ composite {
 	object {
 		x=215
 		y=340
-		width=195
+		width=197
 		height=26
 	}
 	"composite name"=""
@@ -459,7 +459,7 @@ composite {
 	object {
 		x=215
 		y=365
-		width=195
+		width=197
 		height=26
 	}
 	"composite name"=""
@@ -469,7 +469,7 @@ composite {
 	object {
 		x=215
 		y=390
-		width=195
+		width=197
 		height=26
 	}
 	"composite name"=""
@@ -479,7 +479,7 @@ composite {
 	object {
 		x=215
 		y=415
-		width=195
+		width=197
 		height=26
 	}
 	"composite name"=""
