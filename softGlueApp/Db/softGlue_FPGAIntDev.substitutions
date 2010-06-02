@@ -39,7 +39,7 @@ pattern {P  H 	NAM PORT ADDR MASK}
 
 file "$(SOFTGLUE)/softGlueApp/Db/softGlue_IntEdge.db"
 {
-pattern {NAM PORT ADDR MASK}
+pattern {P H NAM PORT ADDR MASK}
 {xxx: softGlue: In_1  SGI1 0 0x00003}
 {xxx: softGlue: In_2  SGI1 0 0x00006}
 {xxx: softGlue: In_3  SGI1 0 0x0000c}
@@ -74,3 +74,10 @@ pattern {NAM PORT ADDR MASK}
 {xxx: softGlue: Out_15 SGO1 0x10 0x0c000}
 {xxx: softGlue: Out_16 SGO1 0x10 0x18000}
 }
+
+file "$(SOFTGLUE)/softGlueApp/Db/softGlue_PollTime.db"
+{
+pattern {P H NAM PORT}
+{xxx: softGlue: pollTimeMS_IN $(IPORT) }
+}
+

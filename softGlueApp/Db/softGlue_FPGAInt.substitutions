@@ -73,3 +73,10 @@ pattern {NAM PORT ADDR MASK}
 {Out_15 $(OPORT) $(OADDR) 0x0c000}
 {Out_16 $(OPORT) $(OADDR) 0x18000}
 }
+
+file "softGlue_PollTime.db"
+{
+pattern {NAM PORT}
+{pollTimeMS_IN $(IPORT) }
+}
+
