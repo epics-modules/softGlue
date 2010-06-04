@@ -16,52 +16,69 @@
 <hr>
 <h2><center>Overview</center></h2>
 
-The <a href="http:www.aps.anl.gov/bcda/synApps">synApps</a> softGlue module is intended to
-enable <a href="http:www.aps.anl.gov/epics">EPICS</a> users and application developers to
-construct small, simple, digital electronic circuits, and to connect those circuits to field
-wiring, all by writing to EPICS PV's.  Because the circuits are constructed and connected
-entirely with EPICS-PV name/value pairs, circuits built using softGlue can be <a
-hfer="">autosave</a>d and restored, saved as text files (e.g., as a
-<a href="http://www.aps.anl.gov/epics/extensions/burt/index.php">BURT</a> snapshot file),
-emailed from one user to another, etc.
+The <a href="http:www.aps.anl.gov/bcda/synApps">synApps</a> softGlue module is intended to enable <a
+href="http:www.aps.anl.gov/epics">EPICS</a> users and application developers to construct small,
+simple, digital electronic circuits, and to connect those circuits to field wiring, all by writing
+to EPICS PV's.  Because the circuits are constructed and connected entirely via EPICS PV's, circuits
+built using softGlue can be <a hfer="">autosave</a>d and restored, saved as text files (e.g., as a
+<a href="http://www.aps.anl.gov/epics/extensions/burt/index.php">BURT</a> snapshot file), emailed
+from one user to another, etc.
 
-<blockquote> The name <em>softGlue</em> is intended to suggest <em>glue electronics</em>
-rendered in software, where <em>glue electronics</em> means those little bits of digital
-circuitry needed to connect two or more larger pieces of digital electronics into a single
-working whole. </blockquote>
+<blockquote> The name <em>softGlue</em> is intended to suggest <em>glue electronics</em> rendered in
+software, where <em>glue electronics</em> means those little bits of digital circuitry needed to
+connect two or more larger pieces of digital electronics into a working whole.</blockquote>
 
 <h3>Requirements</h3>
 
 <P>To use softGlue, you must have the following hardware and software:
 
 <ul>
-<li><h4>hardware</h4>
+<li><h4>Hardware</h4>
 <ul>
 <li>An IndustryPack (IP) carrier board.
 <li>An Acromag IP-EP201 FPGA IP module.
 <li>Some way of connecting the field I/O bits of the IP_EP201 module to your field
 wiring.
 </ul>
-<li><h4>software</h4>
+<li><h4>Software</h4>
 <ul>
 
 <li>The EPICS <a href="http://www.aps.anl.gov/epics/modules/soft/asyn">asyn</a> module, version
 	4.6 or higher.
 
 <li>The EPICS <a href="https://svn.aps.anl.gov/trac/epics/ipac">ipac</a> module, version 2.11
-	or higher.  (To use an earlier version, see "Build procedure" below.)
+	or higher.
+	<blockquote>To use an earlier version, see "Build procedure" below.</blockquote>
+
+<li>The EPICS <a href="http://www.aps.anl.gov/bcda/synApps/calc/calc.html">calc</a> module, version
+	2.8 or higher.
+
+	<blockquote>Any version that agrees with your version of EPICS base should work, though releases
+	earlier than 2.6.5 may require extra effort because they don't automatically adapt to absence of
+	the sscan module.</blockquote>
+
+<li>The EPICS <a href="http://www.aps.anl.gov/bcda/synApps/busy/busy.html">busy</a> module, version
+	1.3 or higher.
+
+	<blockquote>This module is not required for any essential feature of softGlue, but it provides
+	a nice way for a hardware interrupt to effect the completion of an EPICS database operation.
+	Any version that agrees with your version of EPICS base should work;  version 1.3 is nice only
+	because it contains an MEDM display for the busy record.  If you don't have
+	a copy of this module, don't load softGlue_convenience.db, and don't include
+	softGlue_convenience_settings.req in your autosave request file.</blockquote>
 
 </ul>
 </ul>
-<p>You do <em>not</em> need to be able to program the IP-EP201 module.  In the
-default implementation, the FPGA content is programmed into the module at IOC-boot
-time, via the IP bus.  A text file is included with softGlue for this purpose.
+
+<p>You do <b>not</b> need to be able to program the IP-EP201 module.  In the default implementation,
+the FPGA content is programmed automatically into the module at IOC-boot time, via the IP bus.  A
+text file is included with softGlue for this purpose.
 
 <blockquote>
 
-If you have a copy of Altera's "Quartus" software, you can probably load your own
-custom FPGA content into the module, and use softGlue to talk to it.  The software
-was designed with this use in mind, though we don't yet have documentation on how
+If you have a copy of Altera's "Quartus" software, you can load your own custom
+FPGA content into the module, and use softGlue to talk to it.  softGlue was
+designed with this use in mind, though we don't yet have documentation on how
 it's done.
 
 </blockquote>
@@ -74,7 +91,7 @@ it's done.
 <li>Divide a high-frequency clock down for use as input to a 16-bit interval timer.
 <li>Send a trigger to a detector 23 ms after sending a trigger to a shutter.
 <li>Conditionally trigger the execution of an EPICS record on the change of state of
-an external signal. <br>(Intended; interrupts not yet proven.)
+an external signal.
 </ul>
 
 
@@ -103,22 +120,27 @@ personal computer to write documentation.)</blockquote>
 <hr>
 <h2><center>Installation and deployment</center></h2>
 
-	softGlue is a synApps module, so if you've used any other synApps module, you probably can
-	guess already how to install and deploy it.  The important thing is that softGlue is pure
+	softGlue is a synApps module, so if you've used any other synApps module, you probably
+	already know how to install and deploy it.  The important thing is that softGlue is pure
 	support: you are not expected to run an ioc directly with it, but instead to draw from
-	the module into your own ioc application.  Unlike most other synApps modules, however,
+	the module into your own ioc application.
+	
+	<blockquote>Unlike most other synApps modules, however,
 	softGlue publishes the text files needed to boot an ioc in its <code>db</code> directory
 	(as an EPICS module really should, I suppose -- most synApps modules are nonstandard in
-	this respect), rather than in the <code>softGlueApp/Db</code> directory.
+	this respect), rather than in the <code>softGlueApp/Db</code> directory.</blockquote>
 
 	<h3>How to get the software</h3>
 	softGlue is available as part of synApps 5.5 and higher, as a tar file from
 	the <a href="http://www.aps.anl.gov/bcda/synApps/softGlue/softGlue.html">softGlue web page</a>,
 	or directly from the <a href="https://subversion.xor.aps.anl.gov/synApps">synApps subversion repository</a>.
-	To export from the repository,
-	<pre>
+	To export from the repository, run the following command:
+
+	<P><code>
 	svn export https://subversion.xor.aps.anl.gov/synApps/softGlue/tags/R1-1 softGlue-1-1
-	</pre>
+	</code>
+
+	<blockquote>Version 1.1 has not yet been tagged.</blockquote>
 
 	<h3>Build procedure</h3>
 
@@ -127,13 +149,13 @@ personal computer to write documentation.)</blockquote>
 	<li>Edit configure/RELEASE, to specify the path to EPICS_BASE, ASYN, and IPAC, all of which
 	must already have been built.
 
-	<li>If you're using a version of IPAC older than 2.11, edit softGlueApp/src/drvIP_EP201.c
-	to change the definition of the macro, <code>DO_IPMODULE_CHECK</code>, like so:
-	<pre>#define DO_IPMODULE_CHECK 0</pre>
+	<li>If you're using a version of IPAC older than 2.11, edit
+	<code>softGlueApp/src/drvIP_EP201.c</code> to change the definition of the macro,
+	<code>DO_IPMODULE_CHECK</code>, like so: <pre>#define DO_IPMODULE_CHECK 0</pre>
 
 
-	<li>Run <code>make</code> in the top-level directory, using the same make executable used to
-	build EPICS base.
+	<li>Run <code>make</code> in the top-level directory, using the same <code>make</code>
+	executable used to build EPICS base.
 
 	</ul>
 
@@ -146,8 +168,23 @@ personal computer to write documentation.)</blockquote>
 		<li><code>configure/RELEASE</code>
 			<ul>
 
-			<li>Edit the <code>RELEASE</code> file to add the following line:
-			<pre>SOFTGLUE=&lt;path to the softGlue module's top-level directory&gt;</pre>
+			<li>Edit the <code>RELEASE</code> file to define the following names:
+			<p><code>SOFTGLUE=&lt;path to the softGlue module&gt;<br>
+			ASYN=&lt;path to the asyn module&gt;<br>
+			IPAC=&lt;path to the ipac module&gt;<br>
+			CALC=&lt;path to the calc module&gt;<br>
+			</code>
+
+			<li>If the <b>busy</b> module is available, you can arrange for
+			EPICS database processing to wait for a signal from softGlue
+			hardware before declaring itself to be finished.  The
+			<code>softGlue_convenience.db</code> database loads a busy record
+			for this purpose, and the <code>softGlueConvenience.adl</code>
+			display file contains a menu item to display the record.  Nothing
+			else in softGlue depends on the busy module.  If you have the
+			module, add the following line to <code>configure/RELEASE</code>.
+
+			<p><code>BUSY=&lt;path to the busy module&gt;</code>
 
 			</ul>
 		<li><code>xxxApp/src</code>
@@ -155,38 +192,70 @@ personal computer to write documentation.)</blockquote>
 
 			<li>Edit <code>Makefile</code> or a <code>*Include.dbd</code> file so that the file
 				<code>softGlueSupport.dbd</code> is included in the <code>.dbd</code> file the
-				ioc loads at boot time.  For a Makefile: <pre>iocxxxVX_DBD +=
-				softGlueSupport.dbd</pre>
+				ioc loads at boot time.  You'll also need files from asyn, ipac, and calc,
+				if you're not already including them.<br>
+
+				For a Makefile:
+				
+				<pre>iocxxxVX_DBD += softGlueSupport.dbd drvIpac.dbd asyn.dbd calcSupport.dbd</pre>
 
 				For a .dbd file:
 
-				<pre>include "softGlueSupport.dbd"</pre>
+				<P><code>include "softGlueSupport.dbd"<br>
+				include "drvIpac.dbd"<br>
+				include "asyn.dbd"<br>
+				include "calcSupport.dbd"</code>
 
-			<li>Edit Makefile so that the ioc executable is linked with the softGlue library.
-				For example:
-				<pre>xxx_LIBS_vxWorks += softGlue</pre>
+			<li>Edit <code>Makefile</code> so that the ioc executable is linked with the
+				<code>softGlue</code> library. You'll also need libraries from the asyn, ipac, and
+				calc modules.  The order in which libraries are named is sometimes important.<br>
+				Example:
+
+				<pre>xxx_LIBS_vxWorks += calc asyn softGlue Ipac</pre>
+
+
 			</ul>
 		<li><code>iocBoot/ioc<em>xxx</em></code>
 			<ul>
 
 			<li>Copy <code>softGlue/iocBoot/iocSoftGlue/softGlue.cmd</code> to
-				iocBoot/ioc<em>xxx</em>, and edit the <code>dbLoadRecords()</code> commands
-				to define the macros <code>P</code>, and <code>H</code>.
+				<code>iocBoot/ioc<em>xxx</em></code>, and edit the <code>dbLoadRecords()</code>
+				commands to define the macros <code>P</code>, and <code>H</code>.
 
-			<li>If you'll have more than one IP_EP201 module running softGlue, you'll also need
-				to maintain separate asyn port names for the modules.  Port names are the first
-				arguments to the functions <code>initIP_EP201(),
-				initIP_EP201SingleRegisterPort()</code>, and the value of the macro 
-				<code>PORT</code>, supplied in <code>dbLoadRecords()</code> commands.
+				<blockquote>If you'll have more than one IP_EP201 module running softGlue, you'll also
+				need to maintain separate asyn port names and addresses for the modules.  Port names
+				are the first arguments to the functions <code>initIP_EP201(),
+				initIP_EP201SingleRegisterPort()</code>, and the values of the macros 
+				<code>PORT</code>, <code>IPORT</code>, and <code>OPORT</code>, supplied in
+				<code>dbLoadRecords()</code> commands.  Addresses are the sixth argument supplied to
+				<code>initIP_EP201()</code>, and the values of macros <code>IPORT</code> and
+				<code>OPORT</code>.</blockquote>
 
 			<li>Edit one of your command files to add the line
 				<pre>&lt; softGlue.cmd</pre>
 
-			<li>If you use autosave, edit <code>auto_settings.req</code> (or whatever you've
-				named the file that can restore any type of PV) to contain the line
-				<pre>file softGlue_settings.req P=$(P) H=softGlue:</pre>
-				making sure that the macros <code>P</code>, and <code>H</code> agree with 
-				those in softGlue.cmd.
+			<li>If you use autosave:
+				<ul>
+				<li>Edit <code>save_restore.cmd</code>, to add the following lines:
+				
+					<P><code>set_requestfile_path(softglue, "softGlueApp/Db")</code>
+
+					<blockquote><b>Careful</b>!  the first <code>softglue</code> must be all
+					lowercase, because this is how the path variable is defined in
+					<code>cdCommands</code>.
+					</blockquote>
+				<li>Edit <code>auto_settings.req</code> (or whatever you've named
+					the file used to save/restore PV's of arbitrary type) to add the
+					following lines:
+
+					<P><code>file softGlue_SignalShow_settings.req  P=$(P) H=softGlue:<br>
+					file softGlue_FPGAContent_settings.req P=$(P) H=softGlue:<br>
+					file softGlue_FPGAInt_settings.req     P=$(P) H=softGlue:<br>
+					</code>
+
+					<P>where the macros <code>P</code>, and <code>H</code> agree with those in
+					<code>softGlue.cmd</code>.
+				</ul>
 
 			</ul>
 			<br>
@@ -195,21 +264,35 @@ personal computer to write documentation.)</blockquote>
 
 			<li>If you use MEDM, add a related-display button to call up the
 				<code>softGlueMenu.adl</code> display with the macros <code>P</code>, and
-				<code>H</code>.  If you figure out how to use some other display manager,
+				<code>H</code>.
+				
+				<blockquote>If you figure out how to use softGlue with some other display manager,
 				please tell us about it, so we can include your work in the next version of
-				softGlue.
+				softGlue.  The MEDM-display files included in softGlue make heavy use of
+				MEDM's <code>composite file</code>, and I don't know the extent to which a
+				comparable feature exists in other display managers.  softGlue's use of
+				<code>composite file</code> is purely a display-development convenience.
+				</blockquote>
 
 			</ul>
+		<li>If you use MEDM, give it access to the softGlue module's .adl files.  In csh, you
+			could do this with the following command:
+
+			<pre>setenv EPICS_DISPLAY_PATH $EPICS_DISPLAY_PATH':'$SOFTGLUE/softGlueApp/op/adl</pre>
+
+		<li>Don't forget to rebuild you application:
+			<pre>cd &lt;applicationTop&gt;</pre>
+			<pre>make rebuild</pre>
+
 		</ul>
 
 <hr>
 <h2><center>User's Manual</center></h2>
 
-First of all, let's get one thing straight.  I'm not going to describe how a NAND gate works.
-There are so many good descriptions of digital electronics on the web that another one here
-would make little sense.  What I'm going to describe is the user interface (how you connect
-things), and those circuit elements that are not in the "standard library" of digital
-electronics.
+<P>Most of the essential user-interface information -- how to connect signals, what the display
+elements mean, etc. -- is contained in the descriptions of the "User Menu" and "AND/NAND" sections
+below.  The remaining sections are mostly for completeness, though some circuit elements do require
+further explanation, and the counter sections introduce new display elements for decimal numbers.
 
 	<h3>MEDM user interface</h3>
 
@@ -218,96 +301,232 @@ electronics.
 <li><P>User Menu
 <P><img src="Menu.gif" name="User Menu">
 
-<P> This is the top-level display, which serves mostly to call up other displays, but the
-<code>CONNECTED</code> and <code>UNCONNECTED</code> menus need comment.  softGlue displays are
-not interrupt driven.  (That would be a disaster, because inevitably some signals will change
-state at high frequency.)  So, the states of inputs and outputs must be polled periodically. 
-There seems little need to poll signals that aren't being used, but we don't have very good
-information about which signals those are.  A signal that has been connected to some other
-signal is <em>certainly</em> being used, so it makes sense to discriminate on that basis.
+<P> softGlueMenu.adl is the top-level display, which serves mostly to call up other displays.
+
+<br><code>CONNECTED</code> is the period at which the values of connected signals are sampled for
+display to the user;
+
+<br><code>UNCONNECTED</code> is the period at which the values of unconnected signals are sampled for
+display to the user.
+
+
+<blockquote>Most softGlue displays are not interrupt driven.  (That would be a disaster, because
+inevitably some signals will change state at high frequency.)  So, the states of inputs and outputs
+must be sampled periodically, for display to the user.  It seems wasteful to poll signals that aren't
+being used, but we don't have very good information about which signals those are.  A signal that has
+been connected to some other signal is <em>certainly</em> being used, so it makes sense to
+discriminate on that basis.
 
 <P>We've found that it's confusing for users if either of these poll periods are greater than
 around 1 second.  We've also found that polling everything at .1 second uses only a few
-percent of an MVME2700 CPU.
+percent of an MVME2700 CPU.</blockquote>
 
 <li><P>AND/NAND
 <P><img src="AND.gif" name="AND/NAND">
 
-<P> On the left are the inputs, each comprised of an "= button", a yellow text-entry field, a
-number, and what's intended to look like an LED.  On the right are essentially the same things,
-but an output's text-entry field is a different color.  The difference is important, because
-you're allowed to connect any number of inputs together, but if you connect two or more outputs
-together, the circuit won't work.  (You won't break anything, but the circuit won't be useful,
-because the states of outputs connected together are undefined.)
+<P> On the left are the inputs, each comprised of a yellow text-entry field, an "= button", a
+number, and what's intended to look like an LED.  On the right are essentially the same things, but
+an output's text-entry field is a different color.  The text-entry fields are used to connect
+signals together, and the color difference is intended to remind you of the only rule governing
+signal connections: if you connect two or more outputs together, those outputs won't work.  (You
+won't break anything, but the circuit won't be useful until you fix the error, because the states
+of outputs connected together are undefined.)
 
-<P>The text-entry box is what you use to control an input.  You have three options:
-<ul>
+<P>The yellow text-entry box controls an input.  You have five options:
+<ol>
+
+<li>Leave empty.  Inputs with empty text-entry boxes default to logic value 1.
 
 <li>Enter a string that begins with a digit.  This sets the input to a logic value: 0 if the
-number is close to zero, 1 if it's not.  (Allowing floats means you can drive softGlue inputs
-with, say, calc records.)
+number is close to zero, 1 if it's not.
 
-<li>Enter a string that begins with something other than a number.  This <em>names</em> the
+<blockquote>Allowing floats means you can drive softGlue inputs
+with, say, calc records.</blockquote>
+
+<li>Enter a string that begins with something other than a digit.  This <em>names</em> the
 signal, and connects it to all other signals with exactly the same name.
 
-<li>Enter the PV name of another signal's name.  Most likely you would do this using MEDM's
-Drag-And-Drop feature, by clicking the middle mouse button in a signal's text-entry box,
-holding the button down while you move the mouse pointer to another signal's text-entry box,
-releasing the button, and hitting &lt;Enter&gt; while the mouse pointer is in the box.  When
-softGlue sees the PVname of another signal associated with the same FPGA module, it copies the
-source signal name to the drop signal name, connecting the signals together.
+<blockquote>Note that you can't connect signals implemented in different FPGA modules using their
+text-entry boxes. To accomplish this, you would have to connect the signals to field I/O and make a
+physical connection.</blockquote>
 
-</ul>
+<li>Enter the PV name of another signal's name into an empty text-entry box.  This connects the
+signals together.
+
+<blockquote>Most likely you would do this using MEDM's Drag-And-Drop feature, by clicking the middle
+mouse button in a signal's text-entry box, holding the button down while you move the mouse pointer
+to another signal's text-entry box, releasing the button, and hitting &lt;Enter&gt; while the mouse
+pointer is in the box.  When softGlue sees the PVname of another signal associated with the same
+FPGA module, it copies the source signal name to the drop signal name, connecting the signals
+together.</blockquote>
+
+<li>Enter a string that begins with something other than a digit, and that ends with . 
+This <em>names</em> the signal, connects it to all other signals with exactly the same name (ignoring
+the trailing '<code>*</code>'), and tells softGlue to run the signal through an inverter before applying it to the
+input.
+
+<blockquote>Not yet implemented.</blockquote>
+
+</ol>
 
 <P>Whatever option you choose, you can define at most fifteen different signal names.
 
+<P>Text-entry boxes for output signals won't accept names beginning with a number.  You can't
+control these signals directly; you can only connect them to other signals.
 
-<li><P>OR/NOR, XOR/XNOR
+<P>A signal's "= button" is used to show all other signals to which the signal is connected. Input
+signals flash green boxes; output signals flash orange boxes.  If you ever see two or more orange
+boxes flashing at the same time, you have outputs connected together, and your circuit won't work.
+
+<P>The little red and black filled circles (LED's), and the numbers next to them, display the states
+of their signals.  These display elements are updated at the period specified in the softGlueMenu.adl
+display.
+
+<P>The open circle ("bubble") in the top output's signal path indicated that the output is
+inverted.  You'll also see this bubble in some input signal paths.  Any signal going through
+a bubble is inverted.
+
+<P><table border=3 bordercolor="blue">
+<tr><th>input1<th>input2<th><th>output
+<tr><td>0<td>x<td><td>0
+<tr><td>x<td>0<td><td>0
+<tr><td>1<td>1<td><td>1
+</table>
+
+<blockquote>'x' means "either 0 or 1".</blockquote>
+
+
+<li><P>OR/NOR
 <P><img src="OR.gif" name="OR/NOR">
-<img src="XOR.gif" name="XOR/XNOR">
+
+<P><table border>
+<tr><th>input1<th>input2<th><th>output
+<tr><td>0<td>0<td><td>0
+<tr><td>1<td>x<td><td>1
+<tr><td>x<td>1<td><td>1
+</table>
+
+<li><P>XOR/XNOR
+<P><img src="XOR.gif" name="XOR/XNOR">
+
+<P><table border>
+<tr><th>input1<th>input2<th><th>output
+<tr><td>0<td>0<td><td>0
+<tr><td>0<td>1<td><td>1
+<tr><td>1<td>0<td><td>1
+<tr><td>1<td>1<td><td>0
+</table>
 
 <li><P>D FlipFlop
 <P><img src="DFF.gif" name="D FlipFlop">
 
-<P> description
+<P><table border>
+<tr><th>SET<th>CLEAR<th>D<th>&gt; (clock)<th><th>Q
+<tr><td>0  <td>0    <td>x<td>x   <td><td>undefined
+<tr><td>0  <td>1    <td>x<td>x   <td><td>1
+<tr><td>1  <td>0    <td>x<td>x   <td><td>0
+<tr><td>1  <td>1    <td>any<td>rising edge<td><td>D (value immediately before rising edge)
+</table>
 
 <li><P>2-Input Multiplexer
 <P><img src="MUX2.gif" name="2-Input Multiplexer">
 
-<P> description
+<P>When <code>SEL==0</code>, <code>OUT=IN0</code>.  When <code>SEL==1</code>, <code>OUT=IN1</code>.
 
 <li><P>2-Output Demultiplexer
 <P><img src="DEMUX2.gif" name="2-Output Demultiplexer">
 
-<P> description
+<P>When <code>SEL==0</code>, <code>OUT0=IN</code>, and <code>OUT1</code> is undefined.  When
+<code>SEL==1</code>, <code>OUT1=IN</code>, and <code>OUT0</code> is undefined.
 
-<li><P>32-bit Counter
+<li><P>Up Counter (32-bit Counter)
 <P><img src="UpCntr.gif" name="32-bit Counter">
 
-<P> description
+<P><code>EN==1</code> enables the clock ("&gt;") input.
 
-<li><P>16-bit Preset Counter
+<li><P>Down Counter (16-bit Preset Counter)
 <P><img src="DnCntr.gif" name="16-bit Preset Counter">
 
-<P> description
+<P><code>EN==1</code> enables the clock ("<code>&gt;</code>") input to decrement the counter value.  When
+<code>LOAD==1</code> the counter is loaded with the value applied to the <code>PRESET</code> input.  (Currently,
+this is a 16-bit value, but the plan is to increase it to 32 bits.)  While <code>LOAD==1</code>, the counter does
+not count down.  While <code>LOAD==0</code> and <code>EN==1</code>, a rising edge at the clock input decrements the
+counter.  When the counter value reaches <code>0</code>, the output <code>Q</code> goes to <code>1</code>; the next rising
+edge of the clock returns <code>Q</code> to <code>0</code> (regardless of the states of <code>EN</code> and
+<code>LOAD</code>).
 
 <li><P>Divide By N
 <P><img src="DivByN.gif" name="Divide By N">
 
-<P> description
+<P><code>EN==1</code> enables the clock ("<code>&gt;</code>") input.  Every <code>N</code>'th rising edge of the
+clock drives <code>Q</code> to <code>1</code>.  The next rising edge returns <code>Q</code> to <code>0</code>. While
+<code>RESET==1</code>, the remaining number of rising edges before <code>Q</code> is driven to <code>1</code>
+is <code>N</code>.
+
+<P>Reset may need to be clocked to function?
+
+<li><P>8 MHz internal clock
+<P><img src="8MHz_clock.gif" name="* MHz clock">
+
+<P>An 8 MHz clock derived from the IndustryPack clock is available to softGlue
+circuitry as a free standing output.
 
 <li><P>Field I/O
 <P><img src="Field_IO.gif" name="Field I/O">
 
-<P> description
+<P> The signals in this display are the field inputs (pins 1-16 on the ribbon connector) and field
+outputs (pins 17-32 on the ribbon connector).
+
+<li><P>Field I/O Interrupt support
+<P><img src="Field_IO_Int.gif" name="Field I/O">
+
+<P> Field inputs and outputs are supported by two independent sets of binary input and output records:
+<dl>
+
+<dt>softGlue-supported records
+
+<dd>These records are part of a database that also includes signal-wiring fields
+(the <code>softGlue_FPGAContent.db</code> database); they are connected to
+hardware via softGlue's asyn port (the port initialized by the function
+<code>initIP_EP201SingleRegisterPort()</code>), and no interrupt support is
+provided for them.  They are polled at a rate determined by the
+<code>CONNECTED</code> or <code>UNCONNECTED</code> menus on the
+<code>softGlueMenu.adl</code> display.
+
+<dt>non-softGlue-supported records
+
+<dd>These optional records are loaded separately from the records described
+above (they are loaded by the <code>softGlue_FPGAInt.db</code> database); they
+are connected to hardware via the asyn port initialized by the function
+<code>initIP_EP201()</code>, and they can be interrupt driven.  They are also
+polled periodically.  The polling period's initial value is specified as an
+argument to <code>initIP_EP201()</code>, and it can be modified by the user
+via the <code>POLL TIME (MS)</code> text entries on the
+<code>softGlueFieldIO_Int.adl</code> display.  The polling periods for inputs
+and outputs are specified separately.
+
+</dl>
+
+<li><P>All
+<P><img src="All.gif" name="All">
+
+<P>description
+
+<li><P>Convenience
+<P><img src="Convenience.gif" name="Convenience">
+
+<P>description
+
+<li><P>BusyRecord
+<P><img src="BusyRecord.gif" name="Busy Record">
+
+<P>description
+
+
 </ul>
 
 
-	<h3>wiring model</h3>
-	<h3>signal names</h3>
-	<h3>field wiring</h3>
-	<h3>interrupts</h3>
-	<h3>examples</h3>
+	<h3>Example circuits</h3>
 		<h4>motor-pulse gate</h4>
 		<h4>motor-pulse accel-time gate</h4>
 		<h4>pulse stretcher</h4>
@@ -316,66 +535,45 @@ source signal name to the drop signal name, connecting the signals together.
 <hr>
 <h2><center>Implementation</center></h2>
 
+softGlue's FPGA content is of standard digital circuitry connected to
+interface elements that are of three types:
+
+<dl>
+
+<dt>Input<dd>An input is essentially a multiplexer controlled by a register that softGlue can write to
+and read.  Inputs 1-15 of all input multiplexers are connected together to form a 15-line bus, so that
+all inputs with the same multiplexer address are connected together.  Input 0 of the multiplexer is
+special: it connects to a bit of the control register, instead of to a bus line.  A second register
+bit controls whether or not the multiplexer output is routed through an inverter before connecting to
+the payload digital circuit element input.
+
+<table border>
+<tr><td>&nbsp;&nbsp;<td>&nbsp;&nbsp;<td>&nbsp;&nbsp;<td>&nbsp;&nbsp;<td>&nbsp;&nbsp;<td>&nbsp;&nbsp;<td>&nbsp;&nbsp;<td>&nbsp;&nbsp;<td>&nbsp;&nbsp;<td>N<td>R<td>U<td>A<sub>3</sub><td>A<sub>2</sub><td>A<sub>1</sub><td>A<sub>0</sub>
+</table>
+
+<dt>Output<dd>output, routed via a demultiplexer to any of 15 bus lines.  No connection
+is made to the demultiplexer output selected by the address 0.
+
+<table border>
+<tr><td>&nbsp;&nbsp;<td>&nbsp;&nbsp;<td>&nbsp;&nbsp;<td>&nbsp;&nbsp;<td>&nbsp;&nbsp;<td>&nbsp;&nbsp;<td>&nbsp;&nbsp;<td>&nbsp;&nbsp;<td>&nbsp;&nbsp;<td>&nbsp;&nbsp;<td>R<td>&nbsp;&nbsp;<td>A<sub>3</sub><td>A<sub>2</sub><td>A<sub>1</sub><td>A<sub>0</sub>
+</table>
+<dt>16-bit register<dd>integer value written by EPICS to a parameter register with a fixed connection
+to a specific device instance.
+
+</dl>
+
+The following notes have not been integrated into the documentation yet.
+They are included for completeness.
+
 <pre>
-Somehow we have to associate devices in the FPGA with EPICS records.  It would
-be nice to be able to do this in a way that permits software to discover and
-configure itself to FPGA content.  In any case, somewhere there must exist a
-list of the devices, the EPICS-addressable elements of those devices, and the
-information required to access them.  Here's a first shot at the items such a
-list might contain:
 
-------------------------------------------------------------------------
-device	device	element	element	SOPC		EPICS			
-type	number	type	name	address		PV				description
-------------------------------------------------------------------------
-AND		1		IN		IN1		?			AND_1_IN1		AND gate input
-AND		1		IN		IN2		?			AND_1_IN2		AND gate input
-AND		1		OUT		POUT	?			AND_1_POUT		AND gate output
-AND		1		OUT		NOUT	?			AND_1_NOUT		AND gate output
-
-DLY		1		IN		IN		?			DLY_1_IN		Time delay input
-DLY		1		IN		CLOCK	?			DLY_1_CLOCK		Time delay clock
-DLY		1		OUT		OUT		?			DLY_1_OUT		Time delay output
-DLY		1		REG		PERIOD	?			DLY_1_PERIOD	Clock period
-
-DivByN	1		IN		CLOCK	?			DivByN_1_CLOCK	Signal to be divided
-DivByN	1		IN		ENABLE	?			DivByN_1_ENABLE Allow count to proceed
-DivByN	1		IN		RESET	?			DivByN_1_RESET	Restart count at 0
-DivByN	1		OUT		POUT	?			DivByN_1_POUT	Positive output
-DivByN	1		OUT		NOUT	?			DivByN_1_NOUT	Negative output
-DivByN	1		REG		N		?			DivByN_1_N		Divisor
-
-FO		1		OUT		OUT		?			FO_1_OUT		field-output pin
-
-FI		1		IN		IN		?			FI_1_IN			field-input pin
-------------------------------------------------------------------------
-
-device type:
------------
-
-We need to show the user a picture of each device implemented in the FPGA,
-and provide medm control fields associated with the device's elements (e.g,
-inputs).
-
-element types:
--------------
-
-IN	input, routed via a multiplexer from any of NBUS bus signals.  NBUS is a
-	fixed feature of an FPGA implementation.  Bus signal 0 is connected to
-	ground.
-
-OUT	output, routed via a demultiplexer to any of NBUS bus signals, except that
-	no connection is made to the signal selected by the demultiplexer address 0.
-
-REG	integer value written by EPICS to a parameter register with a fixed connection to a
-	specific device instance.
 
 
 ========================================================================
 Deployment considerations
 
-We need to ensure that the software agrees with the FPGA programming.  Thus
-far, the software dependence on FPGA content is of two kinds:
+We need to ensure that the software agrees with the FPGA programming.  Software
+dependence on FPGA content is of two kinds:
 
 1) Dependence on the register-set with which SOPC components are implemented.
    There are two different register sets currently in use: Marty's original
@@ -385,7 +583,7 @@ far, the software dependence on FPGA content is of two kinds:
    This dependence is restricted to the driver code, drvIP_EP201.c.
 
 2) Dependence on the user circuits attached to 'single 16-bit register' SOPC
-   components.  For example, the trial implementation of softGlue has several
+   components.  For example, the version 1.1 implementation of softGlue has several
    AND/NAND gates, several OR/NOR gates, some counters, etc., controlled by
    'single 16-bit register' components.
    This dependence is restricted to the database, autosave-request file, and
@@ -393,45 +591,10 @@ far, the software dependence on FPGA content is of two kinds:
    component, and should know which component address corresponds with which
    user circuit, and with which part of the user circuit.
    For example, the inverting output of AND/NAND gate #1 is associated by
-   address with a 'single 16-bit register' component.  In the future, it might
-   also be associated with a particular bit of a particular readback register,
-   and it also might be associated with some interrupt-related infrastructure.
-
-There are several possible ways to manage software dependence on FPGA content:
-
-1) Deploy softGlue as a module, with fixed FPGA content loaded at IOC boot time,
-and matching EPICS software.  To upgrade, one would link one's IOC software to
-a new version of the softGlue module, and rebuild.
-
-2) Write the content in flash memory on the IP module, and also write a unique
-version number into the FPGA, and have the software read the version number and
-check it against the software version number.  This method would require flash
-programming to upgrade.  If this cannot be done via the IP bus, then upgrades
-would be a problem.
-
-3) Some other way.
-
-For now, alternative (1) is assumed.  To accomplish this, we need to do the
-following:
-
-1) Use Quartus to write a file, in the Intel Hex format, that can be loaded into
-   the FPGA via the IP bus.
-
-2) Write software to do the loading, and invoke it from the st.cmd file before
-   the software intended to use the FPGA has started running.
-
-3) Configure the IP module to permit programming via the IP bus (as opposed to
-   programming from the onboard flash memory).  This is done by setting the DIP
-   jumper labelled 'CONFIGURE FPGA OVER IP BUS' to the 'IP BUS' position.
-
-The FPGA is programmed by setting bit 0 of the Config/control register, and
-writing FPGA-program data, a byte at a time, to the Config Data register.
-The procedure is detailed in section 3 of the Acromag Series IP-EP201
-user's manual, IP_EP20x_797a.pdf
-
+   address with a 'single 16-bit register' component.
 
 ------------------------------------------------------------------------------
-After v1.0, we added the ability to program the FPGA via the IP bus.
+Programming the FPGA via the IP bus.
 
 The IP-EP201 board has to be prepared for this by moving the DIP jumper to
 "IP BUS".
@@ -474,21 +637,21 @@ Acromag FPGA Field I/O Quartus SOPC Interface using DIO16 Module
 <table border>
 <tr><th>Bit<th>Function<th>Value<th>Description<th>Reg type
 <tr><td>0<td>Field I/O Direction Lower 8-Bits<td>0=Input, 1=Output<td>Sets direction for field I/O Lower 8-Bits<td>Control/Status
-<tr><td>1<td>-<td>0<td>-<td>Control/Status
-<tr><td>2<td>-<td>0<td>-<td>Control/Status
-<tr><td>3<td>-<td>0<td>-<td>Control/Status
-<tr><td>4<td>-<td>0<td>-<td>Control/Status
+<tr><td>1<td>&nbsp<td>0<td>&nbsp<td>Control/Status
+<tr><td>2<td>&nbsp<td>0<td>&nbsp<td>Control/Status
+<tr><td>3<td>&nbsp<td>0<td>&nbsp<td>Control/Status
+<tr><td>4<td>&nbsp<td>0<td>&nbsp<td>Control/Status
 <tr><td>5<td>Falling Edge IRQ Present<td>Lower 8-Bits<td>Set bit to 1 for Falling Edge INT<td>Control/Status
 <tr><td>6<td>Rising Edge IRQ Present<td>Lower 8-Bits<td>Set bit to 1 for Rising Edge INT<td>Control/Status
-<tr><td>7<td>Lower 8-bits IRQ Present<td>-<td>-<td>Control/Status
+<tr><td>7<td>Lower 8-bits IRQ Present<td>&nbsp<td>&nbsp<td>Control/Status
 <tr><td>8<td>Field I/O Direction Upper 8-Bits<td>0=Input, 1=Output<td>Sets direction for field I/O Upper 8-Bits<td>Control/Status
-<tr><td>9<td>-<td>-<td>-<td>Control/Status
-<tr><td>10<td>-<td>-<td>-<td>Control/Status
-<tr><td>11<td>-<td>-<td>-<td>Control/Status
-<tr><td>12<td>-<td>-<td>-<td>Control/Status
-<tr><td>13<td>Falling Edge IRQ Present Upper 8-Bits<td>-<td>-<td>Control/Status
-<tr><td>14<td>Rising Edge IRQ Present  Upper 8-Bits<td>-<td>-<td>Control/Status
-<tr><td>15<td>Upper 8-bits IRQ Present<td>-<td>-<td>Control/Status
+<tr><td>9<td>&nbsp<td>&nbsp<td>&nbsp<td>Control/Status
+<tr><td>10<td>&nbsp<td>&nbsp<td>&nbsp<td>Control/Status
+<tr><td>11<td>&nbsp<td>&nbsp<td>&nbsp<td>Control/Status
+<tr><td>12<td>&nbsp<td>&nbsp<td>&nbsp<td>Control/Status
+<tr><td>13<td>Falling Edge IRQ Present Upper 8-Bits<td>&nbsp<td>&nbsp<td>Control/Status
+<tr><td>14<td>Rising Edge IRQ Present  Upper 8-Bits<td>&nbsp<td>&nbsp<td>Control/Status
+<tr><td>15<td>Upper 8-bits IRQ Present<td>&nbsp<td>&nbsp<td>Control/Status
 </table>
 
 <h3>Credits</h3>
