@@ -961,15 +961,53 @@ composite {
 		}
 	}
 }
+composite {
+	object {
+		x=120
+		y=458
+		width=180
+		height=17
+	}
+	"composite name"=""
+	children {
+		"text entry" {
+			object {
+				x=210
+				y=458
+				width=90
+				height=17
+			}
+			control {
+				chan="$(P)$(H)pollTimeMS_IN"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+		text {
+			object {
+				x=120
+				y=461
+				width=90
+				height=10
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="POLL TIME (MS)"
+		}
+	}
+}
 "text entry" {
 	object {
-		x=210
-		y=458
+		x=815
+		y=455
 		width=90
 		height=17
 	}
 	control {
-		chan="$(P)$(H)pollTimeMS_IN"
+		chan="$(P)$(H)pollTimeMS_OUT"
 		clr=14
 		bclr=51
 	}
@@ -978,8 +1016,8 @@ composite {
 }
 text {
 	object {
-		x=120
-		y=461
+		x=725
+		y=458
 		width=90
 		height=10
 	}
