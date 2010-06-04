@@ -534,6 +534,7 @@ and outputs are specified separately.
 
 <hr>
 <h2><center>Implementation</center></h2>
+	<h3>FPGA content</h3>
 
 softGlue's FPGA content is of standard digital circuitry connected to
 interface elements that are of three types:
@@ -562,6 +563,17 @@ to a specific device instance.
 
 </dl>
 
+	<h3>database files</h3>
+
+	<h3>driver</h3>
+
+	<h3>device support</h3>
+
+	<h3>medm-display</h3>
+
+<hr>
+<hr>
+<hr>
 The following notes have not been integrated into the documentation yet.
 They are included for completeness.
 
@@ -654,15 +666,20 @@ Acromag FPGA Field I/O Quartus SOPC Interface using DIO16 Module
 <tr><td>15<td>Upper 8-bits IRQ Present<td>&nbsp<td>&nbsp<td>Control/Status
 </table>
 
+<hr>
+<hr>
+<hr>
+
 <h3>Credits</h3>
 
 The essential enabling work underlying softGlue is Eric Norum's <a
-href="IndustryPackBridge.html">IndustryPack Bridge</a>.  David Kline engineered a
-proof-of-principle implementation working from another of Eric's bus-interface solutions, for a
-non-VME architecture.  Marty Smith wrote a driver to talk to custom FPGA content interfaced to
-Eric's IndustryPack Bridge.  Marty Smith and Kurt Goetze implemented the FPGA content included
-with softGlue, and Tim Mooney extended Marty's driver, wrote some device support, and did the
-EPICS-application stuff.
+href="IndustryPackBridge.html">IndustryPack Bridge</a>.  David Kline engineered
+a proof-of-principle implementation working from another of Eric's bus-interface
+solutions, for a non-VME architecture.  Marty Smith wrote a driver to talk to
+custom FPGA content interfaced to Eric's IndustryPack Bridge.  Marty Smith and
+Kurt Goetze implemented the FPGA content included with softGlue, and Tim Mooney
+extended Marty's driver, wrote device support to implement the wiring model, and
+wrote the EPICS application (databases, MEDM displays, etc).
 
 <hr>
 <ADDRESS STYLE="text-align: left">Suggestions and Comments to: <br>
