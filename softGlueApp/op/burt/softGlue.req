@@ -184,3 +184,4 @@ PREFIX:busy.FLNK
 PREFIX:pulseOut.OUT
 PREFIX:npulseOut.OUT
 PREFIX:pollTimeMS_IN
+PREFIX:pollTimeMS_OUT
