@@ -17,4 +17,47 @@ record(mbbo,"$(P)$(H)$(NAM)IntEdge") {
 	field(ONST,"Rising")
 	field(TWST,"Falling")
 	field(THST,"Both")
+	field(FLNK,"$(P)$(H)$(NAM)IntEdgeClearThrottled")
+}
+
+# This record's purpose is to be executed when drvIP-EP201's intFunc disables
+# an interrupt bit because it was generating more interrupts than pollerThread
+# was able to handle.  When executed, the record will get the disabledIntMask,
+# and attempt to execute IntEdgeClear. If disabledIntMask is nonzero, the
+# attempt will succeed.
+record(longin,"$(P)$(H)$(NAM)IntEdgeReset") {
+	field(DTYP,"asynUInt32Digital")
+	field(INP,"@asynMask($(PORT),$(ADDR),$(MASK))INT_EDGE_RESET")
+	field(FLNK,"$(P)$(H)$(NAM)IntEdgeClear")
+	field(SCAN,"I/O Intr")
+}
+
+# Clear an interrupt bit.
+record(longout,"$(P)$(H)$(NAM)IntEdgeClear") {
+	field(SDIS,"$(P)$(H)$(NAM)IntEdgeReset")
+	field(DISV,"0")
+	field(DOL,"0")
+	field(OUT,"$(P)$(H)$(NAM)IntEdge PP")
+	field(FLNK,"$(P)$(H)$(NAM)IntEdgeSetThrottled")
+}
+
+# Show user when IntEdge has been set to "None" by throttle
+record(bo,"$(P)$(H)$(NAM)IntEdgeSetThrottled") {
+	field(DOL,"1")
+	field(ZNAM,"0")
+	field(ONAM,"1")
+	field(OUT,"$(P)$(H)$(NAM)IntEdgeThrottled PP")
+}
+record(bo,"$(P)$(H)$(NAM)IntEdgeClearThrottled") {
+	field(SDIS,"$(P)$(H)$(NAM)IntEdgeReset.PACT")
+	field(DISV,"1")
+	field(DOL,"0")
+	field(ZNAM,"0")
+	field(ONAM,"1")
+	field(OUT,"$(P)$(H)$(NAM)IntEdgeThrottled PP")
+}
+record(bo,"$(P)$(H)$(NAM)IntEdgeThrottled") {
+	field(DOL,"0")
+	field(ZNAM,"0")
+	field(ONAM,"1")
 }
