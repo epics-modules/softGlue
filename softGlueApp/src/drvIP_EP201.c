@@ -135,13 +135,15 @@ volatile int drvIP_EP201Debug = 0;
 #define APS_ID	0x53
 #define MAX_MESSAGES 1000
 #define MAX_PORTS 10
+#define MAX_IRQ 2	/* max number of outstanding interrupt requests */
 
 #define COMPONENTTYPE_FIELD_IO 0
 #define COMPONENTTYPE_BARE_REG 1
 
 /* drvParams */
-#define INTERRUPT_EDGE	1	/* drvParam INTEDGE */
-#define POLL_TIME		2	/* drvParam POLLTIME */
+#define INTERRUPT_EDGE			1	/* drvParam INTEDGE */
+#define POLL_TIME				2	/* drvParam POLLTIME */
+#define INTERRUPT_EDGE_RESET	3	/* drvParam INT_EDGE_RESET */
 
 typedef struct {
     epicsUInt16 controlRegister;    /* control register            */
@@ -181,6 +183,8 @@ typedef struct {
     asynInterface int32;
     void *interruptPvt;
     int intVector;
+	epicsUInt32 interruptCount;
+    epicsUInt16 disabledIntMask;    /* int enable rescinded because too many interrupts received */
 } drvIP_EP201Pvt;
 
 
@@ -408,6 +412,7 @@ static asynStatus create_asynDrvUser(void *drvPvt,asynUser *pasynUser,
 	} else {
 		if (strcmp(drvInfo, "INTEDGE") == 0) pasynUser->reason = INTERRUPT_EDGE;
 		if (strcmp(drvInfo, "POLLTIME") == 0) pasynUser->reason = POLL_TIME;
+		if (strcmp(drvInfo, "INT_EDGE_RESET") == 0) pasynUser->reason = INTERRUPT_EDGE_RESET;
 	}
 	return(asynSuccess);
 }
@@ -664,6 +669,8 @@ static asynStatus readUInt32D(void *drvPvt, asynUser *pasynUser,
 			for (; mask && ((mask&1) == 0); mask>>=1, *value<<=1);
 		} else if (pasynUser->reason == POLL_TIME) {
 			*value = pPvt->pollTime*1000;
+		} else if (pasynUser->reason == INTERRUPT_EDGE_RESET) {
+			*value = pPvt->disabledIntMask;
 		}
 	} else {
 		reg = calcRegisterAddress(drvPvt, pasynUser);
@@ -761,6 +768,8 @@ static asynStatus readInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 *value
 		}
 	} else if (pasynUser->reason == POLL_TIME) {
 		*value = (epicsUInt32) (pPvt->pollTime*1000);
+	} else if (pasynUser->reason == INTERRUPT_EDGE_RESET) {
+		*value = pPvt->disabledIntMask;
 	}
 
 	asynPrint(pasynUser, ASYN_TRACEIO_DRIVER,
@@ -823,7 +832,7 @@ static asynStatus getBounds(void *drvPvt, asynUser *pasynUser, epicsInt32 *low, 
 static void intFunc(void *drvPvt)
 {
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
-	epicsUInt16 pendingLow, pendingHigh, pendingMask;
+	epicsUInt16 pendingLow, pendingHigh;
 	interruptMessage msg;
 
 	/* Make sure interrupt is from this hardware.  Otherwise just leave. */
@@ -845,12 +854,22 @@ static void intFunc(void *drvPvt)
 			pPvt->messagesSent++;
 		else
 			pPvt->messagesFailed++;
+
+		/* If too many interrupts have been received, disable the offending bits. */
+		if (++(pPvt->interruptCount) > MAX_IRQ) {
+			pPvt->regs->risingIntEnable &= ~pendingHigh;
+			pPvt->regs->fallingIntEnable &= ~pendingLow;
+			pPvt->disabledIntMask = pendingHigh | pendingLow;
+			if (drvIP_EP201Debug) logMsg("intFunc: disabledIntMask=0x%x\n", pPvt->disabledIntMask);
+		}
+
 		/* Clear the interrupt bits we handled */
 		pPvt->regs->risingIntStatus = pendingHigh;
 		pPvt->regs->fallingIntStatus = pendingLow;
 
 		/* Generate dummy read cycle for PPC */
 		pendingHigh = pPvt->regs->risingIntStatus;
+
 	}
 }
 
@@ -886,6 +905,9 @@ static void pollerThread(drvIP_EP201Pvt *pPvt)
 		} else {
 			newBits = msg.bits;
 			interruptMask = msg.interruptMask;
+			pPvt->interruptCount--;
+			if (drvIP_EP201Debug > 5)
+				printf("drvIP_EP201:pollerThread: intCount=%d\n", pPvt->interruptCount);
 			asynPrint(pPvt->pasynUser, ASYN_TRACE_FLOW,
 				"drvIP_EP201:pollerThread, got interrupt for port %s\n", pPvt->portName);
 			hardware = 1;
@@ -895,7 +917,7 @@ static void pollerThread(drvIP_EP201Pvt *pPvt)
 
 		/* We detect change both from interruptMask (which only works for
 		 * hardware interrupts) and changedBits, which works for polling */
-		if (drvIP_EP201Debug) printf("drvIP_EP201:pollerThread: new=%d, old=%d\n", newBits, pPvt->oldBits);
+		if (drvIP_EP201Debug) printf("drvIP_EP201:pollerThread: new=0x%x, old=0x%x\n", newBits, pPvt->oldBits);
 		if (hardware==0) {
 			changedBits = newBits ^ pPvt->oldBits;
 			interruptMask = interruptMask & changedBits;
@@ -908,7 +930,7 @@ static void pollerThread(drvIP_EP201Pvt *pPvt)
 			pnode = (interruptNode *)ellFirst(pclientList);
 			while (pnode) {
 				pUInt32D = pnode->drvPvt;
-				if (pUInt32D->mask & interruptMask) {
+				if ((pUInt32D->mask & interruptMask) && (pUInt32D->pasynUser->reason == 0)) {
 					asynPrint(pPvt->pasynUser, ASYN_TRACE_FLOW, "drvIP_EP201:pollerThread, calling client %p"
 						" mask=%x, callback=%p\n", pUInt32D, pUInt32D->mask, pUInt32D->callback);
 					pUInt32D->callback(pUInt32D->userPvt, pUInt32D->pasynUser, pUInt32D->mask & newBits);
@@ -917,9 +939,37 @@ static void pollerThread(drvIP_EP201Pvt *pPvt)
 			}
 			pasynManager->interruptEnd(pPvt->interruptPvt);
 		}
+		/* If intFunc disabled any interrupt bits, cause them to show their new states. */
+		if (pPvt->disabledIntMask) {
+			epicsUInt32 maskBit;
+			if (drvIP_EP201Debug)
+				printf("drvIP_EP201:pollerThread: disabledIntMask=0x%x\n", pPvt->disabledIntMask);
+			pasynManager->interruptStart(pPvt->interruptPvt, &pclientList);
+			pnode = (interruptNode *)ellFirst(pclientList);
+			while (pnode) {
+				pUInt32D = pnode->drvPvt;
+				if (pUInt32D->pasynUser->reason == INTERRUPT_EDGE_RESET) {
+					if (drvIP_EP201Debug>10) printf("drvIP_EP201:pollerThread: reason == INTERRUPT_EDGE_RESET,mask=0x%x\n", pUInt32D->mask);
+					/* The lower bit of pUInt32D->mask is the bit we're actually controlling.  pUInt32D->mask has
+					 * the next higher bit also set as part of a kludge to represent states of both falling- and
+					 * rising-edge enables, while still indicating the controlled bit.
+					 */
+					maskBit = pUInt32D->mask & ((pUInt32D->mask)>>1);
+					if (maskBit & pPvt->disabledIntMask) {
+						asynPrint(pPvt->pasynUser, ASYN_TRACE_FLOW, "drvIP_EP201:pollerThread, calling client %p"
+							" mask=%x, callback=%p\n", pUInt32D, pUInt32D->mask, pUInt32D->callback);
+						pUInt32D->callback(pUInt32D->userPvt, pUInt32D->pasynUser, pUInt32D->mask);
+					}
+				}
+				pnode = (interruptNode *)ellNext(&pnode->node);
+			}
+			pasynManager->interruptEnd(pPvt->interruptPvt);
+			pPvt->disabledIntMask = 0;
+		}
 	}
 }
 
+/* I don't know what these two functions are for.  I'm just including them because an example did. */
 static asynStatus setInterruptUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 mask,
 	interruptReason reason)
 {
