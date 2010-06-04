@@ -18,9 +18,9 @@ initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/db/EP200_FPGA.hex")
 # Note that while the addresses and interrupt vector look adjustable, they
 # really are not.  
 # 16 input bits
-initIP_EP201("SGI1",0,2,10000,0x0,  0x0 ,0x80,0x7f,0x7f)
+initIP_EP201("SGI1",0,2,1000,0x0,  0x0 ,0x80,0x7f,0x7f)
 # 16 output bits (can't generate interrupts)
-initIP_EP201("SGO1",0,2,10000,0x101, 0x10 ,0x81,0x00,0x00)
+initIP_EP201("SGO1",0,2,1000,0x101, 0x10 ,0x81,0x00,0x00)
 
 # All instances of a single-register component are initialized with a single
 # call, as follows:
@@ -46,6 +46,7 @@ dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent.db", "P=xxx:,H=softGlue:,PORT
 dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAInt.db", "P=xxx:,H=softGlue:,IPORT=SGI1,IADDR=0,OPORT=SGO1,OADDR=0x10")
 
 # some stuff just to make working easier
-dbLoadRecords("$(SOFTGLUE)/db/softGlue_convenience.db", "P=xxx:,H=softGlue:,PORT=SOFTGLUE,IPORT=SGI1,OPORT=SGO1")
+args = "P=xxx:,H=softGlue:,PORT=SOFTGLUE,IPORT=SGI1,IADDR=0,OPORT=SGO1,OADDR=0x10"
+dbLoadRecords("$(SOFTGLUE)/db/softGlue_convenience.db", args)
 
 # END softGlue.cmd ------------------------------------------------------------
