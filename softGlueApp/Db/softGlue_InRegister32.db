@@ -9,7 +9,7 @@ record(longin,"$(P)$(H)$(SIG)_LSW") {
 	field(FLNK,"$(P)$(H)$(SIG)")
 }
 record(calc,"$(P)$(H)$(SIG)") {
-	field(INPA,"$(P)$(H)$(SIG)_MSW NPP")
+	field(INPA,"$(P)$(H)$(SIG)_MSW PP")
 	field(INPB,"$(P)$(H)$(SIG)_LSW NPP")
 	field(CALC,"a*65536+b")
 }
@@ -18,5 +18,8 @@ record(scalcout,"$(P)$(H)$(SIG)_autoRead") {
 	field(DD,"Passive")
 	field(CALC,"bb==''?dd:bb")
 	field(IVOA,"Don't drive outputs")
-	field(OUT,"$(P)$(H)$(SIG)_MSW.SCAN CA")
+	field(OUT,"$(P)$(H)$(SIG)_SCAN.SCAN CA")
+}
+record(bo,"$(P)$(H)$(SIG)_SCAN") {
+	field(FLNK,"$(P)$(H)$(SIG)_MSW")
 }
