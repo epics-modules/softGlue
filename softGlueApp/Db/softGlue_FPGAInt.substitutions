@@ -78,5 +78,6 @@ file "softGlue_PollTime.db"
 {
 pattern {NAM PORT}
 {pollTimeMS_IN $(IPORT) }
+{pollTimeMS_OUT $(OPORT) }
 }
 
