@@ -1,7 +1,17 @@
 record(busy,"$(P)$(H)busy") {
 }
 record(asyn,"$(P)$(H)asyn$(PORT)") {
-	field(PORT,$(PORT))
+	field(PORT,"$(PORT)")
+}
+record(asyn,"$(P)$(H)asyn$(IPORT)") {
+	field(PORT,"$(IPORT)")
+	field(IFACE,"asynUInt32Digital")
+	field(ADDR,"$(IADDR)")
+}
+record(asyn,"$(P)$(H)asyn$(OPORT)") {
+	field(PORT,"$(OPORT)")
+	field(IFACE,"asynUInt32Digital")
+	field(ADDR,"$(OADDR)")
 }
 
 # positive going pulse
