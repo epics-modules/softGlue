@@ -79,5 +79,6 @@ file "$(SOFTGLUE)/softGlueApp/Db/softGlue_PollTime.db"
 {
 pattern {P H NAM PORT}
 {xxx: softGlue: pollTimeMS_IN $(IPORT) }
+{xxx: softGlue: pollTimeMS_OUT $(OPORT) }
 }
 
