@@ -5,7 +5,10 @@
 # and have that menu control one bit of drvIP_EP201's risingIntEnable and
 # fallingIntEnable registers.  The mask $(MASK) must have two adjacent bits
 # set, the lower of which tells drvIP_EP201 which bit actually to read/write.
+# PINI="YES" because we want autosave to be able to restore the user's
+# rising/falling edge selections.
 record(mbbo,"$(P)$(H)$(NAM)IntEdge") {
+	field(PINI,"YES")
 	field(DTYP,"asynUInt32Digital")
 	field(OUT,"@asynMask($(PORT),$(ADDR),$(MASK))INTEDGE")
 	field(NOBT,"2")
