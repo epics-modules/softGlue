@@ -100,7 +100,7 @@ epicsExportAddress(dset, asynSoftGlue);
 /* If signal name ends with '*', use inverted value of signal.  Only valid for inputs.
  * If implemented, output names will have trailing '*' stripped.
  */
-#define IMPLEMENT_SIGNAL_NAME_STAR 0
+#define IMPLEMENT_SIGNAL_NAME_STAR 1
 
 /* a softGlue stringout record can identify itself as an input or an output either
  * by having the first character of its DESC field be 'O', or by defining the info
@@ -186,8 +186,9 @@ static void initSignal(stringoutRecord *pso) {
  */
 static long checkSignal(stringoutRecord *pso) {
 	devPvt *pdevPvt = (devPvt *)pso->dpvt;
-	int i, needPost=0;
+	int i, needPost=0, compareLength;
 	char *c;
+	char signalName[60];
 	struct portInfo *pi = &(portInfo[pdevPvt->portInfoNum]);
 	int portNum=-1;
 	struct recordListItem *pitem;
@@ -232,29 +233,50 @@ static long checkSignal(stringoutRecord *pso) {
 		}
 	}
 
+	compareLength = strlen(pso->val);
+
 	/* If signal is an output, leading decimal digit is illegal */
 	if (pdevPvt->isOutput) {
 		/* signal is an output.  If deleted leading digit leaves a leading space, delete that too. */
 		while (isdigit((int)pso->val[0]) || isspace((int)pso->val[0])) {
 			for (c=&(pso->val[1]); *c; c++) *(c-1) = *c;
 			*(c-1) = '\0';
+			compareLength--;
 			needPost = 1;
 		}
 #if IMPLEMENT_SIGNAL_NAME_STAR
 		/* output-signal names are not permitted to end in '*' */
 		if (pso->val[strlen(pso->val)-1] == '*') {
+			compareLength--;
 			pso->val[strlen(pso->val)-1] = '\0';
 			needPost = 1;
 		}
 #endif
+	} else {
+#if IMPLEMENT_SIGNAL_NAME_STAR
+		/* Check if signal name ends with '*'.  If so, it is to be regarded
+		 * as the same signal as the signal name with the trailing '*' deleted.
+		 */
+		if (pso->val[strlen(pso->val)-1] == '*') {
+			compareLength--;
+		}
+		if (compareLength == 0) {
+			/* signal name was '*'.  Erase it. */
+			pso->val[0] = '\0';
+			needPost = 1;
+		}
+#endif
 	}
-
 	if (needPost) db_post_events(pso, &pso->val, DBE_VALUE);
+
+	strcpy(signalName, pso->val);
+	signalName[compareLength] = '\0';
+	if (devAsynSoftGlueDebug) printf("checkSignal: signal='%s', compareLength=%d\n", signalName, compareLength);
 
 	epicsMutexLock(pi->sig_mutex);
 	if (pdevPvt->signalNum) {
 		/* We're attached to a nonzero signal.  Should we stay attached? */
-		if (isdigit((int)pso->val[0])) {
+		if (isdigit((int)signalName[0])) {
 			/* We're a binary value; signal number should be 0.  Detach. */
 			if (--(pi->sigList[pdevPvt->signalNum].numUsers) <= 0) {
 				pi->sigList[pdevPvt->signalNum].numUsers = 0;
@@ -264,14 +286,14 @@ static long checkSignal(stringoutRecord *pso) {
 			if (devAsynSoftGlueDebug) printf("checkSignal: binary value\n");
 			epicsMutexUnlock(pi->sig_mutex);
 			return(0);
-		} else if (strcmp(pso->val, pi->sigList[pdevPvt->signalNum].name)==0) {
+		} else if (strcmp(signalName, pi->sigList[pdevPvt->signalNum].name)==0) {
 			/* The VAL field agrees with the signal we're attached to. */
 			if (devAsynSoftGlueDebug) printf("checkSignal: name agrees with signalNum\n");
 			epicsMutexUnlock(pi->sig_mutex);
 			return(0);
 		} else {
 			/* The VAL field disagrees with the signal's name.  Detach. */
-			if (pdevPvt->signalNum && strcmp(pso->val, pi->sigList[pdevPvt->signalNum].name)) {
+			if (pdevPvt->signalNum && strcmp(signalName, pi->sigList[pdevPvt->signalNum].name)) {
 				if (--(pi->sigList[pdevPvt->signalNum].numUsers) <= 0) {
 					pi->sigList[pdevPvt->signalNum].numUsers = 0;
 					pi->sigList[pdevPvt->signalNum].name[0] = '\0';
@@ -283,24 +305,24 @@ static long checkSignal(stringoutRecord *pso) {
 
 	/* We're not attached to a nonzero signal. */
 
-	if (isdigit((int)pso->val[0])) {
+	if (isdigit((int)signalName[0])) {
 		/* shortcut above should already have handled this case */
 		epicsMutexUnlock(pi->sig_mutex);
 		return(0);
 	}
 
-	if (isBusLine(pso->val)) {
+	if (isBusLine(signalName)) {
 		/* 'B0' .. 'Bnn', where nn is MAXSIGNALS-1. */
-		i = atoi(pso->val+1);
+		i = atoi(signalName+1);
 		pdevPvt->signalNum = i;
 		if (devAsynSoftGlueDebug) printf("checkSignal: Attaching to signal %d\n", pdevPvt->signalNum);
 		epicsMutexUnlock(pi->sig_mutex);
 		return(0);
-	} else if (pso->val[0]) {
-		if (devAsynSoftGlueDebug) printf("checkSignal: Signal name = '%s'\n", pso->val);
+	} else if (signalName[0]) {
+		if (devAsynSoftGlueDebug) printf("checkSignal: Signal name = '%s'\n", signalName);
 		/* We have a signal name.  See if it's already assigned. */
 		for (i=1; i<MAXSIGNALS; i++) {
-			if (strcmp(pso->val, pi->sigList[i].name) == 0) {
+			if (strcmp(signalName, pi->sigList[i].name) == 0) {
 				pdevPvt->signalNum = i;
 				pi->sigList[i].numUsers += 1;
 				if (devAsynSoftGlueDebug) printf("checkSignal: Attaching to existing signal %d\n", pdevPvt->signalNum);
@@ -313,8 +335,8 @@ static long checkSignal(stringoutRecord *pso) {
 			if (pi->sigList[i].numUsers == 0) {
 				pdevPvt->signalNum = i;
 				pi->sigList[i].numUsers = 1;
-				strcpy(pi->sigList[i].name, pso->val);
-				if (devAsynSoftGlueDebug) printf("checkSignal: Assigning name '%s' to signal %d\n", pso->val, pdevPvt->signalNum);
+				strcpy(pi->sigList[i].name, signalName);
+				if (devAsynSoftGlueDebug) printf("checkSignal: Assigning name '%s' to signal %d\n", signalName, pdevPvt->signalNum);
 				epicsMutexUnlock(pi->sig_mutex);
 				return(0);
 			}
@@ -594,7 +616,12 @@ static void callbackSoWrite(asynUser *pasynUser)
 	devPvt			*pdevPvt = (devPvt *)pasynUser->userPvt;
 	stringoutRecord	*pso = (stringoutRecord *)pdevPvt->precord;
 	asynStatus		status;
-	epicsUInt32		value=0, mask=0x2f;
+	epicsUInt32		value=0;
+#if IMPLEMENT_SIGNAL_NAME_STAR
+	epicsUInt32		mask=0x6f;
+#else
+	epicsUInt32		mask=0x2f;
+#endif
 
 	/* See if string value begins with a number or something else */
 	if (isdigit((int)pso->val[0])) {
