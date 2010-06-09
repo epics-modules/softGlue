@@ -409,3 +409,13 @@ composite {
 	"composite name"=""
 	"composite file"="softGlue_FieldOutput.adl;P=$(P),H=$(H),N=$(N8)"
 }
+composite {
+	object {
+		x=471
+		y=507
+		width=285
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_8MHZ_CK_bare.adl;P=$(P),H=$(H)"
+}
