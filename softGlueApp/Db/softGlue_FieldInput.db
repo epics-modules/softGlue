@@ -2,7 +2,7 @@ record(stringout,"$(P)$(H)$(SIG)_Signal") {
 	field(DESC,"$(IOPIN)")
 	field(PINI,"YES")
 	field(DTYP,"softGlue")
-	field(OUT,"@asynMask($(PORT),$(ADDR),0x2f)")
+	field(OUT,"@asynMask($(PORT),$(ADDR),0x6f)")
 	info(softGlueIO,"OUT")
 }
 record(mbbo,"$(P)$(H)$(SIG)_Show") {
@@ -25,7 +25,7 @@ record(scalcout,"$(P)$(H)$(SIG)_SigShow") {
 	field(INAA,"$(P)$(H)$(SIG)_Signal CP")
 	field(INBB,"$(P)$(H)SignalToShow CP")
 	field(INPA,"$(P)$(H)SignalBlink CP")
-	field(CALC,"aa==bb?(a?'1':'0'):'0'")
+	field(CALC,"aa[0,'*']==bb[0,'*']?(a?'1':'0'):'0'")
 }
 record(bi,"$(P)$(H)$(SIG)_BI") {
 	field(DTYP,"asynUInt32Digital")
