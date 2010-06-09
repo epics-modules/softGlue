@@ -220,7 +220,7 @@ personal computer to write documentation.)</blockquote>
 
 			<li>Copy <code>softGlue/iocBoot/iocSoftGlue/softGlue.cmd</code> to
 				<code>iocBoot/ioc<em>xxx</em></code>, and edit the <code>dbLoadRecords()</code>
-				commands to define the macros <code>P</code>, and <code>H</code>.
+				commands in <code>softGlue.cmd</code> to define the macros <code>P</code>, and <code>H</code>.
 
 				<blockquote>If you'll have more than one IP_EP201 module running softGlue, you'll also
 				need to maintain separate asyn port names and addresses for the modules.  Port names
@@ -263,8 +263,8 @@ personal computer to write documentation.)</blockquote>
 			<ul>
 
 			<li>If you use MEDM, add a related-display button to call up the
-				<code>softGlueMenu.adl</code> display with the macros <code>P</code>, and
-				<code>H</code>.
+				<code>softGlueMenu.adl</code> display with the macros <code>P</code>, <code>H</code>,
+				<code>PORT</code>, <code>IPORT</code>, <code>OPORT</code>, as defined in <code>iocBoot/ioc<em>xxx</em>/softGlue.cmd</code>.
 				
 				<blockquote>If you figure out how to use softGlue with some other display manager,
 				please tell us about it, so we can include your work in the next version of
@@ -337,42 +337,47 @@ of outputs connected together are undefined.)
 
 <li>Leave empty.  Inputs with empty text-entry boxes default to logic value 1.
 
-<li>Enter a string that begins with a digit.  This sets the input to a logic value: 0 if the
-number is close to zero, 1 if it's not.
+<li>Enter a string that begins with a digit.  softGlue will parse everything that looks
+numberish, ignore everything after the first non-numberish character, and convert to a
+float.  This sets the input to a logic value: 0 if the number is close to zero, 1 if it's
+not.
 
 <blockquote>Allowing floats means you can drive softGlue inputs
 with, say, calc records.</blockquote>
 
 <li>Enter a string that begins with something other than a digit.  This <em>names</em> the
-signal, and connects it to all other signals with exactly the same name.
+signal, and connects it to all other signals with exactly the same name, or with the same
+name followed by '<code>*</code>'.
 
-<blockquote>Note that you can't connect signals implemented in different FPGA modules using their
-text-entry boxes. To accomplish this, you would have to connect the signals to field I/O and make a
-physical connection.</blockquote>
+<blockquote>Note that you can't connect signals implemented in different FPGA modules
+using their text-entry boxes. To accomplish this, you would have to connect the signals to
+field I/O and make a physical connection.</blockquote>
 
-<li>Enter the PV name of another signal's name into an empty text-entry box.  This connects the
-signals together.
+<li>Enter the PV name of another signal's name into an empty text-entry box.  This
+connects the signals together.
 
-<blockquote>Most likely you would do this using MEDM's Drag-And-Drop feature, by clicking the middle
-mouse button in a signal's text-entry box, holding the button down while you move the mouse pointer
-to another signal's text-entry box, releasing the button, and hitting &lt;Enter&gt; while the mouse
-pointer is in the box.  When softGlue sees the PVname of another signal associated with the same
-FPGA module, it copies the source signal name to the drop signal name, connecting the signals
-together.</blockquote>
+<blockquote>Most likely you would do this using MEDM's Drag-And-Drop feature, by clicking
+the middle mouse button in a signal's text-entry box, holding the button down while you
+move the mouse pointer to another signal's text-entry box, releasing the button, and
+hitting &lt;Enter&gt; while the mouse pointer is in the box.  When softGlue sees the
+PVname of another signal associated with the same FPGA module, it copies the source signal
+name to the drop signal name, connecting the signals together.</blockquote>
 
-<li>Enter a string that begins with something other than a digit, and that ends with . 
-This <em>names</em> the signal, connects it to all other signals with exactly the same name (ignoring
-the trailing '<code>*</code>'), and tells softGlue to run the signal through an inverter before applying it to the
-input.
-
-<blockquote>Not yet implemented.</blockquote>
+<li>Enter a string that begins with something other than a digit, and that ends with
+'<code>*</code>'.  This <em>names</em> the signal, connects it to all other signals with
+exactly the same name (ignoring the trailing '<code>*</code>'), and tells softGlue to run
+the signal through an inverter before applying it to the input.
 
 </ol>
 
 <P>Whatever option you choose, you can define at most fifteen different signal names.
+When you try to define the 16th name, softGlue will erase whatever you wrote.  (Note
+that "reset" and "reset*" are not different signal names.)
 
-<P>Text-entry boxes for output signals won't accept names beginning with a number.  You can't
-control these signals directly; you can only connect them to other signals.
+<P>Text-entry boxes for output signals won't accept names beginning with a number, or
+ending with '<code>*</code>.  (softGlue will simply strip the offending characters, and
+overwrite.)  You can't write binary values to these signals; you can only connect them to other
+signals.
 
 <P>A signal's "= button" is used to show all other signals to which the signal is connected. Input
 signals flash green boxes; output signals flash orange boxes.  If you ever see two or more orange
@@ -474,37 +479,54 @@ circuitry as a free standing output.
 <li><P>Field I/O
 <P><img src="Field_IO.gif" name="Field I/O">
 
-<P> The signals in this display are the field inputs (pins 1-16 on the ribbon connector) and field
-outputs (pins 17-32 on the ribbon connector).
+<P>This display allows you to connect field I/O signals to each other and to softGlue
+circuits.  Note that a "Field Input Bit" looks like and behaves as a softGlue
+<em>output</em>, because what you're actually controlling is the output of a buffer driven
+by the field input signal.  Similarly, a "Field Output Bit" looks like and behaves as a
+softGlue <em>input</em>.
+
+
+<P>The signals in this display are the field inputs (pins 1-16 on the IP-EP201's ribbon
+connector) and field outputs (pins 17-32 on the ribbon connector).  These I/O pin choices
+are hard-wired in the FPGA content.
+
+<blockquote>Although you can't change the field-wiring I/O assignments, you can
+easily change the "CONNECTOR #" numbers in this display -- for example, to support a
+custom signal-breakout module.  The numbers are defined in
+<code>softGlueApp/Db/softGlue_FPGAContentDev.substitutions</code>, as the macro
+<code>IOPIN</code> supplied to <code>softGlue_FieldOutput.db</code> and
+<code>softGlue_FieldInput.db</code>.  To customize,
+<ul>
+<li>copy <code>softGlueApp/Db/softGlue_FPGAContentDev.substitutions</code>
+to your ioc directory, and edit with your pin numbers
+<li>in <code>softGlue.cmd</code>, replace<br>
+<code>dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent.db", "P=xxx:,H=softGlue:,PORT=SOFTGLUE")</code>
+<br>with<br>
+<code>dbLoadTemplate("softGlue_FPGAContentDev.db")</code>
+</ul>
+</blockquote>
+
 
 <li><P>Field I/O Interrupt support
 <P><img src="Field_IO_Int.gif" name="Field I/O">
 
-<P> Field inputs and outputs are supported by two independent sets of binary input and output records:
+<P>The 16 input lines supported by softGlue can generate interrupts on rising edges,
+falling edges, both, or neither.  You control this by setting the "INTERRUPT ENABLE"
+menu to "Rising", "Falling", "Both", or "None", respectively.
+
+<P>Interrupts are throttled by softGlue's interrupt handler.  If more than four
+interrupts have occurred and not been handled, softGlue will disable the offending
+bit, and show you that it has done this by drawing a red box around the bit's "INTERRUPT ENABLE" menu
+control.  The next time you set the menu, the box will be erased.
+
+<P>When an interrupt occurs, you can have the signal value written to an
+EPICS PV, by writing an EPICS link description into the purple box
+labelled "ON INTERRUPT, WRITE SIGNAL VALUE TO THIS PV".  An EPICS link description
+is the name of an EPICS PV, followed by one of the following link attributes:
 <dl>
-
-<dt>softGlue-supported records
-
-<dd>These records are part of a database that also includes signal-wiring fields
-(the <code>softGlue_FPGAContent.db</code> database); they are connected to
-hardware via softGlue's asyn port (the port initialized by the function
-<code>initIP_EP201SingleRegisterPort()</code>), and no interrupt support is
-provided for them.  They are polled at a rate determined by the
-<code>CONNECTED</code> or <code>UNCONNECTED</code> menus on the
-<code>softGlueMenu.adl</code> display.
-
-<dt>non-softGlue-supported records
-
-<dd>These optional records are loaded separately from the records described
-above (they are loaded by the <code>softGlue_FPGAInt.db</code> database); they
-are connected to hardware via the asyn port initialized by the function
-<code>initIP_EP201()</code>, and they can be interrupt driven.  They are also
-polled periodically.  The polling period's initial value is specified as an
-argument to <code>initIP_EP201()</code>, and it can be modified by the user
-via the <code>POLL TIME (MS)</code> text entries on the
-<code>softGlueFieldIO_Int.adl</code> display.  The polling periods for inputs
-and outputs are specified separately.
-
+<dt>NPP<dd>(default) write value, but do not cause processing
+<dt>PP<dd>write value and cause processing (if the record containing the PV is "Process Passive")
+<dt>CA<dd>write value and let record containing the PV decide whether or not to process.
 </dl>
 
 <li><P>All
@@ -570,6 +592,34 @@ to a specific device instance.
 	<h3>device support</h3>
 
 	<h3>medm-display</h3>
+
+	<h3>Field I/O</h3>
+		<P> Field inputs and outputs are supported by two independent sets of binary input and
+		output records:
+
+		<dl>
+
+		<dt>softGlue-supported records
+
+		<dd>These records are part of a database that also includes signal-wiring fields
+		(the <code>softGlue_FPGAContent.db</code> database); they are connected to hardware via
+		softGlue's asyn port (the port initialized by the function
+		<code>initIP_EP201SingleRegisterPort()</code>), and no interrupt support is provided for
+		them.  They are polled at a rate determined by the <code>CONNECTED</code> or
+		<code>UNCONNECTED</code> menus on the <code>softGlueMenu.adl</code> display.
+
+		<dt>non-softGlue-supported records
+
+		<dd>These optional records are loaded separately from the records described
+		above (they are loaded by the <code>softGlue_FPGAInt.db</code> database); they
+		are connected to hardware via the asyn port initialized by the function
+		<code>initIP_EP201()</code>, and they can be interrupt driven.  They are also
+		polled periodically.  The polling period's initial value is specified as an
+		argument to <code>initIP_EP201()</code>, and it can be modified by the user
+		via the <code>POLL TIME (MS)</code> text entries on the
+		<code>softGlueFieldIO_Int.adl</code> display.  The polling periods for inputs
+		and outputs are specified separately.
+		</dl>
 
 <hr>
 <hr>
