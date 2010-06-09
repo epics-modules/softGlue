@@ -135,7 +135,7 @@ volatile int drvIP_EP201Debug = 0;
 #define APS_ID	0x53
 #define MAX_MESSAGES 1000
 #define MAX_PORTS 10
-#define MAX_IRQ 2	/* max number of outstanding interrupt requests */
+#define MAX_IRQ 5	/* max number of outstanding interrupt requests */
 
 #define COMPONENTTYPE_FIELD_IO 0
 #define COMPONENTTYPE_BARE_REG 1
@@ -149,10 +149,10 @@ typedef struct {
     epicsUInt16 controlRegister;    /* control register            */
     epicsUInt16 writeDataRegister;  /* 16-bit data write/read      */
     epicsUInt16 readDataRegister;   /* Input Data Read register    */
-    epicsUInt16 fallingIntStatus;   /* Falling Int Status Register */
-    epicsUInt16 fallingIntEnable;   /* Falling Int Enable Register */
     epicsUInt16 risingIntStatus;    /* Rising Int Status Register  */
     epicsUInt16 risingIntEnable;    /* Rising Int Enable Reg       */
+    epicsUInt16 fallingIntStatus;   /* Falling Int Status Register */
+    epicsUInt16 fallingIntEnable;   /* Falling Int Enable Register */
 } fieldIO_registerSet;
 
 typedef struct {
