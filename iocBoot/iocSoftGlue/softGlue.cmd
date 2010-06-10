@@ -15,8 +15,12 @@ initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/db/EP200_FPGA.hex")
 #int initIP_EP201(const char *portName, ushort_t carrier, ushort_t slot,
 #	int msecPoll, int dataDir, int sopcOffset, int interruptVector,
 #	int risingMask, int fallingMask)
-# Note that while the addresses and interrupt vector look adjustable, they
-# really are not.  
+# Notes:
+#    1) dataDir, sopcOffset, and interruptVector must match the FPGA content
+#       loaded by initIP_EP200_FPGA.
+#    2) risingMask and fallingMask control bits that the user can write at
+#       runtime, and which are very likely to be autosaved.  Thus, the values
+#       may not have any practical effect.
 # 16 input bits
 initIP_EP201("SGI1",0,2,1000,0x0,  0x0 ,0x80,0x7f,0x7f)
 # 16 output bits (can't generate interrupts)
