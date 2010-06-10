@@ -139,7 +139,7 @@ display {
 }
 "related display" {
 	object {
-		x=15
+		x=10
 		y=10
 		width=70
 		height=20
@@ -147,12 +147,12 @@ display {
 	display[2] {
 		label="softGlueMenu"
 		name="softGlueMenu.adl"
-		args="P=xxx:,H=softGlue:,PORT=SOFTGLUE"
+		args="P=xxx:,H=softGlue:,PORT=SOFTGLUE,IPORT=SGI1,OPORT=SGO1"
 	}
-	display[3] {
-		label="softGlueAll"
-		name="softGlueAll.adl"
-		args="P=xxx:,H=softGlue:,PORT=SOFTGLUE"
+	display[6] {
+		label="softGlue2 Menu"
+		name="softGlueMenu.adl"
+		args="P=xxx:,H=softGlue2:,PORT=SOFTGLUE2,IPORT=SGI2,OPORT=SGO2"
 	}
 	clr=0
 	bclr=17
