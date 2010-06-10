@@ -205,6 +205,7 @@ static long checkSignal(stringoutRecord *pso) {
 		needPost = 1;
 	}
 
+#if 0 /* don't do this, because it interferes with drag-and-drop to an input with a numeric value */
 	/* Most traffic will be numeric values written to unassigned inputs.
 	 * Handle with this shortcut.
 	 */
@@ -212,6 +213,7 @@ static long checkSignal(stringoutRecord *pso) {
 		if (needPost) db_post_events(pso, &pso->val, DBE_VALUE);
 		return(0);
 	}
+#endif
 
 	/* See if this signal's new name is the PVname of some other signal attached to the same port.
 	 * If so, user is probably trying to use Drag-N-Drop to connect signals, and probably expects
