@@ -219,15 +219,18 @@ static long checkSignal(stringoutRecord *pso) {
 	 * otherwise, we can at least make the signal names the same empty string.
 	 */
 	for (i=0; i<MAXPORTS; i++) {
+		/* Same port?  If not, don't bother checking further */
 		if (strcmp(pi->portName, portInfo[i].portName) == 0) portNum = i;
 	}
 	if (portNum >= 0) {
 		pitem = (struct recordListItem *)ellFirst(&(portInfo[portNum].recordList));
 		while (pitem) {
-			if (strcmp(pitem->precord->name, pso->val) == 0) {
-				strcpy(pso->val, pitem->precord->val);
-				needPost = 1;
-				break;
+			if ((strlen(pso->val) > 1) && (strlen(pso->val) >= strlen(pitem->precord->name))) {
+				if (strstr(pso->val, pitem->precord->name) != 0) {
+					strcpy(pso->val, pitem->precord->val);
+					needPost = 1;
+					break;
+				}
 			}
 			pitem = (struct recordListItem *)ellNext(&(pitem->node));
 		}
@@ -611,12 +614,15 @@ static long initSoWrite(stringoutRecord *pso)
 	return 0;
 }
 
+#define NINT(f)  (int)((f)>0 ? (f)+0.5 : (f)-0.5)
+
 static void callbackSoWrite(asynUser *pasynUser)
 {
 	devPvt			*pdevPvt = (devPvt *)pasynUser->userPvt;
 	stringoutRecord	*pso = (stringoutRecord *)pdevPvt->precord;
 	asynStatus		status;
 	epicsUInt32		value=0;
+	double			nvalue;
 #if IMPLEMENT_SIGNAL_NAME_STAR
 	epicsUInt32		mask=0x6f;
 #else
@@ -630,7 +636,9 @@ static void callbackSoWrite(asynUser *pasynUser)
 		 * (which is wired to mux input 0) to the device, by setting the mux
 		 * address to zero, and writing '0' or '1' to register bit 5.
 		 */
-		if (pso->val[0] == '0') {
+		nvalue = atof(pso->val);
+		value = NINT(nvalue);
+		if (value == 0) {
 			value = 0;
 		} else {
 			value = 0x20;
