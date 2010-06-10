@@ -21,7 +21,7 @@ record(bo,"$(P)$(H)ReadRateON") {
 	field(UDF,"0")
 }
 record(bo,"$(P)$(H)ReadRateOFF") {
-	field(SCAN,"1 second")
+	field(SCAN,".2 second")
 	field(UDF,"0")
 }
 # EPICS 3.14.8.2 needs this to get scan rates distributed on startup
