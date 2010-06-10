@@ -7,7 +7,7 @@ display {
 	object {
 		x=1353
 		y=44
-		width=240
+		width=245
 		height=100
 	}
 	clr=14
@@ -89,7 +89,7 @@ display {
 }
 "related display" {
 	object {
-		x=10
+		x=5
 		y=10
 		width=50
 		height=20
@@ -120,9 +120,9 @@ display {
 }
 "message button" {
 	object {
-		x=10
+		x=5
 		y=40
-		width=40
+		width=50
 		height=20
 	}
 	control {
@@ -135,7 +135,7 @@ display {
 }
 "text entry" {
 	object {
-		x=50
+		x=60
 		y=40
 		width=180
 		height=20
@@ -151,9 +151,9 @@ display {
 }
 "message button" {
 	object {
-		x=10
+		x=5
 		y=65
-		width=40
+		width=50
 		height=20
 	}
 	control {
@@ -166,7 +166,7 @@ display {
 }
 "text entry" {
 	object {
-		x=50
+		x=60
 		y=65
 		width=180
 		height=20
