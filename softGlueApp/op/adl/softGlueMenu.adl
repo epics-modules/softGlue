@@ -308,7 +308,7 @@ composite {
 	display[3] {
 		label="convenience"
 		name="softGlueConvenience.adl"
-		args="P=$(P),H=$(H),PORT=$(PORT),IPORT=SGI1,OPORT=SGO1"
+		args="P=$(P),H=$(H),PORT=$(PORT),IPORT=$(IPORT),OPORT=$(OPORT)"
 	}
 	clr=0
 	bclr=63
