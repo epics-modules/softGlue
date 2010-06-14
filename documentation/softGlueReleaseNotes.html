@@ -7,7 +7,7 @@
 <BODY LANG="en-US" BGCOLOR="#ffffff" DIR="LTR">
 <H2 ALIGN=CENTER>softGlue Release Notes</H2>
 
-<H2 ALIGN=LEFT>Release 1-1 (May 11, 2010)</H2>
+<H2 ALIGN=LEFT>Release 1-1 (June 14, 2010)</H2>
 <UL>
 	<li>Added the ability to load FPGA content at boot time, from a file, via
 		the IP bus.
@@ -21,11 +21,26 @@
 		the string written to a signal is the PVname of some other signal
 		pertaining to the same IP-EP201 module, device support will replace the
 		PVname with the string value of the PV.  This connects signals only if
-		the Drag-And-Drop source PV was not the empty string.
+		the Drag-And-Drop source PV was not numeric, and not an empty string.
 	<li>Tighten up notion of legal signal names: leading spaces removed; for
 		outputs, leading decimal digits alse removed.  Added PINI=YES to *Signal
 		PV's, so rules are enforced also boot time.
-	<li>Documentation
+	<li>Input signal names ending with '*' are allowed, denote the same signal
+		as the same signal name without a trailing '*', and indicate that the
+		signal value is to be run through an inverter before being applied to
+		the circuit element.
+	<li>use msi to build partially resolved databases, so user can supply their
+		own P and H macros, without having to supply everything else.
+	<li>interrupt handling worked only when both edges were enabled
+	<li>user can modify interrupt enables, and poll time for non-interrupting
+		field I/O signals, at run time.
+	<li>interrupt handler throttles interrupts
+	<li>included records for interrupts to drive; implemented GUI for users to
+		manage this.
+	<li>added BURT request file to save all of softGlue
+	<li>added 8 MHz clock
+	<li>decrement user's down-counter N value before writing to FPGA
+	<li>Documentation and examples
 </UL>
 
 <H2 ALIGN=LEFT>Release 1-0 (Mar. 30, 2010)</H2>
