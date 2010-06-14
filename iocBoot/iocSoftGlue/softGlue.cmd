@@ -50,7 +50,6 @@ dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent.db", "P=xxx:,H=softGlue:,PORT
 dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAInt.db", "P=xxx:,H=softGlue:,IPORT=SGI1,IADDR=0,OPORT=SGO1,OADDR=0x10")
 
 # some stuff just to make working easier
-args = "P=xxx:,H=softGlue:,PORT=SOFTGLUE,IPORT=SGI1,IADDR=0,OPORT=SGO1,OADDR=0x10"
-dbLoadRecords("$(SOFTGLUE)/db/softGlue_convenience.db", args)
+dbLoadRecords("$(SOFTGLUE)/db/softGlue_convenience.db", "P=xxx:,H=softGlue:")
 
 # END softGlue.cmd ------------------------------------------------------------
