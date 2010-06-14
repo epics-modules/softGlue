@@ -1,17 +1,6 @@
-record(busy,"$(P)$(H)busy") {
+record(busy,"$(P)$(H)busy1") {
 }
-record(asyn,"$(P)$(H)asyn$(PORT)") {
-	field(PORT,"$(PORT)")
-}
-record(asyn,"$(P)$(H)asyn$(IPORT)") {
-	field(PORT,"$(IPORT)")
-	field(IFACE,"asynUInt32Digital")
-	field(ADDR,"$(IADDR)")
-}
-record(asyn,"$(P)$(H)asyn$(OPORT)") {
-	field(PORT,"$(OPORT)")
-	field(IFACE,"asynUInt32Digital")
-	field(ADDR,"$(OADDR)")
+record(busy,"$(P)$(H)busy2") {
 }
 
 # positive going pulse
@@ -58,4 +47,16 @@ record(bo,"$(P)$(H)npulseOut") {
 	field(ZNAM,"0")
 	field(ONAM,"1")
 	field(DOL,"1")
+}
+
+# clock
+record(calcout,"$(P)$(H)clock1") {
+	field(INPA,"$(P)$(H)clock1.VAL")
+	field(CALC,"a?0:1")
+}
+
+# clock
+record(calcout,"$(P)$(H)clock2") {
+	field(INPA,"$(P)$(H)clock2.VAL")
+	field(CALC,"a?0:1")
 }
