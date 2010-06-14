@@ -166,6 +166,10 @@ personal computer to read documentation.)</blockquote>
 
 	<li>Run <code>make</code> in the top-level directory, using the same <code>make</code>
 	executable used to build EPICS base.
+	
+	<P>The build will issue a warning that it can't expand all macros in
+	substitution files.  This is not an error; those macros are for the user
+	to define.
 
 	</ul>
 
@@ -205,9 +209,9 @@ personal computer to read documentation.)</blockquote>
 
 				<P>For a Makefile:
 				
-				<pre>iocxxxVX_DBD += softGlueSupport.dbd drvIpac.dbd asyn.dbd calcSupport.dbd busySupport.dbd</pre>
+				<pre>iocxxx_DBD_vxWorks += softGlueSupport.dbd drvIpac.dbd asyn.dbd calcSupport.dbd busySupport.dbd</pre>
 
-				For a .dbd file:
+				For the .dbd file that will be loaded into a vxWorks IOC:
 
 				<P><code>include "softGlueSupport.dbd"<br>
 				include "drvIpac.dbd"<br>
