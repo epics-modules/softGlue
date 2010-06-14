@@ -5,10 +5,10 @@ file {
 }
 display {
 	object {
-		x=1353
-		y=44
-		width=245
-		height=100
+		x=1256
+		y=41
+		width=280
+		height=180
 	}
 	clr=14
 	bclr=2
@@ -90,53 +90,143 @@ display {
 "related display" {
 	object {
 		x=5
-		y=10
-		width=50
+		y=155
+		width=80
 		height=20
 	}
 	display[0] {
-		label="asyn $(PORT)"
-		name="asynRecord.adl"
-		args="P=$(P),R=$(H)asyn$(PORT)"
+		label="busy record 1"
+		name="xxBusyRecord.adl"
+		args="P=$(P),R=$(H)busy1"
 	}
 	display[1] {
-		label="asyn $(IPORT)"
-		name="asynRecord.adl"
-		args="P=$(P),R=$(H)asyn$(IPORT)"
-	}
-	display[2] {
-		label="asyn $(OPORT)"
-		name="asynRecord.adl"
-		args="P=$(P),R=$(H)asyn$(OPORT)"
-	}
-	display[4] {
-		label="busy"
+		label="busy record 2"
 		name="xxBusyRecord.adl"
-		args="P=$(P),R=$(H)busy"
+		args="P=$(P),R=$(H)busy2"
 	}
 	clr=0
 	bclr=63
-	label="-records"
+	label="-busy records"
+}
+text {
+	object {
+		x=5
+		y=80
+		width=265
+		height=16
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="SoftWare Clock Generators"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=5
+		y=5
+		width=265
+		height=16
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Software Pulse Generators"
+	align="horiz. centered"
+}
+"text entry" {
+	object {
+		x=90
+		y=50
+		width=180
+		height=20
+	}
+	control {
+		chan="$(P)$(H)npulseOut.OUT"
+		clr=14
+		bclr=40
+	}
+	format="string"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=90
+		y=100
+		width=180
+		height=20
+	}
+	control {
+		chan="$(P)$(H)clock1.OUT"
+		clr=14
+		bclr=40
+	}
+	format="string"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=90
+		y=125
+		width=180
+		height=20
+	}
+	control {
+		chan="$(P)$(H)clock2.OUT"
+		clr=14
+		bclr=40
+	}
+	format="string"
+	limits {
+	}
 }
 "message button" {
 	object {
 		x=5
-		y=40
-		width=50
+		y=50
+		width=80
 		height=20
 	}
 	control {
-		chan="$(P)$(H)pulse.PROC"
+		chan="$(P)$(H)npulse.PROC"
 		clr=14
 		bclr=51
 	}
-	label="+Pulse"
+	label="-Pulse"
 	press_msg="1"
+}
+menu {
+	object {
+		x=5
+		y=100
+		width=80
+		height=20
+	}
+	control {
+		chan="$(P)$(H)clock1.SCAN"
+		clr=14
+		bclr=51
+	}
+}
+menu {
+	object {
+		x=5
+		y=125
+		width=80
+		height=20
+	}
+	control {
+		chan="$(P)$(H)clock2.SCAN"
+		clr=14
+		bclr=51
+	}
 }
 "text entry" {
 	object {
-		x=60
-		y=40
+		x=90
+		y=25
 		width=180
 		height=20
 	}
@@ -152,31 +242,15 @@ display {
 "message button" {
 	object {
 		x=5
-		y=65
-		width=50
+		y=25
+		width=80
 		height=20
 	}
 	control {
-		chan="$(P)$(H)npulse.PROC"
+		chan="$(P)$(H)pulse.PROC"
 		clr=14
 		bclr=51
 	}
-	label="-Pulse"
+	label="+Pulse"
 	press_msg="1"
-}
-"text entry" {
-	object {
-		x=60
-		y=65
-		width=180
-		height=20
-	}
-	control {
-		chan="$(P)$(H)npulseOut.OUT"
-		clr=14
-		bclr=40
-	}
-	format="string"
-	limits {
-	}
 }
