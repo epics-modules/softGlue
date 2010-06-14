@@ -1,13 +1,13 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlue_DivByN.adl"
+	name="/home/oxygen/MOONEY/epics/synApps_5_5/support/softGlue/softGlueApp/op/adl/softGlue_DivByN.adl"
 	version=030104
 }
 display {
 	object {
-		x=9
-		y=3
-		width=506
+		x=915
+		y=484
+		width=490
 		height=125
 	}
 	clr=14
@@ -131,7 +131,7 @@ composite {
 	object {
 		x=10
 		y=35
-		width=490
+		width=469
 		height=75
 	}
 	"composite name"=""
