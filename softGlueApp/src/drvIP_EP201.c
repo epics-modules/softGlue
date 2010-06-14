@@ -1,8 +1,8 @@
 /* drvIP_EP201.cc
 
     Original Author: Marty Smith (as drvIp1k125.c)
-	Modified: Tim Mooney - comments, added single-register component, added
-		ability to program FPGA over the IP bus, renamed.
+    Modified: Tim Mooney - comments, added single-register component, added
+        ability to program FPGA over the IP bus, renamed.
 
 
     This is the driver for the Acromag IP_EP201 series of reconfigurable
@@ -12,17 +12,17 @@
     12-Aug-2008  MLS  Initial release based on the IpUnidig driver
     16-Nov-2009  TMM  Allow port to handle more than one address, access
                       IP module's mem space, add the following docs.
-					  Other changes described in subversion commit messages:
-					  https://subversion.xor.aps.anl.gov/synApps/softGlue/
+                      Other changes described in subversion commit messages:
+                      https://subversion.xor.aps.anl.gov/synApps/softGlue/
 
-	This driver cooperates with specific FPGA firmware loaded into the Acromag
-	IP-EP201 (and probably other IP-EP200-series modules).  The loaded FPGA
-	firmware includes Eric Norum's IndustryPack Bridge, which is an interface
-	between the IndustryPack bus and the Altera FPGA's Avalon bus.  The
-	IndustryPack Bridge does not define anything we can write to in the FPGA. 
-	It's job is to support additional firmware loaded into the FPGA.  The
-	additional firmware defines registers that we can read and write, and it can
-	take one of the two forms (sopc components) supported by this driver:
+    This driver cooperates with specific FPGA firmware loaded into the Acromag
+    IP-EP201 (and probably other IP-EP200-series modules).  The loaded FPGA
+    firmware includes Eric Norum's IndustryPack Bridge, which is an interface
+    between the IndustryPack bus and the Altera FPGA's Avalon bus.  The
+    IndustryPack Bridge does not define anything we can write to in the FPGA. 
+    It's job is to support additional firmware loaded into the FPGA.  The
+    additional firmware defines registers that we can read and write, and it can
+    take one of the two forms (sopc components) supported by this driver:
 
         1) fieldIO_registerSet component
 
@@ -49,7 +49,7 @@
     at init time, because they are not associated with an interrupt service
     routine.  As a consequence, many such single-register components can be
     served by a single asyn port.  Users of this port must specify the sopc
-    address of the register they want to  read or write in their asynUser
+    address of the register they want to read or write in their asynUser
     structure. Records do this by including the address in the definition of the
     record's OUT or INP field.  For example, the ADDR macro in the following
     field definition should be set to the register's sopc address:
