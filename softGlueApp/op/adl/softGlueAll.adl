@@ -356,7 +356,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldInput.adl;P=$(P),H=$(H),N=1"
+			"composite file"="softGlue_FieldInput_bare.adl;P=$(P),H=$(H),N=1"
 		}
 		composite {
 			object {
@@ -366,7 +366,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldInput.adl;P=$(P),H=$(H),N=2"
+			"composite file"="softGlue_FieldInput_bare.adl;P=$(P),H=$(H),N=2"
 		}
 		composite {
 			object {
@@ -376,7 +376,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldInput.adl;P=$(P),H=$(H),N=3"
+			"composite file"="softGlue_FieldInput_bare.adl;P=$(P),H=$(H),N=3"
 		}
 		composite {
 			object {
@@ -386,7 +386,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldInput.adl;P=$(P),H=$(H),N=4"
+			"composite file"="softGlue_FieldInput_bare.adl;P=$(P),H=$(H),N=4"
 		}
 		composite {
 			object {
@@ -396,7 +396,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldInput.adl;P=$(P),H=$(H),N=5"
+			"composite file"="softGlue_FieldInput_bare.adl;P=$(P),H=$(H),N=5"
 		}
 		composite {
 			object {
@@ -406,7 +406,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldInput.adl;P=$(P),H=$(H),N=6"
+			"composite file"="softGlue_FieldInput_bare.adl;P=$(P),H=$(H),N=6"
 		}
 		composite {
 			object {
@@ -416,7 +416,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldInput.adl;P=$(P),H=$(H),N=7"
+			"composite file"="softGlue_FieldInput_bare.adl;P=$(P),H=$(H),N=7"
 		}
 		composite {
 			object {
@@ -426,7 +426,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldInput.adl;P=$(P),H=$(H),N=8"
+			"composite file"="softGlue_FieldInput_bare.adl;P=$(P),H=$(H),N=8"
 		}
 		composite {
 			object {
@@ -436,7 +436,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldInput.adl;P=$(P),H=$(H),N=9"
+			"composite file"="softGlue_FieldInput_bare.adl;P=$(P),H=$(H),N=9"
 		}
 		composite {
 			object {
@@ -446,7 +446,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldInput.adl;P=$(P),H=$(H),N=10"
+			"composite file"="softGlue_FieldInput_bare.adl;P=$(P),H=$(H),N=10"
 		}
 		composite {
 			object {
@@ -456,7 +456,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldInput.adl;P=$(P),H=$(H),N=11"
+			"composite file"="softGlue_FieldInput_bare.adl;P=$(P),H=$(H),N=11"
 		}
 		composite {
 			object {
@@ -466,7 +466,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldInput.adl;P=$(P),H=$(H),N=12"
+			"composite file"="softGlue_FieldInput_bare.adl;P=$(P),H=$(H),N=12"
 		}
 		composite {
 			object {
@@ -476,7 +476,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldInput.adl;P=$(P),H=$(H),N=13"
+			"composite file"="softGlue_FieldInput_bare.adl;P=$(P),H=$(H),N=13"
 		}
 		composite {
 			object {
@@ -486,7 +486,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldInput.adl;P=$(P),H=$(H),N=14"
+			"composite file"="softGlue_FieldInput_bare.adl;P=$(P),H=$(H),N=14"
 		}
 		composite {
 			object {
@@ -496,7 +496,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldInput.adl;P=$(P),H=$(H),N=15"
+			"composite file"="softGlue_FieldInput_bare.adl;P=$(P),H=$(H),N=15"
 		}
 		composite {
 			object {
@@ -506,7 +506,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldInput.adl;P=$(P),H=$(H),N=16"
+			"composite file"="softGlue_FieldInput_bare.adl;P=$(P),H=$(H),N=16"
 		}
 		composite {
 			object {
@@ -516,7 +516,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldOutput.adl;P=$(P),H=$(H),N=1"
+			"composite file"="softGlue_FieldOutput_bare.adl;P=$(P),H=$(H),N=1"
 		}
 		composite {
 			object {
@@ -526,7 +526,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldOutput.adl;P=$(P),H=$(H),N=2"
+			"composite file"="softGlue_FieldOutput_bare.adl;P=$(P),H=$(H),N=2"
 		}
 		composite {
 			object {
@@ -536,7 +536,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldOutput.adl;P=$(P),H=$(H),N=3"
+			"composite file"="softGlue_FieldOutput_bare.adl;P=$(P),H=$(H),N=3"
 		}
 		composite {
 			object {
@@ -546,7 +546,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldOutput.adl;P=$(P),H=$(H),N=4"
+			"composite file"="softGlue_FieldOutput_bare.adl;P=$(P),H=$(H),N=4"
 		}
 		composite {
 			object {
@@ -556,7 +556,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldOutput.adl;P=$(P),H=$(H),N=5"
+			"composite file"="softGlue_FieldOutput_bare.adl;P=$(P),H=$(H),N=5"
 		}
 		composite {
 			object {
@@ -566,7 +566,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldOutput.adl;P=$(P),H=$(H),N=6"
+			"composite file"="softGlue_FieldOutput_bare.adl;P=$(P),H=$(H),N=6"
 		}
 		composite {
 			object {
@@ -576,7 +576,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldOutput.adl;P=$(P),H=$(H),N=7"
+			"composite file"="softGlue_FieldOutput_bare.adl;P=$(P),H=$(H),N=7"
 		}
 		composite {
 			object {
@@ -586,7 +586,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldOutput.adl;P=$(P),H=$(H),N=8"
+			"composite file"="softGlue_FieldOutput_bare.adl;P=$(P),H=$(H),N=8"
 		}
 		composite {
 			object {
@@ -596,7 +596,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldOutput.adl;P=$(P),H=$(H),N=9"
+			"composite file"="softGlue_FieldOutput_bare.adl;P=$(P),H=$(H),N=9"
 		}
 		composite {
 			object {
@@ -606,7 +606,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldOutput.adl;P=$(P),H=$(H),N=10"
+			"composite file"="softGlue_FieldOutput_bare.adl;P=$(P),H=$(H),N=10"
 		}
 		composite {
 			object {
@@ -616,7 +616,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldOutput.adl;P=$(P),H=$(H),N=11"
+			"composite file"="softGlue_FieldOutput_bare.adl;P=$(P),H=$(H),N=11"
 		}
 		composite {
 			object {
@@ -626,7 +626,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldOutput.adl;P=$(P),H=$(H),N=12"
+			"composite file"="softGlue_FieldOutput_bare.adl;P=$(P),H=$(H),N=12"
 		}
 		composite {
 			object {
@@ -636,7 +636,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldOutput.adl;P=$(P),H=$(H),N=13"
+			"composite file"="softGlue_FieldOutput_bare.adl;P=$(P),H=$(H),N=13"
 		}
 		composite {
 			object {
@@ -646,7 +646,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldOutput.adl;P=$(P),H=$(H),N=14"
+			"composite file"="softGlue_FieldOutput_bare.adl;P=$(P),H=$(H),N=14"
 		}
 		composite {
 			object {
@@ -656,7 +656,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldOutput.adl;P=$(P),H=$(H),N=15"
+			"composite file"="softGlue_FieldOutput_bare.adl;P=$(P),H=$(H),N=15"
 		}
 		composite {
 			object {
@@ -666,7 +666,7 @@ composite {
 				height=26
 			}
 			"composite name"=""
-			"composite file"="softGlue_FieldOutput.adl;P=$(P),H=$(H),N=16"
+			"composite file"="softGlue_FieldOutput_bare.adl;P=$(P),H=$(H),N=16"
 		}
 	}
 }
