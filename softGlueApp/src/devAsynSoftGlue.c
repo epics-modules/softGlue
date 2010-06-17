@@ -349,6 +349,8 @@ static long checkSignal(stringoutRecord *pso) {
 		/* No available signals */
 		printf("checkSignal: No available signals\n");
 		epicsMutexUnlock(pi->sig_mutex);
+		pso->val[0] = '\0';
+		db_post_events(pso, &pso->val, DBE_VALUE);
 		return(-1);
 	}
 	/* empty string */

@@ -216,6 +216,11 @@ display {
 		name="softGlueFieldIO.adl"
 		args="P=$(P),H=$(H)"
 	}
+	display[1] {
+		label="Field I/O Menu"
+		name="softGlueFieldIOMenu.adl"
+		args="P=$(P),H=$(H)"
+	}
 	clr=0
 	bclr=63
 	label="-Field I/O"

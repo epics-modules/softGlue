@@ -6,9 +6,9 @@ file {
 display {
 	object {
 		x=1369
-		y=54
-		width=195
-		height=26
+		y=117
+		width=200
+		height=46
 	}
 	clr=14
 	bclr=2
@@ -89,18 +89,18 @@ display {
 }
 composite {
 	object {
-		x=38
-		y=0
-		width=157
+		x=0
+		y=20
+		width=195
 		height=26
 	}
 	"composite name"=""
-	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=FI$(N)"
+	"composite file"="softGlue_FieldInput_bare.adl;P=$(P),H=$(H),N=$(N),SIG=FI$(N)"
 }
 text {
 	object {
-		x=20
-		y=5
+		x=165
+		y=25
 		width=15
 		height=20
 	}
@@ -112,17 +112,30 @@ text {
 }
 "text update" {
 	object {
-		x=0
-		y=10
+		x=185
+		y=30
 		width=12
 		height=10
 	}
 	monitor {
-		chan="$(P)$(H)FI$(N)_Signal.DESC"
+		chan="$(P)$(H)FO$(N)_Signal.DESC"
 		clr=20
 		bclr=2
 	}
 	align="horiz. right"
 	limits {
 	}
+}
+text {
+	object {
+		x=0
+		y=0
+		width=200
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Field Input $(N)"
+	align="horiz. centered"
 }
