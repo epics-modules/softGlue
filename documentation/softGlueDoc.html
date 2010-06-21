@@ -386,15 +386,21 @@ Inputs with empty text-entry boxes default to logic value 1.<P>
 
 <b><li>Enter a string that begins with a number.</b><br>
 
-This directly writes a logic value to the input.
+This directly writes a logic value (optionally, a pulse) to the input.
 
-<P>softGlue will parse everything that looks numberish,
-ignore everything after the first non-numberish character, and convert to a floating point value. 
-This sets the input to a logic value: 0 if the nearest integer to the converted value is zero, 1 if
-it's not.
+<P>softGlue will parse everything that looks numberish, and convert to a floating point value.  This
+sets the input to a logic value: 0 if the nearest integer to the converted value is zero, 1 if it's
+not.
 
 <blockquote>Allowing floats, and extra characters after the number makes it easier to drive softGlue
 inputs with calc records, replies from serial devices, etc.</blockquote>
+
+<P>The strings "0!" and "1!" (possibly followed by other ignored characters) direct softGlue to
+write a pair of logic values: "0!" writes "0" followed immediately by "1"; "1!" writes "1" followed
+immediately by "0".  The time interval between writes is system dependent, and not at all
+guaranteed, but it should be much smaller than the interval you could achieve from separate writes. 
+On an MVME2700, I measure around 6 &mu;s.
+
 
 <b><li>Enter a string that begins with something other than a number.</b><br>
 
@@ -665,13 +671,16 @@ CA put will succeed in clearing it and causing its processing to appear done to 
 	softGlue circuits can be saved using autosave, BURT, or any other channel access client that can
 	read and write PV's.  The BURT request file <code>softGlueApp/op/burt/softGlue.snap</code> can
 	be used to save all softGlue user modifiable PV's.  For example, the following command saves the
-	state of softGlue to the file <code>myCircuit.snap</code> (no doubt your PREFIX will be
-	different from mine, but it should be <code>$(P)$(H)</code> from your copy of
-	<code>softGlue.cmd</code>), but minus the trailing ':' from $(H).  (BURT needs the ':' to
-	separate "PREFIX" from the rest of the PV names it parses.  If you defined H without a trailing
-	':', you'll need to make some adjustment to satisfy BURT.)
+	state of softGlue to the file <code>myCircuit.snap</code> 
 
 	<pre>burtrb -f softGlue.req -DPREFIX=xxx:softGlue -o myCircuit.snap</pre>
+
+	<blockquote>No doubt your PREFIX will be different from mine, but it should
+	be <code>$(P)$(H)</code> from your copy of <code>softGlue.cmd</code>,
+	minus the trailing ':' from $(H).  BURT needs the ':' to separate "PREFIX"
+	from the rest of the PV names it parses.  If you defined H without a
+	trailing ':', you'll need to make some adjustment to satisfy BURT.
+	</blockquote>
 
 	<P>The following command restores the circuit:
 	
@@ -730,12 +739,12 @@ CA put will succeed in clearing it and causing its processing to appear done to 
 
 		<P><img src="accelDecelGate.gif" name="accelDecelGate">
 
-		<P>Down counter <code>DnCntr-1</code>, and flipflop <code>DFF-1</code>, produce a gate
-		signal that is 0 after a reset, goes to 1 after <code>DnCntr-1_PRESET</code> motor pulses. 
-		Down counter <code>DnCntr-2</code>, and flipflop <code>DFF-2</code>, produce a gate signal
-		that is 1 after a reset, goes to 0 after <code>DnCntr-2_PRESET</code> motor pulses.  We load
-		the number of acceleration steps into <code>DnCntr-1_PRESET</code>, and the number of
-		acceleration steps plus constant-speed steps into <code>DnCntr-2_PRESET</code>.
+		<P>Down counter <code>DnCntr-1</code>, and flipflop <code>DFF-1</code>, together produce a gate
+		signal that is 0 after a reset, and that goes to 1 after <code>DnCntr-1_PRESET</code> motor
+		pulses.  Down counter <code>DnCntr-2</code>, and flipflop <code>DFF-2</code>, together produce a
+		gate signal that is 1 after a reset, and that goes to 0 after <code>DnCntr-2_PRESET</code> motor
+		pulses.  We load the number of acceleration steps into <code>DnCntr-1_PRESET</code>, and the
+		number of acceleration steps plus constant-speed steps into <code>DnCntr-2_PRESET</code>.
 
 		<P><code>AND-1</code> combines the gate signals produced above into a signal that is 1 while
 		the motor is moving at constant speed.
@@ -1074,46 +1083,48 @@ up counter.
 
 </dl>
 
-<h4> Field I/O register set component </h4>
+<h4> Field I/O register set component ("IP_EP20x") </h4>
 
 
-Acromag FPGA Field I/O Quartus SOPC Interface using DIO16 Module
-<P> base address 0x800000 (for content implemented in MEM space) or 0x0 (for content
-implemented in I/O space).					
+This SOPC component supports 16 bits of field I/O
+<h5> Registers </h5>
 
 <table border>
 <tr><th>Address Offset<th>Function<th>Description<th>Read/Write
 <tr><td>0<td>Control/Status<td>Field-I/O direction, IRQ status<td>Read/Write
 <tr><td>1<td>Field I/O Write Data<td>Write Field I/O ONLY when dir = 1<td>Read/Write
 <tr><td>2<td>Field I/O Read Data<td>Read Field I/O ONLY when dir = 0<td>Read
-<tr><td>3<td>Rising IRQ Status Bits<td>Which Bits are causing interrupt from field I/O on transition to 1<td>Read/Write
+<tr><td>3<td>Rising IRQ Status Bits<td>Which Bits are causing interrupt from field I/O on transition to 1<td>Read/Write*
 <tr><td>4<td>Rising IRQ Interrupt Enable Bits<td>Which Rising edge bits have IRQ Enabled<td>Read/Write
-<tr><td>5<td>Falling IRQ Status Bits<td>Which bits are causing interrupt from field I/O on transition to 0<td>Read/Write
+<tr><td>5<td>Falling IRQ Status Bits<td>Which bits are causing interrupt from field I/O on transition to 0<td>Read/Write*
 <tr><td>6<td>Falling IRQ Interrupt enable bits<td>Which bits have falling IRQ enabled<td>Read/Write
+<tr><td colspan=4>* A write to this register clears interrupts for nonzero bits.  For example, after servicing
+a rising-edge interrupt from bit 0, the interrupt-service routine writes 0x01 to register 3 before re-enabling interrupts.
 </table>
 
-<P>
+<h5> Control/Status-register bits </h5>
 <table border>
-<tr><th>Bit<th>Function<th>Value<th>Description<th>Reg type
-<tr><td>0<td>Field I/O Direction Lower 8-Bits<td>0=Input, 1=Output<td>Sets direction for field I/O Lower 8-Bits<td>Control/Status
-<tr><td>1<td>&nbsp<td>0<td>&nbsp<td>Control/Status
-<tr><td>2<td>&nbsp<td>0<td>&nbsp<td>Control/Status
-<tr><td>3<td>&nbsp<td>0<td>&nbsp<td>Control/Status
-<tr><td>4<td>&nbsp<td>0<td>&nbsp<td>Control/Status
-<tr><td>5<td>Falling Edge IRQ Present<td>Lower 8-Bits<td>Set bit to 1 for Falling Edge INT<td>Control/Status
-<tr><td>6<td>Rising Edge IRQ Present<td>Lower 8-Bits<td>Set bit to 1 for Rising Edge INT<td>Control/Status
-<tr><td>7<td>Lower 8-bits IRQ Present<td>&nbsp<td>&nbsp<td>Control/Status
-<tr><td>8<td>Field I/O Direction Upper 8-Bits<td>0=Input, 1=Output<td>Sets direction for field I/O Upper 8-Bits<td>Control/Status
-<tr><td>9<td>&nbsp<td>&nbsp<td>&nbsp<td>Control/Status
-<tr><td>10<td>&nbsp<td>&nbsp<td>&nbsp<td>Control/Status
-<tr><td>11<td>&nbsp<td>&nbsp<td>&nbsp<td>Control/Status
-<tr><td>12<td>&nbsp<td>&nbsp<td>&nbsp<td>Control/Status
-<tr><td>13<td>Falling Edge IRQ Present Upper 8-Bits<td>&nbsp<td>&nbsp<td>Control/Status
-<tr><td>14<td>Rising Edge IRQ Present  Upper 8-Bits<td>&nbsp<td>&nbsp<td>Control/Status
-<tr><td>15<td>Upper 8-bits IRQ Present<td>&nbsp<td>&nbsp<td>Control/Status
+<tr><th>Bit<th>Function<th>Value<th>Description
+<tr><td>0<td>Field I/O Direction Lower 8-Bits<td>0=Input, 1=Output<td>Sets I/O direction for the lower 8 field-I/O bits
+<tr><td>1<td>&nbsp<td>0<td>&nbsp
+<tr><td>2<td>&nbsp<td>0<td>&nbsp
+<tr><td>3<td>&nbsp<td>0<td>&nbsp
+<tr><td>4<td>&nbsp<td>0<td>&nbsp
+<tr><td>5<td>Falling Edge IRQ Present<td>1=Present<td>Falling Edge interrupt from bits 0-7 sets bit to 1
+<tr><td>6<td>Rising Edge IRQ Present<td>1=Present<td>Rising Edge interrupt from bits 0-7 sets bit to 1
+<tr><td>7<td>Lower 8-bits IRQ Present<td>1=Present<td>Interrupt from bits 0-7 sets bit to 1
+<tr><td>8<td>Field I/O Direction Upper 8-Bits<td>0=Input, 1=Output<td>Sets I/O direction for the upper 8 field-I/O bits
+<tr><td>9<td>&nbsp<td>0<td>&nbsp
+<tr><td>10<td>&nbsp<td>0<td>&nbsp
+<tr><td>11<td>&nbsp<td>0<td>&nbsp
+<tr><td>12<td>&nbsp<td>0<td>&nbsp
+<tr><td>13<td>Falling Edge IRQ Present Upper 8-Bits<td>1=Present<td>Falling Edge interrupt from bits 8-15 sets bit to 1
+<tr><td>14<td>Rising Edge IRQ Present  Upper 8-Bits<td>1=Present<td>Rising Edge interrupt from bits 8-15 sets bit to 1
+<tr><td>15<td>Upper 8-bits IRQ Present<td>1=Present<td>Interrupt from bits 8-15 sets bit to 1
 </table>
 
-<hr>
+	<h3>Miscellaneous notes</h3>
+
 The following notes have not been integrated into the documentation yet.
 They are included for completeness.
 
@@ -1121,7 +1132,7 @@ They are included for completeness.
 
 
 
-========================================================================
+------------------------------------------------------------------------------
 Deployment considerations
 
 We need to ensure that the software agrees with the FPGA programming.  Software
