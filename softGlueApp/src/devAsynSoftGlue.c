@@ -676,7 +676,13 @@ static void callbackSoWrite(asynUser *pasynUser)
 #endif
 	}
 	if (devAsynSoftGlueDebug) printf("devAsynSoftGlue:callbackSoWrite: writing 0x%x 0x%x\n", value, mask);
+
 	status = writeIt(pasynUser, value, mask);
+
+	/* Implement "1!" for a positive going pulse; "0!" for a negative going pulse */
+	if (isdigit((int)pso->val[0]) && (pso->val[1] == '!')) {
+		status = writeIt(pasynUser, (epicsUInt32)(value?0:0x20), mask);
+	}
 	finish((dbCommon *)pso);
 }
 
