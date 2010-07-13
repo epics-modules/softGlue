@@ -22,9 +22,9 @@ initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/db/EP200_FPGA.hex")
 #       runtime, and which are very likely to be autosaved.  Thus, the values
 #       may not have any practical effect.
 # 16 input bits
-initIP_EP201("SGI1",0,2,1000,0x0,  0x0 ,0x80,0x7f,0x7f)
+initIP_EP201("SGI1",0,2,1000,0x0,  0x800000 ,0x80,0x7f,0x7f)
 # 16 output bits (can't generate interrupts)
-initIP_EP201("SGO1",0,2,1000,0x101, 0x10 ,0x81,0x00,0x00)
+initIP_EP201("SGO1",0,2,1000,0x101, 0x800010 ,0x81,0x00,0x00)
 
 # All instances of a single-register component are initialized with a single
 # call, as follows:
