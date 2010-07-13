@@ -5,10 +5,10 @@ file {
 }
 display {
 	object {
-		x=1256
-		y=41
+		x=598
+		y=29
 		width=280
-		height=180
+		height=380
 	}
 	clr=14
 	bclr=2
@@ -253,4 +253,244 @@ menu {
 	}
 	label="+Pulse"
 	press_msg="1"
+}
+"text update" {
+	object {
+		x=5
+		y=200
+		width=130
+		height=16
+	}
+	monitor {
+		chan="$(P)$(H)Bus1"
+		clr=14
+		bclr=1
+	}
+	format="string"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=5
+		y=220
+		width=130
+		height=16
+	}
+	monitor {
+		chan="$(P)$(H)Bus2"
+		clr=14
+		bclr=1
+	}
+	format="string"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=5
+		y=240
+		width=130
+		height=16
+	}
+	monitor {
+		chan="$(P)$(H)Bus3"
+		clr=14
+		bclr=1
+	}
+	format="string"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=5
+		y=260
+		width=130
+		height=16
+	}
+	monitor {
+		chan="$(P)$(H)Bus4"
+		clr=14
+		bclr=1
+	}
+	format="string"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=5
+		y=280
+		width=130
+		height=16
+	}
+	monitor {
+		chan="$(P)$(H)Bus5"
+		clr=14
+		bclr=1
+	}
+	format="string"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=5
+		y=300
+		width=130
+		height=16
+	}
+	monitor {
+		chan="$(P)$(H)Bus6"
+		clr=14
+		bclr=1
+	}
+	format="string"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=5
+		y=320
+		width=130
+		height=16
+	}
+	monitor {
+		chan="$(P)$(H)Bus7"
+		clr=14
+		bclr=1
+	}
+	format="string"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=140
+		y=180
+		width=130
+		height=16
+	}
+	monitor {
+		chan="$(P)$(H)Bus8"
+		clr=14
+		bclr=1
+	}
+	format="string"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=140
+		y=200
+		width=130
+		height=16
+	}
+	monitor {
+		chan="$(P)$(H)Bus9"
+		clr=14
+		bclr=1
+	}
+	format="string"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=140
+		y=220
+		width=130
+		height=16
+	}
+	monitor {
+		chan="$(P)$(H)Bus10"
+		clr=14
+		bclr=1
+	}
+	format="string"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=140
+		y=240
+		width=130
+		height=16
+	}
+	monitor {
+		chan="$(P)$(H)Bus11"
+		clr=14
+		bclr=1
+	}
+	format="string"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=140
+		y=260
+		width=130
+		height=16
+	}
+	monitor {
+		chan="$(P)$(H)Bus12"
+		clr=14
+		bclr=1
+	}
+	format="string"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=140
+		y=280
+		width=130
+		height=16
+	}
+	monitor {
+		chan="$(P)$(H)Bus13"
+		clr=14
+		bclr=1
+	}
+	format="string"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=140
+		y=300
+		width=130
+		height=16
+	}
+	monitor {
+		chan="$(P)$(H)Bus14"
+		clr=14
+		bclr=1
+	}
+	format="string"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=140
+		y=320
+		width=130
+		height=16
+	}
+	monitor {
+		chan="$(P)$(H)Bus15"
+		clr=14
+		bclr=1
+	}
+	format="string"
+	limits {
+	}
 }
