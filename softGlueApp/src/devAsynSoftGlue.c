@@ -114,6 +114,7 @@ epicsExportAddress(dset, asynSoftGlue);
 struct sigEntry {
 	char name[40];
 	int numUsers;
+	stringoutRecord *listRecord;
 };
 
 static struct portInfo {
@@ -192,6 +193,7 @@ static long checkSignal(stringoutRecord *pso) {
 	struct portInfo *pi = &(portInfo[pdevPvt->portInfoNum]);
 	int portNum=-1;
 	struct recordListItem *pitem;
+	struct sigEntry *sig;
 
 	if (devAsynSoftGlueDebug) {
 		printf("checkSignal:entry: val='%s', old signal=%d (%s)\n", pso->val,
@@ -279,29 +281,36 @@ static long checkSignal(stringoutRecord *pso) {
 	if (devAsynSoftGlueDebug) printf("checkSignal: signal='%s', compareLength=%d\n", signalName, compareLength);
 
 	epicsMutexLock(pi->sig_mutex);
+	sig = &(pi->sigList[pdevPvt->signalNum]);
 	if (pdevPvt->signalNum) {
 		/* We're attached to a nonzero signal.  Should we stay attached? */
 		if (isdigit((int)signalName[0])) {
 			/* We're a binary value; signal number should be 0.  Detach. */
-			if (--(pi->sigList[pdevPvt->signalNum].numUsers) <= 0) {
-				pi->sigList[pdevPvt->signalNum].numUsers = 0;
-				pi->sigList[pdevPvt->signalNum].name[0] = '\0';
+			if (--(sig->numUsers) <= 0) {
+				sig->numUsers = 0;
+				sig->name[0] = '\0';
+				/* update user's signal-list PV */
+				sig->listRecord->val[0] = '\0';
+				db_post_events(sig->listRecord, &(sig->listRecord->val), DBE_VALUE);
 			}
 			pdevPvt->signalNum = 0;
 			if (devAsynSoftGlueDebug) printf("checkSignal: binary value\n");
 			epicsMutexUnlock(pi->sig_mutex);
 			return(0);
-		} else if (strcmp(signalName, pi->sigList[pdevPvt->signalNum].name)==0) {
+		} else if (strcmp(signalName, sig->name)==0) {
 			/* The VAL field agrees with the signal we're attached to. */
 			if (devAsynSoftGlueDebug) printf("checkSignal: name agrees with signalNum\n");
 			epicsMutexUnlock(pi->sig_mutex);
 			return(0);
 		} else {
 			/* The VAL field disagrees with the signal's name.  Detach. */
-			if (pdevPvt->signalNum && strcmp(signalName, pi->sigList[pdevPvt->signalNum].name)) {
-				if (--(pi->sigList[pdevPvt->signalNum].numUsers) <= 0) {
-					pi->sigList[pdevPvt->signalNum].numUsers = 0;
-					pi->sigList[pdevPvt->signalNum].name[0] = '\0';
+			if (pdevPvt->signalNum && strcmp(signalName, sig->name)) {
+				if (--(sig->numUsers) <= 0) {
+					sig->numUsers = 0;
+					sig->name[0] = '\0';
+					/* update user's signal-list PV */
+					sig->listRecord->val[0] = '\0';
+					db_post_events(sig->listRecord, &(sig->listRecord->val), DBE_VALUE);
 				}
 				pdevPvt->signalNum = 0;
 			}
@@ -342,6 +351,9 @@ static long checkSignal(stringoutRecord *pso) {
 				pi->sigList[i].numUsers = 1;
 				strcpy(pi->sigList[i].name, signalName);
 				if (devAsynSoftGlueDebug) printf("checkSignal: Assigning name '%s' to signal %d\n", signalName, pdevPvt->signalNum);
+				/* update user's signal-list PV */
+				strcpy(pi->sigList[i].listRecord->val, signalName);
+				db_post_events(pi->sigList[i].listRecord, &(pi->sigList[i].listRecord->val), DBE_VALUE);
 				epicsMutexUnlock(pi->sig_mutex);
 				return(0);
 			}
@@ -365,10 +377,11 @@ static long report(int level) {
 	if (devAsynSoftGlueDebug) printf("devAsynSoftGlue:report:entry\n");
 	for (i=0; i<MAXPORTS; i++) {
 		printf("portName '%s'\n", portInfo[i].portName);
-		if (level > 1) {
+		if ((level > 1) && (strlen(portInfo[i].portName)>0)) {
 			for (j=0; j<MAXSIGNALS; j++) {
-				printf("signal %d name '%s'; %d users\n", j,
-					portInfo[i].sigList[j].name, portInfo[i].sigList[j].numUsers);
+				printf("signal %d name '%s'; %d users; recName '%s'\n", j,
+					portInfo[i].sigList[j].name, portInfo[i].sigList[j].numUsers,
+					portInfo[i].sigList[j].listRecord->name);
 			}
 		}
 	}
@@ -607,6 +620,36 @@ static long initSoWrite(stringoutRecord *pso)
 {
 	asynStatus	status;
 	devPvt		*pdevPvt;
+	char		*s;
+	
+	/* First, see if this is a buslist display record.  If so, just cache its pointer */
+	if (devAsynSoftGlueDebug) {
+		printf("devAsynSoftGlue:initSoWrite: OUT='%s'\n", pso->out.value.instio.string);
+	}
+	s = strstr(pso->out.value.instio.string, "softGlueBusList");
+	if (s != NULL) {
+		int i, j=0;
+		for (i=0; i<MAXPORTS; i++) {
+			if (strlen(portInfo[i].portName) == 0)
+				continue;
+			if (devAsynSoftGlueDebug) printf("devAsynSoftGlue:initSoWrite: i=%d, portName='%s'\n",
+				i, portInfo[i].portName);
+			if (strstr(s, portInfo[i].portName) != NULL) {
+				if (isdigit((int)(s[16])))
+					j = atoi(&(s[16]));
+				if (devAsynSoftGlueDebug) printf("devAsynSoftGlue:initSoWrite: j=%d\n", j);
+				if ((j>0) && (j<=15))
+					portInfo[i].sigList[j].listRecord = pso;
+				/* If signal is in use, write its name and post */
+				if (portInfo[i].sigList[j].numUsers >= 1) {
+					strcpy(pso->val, portInfo[i].sigList[j].name);
+					db_post_events(pso, &(pso->val), DBE_VALUE);
+				}
+				return 0;
+			}
+		}
+		return 0;
+	}
 
 	status = initCommon((dbCommon *)pso,&pso->out,callbackSoWrite);
 	if (status!=asynSuccess) return 0;
