@@ -140,6 +140,8 @@ pattern {P  H 	SIG					PORT	ADDR}
 
 {xxx: softGlue: MUX2-1_OUT			SOFTGLUE 0x8002E8}
 {xxx: softGlue: MUX2-2_OUT			SOFTGLUE 0x800308}
+
+{xxx: softGlue: 8MHZ_CLK			SOFTGLUE 0x8003E0}
 }
 
 file "$(SOFTGLUE)/softGlueApp/Db/softGlue_FieldInput.db"
