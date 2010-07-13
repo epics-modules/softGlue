@@ -12,10 +12,6 @@ record(stringout,"$(P)$(H)NullSigName") {
 	field(VAL,"2@")
 	field(UDF,"0")
 }
-record(bo,"$(P)$(H)ScanRate") {
-	field(SCAN,".2 second")
-	field(UDF,"0")
-}
 record(bo,"$(P)$(H)ReadRateON") {
 	field(SCAN,".2 second")
 	field(UDF,"0")
@@ -36,4 +32,65 @@ record(transform,"$(P)$(H)ReadRateInit") {
 	field(OUTC,"$(P)$(H)ReadRateON.SCAN CA")
 	# turn ourself off
 	field(OUTD,"$(P)$(H)ReadRateInit.SCAN CA")
+}
+
+record(stringout,"$(P)$(H)Bus1") {
+	field(DTYP,"softGlue")
+	field(OUT,"@softGlueBusList 1 $(PORT)")
+}
+record(stringout,"$(P)$(H)Bus2") {
+	field(DTYP,"softGlue")
+	field(OUT,"@softGlueBusList 2 $(PORT)")
+}
+record(stringout,"$(P)$(H)Bus3") {
+	field(DTYP,"softGlue")
+	field(OUT,"@softGlueBusList 3 $(PORT)")
+}
+record(stringout,"$(P)$(H)Bus4") {
+	field(DTYP,"softGlue")
+	field(OUT,"@softGlueBusList 4 $(PORT)")
+}
+record(stringout,"$(P)$(H)Bus5") {
+	field(DTYP,"softGlue")
+	field(OUT,"@softGlueBusList 5 $(PORT)")
+}
+record(stringout,"$(P)$(H)Bus6") {
+	field(DTYP,"softGlue")
+	field(OUT,"@softGlueBusList 6 $(PORT)")
+}
+record(stringout,"$(P)$(H)Bus7") {
+	field(DTYP,"softGlue")
+	field(OUT,"@softGlueBusList 7 $(PORT)")
+}
+record(stringout,"$(P)$(H)Bus8") {
+	field(DTYP,"softGlue")
+	field(OUT,"@softGlueBusList 8 $(PORT)")
+}
+record(stringout,"$(P)$(H)Bus9") {
+	field(DTYP,"softGlue")
+	field(OUT,"@softGlueBusList 9 $(PORT)")
+}
+record(stringout,"$(P)$(H)Bus10") {
+	field(DTYP,"softGlue")
+	field(OUT,"@softGlueBusList 10 $(PORT)")
+}
+record(stringout,"$(P)$(H)Bus11") {
+	field(DTYP,"softGlue")
+	field(OUT,"@softGlueBusList 11 $(PORT)")
+}
+record(stringout,"$(P)$(H)Bus12") {
+	field(DTYP,"softGlue")
+	field(OUT,"@softGlueBusList 12 $(PORT)")
+}
+record(stringout,"$(P)$(H)Bus13") {
+	field(DTYP,"softGlue")
+	field(OUT,"@softGlueBusList 13 $(PORT)")
+}
+record(stringout,"$(P)$(H)Bus14") {
+	field(DTYP,"softGlue")
+	field(OUT,"@softGlueBusList 14 $(PORT)")
+}
+record(stringout,"$(P)$(H)Bus15") {
+	field(DTYP,"softGlue")
+	field(OUT,"@softGlueBusList 15 $(PORT)")
 }
