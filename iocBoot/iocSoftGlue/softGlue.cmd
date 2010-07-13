@@ -41,7 +41,7 @@ initIP_EP201SingleRegisterPort("SOFTGLUE", 0, 2)
 # components can use to show which signals are connected together.  This
 # database is not needed for the functioning of the components, it's purely
 # for the user interface.
-dbLoadRecords("$(SOFTGLUE)/db/softGlue_SignalShow.db","P=xxx:,H=softGlue:")
+dbLoadRecords("$(SOFTGLUE)/db/softGlue_SignalShow.db","P=xxx:,H=softGlue:,PORT=SOFTGLUE")
 
 # Load a set of database fragments for each single-register component.
 dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent.db", "P=xxx:,H=softGlue:,PORT=SOFTGLUE")
