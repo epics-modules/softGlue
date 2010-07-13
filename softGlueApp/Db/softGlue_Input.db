@@ -39,5 +39,8 @@ record(scalcout,"$(P)$(H)$(SIG)_autoRead") {
 	field(INCC,"$(P)$(H)ReadRateOFF.SCAN CP")
 	field(DD,"Passive")
 	field(CALC,"aa==''?(cc==''?dd:cc):(bb==''?dd:bb)")
-	field(OUT,"$(P)$(H)$(SIG)_BI.SCAN CA")
+	field(OUT,"$(P)$(H)$(SIG)_SCAN.SCAN CA")
+}
+record(bo,"$(P)$(H)$(SIG)_SCAN") {
+	field(FLNK,"$(P)$(H)$(SIG)_BI")
 }
