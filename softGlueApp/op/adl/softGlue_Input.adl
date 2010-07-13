@@ -190,9 +190,9 @@ oval {
 }
 "text update" {
 	object {
-		x=135
+		x=132
 		y=3
-		width=5
+		width=10
 		height=10
 	}
 	monitor {
