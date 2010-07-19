@@ -114,7 +114,6 @@ epicsExportAddress(dset, asynSoftGlue);
 struct sigEntry {
 	char name[40];
 	int numUsers;
-	stringoutRecord *listRecord;
 };
 
 static struct portInfo {
@@ -289,9 +288,7 @@ static long checkSignal(stringoutRecord *pso) {
 			if (--(sig->numUsers) <= 0) {
 				sig->numUsers = 0;
 				sig->name[0] = '\0';
-				/* update user's signal-list PV */
-				sig->listRecord->val[0] = '\0';
-				db_post_events(sig->listRecord, &(sig->listRecord->val), DBE_VALUE);
+				/* We should tell user how many signals are still available for use. */
 			}
 			pdevPvt->signalNum = 0;
 			if (devAsynSoftGlueDebug) printf("checkSignal: binary value\n");
@@ -308,9 +305,7 @@ static long checkSignal(stringoutRecord *pso) {
 				if (--(sig->numUsers) <= 0) {
 					sig->numUsers = 0;
 					sig->name[0] = '\0';
-					/* update user's signal-list PV */
-					sig->listRecord->val[0] = '\0';
-					db_post_events(sig->listRecord, &(sig->listRecord->val), DBE_VALUE);
+					/* We should tell user how many signals are still available for use. */
 				}
 				pdevPvt->signalNum = 0;
 			}
@@ -351,9 +346,8 @@ static long checkSignal(stringoutRecord *pso) {
 				pi->sigList[i].numUsers = 1;
 				strcpy(pi->sigList[i].name, signalName);
 				if (devAsynSoftGlueDebug) printf("checkSignal: Assigning name '%s' to signal %d\n", signalName, pdevPvt->signalNum);
-				/* update user's signal-list PV */
-				strcpy(pi->sigList[i].listRecord->val, signalName);
-				db_post_events(pi->sigList[i].listRecord, &(pi->sigList[i].listRecord->val), DBE_VALUE);
+				/* We should tell user how many signals are still available for use. */
+
 				epicsMutexUnlock(pi->sig_mutex);
 				return(0);
 			}
@@ -379,9 +373,8 @@ static long report(int level) {
 		printf("portName '%s'\n", portInfo[i].portName);
 		if ((level > 1) && (strlen(portInfo[i].portName)>0)) {
 			for (j=0; j<MAXSIGNALS; j++) {
-				printf("signal %d name '%s'; %d users; recName '%s'\n", j,
-					portInfo[i].sigList[j].name, portInfo[i].sigList[j].numUsers,
-					portInfo[i].sigList[j].listRecord->name);
+				printf("signal %d name '%s'; %d users\n", j,
+					portInfo[i].sigList[j].name, portInfo[i].sigList[j].numUsers);
 			}
 		}
 	}
@@ -635,15 +628,8 @@ static long initSoWrite(stringoutRecord *pso)
 			if (devAsynSoftGlueDebug) printf("devAsynSoftGlue:initSoWrite: i=%d, portName='%s'\n",
 				i, portInfo[i].portName);
 			if (strstr(s, portInfo[i].portName) != NULL) {
-				if (isdigit((int)(s[16])))
-					j = atoi(&(s[16]));
-				if (devAsynSoftGlueDebug) printf("devAsynSoftGlue:initSoWrite: j=%d\n", j);
-				if ((j>0) && (j<=15))
-					portInfo[i].sigList[j].listRecord = pso;
-				/* If signal is in use, write its name and post */
+				/* We should tell user how many signals are still available for use. */
 				if (portInfo[i].sigList[j].numUsers >= 1) {
-					strcpy(pso->val, portInfo[i].sigList[j].name);
-					db_post_events(pso, &(pso->val), DBE_VALUE);
 				}
 				return 0;
 			}
