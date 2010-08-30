@@ -129,6 +129,9 @@ extern int logMsg(char *fmt, ...);
 #include <asynInt32.h>
 #include <epicsInterrupt.h>
 
+#define STATIC static
+/* #define STATIC */
+
 volatile int drvIP_EP201Debug = 0;
 
 #define DO_IPMODULE_CHECK 1
@@ -191,11 +194,11 @@ typedef struct {
 /*
  * asynCommon interface
  */
-static void report                 	(void *drvPvt, FILE *fp, int details);
-static asynStatus connect          	(void *drvPvt, asynUser *pasynUser);
-static asynStatus disconnect       	(void *drvPvt, asynUser *pasynUser);
+STATIC void report                 	(void *drvPvt, FILE *fp, int details);
+STATIC asynStatus connect          	(void *drvPvt, asynUser *pasynUser);
+STATIC asynStatus disconnect       	(void *drvPvt, asynUser *pasynUser);
 
-static const struct asynCommon IP_EP201Common = {
+STATIC const struct asynCommon IP_EP201Common = {
     report,
     connect,
     disconnect
@@ -204,24 +207,24 @@ static const struct asynCommon IP_EP201Common = {
 /*
  * asynDrvUser interface
  */
-static asynStatus create_asynDrvUser(void *drvPvt,asynUser *pasynUser,
+STATIC asynStatus create_asynDrvUser(void *drvPvt,asynUser *pasynUser,
     const char *drvInfo, const char **pptypeName,size_t *psize);
-static asynStatus getType_asynDrvUser(void *drvPvt,asynUser *pasynUser,
+STATIC asynStatus getType_asynDrvUser(void *drvPvt,asynUser *pasynUser,
     const char **pptypeName,size_t *psize);
-static asynStatus destroy_asynDrvUser(void *drvPvt,asynUser *pasynUser);
-static asynDrvUser drvUser = {create_asynDrvUser, getType_asynDrvUser, destroy_asynDrvUser};
+STATIC asynStatus destroy_asynDrvUser(void *drvPvt,asynUser *pasynUser);
+STATIC asynDrvUser drvUser = {create_asynDrvUser, getType_asynDrvUser, destroy_asynDrvUser};
 
 /*
  * asynUInt32Digital interface - we only implement part of this interface.
  */
-static asynStatus readUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 *value, epicsUInt32 mask);
-static asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 value, epicsUInt32 mask);
-static asynStatus setInterruptUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 mask, interruptReason reason);
-static asynStatus clearInterruptUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 mask);
+STATIC asynStatus readUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 *value, epicsUInt32 mask);
+STATIC asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 value, epicsUInt32 mask);
+STATIC asynStatus setInterruptUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 mask, interruptReason reason);
+STATIC asynStatus clearInterruptUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 mask);
 
 
 /* default implementations are provided by asynUInt32DigitalBase. */
-static struct asynUInt32Digital IP_EP201UInt32D = {
+STATIC struct asynUInt32Digital IP_EP201UInt32D = {
     writeUInt32D, /* write */
     readUInt32D,  /* read */
     setInterruptUInt32D,	/* setInterrupt (not used) */
@@ -236,11 +239,11 @@ static struct asynUInt32Digital IP_EP201UInt32D = {
  * asynInt32 interface 
  */
 
-static asynStatus writeInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 value);
-static asynStatus readInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 *value);
-static asynStatus getBounds(void *drvPvt, asynUser *pasynUser, epicsInt32 *low, epicsInt32 *high);
+STATIC asynStatus writeInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 value);
+STATIC asynStatus readInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 *value);
+STATIC asynStatus getBounds(void *drvPvt, asynUser *pasynUser, epicsInt32 *low, epicsInt32 *high);
 
-static struct asynInt32 IP_EP201Int32 = {
+STATIC struct asynInt32 IP_EP201Int32 = {
     writeInt32, /* write */
     readInt32,  /* read */
 	getBounds,	/* getBounds */
@@ -249,9 +252,9 @@ static struct asynInt32 IP_EP201Int32 = {
 };
 
 /* These are private functions */
-static void pollerThread           	(drvIP_EP201Pvt *pPvt);
-static void intFunc                	(void *); /* Interrupt function */
-static void rebootCallback         	(void *);
+STATIC void pollerThread           	(drvIP_EP201Pvt *pPvt);
+STATIC void intFunc                	(void *); /* Interrupt function */
+STATIC void rebootCallback         	(void *);
 
 
 
@@ -403,7 +406,7 @@ int initIP_EP201(const char *portName, ushort_t carrier, ushort_t slot,
 	return(0);
 }
 
-static asynStatus create_asynDrvUser(void *drvPvt,asynUser *pasynUser,
+STATIC asynStatus create_asynDrvUser(void *drvPvt,asynUser *pasynUser,
 	const char *drvInfo, const char **pptypeName,size_t *psize)
 {
 	/* printf("drvIP_EP201:create_asynDrvUser: entry drvInfo='%s'\n", drvInfo); */
@@ -417,14 +420,14 @@ static asynStatus create_asynDrvUser(void *drvPvt,asynUser *pasynUser,
 	return(asynSuccess);
 }
 
-static asynStatus getType_asynDrvUser(void *drvPvt,asynUser *pasynUser,
+STATIC asynStatus getType_asynDrvUser(void *drvPvt,asynUser *pasynUser,
 	const char **pptypeName,size_t *psize)
 {
 	printf("drvIP_EP201:getType_asynDrvUser: entry\n");
 	return(asynSuccess);
 }
 
-static asynStatus destroy_asynDrvUser(void *drvPvt,asynUser *pasynUser)
+STATIC asynStatus destroy_asynDrvUser(void *drvPvt,asynUser *pasynUser)
 {
 	printf("drvIP_EP201:destroy_asynDrvUser: entry\n");
 	return(asynSuccess);
@@ -621,7 +624,7 @@ int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filepath)
  * See "The addressing of sopc components", in comments at the top of this file
  * for a complete description of how addresses are handled.
  */
-static epicsUInt16 *calcRegisterAddress(void *drvPvt, asynUser *pasynUser)
+/*STATIC*/ epicsUInt16 *calcRegisterAddress(void *drvPvt, asynUser *pasynUser)
 {
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	int addr;
@@ -647,25 +650,41 @@ static epicsUInt16 *calcRegisterAddress(void *drvPvt, asynUser *pasynUser)
  * Note that fieldIO_registerSet components have a control register that
  * may determine what data will be available for reading.
  */
-static asynStatus readUInt32D(void *drvPvt, asynUser *pasynUser,
+#define DIAGNOSE_FPGA_CONFIG 1
+/*STATIC*/ asynStatus readUInt32D(void *drvPvt, asynUser *pasynUser,
 	epicsUInt32 *value, epicsUInt32 mask)
 {
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	volatile epicsUInt16 *reg;
+	char *id;
 
+	if (drvIP_EP201Debug) {
+		printf("drvIP_EP201:readUInt32D: pasynUser->reason=%d\n", pasynUser->reason);
+#if DIAGNOSE_FPGA_CONFIG
+		id = (char *)(pPvt->id);
+		printf("drvIP_EP201:readUInt32D: ID ='%c%c%c%c'\n", *id++,*id++,*id++,*id);
+#endif
+	}
 	*value = 0;
 	if (pPvt->is_fieldIO_registerSet) {
 		if (pasynUser->reason == 0) {
 			/* read data */
+			if (drvIP_EP201Debug) printf("drvIP_EP201:readUInt32D: fieldIO reg address=%p\n", &(pPvt->regs->readDataRegister));
 			*value = (epicsUInt32) (pPvt->regs->readDataRegister & mask);
 		} else if (pasynUser->reason == INTERRUPT_EDGE) {
-			/* read interrupt-enable edge bits*/
+			/* read interrupt-enable edge bits.  This is a kludge.  We need to specify one of 16 I/O
+			 * bits, and also to indicate which of four states applies to that bit.  To do this, we
+			 * use a two bit mask, the lower bit of which specifies the I/O bit.  The four states
+			 * indicate which signal edge is enabled to generate interrupts (00: no edge enabled,
+			 * 01: rising edge enabled, 10: falling edge enabled, 11: both edges enabled).
+			 */
 			epicsUInt16 rising, falling;
 			*value = 0;
 			rising = (epicsUInt16) (pPvt->regs->risingIntEnable & (mask&(mask>>1)) );
 			falling = (epicsUInt16) (pPvt->regs->fallingIntEnable & (mask&(mask>>1)) );
 			if (rising) *value |= 1;
 			if (falling) *value |= 2;
+			/* Left shift the (two-bit) value so it overlaps the mask that caller gave us. */
 			for (; mask && ((mask&1) == 0); mask>>=1, *value<<=1);
 		} else if (pasynUser->reason == POLL_TIME) {
 			*value = pPvt->pollTime*1000;
@@ -674,6 +693,7 @@ static asynStatus readUInt32D(void *drvPvt, asynUser *pasynUser,
 		}
 	} else {
 		reg = calcRegisterAddress(drvPvt, pasynUser);
+		if (drvIP_EP201Debug) printf("drvIP_EP201:readUInt32D: softGlue reg address=%p\n", reg);
 		*value = (epicsUInt32) (*reg & mask);
 	}
 	asynPrint(pasynUser, ASYN_TRACEIO_DRIVER,
@@ -691,16 +711,25 @@ static asynStatus readUInt32D(void *drvPvt, asynUser *pasynUser,
  * Note that fieldIO_registerSet components have a control register that
  * may determine what use will be made of the data we write.
  */
-static asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 value,
+/*STATIC*/ asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 value,
 	epicsUInt32 mask)
 {
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	volatile epicsUInt16 *reg=0;
 	epicsUInt32 maskCopy;
+	char *id;
 
+	if (drvIP_EP201Debug) {
+		printf("drvIP_EP201:writeUInt32D: pasynUser->reason=%d\n", pasynUser->reason);
+#if DIAGNOSE_FPGA_CONFIG
+		id = (char *)(pPvt->id);
+		printf("drvIP_EP201:writeUInt32D: ID ='%c%c%c%c'\n", *id++,*id++,*id++,*id);
+#endif
+	}
 	if (pPvt->is_fieldIO_registerSet) {
 		if (pasynUser->reason == 0) {
 			/* write data */
+			if (drvIP_EP201Debug) printf("drvIP_EP201:writeUInt32D: fieldIO reg address=%p\n", &(pPvt->regs->writeDataRegister));
 			pPvt->regs->writeDataRegister = (pPvt->regs->writeDataRegister & ~mask) | (value & mask);	
 		} else if (pasynUser->reason == INTERRUPT_EDGE) {
 			/* set interrupt-enable edge bits */
@@ -732,6 +761,7 @@ static asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 va
 		int addr;
 		pasynManager->getAddr(pasynUser, &addr);
 		reg = calcRegisterAddress(drvPvt, pasynUser);
+		if (drvIP_EP201Debug) printf("drvIP_EP201:writeUInt32D: softGlue reg address=%p\n", reg);
 		if (addr & 0x800000) {
 			*reg = (*reg & ~mask) | (epicsUInt16) (value & mask);
 		} else {
@@ -752,18 +782,28 @@ static asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 va
  * Note that fieldIO_registerSet components have a control register that
  * may determine what data will be available for reading.
  */
-static asynStatus readInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 *value)
+/*STATIC*/ asynStatus readInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 *value)
 {
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	volatile epicsUInt16 *reg;
+	char *id;
 
+	if (drvIP_EP201Debug) {
+		printf("drvIP_EP201:readInt32: pasynUser->reason=%d\n", pasynUser->reason);
+#if DIAGNOSE_FPGA_CONFIG
+		id = (char *)(pPvt->id);
+		printf("drvIP_EP201:readInt32: ID ='%c%c%c%c'\n", *id++,*id++,*id++,*id);
+#endif
+	}
 	*value = 0;
 
 	if (pasynUser->reason == 0) {
 		if (pPvt->is_fieldIO_registerSet) {
+			if (drvIP_EP201Debug) printf("drvIP_EP201:readInt32: fieldIO reg address=%p\n", &(pPvt->regs->readDataRegister));
 			*value = (epicsUInt32) pPvt->regs->readDataRegister;
 		} else {
 			reg = calcRegisterAddress(drvPvt, pasynUser);
+			if (drvIP_EP201Debug) printf("drvIP_EP201:readInt32: softGlue reg address=%p\n", reg);
 			*value = (epicsUInt32)(*reg);
 		}
 	} else if (pasynUser->reason == POLL_TIME) {
@@ -783,16 +823,26 @@ static asynStatus readInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 *value
  * Note that fieldIO_registerSet components have a control register that
  * may determine what use will be made of the data we write.
  */
-static asynStatus writeInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 value)
+/*STATIC*/ asynStatus writeInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 value)
 {
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	volatile epicsUInt16 *reg;
+	char *id;
 
+	if (drvIP_EP201Debug) {
+		printf("drvIP_EP201:writeInt32: pasynUser->reason=%d\n", pasynUser->reason);
+#if DIAGNOSE_FPGA_CONFIG
+		id = (char *)(pPvt->id);
+		printf("drvIP_EP201:writeInt32: ID ='%c%c%c%c'\n", *id++,*id++,*id++,*id);
+#endif
+	}
 	if (pasynUser->reason == 0) {
 		if (pPvt->is_fieldIO_registerSet) {
+			if (drvIP_EP201Debug) printf("drvIP_EP201:writeInt32: fieldIO reg address=%p\n", &(pPvt->regs->writeDataRegister));
 			pPvt->regs->writeDataRegister = (epicsUInt16) value;	
 		} else {
 			reg = calcRegisterAddress(drvPvt, pasynUser);
+			if (drvIP_EP201Debug) printf("drvIP_EP201:writeInt32: softGlue reg address=%p\n", reg);
 			*reg = (epicsUInt16) value;
 		}
 	} else if (pasynUser->reason == POLL_TIME) {
@@ -804,7 +854,7 @@ static asynStatus writeInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 value
 	return(asynSuccess);
 }
 
-static asynStatus getBounds(void *drvPvt, asynUser *pasynUser, epicsInt32 *low, epicsInt32 *high)
+STATIC asynStatus getBounds(void *drvPvt, asynUser *pasynUser, epicsInt32 *low, epicsInt32 *high)
 {
 	const char *portName;
 	asynStatus status;
@@ -829,7 +879,7 @@ static asynStatus getBounds(void *drvPvt, asynUser *pasynUser, epicsInt32 *low, 
  * the fieldIO_registerSet named in caller's drvPvt.  If so, we collect
  * information, and send a message to pollerThread().
  */
-static void intFunc(void *drvPvt)
+STATIC void intFunc(void *drvPvt)
 {
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	epicsUInt16 pendingLow, pendingHigh;
@@ -880,7 +930,7 @@ static void intFunc(void *drvPvt)
  * have registered with registerInterruptUser
  */
 
-static void pollerThread(drvIP_EP201Pvt *pPvt)
+STATIC void pollerThread(drvIP_EP201Pvt *pPvt)
 {
 	epicsUInt32 newBits32=0;
 	epicsUInt16 newBits=0, changedBits=0, interruptMask=0;
@@ -958,6 +1008,7 @@ static void pollerThread(drvIP_EP201Pvt *pPvt)
 					if (maskBit & pPvt->disabledIntMask) {
 						asynPrint(pPvt->pasynUser, ASYN_TRACE_FLOW, "drvIP_EP201:pollerThread, calling client %p"
 							" mask=%x, callback=%p\n", pUInt32D, pUInt32D->mask, pUInt32D->callback);
+						/* Process the record that will show the user we disabled this bit's interrupt capability. */
 						pUInt32D->callback(pUInt32D->userPvt, pUInt32D->pasynUser, pUInt32D->mask);
 					}
 				}
@@ -970,20 +1021,20 @@ static void pollerThread(drvIP_EP201Pvt *pPvt)
 }
 
 /* I don't know what these two functions are for.  I'm just including them because an example did. */
-static asynStatus setInterruptUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 mask,
+STATIC asynStatus setInterruptUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 mask,
 	interruptReason reason)
 {
 	printf("drvIP_EP201:setInterruptUInt32D: entry mask=%d, reason=%d\n", mask, reason);
 	return(0);
 }
 
-static asynStatus clearInterruptUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 mask)
+STATIC asynStatus clearInterruptUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 mask)
 {
 	printf("drvIP_EP201:clearInterruptUInt32D: entry mask=%d\n", mask);
 	return(0);
 }
 
-static void rebootCallback(void *drvPvt)
+STATIC void rebootCallback(void *drvPvt)
 {
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	int key = epicsInterruptLock();
@@ -999,7 +1050,7 @@ static void rebootCallback(void *drvPvt)
 /* asynCommon routines */
 
 /* Report  parameters */
-static void report(void *drvPvt, FILE *fp, int details)
+STATIC void report(void *drvPvt, FILE *fp, int details)
 {
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	interruptNode *pnode;
@@ -1028,14 +1079,14 @@ static void report(void *drvPvt, FILE *fp, int details)
 }
 
 /* Connect */
-static asynStatus connect(void *drvPvt, asynUser *pasynUser)
+STATIC asynStatus connect(void *drvPvt, asynUser *pasynUser)
 {
 	pasynManager->exceptionConnect(pasynUser);
 	return(asynSuccess);
 }
 
 /* Connect */
-static asynStatus disconnect(void *drvPvt, asynUser *pasynUser)
+STATIC asynStatus disconnect(void *drvPvt, asynUser *pasynUser)
 {
 	pasynManager->exceptionDisconnect(pasynUser);
 	return(asynSuccess);
@@ -1047,19 +1098,19 @@ static asynStatus disconnect(void *drvPvt, asynUser *pasynUser)
  *				int msecPoll, int dataDir, int sopcOffset, int interruptVector,
  *				int risingMask, int fallingMask)
  */
-static const iocshArg initArg0 = { "Port Name",iocshArgString};
-static const iocshArg initArg1 = { "Carrier Number",iocshArgInt};
-static const iocshArg initArg2 = { "Slot Number",iocshArgInt};
-static const iocshArg initArg3 = { "msecPoll",iocshArgInt};
-static const iocshArg initArg4 = { "Data Dir Reg",iocshArgInt};
-static const iocshArg initArg5 = { "SOPC Offset Addr",iocshArgInt};
-static const iocshArg initArg6 = { "Interrupt Vector",iocshArgInt};
-static const iocshArg initArg7 = { "Rising Edge Mask",iocshArgInt};
-static const iocshArg initArg8 = { "Falling Edge Mask",iocshArgInt};
-static const iocshArg * const initArgs[9] = {&initArg0, &initArg1, &initArg2,
+STATIC const iocshArg initArg0 = { "Port Name",iocshArgString};
+STATIC const iocshArg initArg1 = { "Carrier Number",iocshArgInt};
+STATIC const iocshArg initArg2 = { "Slot Number",iocshArgInt};
+STATIC const iocshArg initArg3 = { "msecPoll",iocshArgInt};
+STATIC const iocshArg initArg4 = { "Data Dir Reg",iocshArgInt};
+STATIC const iocshArg initArg5 = { "SOPC Offset Addr",iocshArgInt};
+STATIC const iocshArg initArg6 = { "Interrupt Vector",iocshArgInt};
+STATIC const iocshArg initArg7 = { "Rising Edge Mask",iocshArgInt};
+STATIC const iocshArg initArg8 = { "Falling Edge Mask",iocshArgInt};
+STATIC const iocshArg * const initArgs[9] = {&initArg0, &initArg1, &initArg2,
 	&initArg3, &initArg4, &initArg5, &initArg6, &initArg7, &initArg8};
-static const iocshFuncDef initFuncDef = {"initIP_EP201",9,initArgs};
-static void initCallFunc(const iocshArgBuf *args)
+STATIC const iocshFuncDef initFuncDef = {"initIP_EP201",9,initArgs};
+STATIC void initCallFunc(const iocshArgBuf *args)
 {
 	initIP_EP201(args[0].sval, args[1].ival, args[2].ival,
 	            args[3].ival, args[4].ival, args[5].ival,
@@ -1067,19 +1118,19 @@ static void initCallFunc(const iocshArgBuf *args)
 }
 
 /* int initIP_EP201SingleRegisterPort(const char *portName, ushort_t carrier, ushort_t slot) */
-static const iocshArg initSRArg0 = { "Port name",iocshArgString};
-static const iocshArg * const initSRArgs[3] = {&initSRArg0, &initArg1, &initArg2};
-static const iocshFuncDef initSRFuncDef = {"initIP_EP201SingleRegisterPort",3,initSRArgs};
-static void initSRCallFunc(const iocshArgBuf *args)
+STATIC const iocshArg initSRArg0 = { "Port name",iocshArgString};
+STATIC const iocshArg * const initSRArgs[3] = {&initSRArg0, &initArg1, &initArg2};
+STATIC const iocshFuncDef initSRFuncDef = {"initIP_EP201SingleRegisterPort",3,initSRArgs};
+STATIC void initSRCallFunc(const iocshArgBuf *args)
 {
 	initIP_EP201SingleRegisterPort(args[0].sval, args[1].ival, args[2].ival);
 }
 
 /* int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char filename) */
-static const iocshArg initFPGAArg2 = { "File pathStart",iocshArgString};
-static const iocshArg * const initFPGAArgs[3] = {&initArg1, &initArg2, &initFPGAArg2};
-static const iocshFuncDef initFPGAFuncDef = {"initIP_EP200_FPGA",3,initFPGAArgs};
-static void initFPGACallFunc(const iocshArgBuf *args)
+STATIC const iocshArg initFPGAArg2 = { "File pathStart",iocshArgString};
+STATIC const iocshArg * const initFPGAArgs[3] = {&initArg1, &initArg2, &initFPGAArg2};
+STATIC const iocshFuncDef initFPGAFuncDef = {"initIP_EP200_FPGA",3,initFPGAArgs};
+STATIC void initFPGACallFunc(const iocshArgBuf *args)
 {
 	initIP_EP200_FPGA(args[0].ival, args[1].ival, args[2].sval);
 }
