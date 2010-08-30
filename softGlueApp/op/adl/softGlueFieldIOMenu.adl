@@ -8,7 +8,7 @@ display {
 		x=1106
 		y=233
 		width=130
-		height=110
+		height=90
 	}
 	clr=14
 	bclr=2
@@ -99,97 +99,6 @@ text {
 	}
 	textix="Field IO"
 	align="horiz. centered"
-}
-"related display" {
-	object {
-		x=10
-		y=85
-		width=110
-		height=20
-	}
-	display[0] {
-		label="Output Interrupt 1"
-		name="softGlue_IntBit.adl"
-		args="P=$(P),H=$(H),NAM=Out_1"
-	}
-	display[1] {
-		label="Output Interrupt 2"
-		name="softGlue_IntBit.adl"
-		args="P=$(P),H=$(H),NAM=Out_2"
-	}
-	display[2] {
-		label="Output Interrupt 3"
-		name="softGlue_IntBit.adl"
-		args="P=$(P),H=$(H),NAM=Out_3"
-	}
-	display[3] {
-		label="Output Interrupt 4"
-		name="softGlue_IntBit.adl"
-		args="P=$(P),H=$(H),NAM=Out_4"
-	}
-	display[4] {
-		label="Output Interrupt 5"
-		name="softGlue_IntBit.adl"
-		args="P=$(P),H=$(H),NAM=Out_5"
-	}
-	display[5] {
-		label="Output Interrupt 6"
-		name="softGlue_IntBit.adl"
-		args="P=$(P),H=$(H),NAM=Out_6"
-	}
-	display[6] {
-		label="Output Interrupt 7"
-		name="softGlue_IntBit.adl"
-		args="P=$(P),H=$(H),NAM=Out_7"
-	}
-	display[7] {
-		label="Output Interrupt 8"
-		name="softGlue_IntBit.adl"
-		args="P=$(P),H=$(H),NAM=Out_8"
-	}
-	display[8] {
-		label="Output Interrupt 9"
-		name="softGlue_IntBit.adl"
-		args="P=$(P),H=$(H),NAM=Out_9"
-	}
-	display[9] {
-		label="Output Interrupt 10"
-		name="softGlue_IntBit.adl"
-		args="P=$(P),H=$(H),NAM=Out_10"
-	}
-	display[10] {
-		label="Output Interrupt 11"
-		name="softGlue_IntBit.adl"
-		args="P=$(P),H=$(H),NAM=Out_11"
-	}
-	display[11] {
-		label="Output Interrupt 12"
-		name="softGlue_IntBit.adl"
-		args="P=$(P),H=$(H),NAM=Out_12"
-	}
-	display[12] {
-		label="Output Interrupt 13"
-		name="softGlue_IntBit.adl"
-		args="P=$(P),H=$(H),NAM=Out_13"
-	}
-	display[13] {
-		label="Output Interrupt 14"
-		name="softGlue_IntBit.adl"
-		args="P=$(P),H=$(H),NAM=Out_14"
-	}
-	display[14] {
-		label="Output Interrupt 15"
-		name="softGlue_IntBit.adl"
-		args="P=$(P),H=$(H),NAM=Out_15"
-	}
-	display[15] {
-		label="Output Interrupt 16"
-		name="softGlue_IntBit.adl"
-		args="P=$(P),H=$(H),NAM=Out_16"
-	}
-	clr=0
-	bclr=63
-	label="-Output Interrupts"
 }
 "related display" {
 	object {
