@@ -21,11 +21,15 @@ record(sseq,"$(P)$(H)$(SIG)_DoShow") {
 	field(DOL2,"$(P)$(H)$(SIG)_Signal")
 	field(LNK2,"$(P)$(H)SignalToShow PP")
 }
-record(scalcout,"$(P)$(H)$(SIG)_SigShow") {
-	field(INAA,"$(P)$(H)$(SIG)_Signal CP")
+record(scalcout,"$(P)$(H)$(SIG)_SigMatch") {
+	field(INAA,"$(P)$(H)$(SIG)_Signal NPP")
 	field(INBB,"$(P)$(H)SignalToShow CP")
+	field(CALC,"aa[0,'*']==bb[0,'*']")
+}
+record(calcout,"$(P)$(H)$(SIG)_SigShow") {
 	field(INPA,"$(P)$(H)SignalBlink CP")
-	field(CALC,"aa[0,'*']==bb[0,'*']?(a?'1':'0'):'0'")
+	field(INPB,"$(P)$(H)$(SIG)_SigMatch.VAL CP")
+	field(CALC,"b&&a")
 }
 record(bi,"$(P)$(H)$(SIG)_BI") {
 	field(DTYP,"asynUInt32Digital")
