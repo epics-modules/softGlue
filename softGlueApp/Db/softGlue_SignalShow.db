@@ -22,7 +22,7 @@ record(stringout,"$(P)$(H)NullSigName") {
 	field(UDF,"0")
 }
 record(event,"$(P)$(H)ReadRate") {
-	field(VAL,"10")
+	field(VAL,"$(READEVENT)")
 	field(SCAN,".2 second")
 	field(UDF,"0")
 }

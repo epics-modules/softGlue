@@ -39,6 +39,6 @@ record(bi,"$(P)$(H)$(SIG)_BI") {
 }
 record(bo,"$(P)$(H)$(SIG)_SCAN") {
 	field(SCAN,"Event")
-	field(EVNT,"10")
+	field(EVNT,"$(READEVENT)")
 	field(FLNK,"$(P)$(H)$(SIG)_BI")
 }
