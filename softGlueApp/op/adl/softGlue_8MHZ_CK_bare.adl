@@ -112,7 +112,7 @@ polyline {
 		height=20
 	}
 	control {
-		chan="$(P)$(H)8MHZ_CLK_Signal"
+		chan="$(P)$(H)8MHZ_CLOCK_Signal"
 		clr=14
 		bclr=31
 	}
@@ -135,7 +135,7 @@ rectangle {
 	"dynamic attribute" {
 		vis="if not zero"
 		calc="a"
-		chan="$(P)$(H)8MHZ_CLK_SigShow"
+		chan="$(P)$(H)8MHZ_CLOCK_SigShow"
 	}
 }
 "message button" {
@@ -146,7 +146,7 @@ rectangle {
 		height=20
 	}
 	control {
-		chan="$(P)$(H)8MHZ_CLK_Show"
+		chan="$(P)$(H)8MHZ_CLOCK_Show"
 		clr=14
 		bclr=51
 	}
