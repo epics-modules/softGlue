@@ -206,12 +206,15 @@ static long checkSignal(stringoutRecord *pso) {
 		needPost = 1;
 	}
 
-#if 0 /* don't do this, because it interferes with drag-and-drop to an input with a numeric value */
+#if 1
 	/* Most traffic will be numeric values written to unassigned inputs.
-	 * Handle with this shortcut.
+	 * Handle with this shortcut.  Take care not to interfere with drag-and-drop to an input
+	 * with a numeric value
 	 */
-	if ((pdevPvt->isOutput==0) && (isdigit((int)pso->val[0])) && (pdevPvt->signalNum==0)) {
+	if ((pdevPvt->isOutput==0) && (isdigit((int)pso->val[0])) && (pdevPvt->signalNum==0) &&
+			(strlen(pso->val) < 10)) {
 		if (needPost) db_post_events(pso, &pso->val, DBE_VALUE);
+		if (devAsynSoftGlueDebug) printf("checkSignal: shortcut.\n");
 		return(0);
 	}
 #endif
