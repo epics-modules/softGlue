@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps_5_5/support/softGlue/softGlueApp/op/adl/softGlue_DFF_bare.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue_DFF_bare.adl"
 	version=030104
 }
 display {
@@ -126,23 +126,6 @@ composite {
 	}
 	"composite name"=""
 	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=DFF-$(N)_SET"
-}
-polyline {
-	object {
-		x=264
-		y=69
-		width=14
-		height=2
-	}
-	"basic attribute" {
-		clr=14
-		fill="outline"
-		width=2
-	}
-	points {
-		(277,70)
-		(265,70)
-	}
 }
 polyline {
 	object {
@@ -343,29 +326,6 @@ text {
 	textix="Q"
 	align="horiz. centered"
 }
-text {
-	object {
-		x=242
-		y=63
-		width=10
-		height=13
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Q"
-	align="horiz. centered"
-}
-composite {
-	object {
-		x=271
-		y=56
-		width=157
-		height=26
-	}
-	"composite name"=""
-	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=DFF-$(N)_NOUT"
-}
 composite {
 	object {
 		x=271
@@ -374,7 +334,7 @@ composite {
 		height=26
 	}
 	"composite name"=""
-	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=DFF-$(N)_POUT"
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=DFF-$(N)_OUT"
 }
 oval {
 	object {
@@ -393,19 +353,6 @@ oval {
 	object {
 		x=210
 		y=78
-		width=10
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-		fill="outline"
-		width=2
-	}
-}
-oval {
-	object {
-		x=256
-		y=65
 		width=10
 		height=10
 	}

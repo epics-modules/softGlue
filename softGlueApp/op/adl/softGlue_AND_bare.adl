@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue_AND_bare.adl"
+	name="/home/oxygen/MOONEY/epics/synApps_5_5/support/softGlue/softGlueApp/op/adl/softGlue_AND_bare.adl"
 	version=030104
 }
 display {
@@ -90,7 +90,7 @@ display {
 composite {
 	object {
 		x=10
-		y=9
+		y=10
 		width=155
 		height=26
 	}
@@ -100,7 +100,7 @@ composite {
 composite {
 	object {
 		x=10
-		y=35
+		y=33
 		width=155
 		height=26
 	}
@@ -141,24 +141,11 @@ arc {
 	begin=17280
 	path=11520
 }
-oval {
-	object {
-		x=211
-		y=17
-		width=10
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-		fill="outline"
-		width=2
-	}
-}
 polyline {
 	object {
-		x=218
-		y=22
-		width=11
+		x=215
+		y=35
+		width=15
 		height=2
 	}
 	"basic attribute" {
@@ -167,31 +154,14 @@ polyline {
 		width=2
 	}
 	points {
-		(228,23)
-		(219,23)
-	}
-}
-polyline {
-	object {
-		x=209
-		y=47
-		width=20
-		height=2
-	}
-	"basic attribute" {
-		clr=14
-		fill="outline"
-		width=2
-	}
-	points {
-		(228,48)
-		(210,48)
+		(229,36)
+		(216,36)
 	}
 }
 polyline {
 	object {
 		x=164
-		y=22
+		y=23
 		width=12
 		height=2
 	}
@@ -200,34 +170,24 @@ polyline {
 		width=2
 	}
 	points {
-		(165,23)
-		(175,23)
+		(165,24)
+		(175,24)
 	}
 }
 composite {
 	object {
 		x=227
-		y=9
+		y=22
 		width=157
 		height=26
 	}
 	"composite name"=""
-	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=AND-$(N)_NOUT"
-}
-composite {
-	object {
-		x=227
-		y=34
-		width=157
-		height=26
-	}
-	"composite name"=""
-	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=AND-$(N)_POUT"
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=AND-$(N)_OUT"
 }
 polyline {
 	object {
 		x=164
-		y=48
+		y=46
 		width=12
 		height=2
 	}
@@ -236,8 +196,8 @@ polyline {
 		width=2
 	}
 	points {
-		(165,49)
-		(175,49)
+		(165,47)
+		(175,47)
 	}
 }
 text {

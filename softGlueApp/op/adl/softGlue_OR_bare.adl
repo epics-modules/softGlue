@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=845
-		y=747
+		x=720
+		y=111
 		width=400
 		height=65
 	}
@@ -122,172 +122,121 @@ composite {
 	"composite name"=""
 	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=OR-$(N)_IN2"
 }
-composite {
+polyline {
 	object {
 		x=164
-		y=11
-		width=219
-		height=49
+		y=46
+		width=13
+		height=2
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+		width=2
+	}
+	points {
+		(176,47)
+		(165,47)
+	}
+}
+polyline {
+	object {
+		x=164
+		y=23
+		width=13
+		height=2
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+		width=2
+	}
+	points {
+		(176,24)
+		(165,24)
+	}
+}
+polyline {
+	object {
+		x=216
+		y=35
+		width=13
+		height=2
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+		width=2
+	}
+	points {
+		(228,36)
+		(217,36)
+	}
+}
+composite {
+	object {
+		x=173
+		y=15
+		width=50
+		height=40
 	}
 	"composite name"=""
 	children {
 		polyline {
 			object {
-				x=164
-				y=46
-				width=13
-				height=2
-			}
-			"basic attribute" {
-				clr=14
-				fill="outline"
-				width=2
-			}
-			points {
-				(176,47)
-				(165,47)
-			}
-		}
-		polyline {
-			object {
-				x=164
-				y=23
-				width=13
-				height=2
-			}
-			"basic attribute" {
-				clr=14
-				fill="outline"
-				width=2
-			}
-			points {
-				(176,24)
-				(165,24)
-			}
-		}
-		oval {
-			object {
-				x=207
-				y=19
-				width=10
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-				fill="outline"
-				width=2
-			}
-		}
-		polyline {
-			object {
-				x=215
-				y=23
-				width=13
-				height=2
-			}
-			"basic attribute" {
-				clr=14
-				fill="outline"
-				width=2
-			}
-			points {
-				(227,24)
-				(216,24)
-			}
-		}
-		polyline {
-			object {
-				x=206
-				y=46
-				width=22
-				height=2
-			}
-			"basic attribute" {
-				clr=14
-				fill="outline"
-				width=2
-			}
-			points {
-				(227,47)
-				(207,47)
-			}
-		}
-		composite {
-			object {
 				x=173
 				y=15
-				width=50
-				height=40
+				width=46
+				height=21
 			}
-			"composite name"=""
-			children {
-				polyline {
-					object {
-						x=173
-						y=15
-						width=46
-						height=21
-					}
-					"basic attribute" {
-						clr=14
-						width=2
-					}
-					points {
-						(174,16)
-						(178,16)
-						(185,16)
-						(192,18)
-						(198,20)
-						(205,24)
-						(212,29)
-						(218,35)
-					}
-				}
-				polyline {
-					object {
-						x=174
-						y=34
-						width=46
-						height=21
-					}
-					"basic attribute" {
-						clr=14
-						width=2
-					}
-					points {
-						(175,54)
-						(179,54)
-						(186,54)
-						(193,52)
-						(199,50)
-						(206,46)
-						(213,41)
-						(219,35)
-					}
-				}
+			"basic attribute" {
+				clr=14
+				width=2
+			}
+			points {
+				(174,16)
+				(178,16)
+				(185,16)
+				(192,18)
+				(198,20)
+				(205,24)
+				(212,29)
+				(218,35)
 			}
 		}
-		composite {
+		polyline {
 			object {
-				x=226
-				y=11
-				width=157
-				height=26
-			}
-			"composite name"=""
-			"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=OR-$(N)_NOUT"
-		}
-		composite {
-			object {
-				x=226
+				x=174
 				y=34
-				width=157
-				height=26
+				width=46
+				height=21
 			}
-			"composite name"=""
-			"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=OR-$(N)_POUT"
+			"basic attribute" {
+				clr=14
+				width=2
+			}
+			points {
+				(175,54)
+				(179,54)
+				(186,54)
+				(193,52)
+				(199,50)
+				(206,46)
+				(213,41)
+				(219,35)
+			}
 		}
 	}
+}
+composite {
+	object {
+		x=226
+		y=22
+		width=157
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=OR-$(N)_OUT"
 }
 text {
 	object {
