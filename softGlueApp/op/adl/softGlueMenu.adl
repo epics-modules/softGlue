@@ -8,7 +8,7 @@ display {
 		x=1404
 		y=42
 		width=110
-		height=180
+		height=160
 	}
 	clr=14
 	bclr=2
@@ -94,32 +94,52 @@ display {
 		width=88
 		height=20
 	}
-	display[1] {
+	display[0] {
 		label="AND 1"
 		name="softGlue_AND.adl"
 		args="P=$(P),H=$(H),N=1"
 	}
-	display[2] {
+	display[1] {
 		label="AND 2"
 		name="softGlue_AND.adl"
 		args="P=$(P),H=$(H),N=2"
 	}
+	display[2] {
+		label="AND 3"
+		name="softGlue_AND.adl"
+		args="P=$(P),H=$(H),N=3"
+	}
 	display[3] {
+		label="AND 4"
+		name="softGlue_AND.adl"
+		args="P=$(P),H=$(H),N=4"
+	}
+	display[4] {
 		label="OR 1"
 		name="softGlue_OR.adl"
 		args="P=$(P),H=$(H),N=1"
 	}
-	display[4] {
+	display[5] {
 		label="OR 2"
 		name="softGlue_OR.adl"
 		args="P=$(P),H=$(H),N=2"
 	}
-	display[5] {
+	display[6] {
+		label="OR 3"
+		name="softGlue_OR.adl"
+		args="P=$(P),H=$(H),N=3"
+	}
+	display[7] {
+		label="OR 4"
+		name="softGlue_OR.adl"
+		args="P=$(P),H=$(H),N=4"
+	}
+	display[8] {
 		label="XOR 1"
 		name="softGlue_XOR.adl"
 		args="P=$(P),H=$(H),N=1"
 	}
-	display[6] {
+	display[9] {
 		label="XOR 2"
 		name="softGlue_XOR.adl"
 		args="P=$(P),H=$(H),N=2"
@@ -135,86 +155,56 @@ display {
 		width=88
 		height=20
 	}
-	display[1] {
-		label="2-input multiplexer"
-		name="softGlue_MUX2.adl"
-		args="P=$(P),H=$(H),N=1"
-	}
-	display[2] {
-		label="2-input multiplexer"
-		name="softGlue_MUX2.adl"
-		args="P=$(P),H=$(H),N=2"
-	}
-	display[3] {
-		label="2-output demultiplexer"
-		name="softGlue_DEMUX2.adl"
-		args="P=$(P),H=$(H),N=1"
-	}
-	display[4] {
-		label="2-output demultiplexer"
-		name="softGlue_DEMUX2.adl"
-		args="P=$(P),H=$(H),N=2"
-	}
-	display[5] {
+	display[0] {
 		label="UpCounter 1"
 		name="softGlue_UpCntr.adl"
 		args="P=$(P),H=$(H),N=1"
 	}
-	display[6] {
+	display[1] {
 		label="UpCounter 2"
 		name="softGlue_UpCntr.adl"
 		args="P=$(P),H=$(H),N=2"
 	}
-	display[7] {
+	display[2] {
+		label="UpCounter 3"
+		name="softGlue_UpCntr.adl"
+		args="P=$(P),H=$(H),N=3"
+	}
+	display[3] {
+		label="UpCounter 4"
+		name="softGlue_UpCntr.adl"
+		args="P=$(P),H=$(H),N=4"
+	}
+	display[4] {
 		label="DownCounter 1"
 		name="softGlue_DnCntr.adl"
 		args="P=$(P),H=$(H),N=1"
 	}
-	display[8] {
+	display[5] {
 		label="DownCounter 2"
 		name="softGlue_DnCntr.adl"
 		args="P=$(P),H=$(H),N=2"
 	}
-	display[9] {
-		label="D FlipFlop 1"
-		name="softGlue_DFF.adl"
-		args="P=$(P),H=$(H),N=1"
+	display[6] {
+		label="DownCounter 3"
+		name="softGlue_DnCntr.adl"
+		args="P=$(P),H=$(H),N=3"
 	}
-	display[10] {
-		label="D FlipFlop 2"
-		name="softGlue_DFF.adl"
-		args="P=$(P),H=$(H),N=2"
-	}
-	display[11] {
-		label="Divide By N 1"
-		name="softGlue_DivByN.adl"
-		args="P=$(P),H=$(H),N=1"
-	}
-	display[12] {
-		label="Divide By N 2"
-		name="softGlue_DivByN.adl"
-		args="P=$(P),H=$(H),N=2"
-	}
-	display[13] {
-		label="8 MHZ Internal Clock"
-		name="softGlue_8MHZ_CK_bare.adl"
-		args="P=$(P),H=$(H)"
+	display[7] {
+		label="DownCounter 4"
+		name="softGlue_DnCntr.adl"
+		args="P=$(P),H=$(H),N=4"
 	}
 	clr=0
 	bclr=63
-	label="-Other"
+	label="-Counters"
 }
 "related display" {
 	object {
 		x=10
-		y=50
+		y=70
 		width=88
 		height=20
-	}
-	display[0] {
-		label="Field I/O"
-		name="softGlueFieldIO.adl"
-		args="P=$(P),H=$(H)"
 	}
 	display[1] {
 		label="Field I/O Menu"
@@ -240,73 +230,36 @@ display {
 	bclr=63
 	label="-Field I/O"
 }
-composite {
+menu {
 	object {
 		x=10
-		y=100
+		y=130
 		width=88
-		height=70
+		height=20
 	}
-	"composite name"=""
-	children {
-		menu {
-			object {
-				x=10
-				y=110
-				width=88
-				height=20
-			}
-			control {
-				chan="$(P)$(H)ReadRateON.SCAN"
-				clr=14
-				bclr=51
-			}
-		}
-		text {
-			object {
-				x=10
-				y=100
-				width=88
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="CONNECTED"
-			align="horiz. centered"
-		}
-		menu {
-			object {
-				x=10
-				y=150
-				width=88
-				height=20
-			}
-			control {
-				chan="$(P)$(H)ReadRateOFF.SCAN"
-				clr=14
-				bclr=51
-			}
-		}
-		text {
-			object {
-				x=10
-				y=140
-				width=88
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="UNCONNECTED"
-			align="horiz. centered"
-		}
+	control {
+		chan="$(P)$(H)ReadRate.SCAN"
+		clr=14
+		bclr=51
 	}
+}
+text {
+	object {
+		x=10
+		y=120
+		width=88
+		height=10
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="READ PERIOD"
+	align="horiz. centered"
 }
 "related display" {
 	object {
 		x=10
-		y=70
+		y=90
 		width=88
 		height=20
 	}
@@ -333,4 +286,80 @@ composite {
 	clr=0
 	bclr=63
 	label="-Collections"
+}
+"related display" {
+	object {
+		x=10
+		y=50
+		width=88
+		height=20
+	}
+	display[0] {
+		label="8 MHZ Internal Clock"
+		name="softGlue_8MHZ_CK_bare.adl"
+		args="P=$(P),H=$(H)"
+	}
+	display[1] {
+		label="2-input multiplexer"
+		name="softGlue_MUX2.adl"
+		args="P=$(P),H=$(H),N=1"
+	}
+	display[2] {
+		label="2-input multiplexer"
+		name="softGlue_MUX2.adl"
+		args="P=$(P),H=$(H),N=2"
+	}
+	display[3] {
+		label="2-output demultiplexer"
+		name="softGlue_DEMUX2.adl"
+		args="P=$(P),H=$(H),N=1"
+	}
+	display[4] {
+		label="2-output demultiplexer"
+		name="softGlue_DEMUX2.adl"
+		args="P=$(P),H=$(H),N=2"
+	}
+	display[5] {
+		label="D FlipFlop 1"
+		name="softGlue_DFF.adl"
+		args="P=$(P),H=$(H),N=1"
+	}
+	display[6] {
+		label="D FlipFlop 2"
+		name="softGlue_DFF.adl"
+		args="P=$(P),H=$(H),N=2"
+	}
+	display[7] {
+		label="D FlipFlop 3"
+		name="softGlue_DFF.adl"
+		args="P=$(P),H=$(H),N=3"
+	}
+	display[8] {
+		label="D FlipFlop 4"
+		name="softGlue_DFF.adl"
+		args="P=$(P),H=$(H),N=4"
+	}
+	display[9] {
+		label="Divide By N 1"
+		name="softGlue_DivByN.adl"
+		args="P=$(P),H=$(H),N=1"
+	}
+	display[10] {
+		label="Divide By N 2"
+		name="softGlue_DivByN.adl"
+		args="P=$(P),H=$(H),N=2"
+	}
+	display[11] {
+		label="Divide By N 3"
+		name="softGlue_DivByN.adl"
+		args="P=$(P),H=$(H),N=3"
+	}
+	display[12] {
+		label="Divide By N 4"
+		name="softGlue_DivByN.adl"
+		args="P=$(P),H=$(H),N=4"
+	}
+	clr=0
+	bclr=63
+	label="-Other"
 }
