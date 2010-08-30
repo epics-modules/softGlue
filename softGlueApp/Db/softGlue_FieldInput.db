@@ -37,11 +37,8 @@ record(bi,"$(P)$(H)$(SIG)_BI") {
 	field(ZNAM,"0")
 	field(ONAM,"1")
 }
-record(scalcout,"$(P)$(H)$(SIG)_autoRead") {
-	field(INAA,"$(P)$(H)$(SIG)_Signal CP")
-	field(INBB,"$(P)$(H)ReadRateON.SCAN CP")
-	field(INCC,"$(P)$(H)ReadRateOFF.SCAN CP")
-	field(DD,"Passive")
-	field(CALC,"aa==''?(cc==''?dd:cc):(bb==''?dd:bb)")
-	field(OUT,"$(P)$(H)$(SIG)_BI.SCAN CA")
+record(bo,"$(P)$(H)$(SIG)_SCAN") {
+	field(SCAN,"Event")
+	field(EVNT,"10")
+	field(FLNK,"$(P)$(H)$(SIG)_BI")
 }
