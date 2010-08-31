@@ -1,84 +1,42 @@
-$(P)$(H)AND-1_IN1_Signal
-$(P)$(H)AND-1_IN2_Signal
-$(P)$(H)AND-1_OUT_Signal
-$(P)$(H)AND-2_IN1_Signal
-$(P)$(H)AND-2_IN2_Signal
-$(P)$(H)AND-2_OUT_Signal
-$(P)$(H)AND-3_IN1_Signal
-$(P)$(H)AND-3_IN2_Signal
-$(P)$(H)AND-3_OUT_Signal
-$(P)$(H)AND-4_IN1_Signal
-$(P)$(H)AND-4_IN2_Signal
-$(P)$(H)AND-4_OUT_Signal
+# components
+file gate_settings.req P=$(P),H=$(H),GATE=AND-1
+file gate_settings.req P=$(P),H=$(H),GATE=AND-2
+file gate_settings.req P=$(P),H=$(H),GATE=AND-3
+file gate_settings.req P=$(P),H=$(H),GATE=AND-4
+file gate_settings.req P=$(P),H=$(H),GATE=OR-1
+file gate_settings.req P=$(P),H=$(H),GATE=OR-2
+file gate_settings.req P=$(P),H=$(H),GATE=OR-3
+file gate_settings.req P=$(P),H=$(H),GATE=OR-4
+file gate_settings.req P=$(P),H=$(H),GATE=XOR-1
+file gate_settings.req P=$(P),H=$(H),GATE=XOR-2
+file DEMUX2_settings.req P=$(P),H=$(H),N=1
+file DEMUX2_settings.req P=$(P),H=$(H),N=2
+file DFF_settings.req P=$(P),H=$(H),N=1
+file DFF_settings.req P=$(P),H=$(H),N=2
+file DFF_settings.req P=$(P),H=$(H),N=3
+file DFF_settings.req P=$(P),H=$(H),N=4
+file DivByN_settings.req P=$(P),H=$(H),N=1
+file DivByN_settings.req P=$(P),H=$(H),N=2
+file DivByN_settings.req P=$(P),H=$(H),N=3
+file DivByN_settings.req P=$(P),H=$(H),N=4
+file DnCntr_settings.req P=$(P),H=$(H),N=1
+file DnCntr_settings.req P=$(P),H=$(H),N=2
+file DnCntr_settings.req P=$(P),H=$(H),N=3
+file DnCntr_settings.req P=$(P),H=$(H),N=4
+file MUX2_settings.req P=$(P),H=$(H),N=1
+file MUX2_settings.req P=$(P),H=$(H),N=2
+file UpCntr_settings.req P=$(P),H=$(H),N=1
+file UpCntr_settings.req P=$(P),H=$(H),N=2
+file UpCntr_settings.req P=$(P),H=$(H),N=3
+file UpCntr_settings.req P=$(P),H=$(H),N=4
+# shift registers
+#file Shift_settings.req P=$(P),H=$(H),N=1
+#file Shift_settings.req P=$(P),H=$(H),N=2
+
+# clock
 $(P)$(H)8MHZ_CLOCK_Signal
-$(P)$(H)DEMUX2-1_IN_Signal
-$(P)$(H)DEMUX2-1_OUT0_Signal
-$(P)$(H)DEMUX2-1_OUT1_Signal
-$(P)$(H)DEMUX2-1_SEL_Signal
-$(P)$(H)DEMUX2-2_IN_Signal
-$(P)$(H)DEMUX2-2_OUT0_Signal
-$(P)$(H)DEMUX2-2_OUT1_Signal
-$(P)$(H)DEMUX2-2_SEL_Signal
-$(P)$(H)DFF-1_CLEAR_Signal
-$(P)$(H)DFF-1_CLOCK_Signal
-$(P)$(H)DFF-1_D_Signal
-$(P)$(H)DFF-1_OUT_Signal
-$(P)$(H)DFF-1_SET_Signal
-$(P)$(H)DFF-2_CLEAR_Signal
-$(P)$(H)DFF-2_CLOCK_Signal
-$(P)$(H)DFF-2_D_Signal
-$(P)$(H)DFF-2_OUT_Signal
-$(P)$(H)DFF-2_SET_Signal
-$(P)$(H)DFF-3_CLEAR_Signal
-$(P)$(H)DFF-3_CLOCK_Signal
-$(P)$(H)DFF-3_D_Signal
-$(P)$(H)DFF-3_OUT_Signal
-$(P)$(H)DFF-3_SET_Signal
-$(P)$(H)DFF-4_CLEAR_Signal
-$(P)$(H)DFF-4_CLOCK_Signal
-$(P)$(H)DFF-4_D_Signal
-$(P)$(H)DFF-4_OUT_Signal
-$(P)$(H)DFF-4_SET_Signal
-$(P)$(H)DivByN-1_CLOCK_Signal
-$(P)$(H)DivByN-1_ENABLE_Signal
-$(P)$(H)DivByN-1_OUT_Signal
-$(P)$(H)DivByN-1_RESET_Signal
-$(P)$(H)DivByN-1_N
-$(P)$(H)DivByN-2_CLOCK_Signal
-$(P)$(H)DivByN-2_ENABLE_Signal
-$(P)$(H)DivByN-2_OUT_Signal
-$(P)$(H)DivByN-2_RESET_Signal
-$(P)$(H)DivByN-2_N
-$(P)$(H)DivByN-3_CLOCK_Signal
-$(P)$(H)DivByN-3_ENABLE_Signal
-$(P)$(H)DivByN-3_OUT_Signal
-$(P)$(H)DivByN-3_RESET_Signal
-$(P)$(H)DivByN-3_N
-$(P)$(H)DivByN-4_CLOCK_Signal
-$(P)$(H)DivByN-4_ENABLE_Signal
-$(P)$(H)DivByN-4_OUT_Signal
-$(P)$(H)DivByN-4_RESET_Signal
-$(P)$(H)DivByN-4_N
-$(P)$(H)DnCntr-1_CLOCK_Signal
-$(P)$(H)DnCntr-1_ENABLE_Signal
-$(P)$(H)DnCntr-1_LOAD_Signal
-$(P)$(H)DnCntr-1_OUT_Signal
-$(P)$(H)DnCntr-1_PRESET
-$(P)$(H)DnCntr-2_CLOCK_Signal
-$(P)$(H)DnCntr-2_ENABLE_Signal
-$(P)$(H)DnCntr-2_LOAD_Signal
-$(P)$(H)DnCntr-2_OUT_Signal
-$(P)$(H)DnCntr-2_PRESET
-$(P)$(H)DnCntr-3_CLOCK_Signal
-$(P)$(H)DnCntr-3_ENABLE_Signal
-$(P)$(H)DnCntr-3_LOAD_Signal
-$(P)$(H)DnCntr-3_OUT_Signal
-$(P)$(H)DnCntr-3_PRESET
-$(P)$(H)DnCntr-4_CLOCK_Signal
-$(P)$(H)DnCntr-4_ENABLE_Signal
-$(P)$(H)DnCntr-4_LOAD_Signal
-$(P)$(H)DnCntr-4_OUT_Signal
-$(P)$(H)DnCntr-4_PRESET
+
+# field I/O
 $(P)$(H)FI1_Signal
 $(P)$(H)FI2_Signal
 $(P)$(H)FI3_Signal
@@ -176,41 +134,4 @@ $(P)$(H)FO45_Signal
 $(P)$(H)FO46_Signal
 $(P)$(H)FO47_Signal
 $(P)$(H)FO48_Signal
-$(P)$(H)MUX2-1_IN0_Signal
-$(P)$(H)MUX2-1_IN1_Signal
-$(P)$(H)MUX2-1_OUT_Signal
-$(P)$(H)MUX2-1_SEL_Signal
-$(P)$(H)MUX2-2_IN0_Signal
-$(P)$(H)MUX2-2_IN1_Signal
-$(P)$(H)MUX2-2_OUT_Signal
-$(P)$(H)MUX2-2_SEL_Signal
-$(P)$(H)OR-1_IN1_Signal
-$(P)$(H)OR-1_IN2_Signal
-$(P)$(H)OR-1_OUT_Signal
-$(P)$(H)OR-2_IN1_Signal
-$(P)$(H)OR-2_IN2_Signal
-$(P)$(H)OR-2_OUT_Signal
-$(P)$(H)OR-3_IN1_Signal
-$(P)$(H)OR-3_IN2_Signal
-$(P)$(H)OR-3_OUT_Signal
-$(P)$(H)OR-4_IN1_Signal
-$(P)$(H)OR-4_IN2_Signal
-$(P)$(H)OR-4_OUT_Signal
-$(P)$(H)UpCntr-1_CLEAR_Signal
-$(P)$(H)UpCntr-1_CLOCK_Signal
-$(P)$(H)UpCntr-1_ENABLE_Signal
-$(P)$(H)UpCntr-2_CLEAR_Signal
-$(P)$(H)UpCntr-2_CLOCK_Signal
-$(P)$(H)UpCntr-2_ENABLE_Signal
-$(P)$(H)UpCntr-3_CLEAR_Signal
-$(P)$(H)UpCntr-3_CLOCK_Signal
-$(P)$(H)UpCntr-3_ENABLE_Signal
-$(P)$(H)UpCntr-4_CLEAR_Signal
-$(P)$(H)UpCntr-4_CLOCK_Signal
-$(P)$(H)UpCntr-4_ENABLE_Signal
-$(P)$(H)XOR-1_IN1_Signal
-$(P)$(H)XOR-1_IN2_Signal
-$(P)$(H)XOR-1_OUT_Signal
-$(P)$(H)XOR-2_IN1_Signal
-$(P)$(H)XOR-2_IN2_Signal
-$(P)$(H)XOR-2_OUT_Signal
+
