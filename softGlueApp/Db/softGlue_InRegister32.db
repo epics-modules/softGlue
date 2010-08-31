@@ -13,13 +13,8 @@ record(calc,"$(P)$(H)$(SIG)") {
 	field(INPB,"$(P)$(H)$(SIG)_LSW NPP")
 	field(CALC,"a*65536+b")
 }
-record(scalcout,"$(P)$(H)$(SIG)_autoRead") {
-	field(INBB,"$(P)$(H)ReadRateON.SCAN CP")
-	field(DD,"Passive")
-	field(CALC,"bb==''?dd:bb")
-	field(IVOA,"Don't drive outputs")
-	field(OUT,"$(P)$(H)$(SIG)_SCAN.SCAN CA")
-}
 record(bo,"$(P)$(H)$(SIG)_SCAN") {
+	field(SCAN,"Event")
+	field(EVNT,"$(READEVENT)")
 	field(FLNK,"$(P)$(H)$(SIG)_MSW")
 }
