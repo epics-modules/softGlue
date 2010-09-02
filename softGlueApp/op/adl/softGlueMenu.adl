@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=1404
-		y=42
+		x=1199
+		y=30
 		width=110
 		height=160
 	}
@@ -144,6 +144,26 @@ display {
 		name="softGlue_XOR.adl"
 		args="P=$(P),H=$(H),N=2"
 	}
+	display[10] {
+		label="BUFFER 1"
+		name="softGlue_BUFFER.adl"
+		args="P=$(P),H=$(H),N=1"
+	}
+	display[11] {
+		label="BUFFER 2"
+		name="softGlue_BUFFER.adl"
+		args="P=$(P),H=$(H),N=2"
+	}
+	display[12] {
+		label="BUFFER 3"
+		name="softGlue_BUFFER.adl"
+		args="P=$(P),H=$(H),N=3"
+	}
+	display[13] {
+		label="BUFFER 4"
+		name="softGlue_BUFFER.adl"
+		args="P=$(P),H=$(H),N=4"
+	}
 	clr=0
 	bclr=63
 	label="-Gates"
@@ -206,9 +226,14 @@ display {
 		width=88
 		height=20
 	}
-	display[1] {
+	display[0] {
 		label="Field I/O Menu"
 		name="softGlueFieldIOMenu.adl"
+		args="P=$(P),H=$(H)"
+	}
+	display[1] {
+		label="Field I/O All"
+		name="softGlueFieldIO.adl"
 		args="P=$(P),H=$(H)"
 	}
 	display[2] {
@@ -269,14 +294,9 @@ text {
 		args="P=$(P),H=$(H)"
 	}
 	display[1] {
-		label="half1"
-		name="softGlueHalf.adl"
+		label="all but I/O"
+		name="softGlueAllButIO.adl"
 		args="P=$(P),H=$(H),N=1,N1=1,N2=2,N3=3,N4=4,N5=5,N6=6,N7=7,N8=8"
-	}
-	display[2] {
-		label="half2"
-		name="softGlueHalf.adl"
-		args="P=$(P),H=$(H),N=2,N1=9,N2=10,N3=11,N4=12,N5=13,N6=14,N7=15,N8=16"
 	}
 	display[3] {
 		label="convenience"
