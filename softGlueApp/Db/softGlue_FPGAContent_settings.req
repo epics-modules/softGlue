@@ -9,6 +9,10 @@ file gate_settings.req P=$(P),H=$(H),GATE=OR-3
 file gate_settings.req P=$(P),H=$(H),GATE=OR-4
 file gate_settings.req P=$(P),H=$(H),GATE=XOR-1
 file gate_settings.req P=$(P),H=$(H),GATE=XOR-2
+file BUFFER_settings.req P=$(P),H=$(H),N=1
+file BUFFER_settings.req P=$(P),H=$(H),N=2
+file BUFFER_settings.req P=$(P),H=$(H),N=3
+file BUFFER_settings.req P=$(P),H=$(H),N=4
 file DEMUX2_settings.req P=$(P),H=$(H),N=1
 file DEMUX2_settings.req P=$(P),H=$(H),N=2
 file DFF_settings.req P=$(P),H=$(H),N=1
@@ -30,8 +34,8 @@ file UpCntr_settings.req P=$(P),H=$(H),N=2
 file UpCntr_settings.req P=$(P),H=$(H),N=3
 file UpCntr_settings.req P=$(P),H=$(H),N=4
 # shift registers
-#file Shift_settings.req P=$(P),H=$(H),N=1
-#file Shift_settings.req P=$(P),H=$(H),N=2
+file Shift_settings.req P=$(P),H=$(H),N=1
+file Shift_settings.req P=$(P),H=$(H),N=2
 
 # clock
 $(P)$(H)8MHZ_CLOCK_Signal
