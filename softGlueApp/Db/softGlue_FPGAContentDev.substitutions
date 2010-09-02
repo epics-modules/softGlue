@@ -143,12 +143,12 @@ pattern {P  H   SIG             PORT     ADDR     READEVENT}
 {xxx: softGlue: BUFFER-3_IN     SOFTGLUE 0x800780 10}
 {xxx: softGlue: BUFFER-4_IN     SOFTGLUE 0x800790 10}
 
-#{xxx: softGlue: SHIFT-1_LOAD    SOFTGLUE 0x801010 10}
-#{xxx: softGlue: SHIFT-1_CLOCK   SOFTGLUE 0x801018 10}
-#{xxx: softGlue: SHIFT-1_D       SOFTGLUE 0x801020 10}
-#{xxx: softGlue: SHIFT-2_LOAD    SOFTGLUE 0x801050 10}
-#{xxx: softGlue: SHIFT-2_CLOCK   SOFTGLUE 0x801058 10}
-#{xxx: softGlue: SHIFT-2_D       SOFTGLUE 0x801060 10}
+{xxx: softGlue: SHIFT-1_LOAD    SOFTGLUE 0x801010 10}
+{xxx: softGlue: SHIFT-1_CLOCK   SOFTGLUE 0x801018 10}
+{xxx: softGlue: SHIFT-1_D       SOFTGLUE 0x801020 10}
+{xxx: softGlue: SHIFT-2_LOAD    SOFTGLUE 0x801050 10}
+{xxx: softGlue: SHIFT-2_CLOCK   SOFTGLUE 0x801058 10}
+{xxx: softGlue: SHIFT-2_D       SOFTGLUE 0x801060 10}
 }
 
 
@@ -263,9 +263,9 @@ pattern {P  H   SIG             PORT     ADDR     CALC}
 {xxx: softGlue: DivByN-4_N      SOFTGLUE 0x800748 A-1}
 }
 
-#file "softGlue_Register32.db"
-#{
-#pattern {P  H   SIG             PORT     ADDR_MSW ADDR_LSW CALC}
+file "softGlue_Register32.db"
+{
+pattern {P  H   SIG             PORT     ADDR_MSW ADDR_LSW CALC}
 #{xxx: softGlue: DnCntr-1_PRESET SOFTGLUE 0x800600 0x8005F8 A-1}
 #{xxx: softGlue: DnCntr-2_PRESET SOFTGLUE 0x800630 0x800628 A-1}
 #{xxx: softGlue: DnCntr-3_PRESET SOFTGLUE 0x800660 0x800658 A-1}
@@ -275,9 +275,9 @@ pattern {P  H   SIG             PORT     ADDR     CALC}
 #{xxx: softGlue: DivByN-3_N      SOFTGLUE 0x800720 0x800718 A-1}
 #{xxx: softGlue: DivByN-4_N      SOFTGLUE 0x800750 0x800748 A-1}
 #
-#{xxx: softGlue: SHIFT-1_LOADVAL SOFTGLUE 0x801008 0x801000 A}
-#{xxx: softGlue: SHIFT-2_LOADVAL SOFTGLUE 0x801048 0x801040 A}
-#}
+{xxx: softGlue: SHIFT-1_LOADVAL SOFTGLUE 0x801008 0x801000 A}
+{xxx: softGlue: SHIFT-2_LOADVAL SOFTGLUE 0x801048 0x801040 A}
+}
 
 file "softGlue_InRegister32.db"
 {
@@ -287,6 +287,6 @@ pattern {P  H   SIG             PORT     ADDR_MSW ADDR_LSW}
 {xxx: softGlue: UpCntr-3_COUNTS SOFTGLUE 0x8005B0 0x8005A8}
 {xxx: softGlue: UpCntr-4_COUNTS SOFTGLUE 0x8005D8 0x8005D0}
 
-#{xxx: softGlue: SHIFT-1_READVAL SOFTGLUE 0x801030 0x801028}
-#{xxx: softGlue: SHIFT-2_READVAL SOFTGLUE 0x801070 0x801068}
+{xxx: softGlue: SHIFT-1_READVAL SOFTGLUE 0x801030 0x801028}
+{xxx: softGlue: SHIFT-2_READVAL SOFTGLUE 0x801070 0x801068}
 }
