@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue_UpCntr_bare.adl"
+	name="/home/oxygen/MOONEY/epics/synApps_5_5/support/softGlue/softGlueApp/op/adl/softGlue_UpCntr_bare.adl"
 	version=030104
 }
 display {
@@ -8,7 +8,7 @@ display {
 		x=681
 		y=210
 		width=440
-		height=90
+		height=85
 	}
 	clr=14
 	bclr=2
@@ -90,7 +90,7 @@ display {
 composite {
 	object {
 		x=10
-		y=56
+		y=54
 		width=155
 		height=26
 	}
@@ -154,7 +154,7 @@ polyline {
 polyline {
 	object {
 		x=163
-		y=69
+		y=67
 		width=54
 		height=2
 	}
@@ -164,8 +164,8 @@ polyline {
 		width=2
 	}
 	points {
-		(216,70)
-		(164,70)
+		(216,68)
+		(164,68)
 	}
 }
 rectangle {
@@ -242,7 +242,7 @@ polyline {
 		x=214
 		y=51
 		width=2
-		height=21
+		height=19
 	}
 	"basic attribute" {
 		clr=14
@@ -250,7 +250,7 @@ polyline {
 	}
 	points {
 		(215,52)
-		(215,71)
+		(215,69)
 	}
 }
 rectangle {
@@ -294,6 +294,7 @@ polyline {
 		clr=54
 		bclr=2
 	}
+	align="horiz. right"
 	limits {
 	}
 }

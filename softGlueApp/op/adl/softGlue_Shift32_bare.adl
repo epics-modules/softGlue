@@ -90,7 +90,7 @@ display {
 composite {
 	object {
 		x=10
-		y=74
+		y=72
 		width=155
 		height=26
 	}
@@ -154,7 +154,7 @@ polyline {
 polyline {
 	object {
 		x=163
-		y=87
+		y=85
 		width=49
 		height=2
 	}
@@ -164,8 +164,8 @@ polyline {
 		width=2
 	}
 	points {
-		(211,88)
-		(164,88)
+		(211,86)
+		(164,86)
 	}
 }
 rectangle {
@@ -242,7 +242,7 @@ polyline {
 		x=209
 		y=74
 		width=2
-		height=16
+		height=14
 	}
 	"basic attribute" {
 		clr=14
@@ -250,7 +250,7 @@ polyline {
 	}
 	points {
 		(210,75)
-		(210,89)
+		(210,87)
 	}
 }
 rectangle {

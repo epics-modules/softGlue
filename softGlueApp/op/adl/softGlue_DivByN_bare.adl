@@ -100,7 +100,7 @@ composite {
 composite {
 	object {
 		x=10
-		y=56
+		y=53
 		width=155
 		height=26
 	}
@@ -110,7 +110,7 @@ composite {
 composite {
 	object {
 		x=10
-		y=31
+		y=30
 		width=155
 		height=26
 	}
@@ -120,7 +120,7 @@ composite {
 polyline {
 	object {
 		x=164
-		y=44
+		y=43
 		width=13
 		height=2
 	}
@@ -130,8 +130,8 @@ polyline {
 		width=2
 	}
 	points {
-		(176,45)
-		(165,45)
+		(176,44)
+		(165,44)
 	}
 }
 polyline {
@@ -154,7 +154,7 @@ polyline {
 polyline {
 	object {
 		x=164
-		y=69
+		y=66
 		width=54
 		height=2
 	}
@@ -164,8 +164,8 @@ polyline {
 		width=2
 	}
 	points {
-		(217,70)
-		(165,70)
+		(217,67)
+		(165,67)
 	}
 }
 rectangle {
@@ -259,7 +259,7 @@ polyline {
 		x=260
 		y=50
 		width=2
-		height=16
+		height=15
 	}
 	"basic attribute" {
 		clr=14
@@ -267,13 +267,13 @@ polyline {
 	}
 	points {
 		(261,51)
-		(261,65)
+		(261,64)
 	}
 }
 "text entry" {
 	object {
 		x=236
-		y=60
+		y=58
 		width=50
 		height=20
 	}
@@ -303,7 +303,7 @@ polyline {
 		x=215
 		y=50
 		width=2
-		height=22
+		height=19
 	}
 	"basic attribute" {
 		clr=14
@@ -311,7 +311,7 @@ polyline {
 	}
 	points {
 		(216,51)
-		(216,71)
+		(216,68)
 	}
 }
 rectangle {
