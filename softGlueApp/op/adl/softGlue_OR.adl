@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlue_OR.adl"
+	name="/home/oxygen/MOONEY/epics/synApps_5_5/support/softGlue/softGlueApp/op/adl/softGlue_OR.adl"
 	version=030104
 }
 display {
@@ -108,7 +108,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="OR/NOR $(N)"
+	textix="OR $(N)"
 	align="horiz. centered"
 }
 polyline {
@@ -131,8 +131,8 @@ composite {
 	object {
 		x=10
 		y=35
-		width=374
-		height=50
+		width=373
+		height=49
 	}
 	"composite name"=""
 	"composite file"="softGlue_OR_bare.adl;P=$(P),H=$(H),N=$(N)"
