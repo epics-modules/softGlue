@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlue_MUX2.adl"
+	name="/home/oxygen/MOONEY/epics/synApps_5_5/support/softGlue/softGlueApp/op/adl/softGlue_MUX2.adl"
 	version=030104
 }
 display {
@@ -8,7 +8,7 @@ display {
 		x=256
 		y=785
 		width=430
-		height=125
+		height=115
 	}
 	clr=14
 	bclr=2
@@ -131,8 +131,8 @@ composite {
 	object {
 		x=10
 		y=35
-		width=413
-		height=73
+		width=411
+		height=72
 	}
 	"composite name"=""
 	"composite file"="softGlue_MUX2_bare.adl;P=$(P),H=$(H),N=$(N)"
