@@ -246,75 +246,53 @@ composite {
 	bclr=17
 	label="-Less"
 }
-composite {
+text {
 	object {
 		x=220
 		y=30
-		width=255
-		height=21
+		width=70
+		height=10
 	}
-	"composite name"=""
-	children {
-		text {
-			object {
-				x=220
-				y=30
-				width=70
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="INTERRUPT"
-			align="horiz. centered"
-		}
-		text {
-			object {
-				x=220
-				y=41
-				width=70
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="ENABLE"
-			align="horiz. centered"
-		}
-		composite {
-			object {
-				x=295
-				y=30
-				width=180
-				height=21
-			}
-			"composite name"=""
-			children {
-				text {
-					object {
-						x=295
-						y=30
-						width=180
-						height=10
-					}
-					"basic attribute" {
-						clr=14
-					}
-					textix="ON INTERRUPT, WRITE SIGNAL"
-				}
-				text {
-					object {
-						x=295
-						y=41
-						width=180
-						height=10
-					}
-					"basic attribute" {
-						clr=14
-					}
-					textix="VALUE TO THIS PV"
-				}
-			}
-		}
+	"basic attribute" {
+		clr=14
 	}
+	textix="INTERRUPT"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=220
+		y=41
+		width=70
+		height=10
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="ENABLE"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=295
+		y=30
+		width=180
+		height=10
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="ON INTERRUPT, WRITE SIGNAL"
+}
+text {
+	object {
+		x=295
+		y=41
+		width=180
+		height=10
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="VALUE VIA THIS LINK"
 }

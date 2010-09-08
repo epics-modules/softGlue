@@ -152,40 +152,29 @@ text {
 	textix="ENABLE"
 	align="horiz. centered"
 }
-composite {
+text {
 	object {
 		x=285
 		y=30
 		width=180
-		height=21
+		height=10
 	}
-	"composite name"=""
-	children {
-		text {
-			object {
-				x=285
-				y=30
-				width=180
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="ON INTERRUPT, WRITE SIGNAL"
-		}
-		text {
-			object {
-				x=285
-				y=41
-				width=180
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="VALUE TO THIS PV"
-		}
+	"basic attribute" {
+		clr=14
 	}
+	textix="ON INTERRUPT, WRITE SIGNAL"
+}
+text {
+	object {
+		x=285
+		y=41
+		width=180
+		height=10
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="VALUE VIA THIS LINK"
 }
 composite {
 	object {
