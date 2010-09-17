@@ -46,6 +46,9 @@ dbLoadRecords("$(SOFTGLUE)/db/softGlue_SignalShow.db","P=xxx:,H=softGlue:,PORT=S
 # Load a set of database fragments for each single-register component.
 dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent.db", "P=xxx:,H=softGlue:,PORT=SOFTGLUE")
 
+# Load octupole components.
+dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_octupole.db", "P=xxx:,H=softGlue:,PORT=SOFTGLUE")
+
 # Interrupt support.
 dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAInt.db", "P=xxx:,H=softGlue:,IPORT=SGI1,IADDR=0,OPORT=SGO1,OADDR=0x10")
 
