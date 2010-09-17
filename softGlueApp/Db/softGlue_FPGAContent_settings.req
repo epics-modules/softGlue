@@ -33,9 +33,6 @@ file UpCntr_settings.req P=$(P),H=$(H),N=1
 file UpCntr_settings.req P=$(P),H=$(H),N=2
 file UpCntr_settings.req P=$(P),H=$(H),N=3
 file UpCntr_settings.req P=$(P),H=$(H),N=4
-# shift registers
-file Shift_settings.req P=$(P),H=$(H),N=1
-file Shift_settings.req P=$(P),H=$(H),N=2
 
 # clock
 $(P)$(H)8MHZ_CLOCK_Signal
