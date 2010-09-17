@@ -5,10 +5,10 @@ file {
 }
 display {
 	object {
-		x=10
-		y=30
+		x=4
+		y=7
 		width=1355
-		height=1169
+		height=1117
 	}
 	clr=14
 	bclr=2
@@ -437,26 +437,6 @@ composite {
 	}
 	"composite name"=""
 	"composite file"="softGlue_DivByN_bare.adl;P=$(P),H=$(H),N=4"
-}
-composite {
-	object {
-		x=450
-		y=710
-		width=475
-		height=98
-	}
-	"composite name"=""
-	"composite file"="softGlue_Shift32_bare.adl; P=$(P),H=$(H),N=2"
-}
-composite {
-	object {
-		x=450
-		y=610
-		width=475
-		height=98
-	}
-	"composite name"=""
-	"composite file"="softGlue_Shift32_bare.adl; P=$(P),H=$(H),N=1"
 }
 composite {
 	object {
