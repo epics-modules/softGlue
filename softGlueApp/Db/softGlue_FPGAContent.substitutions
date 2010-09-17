@@ -142,13 +142,6 @@ pattern {SIG   ADDR}
 {BUFFER-2_IN		0x800770}
 {BUFFER-3_IN		0x800780}
 {BUFFER-4_IN		0x800790}
-
-{Shift-1_LOAD		0x801010}
-{Shift-1_CLOCK		0x801018}
-{Shift-1_D			0x801020}
-{Shift-2_LOAD		0x801050}
-{Shift-2_CLOCK		0x801058}
-{Shift-2_D			0x801060}
 }
 
 
@@ -244,12 +237,10 @@ pattern {SIG   ADDR}
 {BUFFER-3_OUT		0x800788}
 {BUFFER-4_OUT		0x800798}
 {8MHZ_CLOCK			0x8007A0}
-
-{Shift-1_Q			0x801038}
-{Shift-2_Q			0x801078}
 }
 
 
+# DnCntr's, and DivByN's will eventually be 32-bit, but are not yet
 file "softGlue_Register.db"
 {
 pattern {SIG     	ADDR 		CALC}
@@ -263,9 +254,9 @@ pattern {SIG     	ADDR 		CALC}
 {DivByN-4_N			0x800748	A-1}
 }
 
-file "softGlue_Register32.db"
-{
-pattern {SIG		ADDR_MSW	ADDR_LSW 	CALC}
+#file "softGlue_Register32.db"
+#{
+#pattern {SIG		ADDR_MSW	ADDR_LSW 	CALC}
 #{DnCntr-1_PRESET	0x800600	0x8005F8	A-1}
 #{DnCntr-2_PRESET	0x800630	0x800628	A-1}
 #{DnCntr-3_PRESET	0x800660	0x800658	A-1}
@@ -275,9 +266,7 @@ pattern {SIG		ADDR_MSW	ADDR_LSW 	CALC}
 #{DivByN-3_N		0x800720	0x800718	A-1}
 #{DivByN-4_N		0x800750	0x800748	A-1}
 #
-{Shift-1_LOADVAL	0x801008	0x801000	A}
-{Shift-2_LOADVAL	0x801048	0x801040	A}
-}
+#}
 
 file "softGlue_InRegister32.db"
 {
@@ -286,7 +275,4 @@ pattern {SIG     	ADDR_MSW	ADDR_LSW}
 {UpCntr-2_COUNTS	0x800588	0x800580}
 {UpCntr-3_COUNTS	0x8005B0	0x8005A8}
 {UpCntr-4_COUNTS	0x8005D8	0x8005D0}
-
-{Shift-1_READVAL	0x801030	0x801028}
-{Shift-2_READVAL	0x801070	0x801068}
 }
