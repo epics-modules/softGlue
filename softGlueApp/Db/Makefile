@@ -17,8 +17,12 @@ include $(TOP)/configure/CONFIG
 
 DB += softGlue_FPGAContent.db
 DB += softGlue_FPGAInt.db
-DB_INSTALLS += ../softGlue_SignalShow.db  softGlue_convenience.db
-DB_INSTALLS += ../EP200_FPGA.hex
+DB_INSTALLS += ../softGlue_SignalShow.db  ../softGlue_convenience.db
+DB_INSTALLS += ../SoftGlue_2_0.hex
+
+# optional support: extra components needed for octupole magnet power supply
+DB_INSTALLS += ../SoftGlue_2_0_Octupole_0_0.hex
+DB += softGlue_FPGAContent_octupole.db
 
 include $(TOP)/configure/RULES
 #----------------------------------------
