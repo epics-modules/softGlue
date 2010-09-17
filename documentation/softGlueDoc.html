@@ -12,7 +12,7 @@
 </HEAD>
 <BODY LANG="en-US" BGCOLOR="#ffffff" DIR="LTR">
 
-<h1><center>The synApps softGlue module (v1.1)</center></h1>
+<h1><center>The synApps softGlue module (v2.0)</center></h1>
 <hr>
 <h2><center>Overview</center></h2>
 
@@ -47,12 +47,14 @@ and connecting or driving inputs and outputs according to those names.
 <li><h4>Hardware</h4>
 <ul>
 <li>An IndustryPack (IP) carrier board.
-<li>An Acromag IP-EP201 FPGA IP module.
-<li>Some way of connecting the field I/O bits of the IP_EP201 module to your field wiring.
+<li>An Acromag IP-EP20x FPGA IP module.
+<li>Some way of connecting the field I/O bits of the IP_EP20x module to your field wiring.
 </ul>
 
-<blockquote> Most of softGlue could be used with other IP_EP200 series modules, but the FPGA content
-and databases supplied in this version are compatible only with the IP_EP201. </blockquote>
+<blockquote> SoftGlue 2.0 is intended to be useable with any IP_EP200-series module, but the
+databases and MEDM displays supplied in this version are for the IP_EP201, and other modules in
+the series have not yet been tested.  The differences between modules are in the numbers of I/O
+bits, and the pinout.</blockquote>
 
 <li><h4>Software</h4>
 <ul>
@@ -91,7 +93,10 @@ and databases supplied in this version are compatible only with the IP_EP201. </
 
 <p>You do <b>not</b> need to be able to program the IP-EP201 module.  In the default implementation,
 the FPGA content is programmed automatically into the module at IOC-boot time, via the IP bus.  A
-text file is included with softGlue for this purpose.
+text file is included with softGlue for this purpose.  softGlue attempts to load the FPGA on every
+IOC boot, but the load succeeds only on a cold boot.  A warm boot leaves previously loaded content
+in place.
+
 
 <blockquote>
 
@@ -125,25 +130,25 @@ In this version of softGlue, the FPGA is programmed with the following circuit
 elements:
 
 <ul>
-<li>Two AND/NAND gates
-<li>Two OR/NOR gates
-<li>Two XOR/XNOR gates
-<li>Two D flip-flops
+<li>Four AND gates
+<li>Four OR gates
+<li>Four noninverting buffers
+<li>Two XOR gates
+<li>Four D flip-flops
 <li>Two 2-input/1-output multiplexers
 <li>Two 1-input/2-output demultiplexers
-<li>Two 32-bit counters
-<li>Two 16-bit preset counters
-<li>Two divide-by-N circuits
-<li>16 field-input bits
-<li>16 field-output bits
+<li>Four 32-bit counters
+<li>Four 16-bit preset counters
+<li>Four divide-by-N circuits
+<li>48 field-input bits
+<li>48 field-output bits
 <li>One 8MHz clock signal
 </ul>
 
-<blockquote>softGlue uses AND/NAND gates (etc.) as opposed to separate AND and NAND gates because we
-guess that this choice will make more efficient use of FPGA resources, for the sorts of
-circuits we imagine people building.  (But make no mistake: softGlue is, nevertheless, an
-extremely inefficient application of FPGA resources -- roughly on par with, say, using a
-personal computer to read documentation.)</blockquote>
+<blockquote>Earlier versions of softGlue implented many components with both
+inverting and noninverting outputs.  Beginning with 2.0, signal inversion is
+accomplished by appending '<code>*</code>' to a signal name, and this removes the need to
+implement inverted outputs.</blockquote>
 
 <hr>
 <h2><center>Installation and deployment</center></h2>
@@ -162,10 +167,10 @@ personal computer to read documentation.)</blockquote>
 	softGlue is available as part of synApps 5.5 and higher, as a tar file from
 	the <a href="http://www.aps.anl.gov/bcda/synApps/softGlue/softGlue.html">softGlue web page</a>,
 	or directly from the <a href="https://subversion.xor.aps.anl.gov/synApps">synApps subversion repository</a>.
-	To export version 1.1 from the repository, for example, run the following command:
+	To export version 2.0 from the repository, for example, run the following command:
 
 	<P><code>
-	svn export https://subversion.xor.aps.anl.gov/synApps/softGlue/tags/R1-1 softGlue-1-1
+	svn export https://subversion.xor.aps.anl.gov/synApps/softGlue/tags/R2-0 softGlue-2-0
 	</code>
 
 	<h3>Building softGlue</h3>
@@ -346,24 +351,20 @@ conveniently discussed from the viewpoint of the field-wiring connector.
 <P><img src="Menu.gif" name="User Menu">
 
 <P><code>softGlueMenu.adl</code> is the top softGlue display, which serves mostly to call up other
-displays.  The menu labelled <code>CONNECTED</code> specifies the period at which the values of connected
-signals are sampled for display to the user.  The menu labelled <code>UNCONNECTED</code> specifies
-the period at which the values of unconnected signals are sampled for display to the user.
+displays.  The menu labelled <code>READ PERIOD</code> specifies the period at which the values of
+all signals are sampled for display to the user.
 
 
 <blockquote>Most softGlue displays are not interrupt driven.  (That would be a disaster, because
 inevitably some signals will change state at high frequency.)  So, the states of inputs and outputs
-must be sampled periodically, for display to the user.  It seems wasteful to poll signals that aren't
-being used, but we don't have very good information about which signals those are.  A signal that has
-been connected to some other signal is <em>certainly</em> being used, so it makes sense to
-discriminate on that basis.
+must be sampled periodically, for display to the user.
 
-<P>We've found that it's confusing for users if either of these poll periods are greater than
+<P>We've found that it's confusing for users if the poll period is greater than
 around 1 second.  We've also found that polling everything at .1 second uses only a few
 percent of an MVME2700 CPU.</blockquote>
 
-<li><P>AND/NAND
-<P><img src="AND.gif" name="AND/NAND">
+<li><P>AND
+<P><img src="AND.gif" name="AND">
 
 <P> On the left of the AND gate are the inputs, each comprised of a blue "= button", a yellow
 text-entry field, a number, and what's intended to look like a red LED.  On the right are
@@ -416,10 +417,7 @@ physical connection.</blockquote>
 
 This doesn't change the signal that the input is connected to, but just tells
 softGlue to run the signal through an inverter before applying it to the
-input.<P>
-
-<blockquote>Now that we have this capability, we probably no longer need circuit
-elements to provide complementary outputs.</blockquote>
+input.  Note that output signal names may not end with '<code>*</code>'.<P>
 
 <b><li>Drag-and-drop from a named signal to another signal.</b><br>
 
@@ -468,8 +466,8 @@ a bubble is inverted.
 <blockquote>'x' means "either 0 or 1".</blockquote>
 
 
-<li><P>OR/NOR
-<P><img src="OR.gif" name="OR/NOR">
+<li><P>OR
+<P><img src="OR.gif" name="OR">
 
 <P><table border>
 <tr><th>input1<th>input2<th><th>output
@@ -478,8 +476,8 @@ a bubble is inverted.
 <tr><td>x<td>1<td><td>1
 </table>
 
-<li><P>XOR/XNOR
-<P><img src="XOR.gif" name="XOR/XNOR">
+<li><P>XOR
+<P><img src="XOR.gif" name="XOR">
 
 <P><table border>
 <tr><th>input1<th>input2<th><th>output
@@ -494,6 +492,10 @@ a bubble is inverted.
 
 <P>The input signal labelled "&gt;" is the "clock" input.  Unlike other signals, clock inputs are
 edge sensitive.  All clock inputs in softGlue act on the rising edge of the input signal.
+
+<P>The open circle ("bubble") in the <code>SET</code> and <code>CLEAR</code> inputs' signal paths indicate
+that these signals are inverted before being used.  Thus applying '0' to the <code>CLEAR</code> input causes
+the output to be "cleared" (given the value 0).
 
 <P><table border>
 <tr><th>SET<th>CLEAR<th>D<th>&gt; (clock)<th><th>Q
@@ -551,25 +553,31 @@ circuitry as a free standing output.
 <li><P>Field I/O
 <P><img src="Field_IO.gif" name="Field I/O">
 
-<P>This display allows you to connect field I/O signals to each other and to softGlue
-circuits.  Note that a "Field Input Bit" looks like and behaves as a softGlue
-<em>output</em>, because what you're actually controlling is the output of a buffer driven
-by the field-input signal.  Similarly, a "Field Output Bit" looks like and behaves as a
-softGlue <em>input</em>, because you're actually controlling the input of a buffer that
-drives the field-output signal.
+<P>This display allows you to connect field I/O signals to each other and to softGlue circuits. 
+Note that a "Field Input Bit" looks like and behaves as a softGlue <em>output</em>, because what
+you're actually controlling is the output of a buffer driven by the field-input signal.  Similarly,
+a "Field Output Bit" looks like and behaves as a softGlue <em>input</em>, because you're actually
+controlling the input of a buffer that drives the field-output signal.
 
 
-<P>The signals in this display are the field inputs (pins 1-16 on the IP-EP201's ribbon
-connector) and field outputs (pins 17-32 on the ribbon connector).  These I/O pin choices
-are hard-wired in the FPGA content.
+<P>The signals in this display are the field inputs or outputs connected to pins 1-16 on the IP-EP201's
+ribbon connector.  These I/O pin choices are specified at boot time, in the command file that configures
+the IP-EP201.  The IP-EP201 board supports 48 I/O bits, and permits them to be set for input or
+output in groups of 8.
 
-<blockquote>Although you can't change the field-wiring I/O assignments, you can
-easily change the "CONNECTOR&nbsp;#" numbers in this display -- for example, to support a
-custom signal-breakout module.  The numbers are defined in
-<code>softGlueApp/Db/softGlue_FPGAContent.substitutions</code>, as the macro
-<code>IOPIN</code> supplied to <code>softGlue_FieldOutput.db</code> and
-<code>softGlue_FieldInput.db</code>.
+<blockquote>You can change the "CONNECTOR&nbsp;#" numbers in this display -- for example, to
+support a custom signal-breakout module.  The numbers are defined in
+<code>softGlueApp/Db/softGlue_FPGAContent.substitutions</code>, as the macro <code>IOPIN</code>
+supplied to <code>softGlue_FieldOutput.db</code> and <code>softGlue_FieldInput.db</code>.
 </blockquote>
+
+<P>During a VME power cycle, and during a VME reset, field outputs are first put into a high
+impedance state, then are driven to ground, and finally are driven to values controlled by the user
+circuit.  If user-circuit field-outputs are autosaved, they will be restored during the boot;
+otherwise, they will default to logic 1 (+5V for TTL).
+
+<P>During a soft reboot (that is, when the vxWorks "reboot" command is given in the ioc console),
+field outputs will maintain their values during the reboot.
 
 
 <li><P>Field I/O Interrupt support
@@ -593,8 +601,8 @@ that the asyn ring buffers for interrupt driven PV's is larger than <code>MAX_IR
 default ring buffer size is 10.  Asyn documentation describes how to change it.) </blockquote>
 
 <P>When an interrupt occurs, you can have the signal value written to an EPICS PV, by writing an
-EPICS link description into the purple box labelled "ON INTERRUPT, WRITE SIGNAL VALUE TO THIS PV",
-as shown for input 16 in the above screen shot.
+EPICS link description into the purple box labelled "ON INTERRUPT, WRITE SIGNAL VALUE VIA THIS
+LINK", as shown for input 16 in the above screen shot.
 
 <h4>About EPICS links</h4>
 
@@ -1136,7 +1144,7 @@ They are included for completeness.
 Deployment considerations
 
 We need to ensure that the software agrees with the FPGA programming.  Software
-dependence on FPGA content is of two kinds:
+dependence on FPGA content is of three kinds:
 
 1) Dependence on the register-set with which SOPC components are implemented. There are two
    different register sets currently in use: Marty Smith's original register set (called
@@ -1145,29 +1153,29 @@ dependence on FPGA content is of two kinds:
    thus far only one register is used.) This dependence is restricted to the driver code,
    drvIP_EP201.c.
 
-2) Dependence on the user circuits attached to 'single 16-bit register' SOPC
-   components.  For example, the version 1.1 implementation of softGlue has several
-   AND/NAND gates, several OR/NOR gates, some counters, etc., controlled by
-   'single 16-bit register' components.
-   This dependence is restricted to the database, autosave-request file, and
-   MEDM displays, which should have an analog for each 'single 16-bit register'
-   component, and should know which component address corresponds with which
-   user circuit, and with which part of the user circuit.
-   For example, the inverting output of AND/NAND gate #1 is associated by
-   address with a 'single 16-bit register' component.
+2) Dependence on the user circuits attached to 'single 16-bit register' SOPC components.  For
+   example, the version 1.1 implementation of softGlue has several AND/NAND gates, several OR/NOR
+   gates, some counters, etc., controlled by 'single 16-bit register' components.
 
+   This dependence is restricted to the database, autosave-request file, and MEDM displays, which
+   should have an analog for each 'single 16-bit register' component, and should know which
+   component address corresponds with which user circuit, and with which part of the user circuit.
+   For example, the inverting output of AND/NAND gate #1 is associated by address with a 'single
+   16-bit register' component.
 
-Currently, the only strategy in use for ensuring that EPICS support agrees with FPGA
-content is the inclusion of FPGA content with softGlue.  Deployers are expected to
-copy files from softGlue/iocBoot/iocSoftGlue for initial deployment, and to copy them
-again for any version upgrades, or else take responsibility themselves for agreement
-between software and firmware.
+3) Dependence on field I/O direction settings.  In softGlue 1.1, field I/O direction is not
+adjustable by the user or deployer, but is fixed by the FPGA content. 
+
+Currently, the only strategy in use for ensuring that EPICS support agrees with FPGA content is the
+inclusion of FPGA content with softGlue.  Deployers are expected to copy files from
+softGlue/iocBoot/iocSoftGlue for initial deployment, and to copy them again for any version
+upgrades, or else take responsibility themselves for agreement between software and firmware.
 
 ------------------------------------------------------------------------------
 Programming the FPGA via the IP bus.
 
 The IP-EP201 board has to be prepared for this by moving the DIP jumper to
-"IP BUS".
+"IP BUS".  (This is the factory default setting.)
 
 The hex file to be loaded is included in the softGlueApp/Db directory.
 It was prepared as follows, in Quartus, according to an email from Marty Smith:
