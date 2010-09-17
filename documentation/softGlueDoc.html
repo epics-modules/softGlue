@@ -91,7 +91,7 @@ bits, and the pinout.</blockquote>
 </ul>
 </ul>
 
-<p>You do <b>not</b> need to be able to program the IP-EP201 module.  In the default implementation,
+<p>You do <b>not</b> need to be able to program the IP-EP20x module.  In the default implementation,
 the FPGA content is programmed automatically into the module at IOC-boot time, via the IP bus.  A
 text file is included with softGlue for this purpose.  softGlue attempts to load the FPGA on every
 IOC boot, but the load succeeds only on a cold boot.  A warm boot leaves previously loaded content
@@ -147,8 +147,12 @@ elements:
 
 <blockquote>Earlier versions of softGlue implented many components with both
 inverting and noninverting outputs.  Beginning with 2.0, signal inversion is
-accomplished by appending '<code>*</code>' to a signal name, and this removes the need to
-implement inverted outputs.</blockquote>
+accomplished by appending '<code>*</code>' to a signal name, and this removes
+the need to implement inverted outputs.  Unfortunately, this means that softGlue
+PV values saved by autosave, or other client such as BURT, will not restore
+correctly in softGlue 2.0.  The functionality will certainly still be
+achievable, but signal names have changed, and the circuit will have to be
+re-engineered.</blockquote>
 
 <hr>
 <h2><center>Installation and deployment</center></h2>
@@ -191,6 +195,12 @@ implement inverted outputs.</blockquote>
 	<blockquote>The build will issue a warning that it can't expand all macros in substitution
 	files.  This is not an error; unexpanded macros are intended to be defined at boot
 	time.</blockquote>
+
+	<blockquote>Although softGlue depends on the CALC and BUSY modules, as well as on ASYN and
+	IPAC, the dependences on CALC and BUSY are not compile-time dependences, but merely
+	run-time dependences.  softGlue databases use records supplied by CALC and BUSY, but
+	doesn't build anything that requires input from CALC or BUSY.  For this reason, CALC and
+	BUSY don't have to be defined in the configure/RELEASE file.</blockquote>
 
 	</ul>
 
@@ -378,7 +388,7 @@ outputs together, but the circuit won't be useful until you fix the error, becau
 outputs connected together are undefined.  Currently, softGlue doesn't signal this error by
 putting offenders into an alarm state.</blockquote>
 
-<P>The yellow text-entry box controls an input.  You have five options:
+<P>The yellow text-entry box controls an input.  You have three options:
 <ol>
 
 <b><li>Leave empty.</b><br>
@@ -413,17 +423,14 @@ signal names.
 their text-entry boxes. To accomplish this, you must connect the signals to field I/O and make a
 physical connection.</blockquote>
 
-<b><li>Append '<code>*</code>' to an input-signal name.</b><br>
+</ol>
 
-This doesn't change the signal that the input is connected to, but just tells
-softGlue to run the signal through an inverter before applying it to the
-input.  Note that output signal names may not end with '<code>*</code>'.<P>
+<P>If you want to use the inverted value of a signal for input to some component, append
+'<code>*</code>' to the signal name.  This doesn't change the signal that the input is
+connected to, but just tells softGlue to run the signal through an inverter before applying it
+to the input.  Note that output signal names may not end with '<code>*</code>'.
 
-<b><li>Drag-and-drop from a named signal to another signal.</b><br>
-
-This copies the signal name from one box to another.  If the source signal is <em>named</em> (that
-is, its text-entry box is not empty, and it does not contain a number), this causes the signals to
-be connected together.
+<P>In MEDM, you can use Drag-And-Drop to connect a named signal to some other signal.
 
 </ol>
 
@@ -450,10 +457,6 @@ the same time, you have outputs connected together, and your circuit won't work.
 of their signals.  These display elements are updated at the period specified in the
 <code>softGlueMenu.adl</code> display.  If you want the EPICS PV name corresponding to a signal's
 logic value, this is the PV name to use.
-
-<P>The open circle ("bubble") in the top output's signal path indicates that the output is
-inverted.  You'll also see this bubble in some input signal paths.  Any signal going through
-a bubble is inverted.
 
 <P>For completeness, here's the truth table for an AND gate:
 <P><table border>
@@ -577,7 +580,7 @@ circuit.  If user-circuit field-outputs are autosaved, they will be restored dur
 otherwise, they will default to logic 1 (+5V for TTL).
 
 <P>During a soft reboot (that is, when the vxWorks "reboot" command is given in the ioc console),
-field outputs will maintain their values during the reboot.
+field outputs will maintain their values.
 
 
 <li><P>Field I/O Interrupt support
@@ -585,9 +588,9 @@ field outputs will maintain their values during the reboot.
 
 <P>The 16 input lines supported by softGlue can generate interrupts on rising edges,
 falling edges, both, or neither.  You control this by setting the "INTERRUPT&nbsp;ENABLE"
-menu to "Rising", "Falling", "Both", or "None", respectively.  Field output lines can, in
-principle, also generate interrupts, but this hasn't been implemented yet, so the
-output interrupt support doesn't function.
+menu to "Rising", "Falling", "Both", or "None", respectively.  Field output lines can also
+generate interrupts: if a bit is designated as an output, the output is connected also to
+the input, and to the input's interrupt-generation circuitry.
 
 <P>Interrupts are throttled by softGlue's interrupt handler.  If more than four interrupts have
 occurred and not been handled, softGlue will disable interrupts from the offending bit, by setting
