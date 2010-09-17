@@ -8,7 +8,7 @@ display {
 		x=31
 		y=25
 		width=1355
-		height=820
+		height=770
 	}
 	clr=14
 	bclr=2
@@ -89,8 +89,8 @@ display {
 }
 composite {
 	object {
-		x=83
-		y=777
+		x=965
+		y=695
 		width=285
 		height=26
 	}
@@ -410,41 +410,52 @@ composite {
 }
 composite {
 	object {
-		x=935
-		y=744
+		x=450
+		y=610
 		width=383
-		height=26
+		height=107
 	}
 	"composite name"=""
-	"composite file"="softGlue_BUFFER_bare.adl;P=$(P),H=$(H),N=3"
-}
-composite {
-	object {
-		x=935
-		y=771
-		width=383
-		height=26
+	children {
+		composite {
+			object {
+				x=450
+				y=610
+				width=383
+				height=26
+			}
+			"composite name"=""
+			"composite file"="softGlue_BUFFER_bare.adl;P=$(P),H=$(H),N=1"
+		}
+		composite {
+			object {
+				x=450
+				y=637
+				width=383
+				height=26
+			}
+			"composite name"=""
+			"composite file"="softGlue_BUFFER_bare.adl;P=$(P),H=$(H),N=2"
+		}
+		composite {
+			object {
+				x=450
+				y=664
+				width=383
+				height=26
+			}
+			"composite name"=""
+			"composite file"="softGlue_BUFFER_bare.adl;P=$(P),H=$(H),N=3"
+		}
+		composite {
+			object {
+				x=450
+				y=691
+				width=383
+				height=26
+			}
+			"composite name"=""
+			"composite file"="softGlue_BUFFER_bare.adl;P=$(P),H=$(H),N=4"
+		}
 	}
-	"composite name"=""
-	"composite file"="softGlue_BUFFER_bare.adl;P=$(P),H=$(H),N=4"
-}
-composite {
-	object {
-		x=935
-		y=690
-		width=383
-		height=26
-	}
-	"composite name"=""
-	"composite file"="softGlue_BUFFER_bare.adl;P=$(P),H=$(H),N=1"
-}
-composite {
-	object {
-		x=935
-		y=717
-		width=383
-		height=26
-	}
-	"composite name"=""
-	"composite file"="softGlue_BUFFER_bare.adl;P=$(P),H=$(H),N=2"
 }
