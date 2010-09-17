@@ -289,7 +289,7 @@ text {
 		height=20
 	}
 	display[0] {
-		label="everything"
+		label="all softGlue"
 		name="softGlueAll.adl"
 		args="P=$(P),H=$(H)"
 	}
@@ -298,10 +298,18 @@ text {
 		name="softGlueAllButIO.adl"
 		args="P=$(P),H=$(H),N=1,N1=1,N2=2,N3=3,N4=4,N5=5,N6=6,N7=7,N8=8"
 	}
-	display[3] {
+	display[2] {
 		label="convenience"
 		name="softGlueConvenience.adl"
 		args="P=$(P),H=$(H),PORT=$(PORT),IPORT=$(IPORT),OPORT=$(OPORT)"
+	}
+	display[3] {
+		label="------------"
+	}
+	display[6] {
+		label="octupole"
+		name="softGlue_octupole.adl"
+		args="P=$(P),H=$(H)"
 	}
 	clr=0
 	bclr=63
