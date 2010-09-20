@@ -113,9 +113,7 @@ pattern {NAM PORT ADDR MASK}
 
 file "softGlue_PollTime.db"
 {
-pattern {NAM PORT}
-{pollTimeMS_1 $(PORT1) }
-{pollTimeMS_2 $(PORT2) }
-{pollTimeMS_3 $(PORT3) }
+pattern {NAM PORT1 PORT2 PORT3}
+{pollTimeMS $(PORT1) $(PORT2) $(PORT3) }
 }
 
