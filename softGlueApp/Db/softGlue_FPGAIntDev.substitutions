@@ -113,9 +113,7 @@ pattern {P H NAM PORT ADDR MASK}
 
 file "$(SOFTGLUE)/softGlueApp/Db/softGlue_PollTime.db"
 {
-pattern {P H NAM PORT}
-{xxx: softGlue: pollTimeMS_1 SGIO_1 }
-{xxx: softGlue: pollTimeMS_2 SGIO_2 }
-{xxx: softGlue: pollTimeMS_3 SGIO_3 }
+pattern {P H NAM PORT1 PORT2 PORT3}
+{xxx: softGlue: pollTimeMS $(PORT1) $(PORT2) $(PORT3) }
 }
 
