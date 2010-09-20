@@ -240,33 +240,32 @@ pattern {SIG   ADDR}
 }
 
 
-# DnCntr's, and DivByN's will eventually be 32-bit, but are not yet
-file "softGlue_Register.db"
-{
-pattern {SIG     	ADDR 		CALC}
-{DnCntr-1_PRESET	0x8005F8	A-1}
-{DnCntr-2_PRESET	0x800628	A-1}
-{DnCntr-3_PRESET	0x800658	A-1}
-{DnCntr-4_PRESET	0x800688	A-1}
-{DivByN-1_N			0x8006B8	A-1}
-{DivByN-2_N			0x8006E8	A-1}
-{DivByN-3_N			0x800718	A-1}
-{DivByN-4_N			0x800748	A-1}
-}
-
-#file "softGlue_Register32.db"
+## Old 16-bit DnCntr's, and DivByN's.
+#file "softGlue_Register.db"
 #{
-#pattern {SIG		ADDR_MSW	ADDR_LSW 	CALC}
-#{DnCntr-1_PRESET	0x800600	0x8005F8	A-1}
-#{DnCntr-2_PRESET	0x800630	0x800628	A-1}
-#{DnCntr-3_PRESET	0x800660	0x800658	A-1}
-#{DnCntr-4_PRESET	0x800690	0x800688	A-1}
-#{DivByN-1_N		0x8006C0	0x8006B8	A-1}
-#{DivByN-2_N		0x8006F0	0x8006E8	A-1}
-#{DivByN-3_N		0x800720	0x800718	A-1}
-#{DivByN-4_N		0x800750	0x800748	A-1}
-#
+#pattern {SIG     	ADDR 		CALC}
+#{DnCntr-1_PRESET	0x8005F8	A-1}
+#{DnCntr-2_PRESET	0x800628	A-1}
+#{DnCntr-3_PRESET	0x800658	A-1}
+#{DnCntr-4_PRESET	0x800688	A-1}
+#{DivByN-1_N			0x8006B8	A-1}
+#{DivByN-2_N			0x8006E8	A-1}
+#{DivByN-3_N			0x800718	A-1}
+#{DivByN-4_N			0x800748	A-1}
 #}
+
+file "softGlue_Register32.db"
+{
+pattern {SIG	   ADDR_MSW    ADDR_LSW    CALC}
+{DnCntr-1_PRESET   0x800600    0x8005F8    A-1}
+{DnCntr-2_PRESET   0x800630    0x800628    A-1}
+{DnCntr-3_PRESET   0x800660    0x800658    A-1}
+{DnCntr-4_PRESET   0x800690    0x800688    A-1}
+{DivByN-1_N 	   0x8006C0    0x8006B8    A-1}
+{DivByN-2_N 	   0x8006F0    0x8006E8    A-1}
+{DivByN-3_N 	   0x800720    0x800718    A-1}
+{DivByN-4_N 	   0x800750    0x800748    A-1}
+}
 
 file "softGlue_InRegister32.db"
 {
