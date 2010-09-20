@@ -96,6 +96,4 @@ $(P)$(H)In_46IntEdge
 $(P)$(H)In_47IntEdge
 $(P)$(H)In_48IntEdge
 
-$(P)$(H)pollTimeMS_1
-$(P)$(H)pollTimeMS_2
-$(P)$(H)pollTimeMS_3
+$(P)$(H)pollTimeMS
