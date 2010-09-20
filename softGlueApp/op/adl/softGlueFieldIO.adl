@@ -8,7 +8,7 @@ display {
 		x=18
 		y=25
 		width=430
-		height=1100
+		height=1085
 	}
 	clr=14
 	bclr=2
@@ -231,5 +231,43 @@ polyline {
 	points {
 		(1,26)
 		(437,26)
+	}
+}
+composite {
+	object {
+		x=80
+		y=1062
+		width=130
+		height=17
+	}
+	"composite name"=""
+	children {
+		"text entry" {
+			object {
+				x=170
+				y=1062
+				width=40
+				height=17
+			}
+			control {
+				chan="$(P)$(H)pollTimeMS"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+		text {
+			object {
+				x=80
+				y=1065
+				width=90
+				height=10
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="POLL TIME (MS)"
+		}
 	}
 }
