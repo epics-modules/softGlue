@@ -138,8 +138,8 @@ elements:
 <li>Two 2-input/1-output multiplexers
 <li>Two 1-input/2-output demultiplexers
 <li>Four 32-bit counters
-<li>Four 16-bit preset counters
-<li>Four divide-by-N circuits
+<li>Four 32-bit preset counters
+<li>Four 32-bit divide-by-N circuits
 <li>48 field-input bits
 <li>48 field-output bits
 <li>One 8MHz clock signal
@@ -525,25 +525,23 @@ the output to be "cleared" (given the value 0).
 
 <P><code>EN==1</code> enables the clock ("&gt;") input, whose rising edge increments the counter value.
 
-<li><P>Down Counter (16-bit Preset Counter)
+<li><P>Down Counter (32-bit Preset Counter)
 <P><img src="DnCntr.gif" name="16-bit Preset Counter">
 
-<P><code>EN==1</code> enables the clock (">") input, whose rising edge decrements
-the counter value.  When <code>LOAD==1</code> the counter is loaded with the value applied to the
-<code>PRESET</code> input.  (Currently, this is a 16-bit value, but the plan is to increase it to 32
-bits.)  While <code>LOAD==1</code>, the counter does not count down.  While <code>LOAD==0</code> and
+<P><code>EN==1</code> enables the clock (">") input, whose rising edge decrements the counter value. 
+When <code>LOAD==1</code> the counter is loaded with the value applied to the <code>PRESET</code>
+input.  While <code>LOAD==1</code>, the counter does not count down.  While <code>LOAD==0</code> and
 <code>EN==1</code>, a rising edge at the clock input decrements the counter.  When the counter value
-reaches <code>0</code>, the output <code>Q</code> goes to <code>1</code>; the next rising edge of
-the clock returns <code>Q</code> to <code>0</code> (regardless of the states of <code>EN</code> and
+reaches <code>0</code>, the output <code>Q</code> goes to <code>1</code>; the next rising edge of the
+clock returns <code>Q</code> to <code>0</code> (regardless of the states of <code>EN</code> and
 <code>LOAD</code>).
 
-<li><P>Divide By N
+<li><P>32-bit Divide By N
 <P><img src="DivByN.gif" name="Divide By N">
 
-<P><code>EN==1</code> enables the clock (">") input.  Every <code>N</code>'th rising
-edge of the clock drives <code>Q</code> to <code>1</code>.  The next rising edge returns
-<code>Q</code> to <code>0</code>.  In softGlue version 1.1, the <code>RESET</code> signal doesn't do
-anything.
+<P><code>EN==1</code> enables the clock (">") input.  Every <code>N</code>'th rising edge of the clock
+drives <code>Q</code> to <code>1</code>.  The next rising edge returns <code>Q</code> to
+<code>0</code>.  In softGlue version 2.0, the <code>RESET</code> signal doesn't do anything.
 
 <P>
 
@@ -563,10 +561,14 @@ a "Field Output Bit" looks like and behaves as a softGlue <em>input</em>, becaus
 controlling the input of a buffer that drives the field-output signal.
 
 
-<P>The signals in this display are the field inputs or outputs connected to pins 1-16 on the IP-EP201's
-ribbon connector.  These I/O pin choices are specified at boot time, in the command file that configures
-the IP-EP201.  The IP-EP201 board supports 48 I/O bits, and permits them to be set for input or
-output in groups of 8.
+<P>The signals in this display are the field inputs or outputs connected to pins 1-16, 17-32, or 33-48
+on the IP-EP201's ribbon connector.  The IP-EP201 board supports 48 I/O bits, and permits them to be set
+for input or output in groups of 8.
+
+<P>"POLL TIME (MS)" specifies the period at which softGlue reads the I/O ports and checks
+for new values.  If an I/O bit has changed value since the last read, softGlue processes the
+record associated with that bit.  If an I/O bit is enabled to generate interrupts, as described
+in the next section, the bit will also be read by the interrupt handler. 
 
 <blockquote>You can change the "CONNECTOR&nbsp;#" numbers in this display -- for example, to
 support a custom signal-breakout module.  The numbers are defined in
@@ -586,7 +588,7 @@ field outputs will maintain their values.
 <li><P>Field I/O Interrupt support
 <P><img src="Field_IO_Int.gif" name="Field I/O">
 
-<P>The 16 input lines supported by softGlue can generate interrupts on rising edges,
+<P>Field-input lines supported by softGlue can generate interrupts on rising edges,
 falling edges, both, or neither.  You control this by setting the "INTERRUPT&nbsp;ENABLE"
 menu to "Rising", "Falling", "Both", or "None", respectively.  Field output lines can also
 generate interrupts: if a bit is designated as an output, the output is connected also to
@@ -628,7 +630,7 @@ You should use this attribute unless you have some reason not to use it.
 <blockquote>EPICS will tack on the string " NMS".  This alarm-propagation attribute is not something
 end users need to worry about. </blockquote>
 
-<P>For example, to cause a link to write effectively to the top input of the first AND/NAND gate
+<P>For example, to cause a link to write effectively to the top input of the first AND gate
 (whose PV name is  <code>xxx:softGlue:AND-1_IN1_Signal</code>, you would write the following
 into a purple box:
 
@@ -732,11 +734,10 @@ CA put will succeed in clearing it and causing its processing to appear done to 
 		<P>where <code>VAL<sub>end</sub></code> and <code>VAL<sub>start</sub></code> are the final
 		and initial values of the motorRecord <code>VAL</code> field.
 
-		<P>The following circuit accepts negative going motor pulses at input signal 16, gates out
+		<P>The following circuit accepts negative going motor pulses at input signal 1, gates out
 		the first 11 (the value of <code>DnCntr-1_PRESET</code>), and from then on sends motor
-		pulses to output pin 2 until a total of 51 (the value of <code>DnCntr-2_PRESET</code>) have
-		been sent.  The circuit is reset by setting <code>OR-1_IN1</code> (that is, writing "1" to
-		it), and enabled for another motor move by clearing <code>OR-1_IN1</code>.
+		pulses to output pin 17 until a total of 31 (the value of <code>DnCntr-2_PRESET</code>) have
+		been sent.  The circuit is reset by writing "1!" (positive-going pulse) to the input of BUF-1.
 
 		<P>The circuit includes some diagnostics, and a mechanism for testing:
 			<ul>
@@ -744,9 +745,9 @@ CA put will succeed in clearing it and causing its processing to appear done to 
 			<li><code>UpCntr-1</code> counts all motor pulses; <code>UpCntr-2</code> counts gated
 			motor pulses.  Both counters are reset by the same signal that resets the gate circuit.
 
-			<li>A manual reset pulse is implemented using the "+Pulse" (positive going pulse) button
-			in softGlueConvenience.adl (not shown), which writes to <code>OR-1_IN1</code>. 
-			(<code>OR-1_IN2</code> remains always at 0.)
+			<li>A manual reset is implemented using BUF-1.  Writing "1!" to the input of BUF-1,
+			as shown, causes a short positve-going pulse to be applied to it, and thus to its output,
+			the signal named "reset".
 
 		<P><img src="accelDecelGate.gif" name="accelDecelGate">
 
@@ -789,7 +790,7 @@ CA put will succeed in clearing it and causing its processing to appear done to 
 <dd>This substitutions file is run through <code>msi</code> at build time to
 produce the database file <code>softGlue_FPGAContent.db</code>.  The database
 file loads records matching most of the FPGA content that is loaded at cold-boot
-time from the file EP200_FPGA.hex.<P>
+time from the file SoftGlue_2_0.hex.<P>
 
 <dt>softGlue_FPGAInt.substitutions
 
@@ -800,11 +801,6 @@ These components control the field I/O registers which softGlue uses to connect
 with external wiring.  The file also loads records by which the user can control
 the period at which the driver's poller thread wakes up to read any I/O bits
 that have not been enabled to generate interrupts.
-
-<blockquote>These field I/O registers are implemented separately from softGlue, and
-provide provide more flexibility than softGlue is able to take advantage of. For
-example, the user can choose which I/O bits are inputs and which are outputs,
-but softGlue is compatible with only one of the possible choices.</blockquote>
 
 <dt>softGlue_Input.db<br>
 softGlue_Output.db
@@ -843,7 +839,11 @@ the rate at which I/O bits that do not generate interrupts are read.<P>
 
 <dt>softGlue_Register.db
 
-<dd>This database supports writes to a 16-bit register, such as the "N" value for a divide-by-N
+<dd>This database supports writes to a 16-bit register.  SoftGlue 2.0 has no 16-bit registers.<P>
+
+<dt>softGlue_Register.db
+
+<dd>This database supports writes to a 32-bit register, such as the "N" value for a divide-by-N
 circuit element.<P>
 
 <dt>softGlue_SignalShow.db
