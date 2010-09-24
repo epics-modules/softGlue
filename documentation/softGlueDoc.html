@@ -39,6 +39,10 @@ are connected to switches controlled by EPICS PV's.  softGlue provides a user in
 controlling those switches, allowing inputs and outputs to be marked with user-specified names,
 and connecting or driving inputs and outputs according to those names.
 
+<P>Here's the underlying idea, schematically:
+<P><center><img src="softGlueSchematically.jpg" name="SoftGlue, schematically"></center>
+
+
 <h3>Requirements</h3>
 
 <P>To use softGlue, you must have the following hardware and software:
@@ -111,6 +115,8 @@ don't yet have documentation on how it's done.
 <P>Here are a few examples of the sorts of things that can be accomplished with softGlue: 
 <ul>
 
+<li>With no programming at all, softGlue functions simply as good support for a 48-bit digital I/O module.
+
 <li>Conditionally send a trigger signal to a detector after every N steps of a stepper motor.
 
 <li>Gate a detector off during the acceleration and deceleration portions of a
@@ -120,6 +126,12 @@ steppermotor's motion.
 
 <li>Conditionally trigger the execution of an EPICS record on the change of state
 of an external signal.
+
+<li>Implement an extraordinarily smart trigger signal for an oscilloscope.
+
+<li>Implement efficiently a timer useable by EPICS software, with a time resolution that is
+much better than the system clock's resolution.  (With this, you can for example cause an
+EPICS database to wait for 0.7 ms.)
 
 </ul>
 
@@ -153,6 +165,16 @@ PV values saved by autosave, or other client such as BURT, will not restore
 correctly in softGlue 2.0.  The functionality will certainly still be
 achievable, but signal names have changed, and the circuit will have to be
 re-engineered.</blockquote>
+
+<P>In addition to the above listed components, softGlue 2.0 includes a pair
+of shift registers in a separate FPGA package.  Currently, we don't have the
+capability of loading more than one FPGA-content file (the IP-EP20x FPGA
+does not support this), but we can combine the standard softGlue FPGA content
+with any one add-on package, and load that.  Thus, there's a clear path to
+standard softGlue plus a application-specific FPGA content and support.
+softGlue databases and MEDM-display files are engineered to simplify the
+development of support for add-on packages.
+
 
 <hr>
 <h2><center>Installation and deployment</center></h2>
@@ -268,7 +290,7 @@ re-engineered.</blockquote>
 				<code>dbLoadRecords()</code> commands in your copy of <code>softGlue.cmd</code> to
 				define the macro <code>P</code>, so that it's unique to your IOC.
 
-				<blockquote>If you'll have more than one IP_EP201 module in an IOC, you'll also need
+				<blockquote>If you'll have more than one IP_EO20x module in an IOC, you'll also need
 				to maintain separate definitions for the macro, <code>H</code>, and for asyn port
 				names and addresses associated with the modules.  Port names are the first arguments
 				to the functions <code>initIP_EP201(), initIP_EP201SingleRegisterPort()</code>, and
@@ -336,7 +358,7 @@ re-engineered.</blockquote>
 <h2><center>User's Manual</center></h2>
 
 <P>Most of the essential user-interface information -- how to connect signals, what the display
-elements mean, etc. -- is contained in the descriptions of the "User Menu" and "AND/NAND" sections
+elements mean, etc. -- is contained in the descriptions of the "User Menu" and "AND" sections
 below.  The remaining sections are mostly for completeness, though some circuit elements do require
 further explanation, and the counter sections introduce new display elements for registers
 containing decimal numbers.
@@ -357,6 +379,7 @@ conveniently discussed from the viewpoint of the field-wiring connector.
 
 <ul>
 
+<hr>
 <li><P>User Menu
 <P><img src="Menu.gif" name="User Menu">
 
@@ -373,6 +396,7 @@ must be sampled periodically, for display to the user.
 around 1 second.  We've also found that polling everything at .1 second uses only a few
 percent of an MVME2700 CPU.</blockquote>
 
+<hr>
 <li><P>AND
 <P><img src="AND.gif" name="AND">
 
@@ -419,9 +443,9 @@ This <em>names</em> the signal, and connects it to all other signals with the sa
 same name followed by '<code>*</code>', as described below).  Case is significant in comparing
 signal names.
 
-<blockquote>Note that you can't connect signals implemented in different IP-EP201 modules using
-their text-entry boxes. To accomplish this, you must connect the signals to field I/O and make a
-physical connection.</blockquote>
+<blockquote>Note, if you're using more than one IP-EP20x module, that you can't connect signals implemented in
+different IP-EP20x modules using their text-entry boxes. To accomplish this, you must connect the signals to
+field I/O and make a physical connection.</blockquote>
 
 </ol>
 
@@ -469,6 +493,7 @@ logic value, this is the PV name to use.
 <blockquote>'x' means "either 0 or 1".</blockquote>
 
 
+<hr>
 <li><P>OR
 <P><img src="OR.gif" name="OR">
 
@@ -479,6 +504,7 @@ logic value, this is the PV name to use.
 <tr><td>x<td>1<td><td>1
 </table>
 
+<hr>
 <li><P>XOR
 <P><img src="XOR.gif" name="XOR">
 
@@ -490,6 +516,7 @@ logic value, this is the PV name to use.
 <tr><td>1<td>1<td><td>0
 </table>
 
+<hr>
 <li><P>D FlipFlop
 <P><img src="DFF.gif" name="D FlipFlop">
 
@@ -508,11 +535,13 @@ the output to be "cleared" (given the value 0).
 <tr><td>1  <td>1    <td>any<td>rising edge<td><td>D<sub>BEFORE</sub> (value D had immediately before the rising edge of the clock signal)
 </table>
 
+<hr>
 <li><P>2-Input Multiplexer
 <P><img src="MUX2.gif" name="2-Input Multiplexer">
 
 <P>When <code>SEL==0</code>, <code>OUT=IN0</code>.  When <code>SEL==1</code>, <code>OUT=IN1</code>.
 
+<hr>
 <li><P>2-Output Demultiplexer
 <P><img src="DEMUX2.gif" name="2-Output Demultiplexer">
 
@@ -520,11 +549,13 @@ the output to be "cleared" (given the value 0).
 0).  When <code>SEL==1</code>, <code>OUT1=IN</code>, and <code>OUT0</code> is undefined (currently
 0).
 
+<hr>
 <li><P>Up Counter (32-bit Counter)
 <P><img src="UpCntr.gif" name="32-bit Counter">
 
 <P><code>EN==1</code> enables the clock ("&gt;") input, whose rising edge increments the counter value.
 
+<hr>
 <li><P>Down Counter (32-bit Preset Counter)
 <P><img src="DnCntr.gif" name="16-bit Preset Counter">
 
@@ -536,6 +567,7 @@ reaches <code>0</code>, the output <code>Q</code> goes to <code>1</code>; the ne
 clock returns <code>Q</code> to <code>0</code> (regardless of the states of <code>EN</code> and
 <code>LOAD</code>).
 
+<hr>
 <li><P>32-bit Divide By N
 <P><img src="DivByN.gif" name="Divide By N">
 
@@ -545,12 +577,14 @@ drives <code>Q</code> to <code>1</code>.  The next rising edge returns <code>Q</
 
 <P>
 
+<hr>
 <li><P>8 MHz internal clock
 <P><img src="8MHz_clock.gif" name="* MHz clock">
 
 <P>An 8 MHz clock derived from the IndustryPack clock is available to softGlue
 circuitry as a free standing output.
 
+<hr>
 <li><P>Field I/O
 <P><img src="Field_IO.gif" name="Field I/O">
 
@@ -585,6 +619,7 @@ otherwise, they will default to logic 1 (+5V for TTL).
 field outputs will maintain their values.
 
 
+<hr>
 <li><P>Field I/O Interrupt support
 <P><img src="Field_IO_Int.gif" name="Field I/O">
 
@@ -641,11 +676,13 @@ will write a value, but the value won't have any effect until the next time the 
 (For most PV's in softGlue, the value written by an NPP link won't even be displayed until the
 record processes.)
 
+<hr>
 <li><P>Everything on one display
 <P><img src="All.gif" name="All">
 
 <P>This display shows everything in softGlue except interrupt support.
 
+<hr>
 <li><P>Convenience
 <P><img src="Convenience.gif" name="Convenience">
 
@@ -656,6 +693,7 @@ implemented in EPICS.  The display also has MEDM related-display callups for two
 <blockquote>The use of EPICS links (the purple boxes in the above display) is described above in
 the section "About EPICS links", in the documentation of "Field I/O Interrupt support".</blockquote>
 
+<hr>
 <li><P>BusyRecord
 <P><img src="BusyRecord.gif" name="Busy Record">
 
@@ -702,10 +740,10 @@ CA put will succeed in clearing it and causing its processing to appear done to 
 	<h3>Example circuits</h3>
 		<h4>motor-pulse gate</h4>
 
-		Positive going signals can be gated with an AND gate, by applying the signal to one input of the AND gate,
+		Positive-going signals can be gated with an AND gate, by applying the signal to one input of the AND gate,
 		and setting the other input to 0(1) to deny(allow) passage through the gate.
 
-		<P>Negative going signals can be gated with an OR gate, by applying the signal to one input
+		<P>Negative-going signals can be gated with an OR gate, by applying the signal to one input
 		of the OR gate, and setting the other input to 0(1) to allow(deny) passage through the
 		gate.
 
@@ -734,7 +772,7 @@ CA put will succeed in clearing it and causing its processing to appear done to 
 		<P>where <code>VAL<sub>end</sub></code> and <code>VAL<sub>start</sub></code> are the final
 		and initial values of the motorRecord <code>VAL</code> field.
 
-		<P>The following circuit accepts negative going motor pulses at input signal 1, gates out
+		<P>The following circuit accepts negative-going motor pulses at input signal 1, gates out
 		the first 11 (the value of <code>DnCntr-1_PRESET</code>), and from then on sends motor
 		pulses to output pin 17 until a total of 31 (the value of <code>DnCntr-2_PRESET</code>) have
 		been sent.  The circuit is reset by writing "1!" (positive-going pulse) to the input of BUF-1.
@@ -761,13 +799,13 @@ CA put will succeed in clearing it and causing its processing to appear done to 
 		<P><code>AND-1</code> combines the gate signals produced above into a signal that is 1 while
 		the motor is moving at constant speed.
 
-		<P><code>AND-2</code> gates the negative going motor pulses, using what was described
+		<P><code>AND-2</code> gates the negative-going motor pulses, using what was described
 		earlier as a positive-going-pulse gate, by inverting the "motor" signal before applying it
 		to the gate.
 
 		<P>Note that the down counters are clocked by (rising edges of) "motor", to produce the
-		signal used to gate "motor*".  This choice avoids a race condition between simultaneous
-		rising edges of "gateOut" and "motor".  (This circuit gates negative going motor pulses, so
+		signal used to gate "motor<code>*</code>".  This choice avoids a race condition between simultaneous
+		rising edges of "gateOut" and "motor".  (This circuit gates negative-going motor pulses, so
 		another way to make the point is to say that the trailing edge of a motor pulse is used to
 		produce a gate that will be ready in plenty of time for the leading edge of the next motor
 		pulse.)
@@ -800,7 +838,7 @@ loads records matching the field-I/O register components loaded into the FPGA.
 These components control the field I/O registers which softGlue uses to connect
 with external wiring.  The file also loads records by which the user can control
 the period at which the driver's poller thread wakes up to read any I/O bits
-that have not been enabled to generate interrupts.
+that have not been enabled to generate interrupts.<P>
 
 <dt>softGlue_Input.db<br>
 softGlue_Output.db
@@ -814,8 +852,8 @@ softGlue_FieldOutput.db
 
 <dt> softGlue_InRegister.db
 
-<dd>This database supports reads from a 16-bit register.  Currently, no
-softGlue circuit element uses this database.<P>
+<dd>This database supports reads from a 16-bit register.  (Currently, no
+softGlue circuit element uses this database.)<P>
 
 <dt>softGlue_InRegister32.db
 
@@ -829,7 +867,7 @@ value, and a forward linked bo record to write that value to some user specified
 
 <dt>softGlue_IntEdge.db
 
-<dd>This database controls the interrupt enable mask for a single input bit.<P>
+<dd>This database controls the interrupt-enable mask for a single input bit.<P>
 
 
 <dt>softGlue_PollTime.db
@@ -839,9 +877,10 @@ the rate at which I/O bits that do not generate interrupts are read.<P>
 
 <dt>softGlue_Register.db
 
-<dd>This database supports writes to a 16-bit register.  SoftGlue 2.0 has no 16-bit registers.<P>
+<dd>This database supports writes to a 16-bit register.  (Currently, no
+softGlue circuit element uses this database.)<P>
 
-<dt>softGlue_Register.db
+<dt>softGlue_Register32.db
 
 <dd>This database supports writes to a 32-bit register, such as the "N" value for a divide-by-N
 circuit element.<P>
@@ -891,10 +930,10 @@ file an IOC needs.<P>
 
 	<h3>Driver</h3>
 	
-	<P>softGlue's driver implements three asyn ports to connect EPICS records with registers
-	implemented in the IP-EP201 module's FPGA.  Two ports connect with "fieldIO_registerSet"
+	<P>softGlue's driver implements four asyn ports to connect EPICS records with registers
+	implemented in the IP-EO20x module's FPGA.  Three ports connect with "fieldIO_registerSet"
 	components, which provide comprehensive control over digital I/O bits implemented in the module,
-	including data direction (i.e., read or write), interrupt enable, and status.  The third asyn
+	including data direction (i.e., read or write), interrupt enable, and status.  The fourth asyn
 	port connects with "single 16-bit register" components, with which all softGlue signal
 	connections are implemented.
 
@@ -902,7 +941,7 @@ file an IOC needs.<P>
 
 		<pre>
     This driver cooperates with specific FPGA firmware loaded into the Acromag
-    IP-EP201 (and probably other IP-EP200-series modules).  The loaded FPGA
+    IP-EO201 (and probably other IP-EP200-series modules).  The loaded FPGA
     firmware includes Eric Norum's IndustryPack Bridge, which is an interface
     between the IndustryPack bus and the Altera FPGA's Avalon bus.  The
     IndustryPack Bridge does not define anything we can write to in the FPGA. 
@@ -1027,9 +1066,8 @@ file an IOC needs.<P>
 		<code>initIP_EP201()</code>, and they can be interrupt driven.  They are also
 		polled periodically.  The polling period's initial value is specified as an
 		argument to <code>initIP_EP201()</code>, and it can be modified by the user
-		via the <code>POLL TIME (MS)</code> text entries on the
-		<code>softGlueFieldIO_Int.adl</code> display.  The polling periods for inputs
-		and outputs are specified separately.
+		via the <code>POLL TIME (MS)</code> text entry on
+		<code>softGlueFieldIO*.adl</code> displays.
 		</dl>
 
 	<h3>FPGA content</h3>
@@ -1106,9 +1144,9 @@ This SOPC component supports 16 bits of field I/O
 <tr><td>1<td>Field I/O Write Data<td>Write Field I/O ONLY when dir = 1<td>Read/Write
 <tr><td>2<td>Field I/O Read Data<td>Read Field I/O ONLY when dir = 0<td>Read
 <tr><td>3<td>Rising IRQ Status Bits<td>Which Bits are causing interrupt from field I/O on transition to 1<td>Read/Write*
-<tr><td>4<td>Rising IRQ Interrupt Enable Bits<td>Which Rising edge bits have IRQ Enabled<td>Read/Write
+<tr><td>4<td>Rising IRQ Interrupt-Enable Bits<td>Which Rising edge bits have IRQ Enabled<td>Read/Write
 <tr><td>5<td>Falling IRQ Status Bits<td>Which bits are causing interrupt from field I/O on transition to 0<td>Read/Write*
-<tr><td>6<td>Falling IRQ Interrupt enable bits<td>Which bits have falling IRQ enabled<td>Read/Write
+<tr><td>6<td>Falling IRQ Interrupt-enable bits<td>Which bits have falling IRQ enabled<td>Read/Write
 <tr><td colspan=4>* A write to this register clears interrupts for nonzero bits.  For example, after servicing
 a rising-edge interrupt from bit 0, the interrupt-service routine writes 0x01 to register 3 before re-enabling interrupts.
 </table>
@@ -1149,7 +1187,7 @@ Deployment considerations
 We need to ensure that the software agrees with the FPGA programming.  Software
 dependence on FPGA content is of three kinds:
 
-1) Dependence on the register-set with which SOPC components are implemented. There are two
+1) Dependence on the register set with which SOPC components are implemented. There are two
    different register sets currently in use: Marty Smith's original register set (called
    'fieldIO_registerSet' in comments within drvIP_EP201.c), and Kurt Goetze's register set (called
    'single 16-bit register' -- a misnomer, because there are several registers in the component, but
@@ -1157,27 +1195,29 @@ dependence on FPGA content is of three kinds:
    drvIP_EP201.c.
 
 2) Dependence on the user circuits attached to 'single 16-bit register' SOPC components.  For
-   example, the version 1.1 implementation of softGlue has several AND/NAND gates, several OR/NOR
+   example, the version 2.0 implementation of softGlue has several AND gates, several OR
    gates, some counters, etc., controlled by 'single 16-bit register' components.
 
    This dependence is restricted to the database, autosave-request file, and MEDM displays, which
-   should have an analog for each 'single 16-bit register' component, and should know which
+   should have an analog for each 'single 16-bit register' component, and which should know which
    component address corresponds with which user circuit, and with which part of the user circuit.
-   For example, the inverting output of AND/NAND gate #1 is associated by address with a 'single
+   For example, the inverting output of AND gate #1 is associated by address with a 'single
    16-bit register' component.
 
-3) Dependence on field I/O direction settings.  In softGlue 1.1, field I/O direction is not
-adjustable by the user or deployer, but is fixed by the FPGA content. 
+3) Dependence on field I/O direction settings.  In softGlue 2.0, field I/O direction is not
+adjustable by the user, but is fixed at boot time.  All databases and MEDM-display files are
+compatible with any choice of field I/O direction settings, though MEDM displays don't give
+the user any information about which bits are inputs and which are outputs.
 
 Currently, the only strategy in use for ensuring that EPICS support agrees with FPGA content is the
 inclusion of FPGA content with softGlue.  Deployers are expected to copy files from
 softGlue/iocBoot/iocSoftGlue for initial deployment, and to copy them again for any version
-upgrades, or else take responsibility themselves for agreement between software and firmware.
+upgrades, or else to take responsibility themselves for agreement between software and firmware.
 
 ------------------------------------------------------------------------------
 Programming the FPGA via the IP bus.
 
-The IP-EP201 board has to be prepared for this by moving the DIP jumper to
+The IP-EO20x board has to be prepared for this by moving the DIP jumper to
 "IP BUS".  (This is the factory default setting.)
 
 The hex file to be loaded is included in the softGlueApp/Db directory.
