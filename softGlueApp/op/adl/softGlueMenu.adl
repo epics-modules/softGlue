@@ -226,11 +226,6 @@ display {
 		width=88
 		height=20
 	}
-	display[0] {
-		label="Field I/O Menu"
-		name="softGlueFieldIOMenu.adl"
-		args="P=$(P),H=$(H)"
-	}
 	display[1] {
 		label="Field I/O All"
 		name="softGlueFieldIO.adl"
