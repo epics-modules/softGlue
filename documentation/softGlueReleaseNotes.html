@@ -7,6 +7,35 @@
 <BODY LANG="en-US" BGCOLOR="#ffffff" DIR="LTR">
 <H2 ALIGN=CENTER>softGlue Release Notes</H2>
 
+<H2 ALIGN=LEFT>Release 2-0 (Sept 24, 2010)</H2>
+<ul>
+	<li>Inverted outputs have been deleted from all FPGA components.  Instead
+		signal inversion is accomplished by appending an asterisk to the signal
+		name specified for an input (or for a field I/O output, which behaves
+		as an input).
+	<li>All 48 I/O bits are supported by both field inputs and field outputs,
+		and the I/O directions are specified at boot time.  If a bit is set for
+		output, its digital value is routed to the field input, so that the bit
+		can generate interrupts.  With this change, all IP-EP20x modules should
+		be supported, though this hasn't been tested, and databases and MEDM
+		displays are provided only for the IP-EP201 (48 TTL bits).
+	<li>Added an 8 MHz clock component.
+	<li>Added more gates, added buffers (primarily so users don't have to use
+		a logic gate simply to get an EPICS-written value fanned to more than
+		one input).
+	<li>Added the secondary module, Octupole, which contains two 32-bit
+		shift registers.
+	<li>Down counters and divide-by-N components are now 32 bit.
+	<li>User can control the polling period for field I/O bits.
+	<li>No longer maintain separate read rates for connected and unconnected
+		signals, and cause signal-show display to be driven by a software event
+		whose number is specified at boot time, rather than being periodically
+		scanned.  These and other changes simplify signal-name processing and
+		speeds it up significantly.  (Previously, two sCalcout records were
+		processed every time a signal name was changed.  Now none are.)
+	<li>
+</ul>
+
 <H2 ALIGN=LEFT>Release 1-1 (June 14, 2010)</H2>
 <UL>
 	<li>Added the ability to load FPGA content at boot time, from a file, via
