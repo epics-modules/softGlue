@@ -10,18 +10,19 @@
 # initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filename)
 
 # Standard softGlue 2.0
-#initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_0.hex")
+initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_1.hex")
 # SoftGlue 2.0 with octupole additions (shift registers)
-initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_0_1_Octupole_0_0.hex")
+#initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_1_0_Octupole_0_0.hex")
 
 # Each instance of a fieldIO_registerSet component is initialized as follows:
 #
 #int initIP_EP201(const char *portName, ushort_t carrier, ushort_t slot,
 #	int msecPoll, int dataDir, int sopcOffset, int interruptVector,
 #	int risingMask, int fallingMask)
-# Note that while the addresses and interrupt vector look adjustable, they
-# really are not.  Also note that the user can overwrite risingMask and
-# fallingMask, and probably has these registers autosaved.
+# Note that while the addresses and interrupt vectors look adjustable, they
+# currently are not, because the values are hardwired in the FPGA content.
+# Also note that the user can overwrite risingMask and fallingMask, and probably
+# has these registers autosaved.
 #
 # dataDir: bits 0 and 8 are the only ones that matter.  The meaning depends on
 # which IP module is in use.
@@ -30,10 +31,10 @@ initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_0_1_Octupole_0_0.
 #         If bit 8 is set, I/O bits 8...15 are outputs, else they're inputs.
 
 # bits 1-16 are inputs
-initIP_EP201("SGIO_1",0,2,1000000,0x0000,0x800000,0x80,0x00,0x00)
+initIP_EP201("SGIO_1",0,2,1000000,0x0000,0x800000,0x90,0x00,0x00)
 # bits 33-48 are outputs
-initIP_EP201("SGIO_2",0,2,1000000,0x0101,0x800010,0x81,0x00,0x00)
-initIP_EP201("SGIO_3",0,2,1000000,0x0101,0x800020,0x82,0x00,0x00)
+initIP_EP201("SGIO_2",0,2,1000000,0x0101,0x800010,0x91,0x00,0x00)
+initIP_EP201("SGIO_3",0,2,1000000,0x0101,0x800020,0x92,0x00,0x00)
 
 # All instances of a single-register component are initialized with a single
 # call, as follows:
@@ -54,7 +55,11 @@ dbLoadRecords("$(SOFTGLUE)/db/softGlue_SignalShow.db","P=xxx:,H=softGlue:,PORT=S
 
 # Load a set of database fragments for each single-register component.
 dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent.db", "P=xxx:,H=softGlue:,PORT=SOFTGLUE,READEVENT=10")
-dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_octupole.db", "P=xxx:,H=softGlue:,PORT=SOFTGLUE,READEVENT=10")
+
+# If you loaded SoftGlue_2_1_x_Octupole_0_0.hex, in the initIP_EP200_FPGA()
+# command above, then also load the database that supports the additional FPGA
+# circuit elements.
+#dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_octupole.db", "P=xxx:,H=softGlue:,PORT=SOFTGLUE,READEVENT=10")
 
 # Interrupt support.
 # doesn't fit in vxWorks command line space
