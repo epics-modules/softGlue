@@ -523,26 +523,34 @@ int initIP_EP201SingleRegisterPort(const char *portName, ushort_t carrier, ushor
  * choose the following options: compressed; mode = "1-bit Passive Serial"; count up.
  */
 #define MAXREAD 1000
+#define MAXCHECK 30
 #define BUF_SIZE 1000
 #include "macLib.h"
+
 int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filepath)
 {
 	volatile epicsUInt16 *id, *io;
 	volatile epicsUInt16 *pModeReg, *pStatusControlReg, *pConfigDataReg;
 	epicsUInt16 c;
-	int i, j, maxwait, total_bytes;
+	int i, j, maxwait, total_bytes, line, intLevel;
 	FILE *source_fd;
 	unsigned char buffer[BUF_SIZE], *bp;
 	char *filename;
 
+	/* Disable interrupt level for this module.  Otherwise we may get
+	 * interrupts while the FPGA is being loaded.
+	 */
+	intLevel = ipmIrqCmd(carrier, slot, 0, ipac_irqGetLevel);
+	devDisableInterruptLevel(intVME,intLevel);
+
 	filename = macEnvExpand(filepath); /* in case filepath = '$(SOFTGLUE)/...' */
 	if (filename == NULL) {
 		errlogPrintf("initIP_EP200_FPGA: macEnvExpand() returned NULL.  I quit.\n");
-		return(-1);
+		goto errReturn;
 	}
 	if ((source_fd = fopen(filename,"rb")) == NULL) {
 		errlogPrintf("initIP_EP200_FPGA: Can't open file '%s'.\n", filename);
-		return(-1);
+		goto errReturn;
 	}
 	free(filename); /* macEnvExpand() allocated this for us. We're done with it now. */
 
@@ -550,8 +558,8 @@ int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filepath)
 	io = (epicsUInt16 *) ipmBaseAddr(carrier, slot, ipac_addrIO);
 	pModeReg = id + 0x0a/2;
 	if ((*pModeReg&0xff) != 0x48) {
-		errlogPrintf("initIP_EP200_FPGA: not in config mode.  Nothing done.\n");
-		return(-1);
+		errlogPrintf("initIP_EP200_FPGA: not in config mode.  (Already programmed?)  Nothing done.\n");
+		goto errReturn;
 	}
 	pStatusControlReg = io;
 	pConfigDataReg = io + 0x02/2;
@@ -564,34 +572,44 @@ int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filepath)
 	if (SHOW_STATUS) printf("\nDone checking for ack\n");
 	if (i == MAXREAD) {
 		errlogPrintf("initIP_EP200_FPGA: timeout entering data-transfer mode.  Nothing done.\n");
-		return(-1);
+		goto errReturn;
 	}
 
 	maxwait = 0;
 	total_bytes = 0;
+	line = 0;
 	while ((bp=fgets(buffer, BUF_SIZE, source_fd))) {
 		int bytes;
 		int recType;
 		
 		if (bp[0] != ':') {
 			errlogPrintf("initIP_EP200_FPGA: Bad file content.\n");
-			return(-1);
+			goto errReturn;
 		}
+
+		++line;
+		if (SHOW_STATUS && (line%100==0)) printf("initIP_EP200_FPGA: line %d\n", line);
+		/* diagnostic for VME bus analyzer trigger */
+		if (line == 1885) {
+			i = *id;	/* dummy read from base of id space */
+			printf("initIP_EP200_FPGA: read %d from address %p\n", i, id);
+		}
+
 		bytes = HEXHEX2INT(bp+1);
 		recType = HEXHEX2INT(bp+7);
 		if (recType == 0) {
 			for (bp+=9, j=0; j<bytes; j++) {
-				for (i=0; i<50; i++) {
+				for (i=0; i<MAXCHECK; i++) {
 					c = *pStatusControlReg;
 					/*if (SHOW_STATUS) printf("%x", (unsigned char)(c&0x0f));*/
 					if ((c&3) == 3) break;
 					if (i > maxwait) maxwait = i;
 				}
-				if (i==20) printf("\ntimeout waiting for pStatusControlReg==3\n");
+				if (i==MAXCHECK) printf("\ntimeout waiting for pStatusControlReg==3\n");
 				if ((*pStatusControlReg & 3) != 3) {
 					errlogPrintf("initIP_EP200_FPGA: Bad status abort at byte %d during data-transfer.\n", j);
 					errlogPrintf("buffer='%s'\n", buffer);
-					return(-1);
+					goto errReturn;
 				}
 				c = (HEXHEX2INT(bp))&0xff;
 				*pConfigDataReg = c; bp += 2;
@@ -601,18 +619,25 @@ int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filepath)
 		}
 	}
 	if (SHOW_STATUS) printf("initIP_EP200_FPGA: Sent %d bytes (maxwait=%d).\n", total_bytes, maxwait);
-	for (i=0; i<200; i++) {
+	for (i=0; i<MAXCHECK; i++) {
 		c = *pStatusControlReg;
 		if (SHOW_STATUS) printf("stat:%x mode:%x\n", c&0x0f, *pModeReg&0xff);
 		if ((c&0x04) || ((*pModeReg&0xff) == 0x49)) break;
 	}
-	if (SHOW_STATUS) printf("\n");
+	if (SHOW_STATUS) printf("stat:%x mode:%x\n", *pStatusControlReg&0x0f, *pModeReg&0xff);
+
 	if ((*pStatusControlReg & 0x04) || ((*pModeReg&0xff) == 0x49)) {
 		errlogPrintf("initIP_EP200_FPGA: FPGA config done.\n");
 	}
 	/* issue a software reset */
 	*pStatusControlReg = *pStatusControlReg | 0x80;
+
+	devEnableInterruptLevel(intVME,intLevel);
 	return(0);
+
+errReturn:
+	devEnableInterruptLevel(intVME,intLevel);
+	return(-1);
 }
 
 /*
@@ -624,7 +649,7 @@ int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filepath)
  * See "The addressing of sopc components", in comments at the top of this file
  * for a complete description of how addresses are handled.
  */
-/*STATIC*/ epicsUInt16 *calcRegisterAddress(void *drvPvt, asynUser *pasynUser)
+STATIC epicsUInt16 *calcRegisterAddress(void *drvPvt, asynUser *pasynUser)
 {
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	int addr;
@@ -650,20 +675,14 @@ int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filepath)
  * Note that fieldIO_registerSet components have a control register that
  * may determine what data will be available for reading.
  */
-#define DIAGNOSE_FPGA_CONFIG 1
-/*STATIC*/ asynStatus readUInt32D(void *drvPvt, asynUser *pasynUser,
+STATIC asynStatus readUInt32D(void *drvPvt, asynUser *pasynUser,
 	epicsUInt32 *value, epicsUInt32 mask)
 {
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	volatile epicsUInt16 *reg;
-	char *id;
 
 	if (drvIP_EP201Debug) {
 		printf("drvIP_EP201:readUInt32D: pasynUser->reason=%d\n", pasynUser->reason);
-#if DIAGNOSE_FPGA_CONFIG
-		id = (char *)(pPvt->id);
-		printf("drvIP_EP201:readUInt32D: ID ='%c%c%c%c'\n", *id++,*id++,*id++,*id);
-#endif
 	}
 	*value = 0;
 	if (pPvt->is_fieldIO_registerSet) {
@@ -711,20 +730,15 @@ int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filepath)
  * Note that fieldIO_registerSet components have a control register that
  * may determine what use will be made of the data we write.
  */
-/*STATIC*/ asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 value,
+STATIC asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 value,
 	epicsUInt32 mask)
 {
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	volatile epicsUInt16 *reg=0;
 	epicsUInt32 maskCopy;
-	char *id;
 
 	if (drvIP_EP201Debug) {
 		printf("drvIP_EP201:writeUInt32D: pasynUser->reason=%d\n", pasynUser->reason);
-#if DIAGNOSE_FPGA_CONFIG
-		id = (char *)(pPvt->id);
-		printf("drvIP_EP201:writeUInt32D: ID ='%c%c%c%c'\n", *id++,*id++,*id++,*id);
-#endif
 	}
 	if (pPvt->is_fieldIO_registerSet) {
 		if (pasynUser->reason == 0) {
@@ -782,18 +796,13 @@ int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filepath)
  * Note that fieldIO_registerSet components have a control register that
  * may determine what data will be available for reading.
  */
-/*STATIC*/ asynStatus readInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 *value)
+STATIC asynStatus readInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 *value)
 {
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	volatile epicsUInt16 *reg;
-	char *id;
 
 	if (drvIP_EP201Debug) {
 		printf("drvIP_EP201:readInt32: pasynUser->reason=%d\n", pasynUser->reason);
-#if DIAGNOSE_FPGA_CONFIG
-		id = (char *)(pPvt->id);
-		printf("drvIP_EP201:readInt32: ID ='%c%c%c%c'\n", *id++,*id++,*id++,*id);
-#endif
 	}
 	*value = 0;
 
@@ -823,18 +832,13 @@ int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filepath)
  * Note that fieldIO_registerSet components have a control register that
  * may determine what use will be made of the data we write.
  */
-/*STATIC*/ asynStatus writeInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 value)
+STATIC asynStatus writeInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 value)
 {
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	volatile epicsUInt16 *reg;
-	char *id;
 
 	if (drvIP_EP201Debug) {
 		printf("drvIP_EP201:writeInt32: pasynUser->reason=%d\n", pasynUser->reason);
-#if DIAGNOSE_FPGA_CONFIG
-		id = (char *)(pPvt->id);
-		printf("drvIP_EP201:writeInt32: ID ='%c%c%c%c'\n", *id++,*id++,*id++,*id);
-#endif
 	}
 	if (pasynUser->reason == 0) {
 		if (pPvt->is_fieldIO_registerSet) {
