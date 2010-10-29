@@ -7,6 +7,18 @@
 <BODY LANG="en-US" BGCOLOR="#ffffff" DIR="LTR">
 <H2 ALIGN=CENTER>softGlue Release Notes</H2>
 
+<H2 ALIGN=LEFT>Release 2-1 (???)</H2>
+
+<ul>
+	<li>The FPGA sometimes generates an interrupt while it is being loaded, so
+		the interrupt level is disabled before the load, and enabled after.
+	<li>softGlue was using the interrupt vectors 0x80, 0x81, and 0x82, but these
+		are already is use by the synApps IP-Octal support, so the vectors 0x90,
+		0x91, and 0x92 are now used instead.  These vectors currently are
+		hard-coded in the FPGA content, so even though initIP_EP201() has an
+		argument for them, they mustn't be changed.
+</ul>
+
 <H2 ALIGN=LEFT>Release 2-0 (Sept 24, 2010)</H2>
 <ul>
 	<li>Inverted outputs have been deleted from all FPGA components.  Instead
