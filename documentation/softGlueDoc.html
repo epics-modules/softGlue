@@ -12,7 +12,7 @@
 </HEAD>
 <BODY LANG="en-US" BGCOLOR="#ffffff" DIR="LTR">
 
-<h1><center>The synApps softGlue module (v2.0)</center></h1>
+<h1><center>The synApps softGlue module (v2.x)</center></h1>
 <hr>
 <h2><center>Overview</center></h2>
 
@@ -50,12 +50,14 @@ and connecting or driving inputs and outputs according to those names.
 <ul>
 <li><h4>Hardware</h4>
 <ul>
-<li>An IndustryPack (IP) carrier board.
+
+<li>An IndustryPack (IP) carrier board supported by the EPICS ipac module.
+
 <li>An Acromag IP-EP20x FPGA IP module.
-<li>Some way of connecting the field I/O bits of the IP_EP20x module to your field wiring.
+
 </ul>
 
-<blockquote> SoftGlue 2.0 is intended to be useable with any IP_EP200-series module, but the
+<blockquote> SoftGlue 2.x is intended to be useable with any IP_EP200-series module, but the
 databases and MEDM displays supplied in this version are for the IP_EP201, and other modules in
 the series have not yet been tested.  The differences between modules are in the numbers of I/O
 bits, and the pinout.</blockquote>
@@ -122,7 +124,7 @@ don't yet have documentation on how it's done.
 <li>Gate a detector off during the acceleration and deceleration portions of a
 steppermotor's motion.
 
-<li>Send a trigger to a detector 23 ms after sending a trigger to a shutter.
+<li>Send a trigger to a detector precisely 23 ms after sending a trigger to a shutter.
 
 <li>Conditionally trigger the execution of an EPICS record on the change of state
 of an external signal.
@@ -161,12 +163,12 @@ elements:
 inverting and noninverting outputs.  Beginning with 2.0, signal inversion is
 accomplished by appending '<code>*</code>' to a signal name, and this removes
 the need to implement inverted outputs.  Unfortunately, this means that softGlue
-PV values saved by autosave, or other client such as BURT, will not restore
-correctly in softGlue 2.0.  The functionality will certainly still be
+PV values saved from an earlier version of softGlue will not restore correctly
+in softGlue 2.x.  The functionality of the circuit will certainly still be
 achievable, but signal names have changed, and the circuit will have to be
 re-engineered.</blockquote>
 
-<P>In addition to the above listed components, softGlue 2.0 includes a pair
+<P>In addition to the above listed components, softGlue 2.x includes a pair
 of shift registers in a separate FPGA package.  Currently, we don't have the
 capability of loading more than one FPGA-content file (the IP-EP20x FPGA
 does not support this), but we can combine the standard softGlue FPGA content
@@ -193,10 +195,10 @@ development of support for add-on packages.
 	softGlue is available as part of synApps 5.5 and higher, as a tar file from
 	the <a href="http://www.aps.anl.gov/bcda/synApps/softGlue/softGlue.html">softGlue web page</a>,
 	or directly from the <a href="https://subversion.xor.aps.anl.gov/synApps">synApps subversion repository</a>.
-	To export version 2.0 from the repository, for example, run the following command:
+	To export version 2.1 from the repository, for example, run the following command:
 
 	<P><code>
-	svn export https://subversion.xor.aps.anl.gov/synApps/softGlue/tags/R2-0 softGlue-2-0
+	svn export https://subversion.xor.aps.anl.gov/synApps/softGlue/tags/R2-1 softGlue-2-1
 	</code>
 
 	<h3>Building softGlue</h3>
@@ -233,7 +235,7 @@ development of support for add-on packages.
 
 		<ul>
 		<li><code>configure/RELEASE</code>
-			<ul>
+			<P><ul>
 
 			<li>Edit the <code>RELEASE</code> file to define the following names:
 			<p><code>SOFTGLUE=&lt;path to the softGlue module&gt;<br>
@@ -253,7 +255,7 @@ development of support for add-on packages.
 
 			</ul>
 		<li><code>xxxApp/src</code>
-			<ul>
+			<P><ul>
 
 			<li>Edit <code>Makefile</code> or a <code>*Include.dbd</code> file so that the file
 				<code>softGlueSupport.dbd</code> is included in the <code>.dbd</code> file the
@@ -283,7 +285,7 @@ development of support for add-on packages.
 
 			</ul>
 		<li><code>iocBoot/ioc<em>xxx</em></code>
-			<ul>
+			<P><ul>
 
 			<li>Copy <code>softGlue/iocBoot/iocSoftGlue/softGlue.cmd</code> to your IOC directory,
 				which I'll call <code>iocBoot/ioc<em>xxx</em></code>, and edit the
@@ -305,7 +307,7 @@ development of support for add-on packages.
 				<pre>&lt; softGlue.cmd</pre>
 
 			<li>If you use autosave:
-				<ul>
+				<P><ul>
 				<li>Add the following line to <code>save_restore.cmd</code>:
 				
 					<P><code>set_requestfile_path(softglue, "softGlueApp/Db")</code>
@@ -327,7 +329,7 @@ development of support for add-on packages.
 			</ul>
 			<br>
 		<li><code>xxxApp/op/adl</code>
-			<ul>
+			<P><ul>
 
 			<li>If you use MEDM, add a related-display button to call up the
 				<code>softGlueMenu.adl</code> display with the macros <code>P</code>, and 
@@ -578,9 +580,10 @@ clock returns <code>Q</code> to <code>0</code> (regardless of the states of <cod
 <li><P>32-bit Divide By N
 <P><img src="DivByN.gif" name="Divide By N">
 
-<P><code>EN==1</code> enables the clock (">") input.  Every <code>N</code>'th rising edge of the clock
-drives <code>Q</code> to <code>1</code>.  The next rising edge returns <code>Q</code> to
-<code>0</code>.  In softGlue version 2.0, the <code>RESET</code> signal doesn't do anything.
+<P><code>EN==1</code> enables the clock (">") input.  Every <code>N</code>'th rising edge of the
+clock drives <code>Q</code> to <code>1</code>.  The next rising edge returns <code>Q</code> to
+<code>0</code>.  In softGlue version 2.1 and earlier, the <code>RESET</code> signal doesn't do
+anything.
 
 <P>
 
@@ -828,16 +831,35 @@ CA put will succeed in clearing it and causing its processing to appear done to 
 <hr>
 <h2><center>Implementation</center></h2>
 
+	<h3>FPGA-content files</h3>
+
+	This version of softGlue contains two FPGA-content files, only one of which can be loaded at a
+time.
+
+<P><dl>
+<dt>SoftGlue_2_1.hex
+<dd>This file contains all standard softGlue components.
+
+<dt>SoftGlue_2_1_0_Octupole_0_0.hex
+<dd>This file contains everything in SoftGlue_2_1.hex, plus two 32-bit shift registers.
+</dl>
+
 	<h3>Database files</h3>
 
 <dl>
 
 <dt>softGlue_FPGAContent.substitutions
 
-<dd>This substitutions file is run through <code>msi</code> at build time to
-produce the database file <code>softGlue_FPGAContent.db</code>.  The database
-file loads records matching most of the FPGA content that is loaded at cold-boot
-time from the file SoftGlue_2_0.hex.<P>
+<dd>This substitutions file is run through <code>msi</code> at build time to produce the database file
+<code>softGlue_FPGAContent.db</code>.  The database file loads records matching most of the FPGA
+content that is loaded at cold-boot time from either <code>SoftGlue_2_1.hex</code> or
+<code>SoftGlue_2_1_0_Octupole_0_0.hex</code>.<P>
+
+<dt>softGlue_FPGAContent_octupole.substitutions
+
+<dd>This substitutions file is run through <code>msi</code> at build time to produce the database file
+<code>softGlue_FPGAContent_octupole.db</code>.  The database file loads records for the two 32-bit
+shift registers in <code>SoftGlue_2_1_0_Octupole_0_0.hex</code>.<P>
 
 <dt>softGlue_FPGAInt.substitutions
 
@@ -923,6 +945,7 @@ resolved databases loaded by dbLoadRecords().<P>
 
 <dl>
 <dt>softGlue_FPGAContent_settings.req<br>
+softGlue_FPGAContent_octupole_settings.req<br>
 softGlue_FPGAInt_settings.req<br>
 softGlue_SignalShow_settings.req<br>
 softGlue_convenience_settings.req<br>
@@ -932,10 +955,54 @@ and take the same macro definitions.<P>
 
 <dt>softGlue_settings.req
 
-<dd>This autosave-request file contains the four files above, and normally is the only request
-file an IOC needs.<P>
+<dd>This autosave-request file <i>includes</i> all of the files above, with
+<code>softGlue_FPGAContent_octupole_settings.req</code> commented out.  Normally this is the only
+request file an IOC needs.<P>
 
 </dl>
+
+	<h3>MEDM-display files</h3> There are too many display files to describe individually, and many are
+	similar, so I'll just describe classes of display files, and the overall implementation strategy. 
+	Displays whose names begin with "softGlue_" support individual circuit elements.  Displays whose
+	names are of the form "softGlueXxx" (no underscore after "softGlue") support collections of circuit
+	elements, either by implementing menus for calling up other displays, or by including several
+	"softGlue_" displays.  ("Include", in this context, means specified as a "Composite File", with
+	macro arguments, in the definition of an MEDM grouped item.)
+
+	<P>The MEDM display of a softGlue circuit element is built in layers, from instances of
+	softGlue_Input.adl and softGlue_Output.adl, which are <i>included</i> in softGlue_&lt;element
+	name&gt;_bare.adl, which in turn is included in one of the user displays (for example,
+	softGlueAll.adl, softGlue_AND.adl, etc.). 
+
+	<P><dl>
+	<dt>softGlueMenu.adl<br>
+	softGlueTop.adl
+
+	<dd><code>softGlueMenu.adl</code> contains related-display menus for everything in softGlue.
+	<code>softGlueTop.adl</code> is an example of how <code>softGlueMenu.adl</code> can be called up.
+
+	<dt>softGlue_Input.adl<br>
+	softGlue_Output.adl
+	
+	<dd>These displays support a <i>single 16-bit register component</i> (see "Driver", below) in the
+	FPGA, and most softGlue circuit-element displays include several instances of these displays.  For
+	example, softGlue_AND_bare.adl includes two instances of softGlue_Input.adl, and one instance of
+	softGlue_Output.adl.
+
+	<dt>softGlue_*.adl<br>
+	softGlue_*_bare.adl, where * is one of AND, BUFFER, DEMUX2, DFF, DivByN, DnCntr, MUX2, MUX4, OR, Shift32, UpCntr, XOR
+
+	<dd>These files each support a single circuit element, such as an AND gate.  The "_bare.adl"
+	displays are intended to be included in some other display.
+
+	<dt>softGlue_Field*.adl<br>
+	softGlue_Field*_bare.adl, where * is one of FieldInput, FieldOutput, IntBit.    The "_bare.adl"
+	displays are intended to be included in some other display.
+
+	<dd>These files support a single field-I/O bit, or the interrupt control and dispatch records
+	associated with a field-I/O bit.
+
+	</dl>
 
 	<h3>Driver</h3>
 	
@@ -1046,11 +1113,6 @@ file an IOC needs.<P>
 		circuit element.  If an input signal is numeric, it is assigned to multiplexer address 0,
 		which is driven not by a bus line, but by a register bit set according to the numeric value.
 		(If '<code>*</code>' is appended to a numeric signal, it's ignored.)
-
-	<h3>MEDM-display</h3> The MEDM display of a softGlue circuit element is built in layers, from
-		several instances of softGlue_Input.adl and softGlue_Output.adl, which are included in
-		softGlue_&lt;element name&gt;_bare.adl, which is included in one of the user displays
-		(for example, softGlueAll.adl, softGlue_AND.adl, etc.).
 
 	<h3>Field I/O</h3>
 		<P> Field inputs and outputs are supported by two independent sets of binary input and
@@ -1213,7 +1275,7 @@ dependence on FPGA content is of three kinds:
    For example, the inverting output of AND gate #1 is associated by address with a 'single
    16-bit register' component.
 
-3) Dependence on field I/O direction settings.  In softGlue 2.0, field I/O direction is not
+3) Dependence on field I/O direction settings.  In softGlue 2.x, field I/O direction is not
 adjustable by the user, but is fixed at boot time.  All databases and MEDM-display files are
 compatible with any choice of field I/O direction settings, though MEDM displays don't give
 the user any information about which bits are inputs and which are outputs.
