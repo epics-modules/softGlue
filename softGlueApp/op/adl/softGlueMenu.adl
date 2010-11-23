@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps_5_5/support/softGlue/softGlueApp/op/adl/softGlueMenu.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlueMenu.adl"
 	version=030104
 }
 display {
@@ -303,7 +303,7 @@ text {
 	}
 	display[6] {
 		label="octupole"
-		name="softGlue_octupole.adl"
+		name="softGlueOctupole.adl"
 		args="P=$(P),H=$(H)"
 	}
 	clr=0
