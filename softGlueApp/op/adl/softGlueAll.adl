@@ -1,7 +1,7 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps_5_5/support/softGlue/softGlueApp/op/adl/softGlueAll.adl"
-	version=030104
+	name="/home/oxygen4/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlueAll.adl"
+	version=030105
 }
 display {
 	object {
@@ -155,7 +155,7 @@ composite {
 		height=73
 	}
 	"composite name"=""
-	"composite file"="softGlue_DnCntr_bare.adl;P=$(P),H=$(H),N=3"
+	"composite file"="softGlue_DnCntr_bare.adl;P=$(P),H=$(H),N=4"
 }
 composite {
 	object {
