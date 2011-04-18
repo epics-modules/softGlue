@@ -585,6 +585,17 @@ clock drives <code>Q</code> to <code>1</code>.  The next rising edge returns <co
 <code>0</code>.  In softGlue version 2.1 and earlier, the <code>RESET</code> signal doesn't do
 anything.
 
+<P>The Divide-by-N circuit has an error condition that can make it appear not be functioning at all.
+The circuit is essentially a down counter which is preset to N, counts down to zero, and is
+again preset to N, repeatedly.  If the counter goes through zero without resetting itself,
+it will have to count through the entire range of a 32-bit number to get back into the
+useful range (N,0), which can take a very long time.  The circuit will get into this state if
+a clock is applied while N is set to 0, for example.
+
+<P>Until a reset is implemented, the best solution is to apply a very high frequency clock
+to the clock input, and set N to some nonzero value.  (You can make a clock with a frequency of
+around 70 MHz by applying the inverted value of an AND gate to one input of that AND gate.)
+
 <P>
 
 <hr>
@@ -609,10 +620,18 @@ controlling the input of a buffer that drives the field-output signal.
 on the IP-EP201's ribbon connector.  The IP-EP201 board supports 48 I/O bits, and permits them to be set
 for input or output in groups of 8.
 
-<P>"POLL TIME (MS)" specifies the period at which softGlue reads the I/O ports and checks
-for new values.  If an I/O bit has changed value since the last read, softGlue processes the
-record associated with that bit.  If an I/O bit is enabled to generate interrupts, as described
-in the next section, the bit will also be read by the interrupt handler. 
+<P>"POLL TIME (MS)" specifies the period at which softGlue reads the I/O ports
+for user-display purposes, and for executing the EPICS link associated with 
+non-interrupt-enabled I/O bits (see next section).  If an I/O bit has changed
+value since the last read, softGlue processes the display record associated with
+that bit, so the user will see the new value. If an I/O bit is enabled to
+generate interrupts, as described in the next section, the bit will be read
+immediately by the interrupt handler, so "POLL TIME" will not matter for that
+bit.
+
+<P>Note: If you have a field input connected to an FPGA component, the component
+will react to a change in the input value within nanoseconds.  I/O polling is
+not involved at all in the logic connection.
 
 <blockquote>You can change the "CONNECTOR&nbsp;#" numbers in this display -- for example, to
 support a custom signal-breakout module.  The numbers are defined in
