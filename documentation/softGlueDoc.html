@@ -173,7 +173,7 @@ of shift registers in a separate FPGA package.  Currently, we don't have the
 capability of loading more than one FPGA-content file (the IP-EP20x FPGA
 does not support this), but we can combine the standard softGlue FPGA content
 with any one add-on package, and load that.  Thus, there's a clear path to
-standard softGlue plus a application-specific FPGA content and support.
+standard softGlue plus application-specific FPGA content and support.
 softGlue databases and MEDM-display files are engineered to simplify the
 development of support for add-on packages.
 
@@ -188,7 +188,7 @@ development of support for add-on packages.
 	
 	<blockquote>Unlike most other synApps modules, however,
 	softGlue publishes the text files needed to boot an IOC in its <code>db</code> directory
-	(as an EPICS module really should, I suppose -- most synApps modules are nonstandard in
+	(as an EPICS module really should, I suppose &mdash; most synApps modules are nonstandard in
 	this respect), rather than in the <code>softGlueApp/Db</code> directory.</blockquote>
 
 	<h3>How to get the software</h3>
@@ -359,8 +359,8 @@ development of support for add-on packages.
 <hr>
 <h2><center>User's Manual</center></h2>
 
-<P>Most of the essential user-interface information -- how to connect signals, what the display
-elements mean, etc. -- is contained in the descriptions of the "User Menu" and "AND" sections
+<P>Most of the essential user-interface information &mdash; how to connect signals, what the display
+elements mean, etc. &mdash; is contained in the descriptions of the "User Menu" and "AND" sections
 below.  The remaining sections are mostly for completeness, though some circuit elements do require
 further explanation, and the counter sections introduce new display elements for registers
 containing decimal numbers.
@@ -633,7 +633,7 @@ bit.
 will react to a change in the input value within nanoseconds.  I/O polling is
 not involved at all in the logic connection.
 
-<blockquote>You can change the "CONNECTOR&nbsp;#" numbers in this display -- for example, to
+<blockquote>You can change the "CONNECTOR&nbsp;#" numbers in this display &mdash; for example, to
 support a custom signal-breakout module.  The numbers are defined in
 <code>softGlueApp/Db/softGlue_FPGAContent.substitutions</code>, as the macro <code>IOPIN</code>
 supplied to <code>softGlue_FieldOutput.db</code> and <code>softGlue_FieldInput.db</code>.
@@ -815,7 +815,7 @@ CA put will succeed in clearing it and causing its processing to appear done to 
 			motor pulses.  Both counters are reset by the same signal that resets the gate circuit.
 
 			<li>A manual reset is implemented using BUF-1.  Writing "1!" to the input of BUF-1,
-			as shown, causes a short positve-going pulse to be applied to it, and thus to its output,
+			as shown, causes a short positive-going pulse to be applied to it, and thus to its output,
 			the signal named "reset".
 
 		<P><img src="accelDecelGate.gif" name="accelDecelGate">
@@ -1026,7 +1026,7 @@ request file an IOC needs.<P>
 	<h3>Driver</h3>
 	
 	<P>softGlue's driver implements four asyn ports to connect EPICS records with registers
-	implemented in the IP-EO20x module's FPGA.  Three ports connect with "fieldIO_registerSet"
+	implemented in the IP-EP20x module's FPGA.  Three ports connect with "fieldIO_registerSet"
 	components, which provide comprehensive control over digital I/O bits implemented in the module,
 	including data direction (i.e., read or write), interrupt enable, and status.  The fourth asyn
 	port connects with "single 16-bit register" components, with which all softGlue signal
@@ -1036,7 +1036,7 @@ request file an IOC needs.<P>
 
 		<pre>
     This driver cooperates with specific FPGA firmware loaded into the Acromag
-    IP-EO201 (and probably other IP-EP200-series modules).  The loaded FPGA
+    IP-EP201 (and probably other IP-EP200-series modules).  The loaded FPGA
     firmware includes Eric Norum's IndustryPack Bridge, which is an interface
     between the IndustryPack bus and the Altera FPGA's Avalon bus.  The
     IndustryPack Bridge does not define anything we can write to in the FPGA. 
@@ -1065,14 +1065,14 @@ request file an IOC needs.<P>
     defines a new asyn port, connects an interrupt-service routine, creates a
     message queue, and launches a thread.
 
-    Single 16-bit register components need not have their sopc addresses known
-    at init time, because they are not associated with an interrupt service
-    routine.  As a consequence, many such single-register components can be
-    served by a single asyn port.  Users of this port must specify the sopc
-    address of the register they want to  read or write in their asynUser
-    structure. Records do this by including the address in the definition of the
-    record's OUT or INP field.  For example, the ADDR macro in the following
-    field definition should be set to the register's sopc address:
+    Single 16-bit register components, on the other hand, need not have their
+    sopc addresses known at init time, because they are not associated with an
+    interrupt service routine.  As a consequence, many such single-register
+    components can be served by a single asyn port.  Users of this port must
+    specify the sopc address of the register they want to read or write in
+    their asynUser structure. Records do this by including the address in the
+    definition of the record's OUT or INP field.  For example, the ADDR macro in
+    the following field definition should be set to the register's sopc address:
     field(OUT,"@asynMask($(PORT),$(ADDR),0x2f)")
 
     The addressing of sopc components requires some explanation.  When a
@@ -1280,7 +1280,7 @@ dependence on FPGA content is of three kinds:
 1) Dependence on the register set with which SOPC components are implemented. There are two
    different register sets currently in use: Marty Smith's original register set (called
    'fieldIO_registerSet' in comments within drvIP_EP201.c), and Kurt Goetze's register set (called
-   'single 16-bit register' -- a misnomer, because there are several registers in the component, but
+   'single 16-bit register' &mdash; a misnomer, because there are several registers in the component, but
    thus far only one register is used.) This dependence is restricted to the driver code,
    drvIP_EP201.c.
 
@@ -1307,7 +1307,7 @@ upgrades, or else to take responsibility themselves for agreement between softwa
 ------------------------------------------------------------------------------
 Programming the FPGA via the IP bus.
 
-The IP-EO20x board has to be prepared for this by moving the DIP jumper to
+The IP-EP20x board has to be prepared for this by moving the DIP jumper to
 "IP BUS".  (This is the factory default setting.)
 
 The hex file to be loaded is included in the softGlueApp/Db directory.
