@@ -6,13 +6,13 @@ record(dfanout,"$(P)$(H)$(NAM)") {
 }
 record(longout,"$(P)$(H)$(NAM)_1") {
 	field(DTYP,"asynUInt32Digital")
-	field(OUT,"@asynMask($(PRT1),0,0)POLLTIME")
+	field(OUT,"@asynMask($(PORT1),0,0)POLLTIME")
 }
 record(longout,"$(P)$(H)$(NAM)_2") {
 	field(DTYP,"asynUInt32Digital")
-	field(OUT,"@asynMask($(PRT2),0,0)POLLTIME")
+	field(OUT,"@asynMask($(PORT2),0,0)POLLTIME")
 }
 record(longout,"$(P)$(H)$(NAM)_3") {
 	field(DTYP,"asynUInt32Digital")
-	field(OUT,"@asynMask($(PRT3),0,0)POLLTIME")
+	field(OUT,"@asynMask($(PORT3),0,0)POLLTIME")
 }
