@@ -537,6 +537,13 @@ int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filepath)
 	unsigned char buffer[BUF_SIZE], *bp;
 	char *filename;
 
+#if DO_IPMODULE_CHECK
+	if (ipmCheck(carrier, slot)) {
+		errlogPrintf("initIP_EP200_FPGA: bad carrier or slot\n");
+		return(-1);
+	}
+#endif
+
 	/* Disable interrupt level for this module.  Otherwise we may get
 	 * interrupts while the FPGA is being loaded.
 	 */
