@@ -91,6 +91,11 @@ bits, and the pinout.</blockquote>
 	load softGlue_convenience.db, and don't include softGlue_convenience_settings.req in your
 	autosave request file. </blockquote>
 
+<li>The EPICS extension, <a href="http://www.aps.anl.gov/epics/extensions/msi/index.php">msi</a>,
+    version 1-5 or higher.
+	
+	<blockquote>This tool is needed to build some softGlue databases.</blockquote>
+
 <li>MEDM, or the ability to adapt some other display manager or Channel Access client to implement
 	softGlue's user interface.
 
@@ -218,7 +223,9 @@ development of support for add-on packages.
 	
 	<blockquote>The build will issue a warning that it can't expand all macros in substitution
 	files.  This is not an error; unexpanded macros are intended to be defined at boot
-	time.</blockquote>
+	time.  (Note that version 1-4 of <code>msi</code> returns an error, which causes the softGlue
+	build to fail, after writing a database file that contains unexpanded macros.)
+	</blockquote>
 
 	<blockquote>Although softGlue depends on the CALC and BUSY modules, as well as on ASYN and
 	IPAC, the dependences on CALC and BUSY are not compile-time dependences, but merely
