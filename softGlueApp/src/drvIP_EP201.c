@@ -596,11 +596,14 @@ int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filepath)
 
 		++line;
 		if (SHOW_STATUS && (line%100==0)) printf("initIP_EP200_FPGA: line %d\n", line);
+
+#if 0
 		/* diagnostic for VME bus analyzer trigger */
 		if (line == 1885) {
 			i = *id;	/* dummy read from base of id space */
 			printf("initIP_EP200_FPGA: read %d from address %p\n", i, id);
 		}
+#endif
 
 		bytes = HEXHEX2INT(bp+1);
 		recType = HEXHEX2INT(bp+7);
