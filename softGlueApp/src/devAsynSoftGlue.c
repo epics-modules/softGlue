@@ -37,6 +37,8 @@
 #include <devSup.h>
 #include <dbEvent.h>
 #include <dbStaticLib.h> /* info item */
+#include <ellLib.h> /* recordList, userList */
+#include <freeList.h> /* alloc/free userList entries */
 
 #include <epicsExport.h>
 #include "asynDriver.h"
@@ -48,6 +50,8 @@
 #include <epicsExport.h>
 
 volatile int devAsynSoftGlueDebug = 0;
+
+void *freeListPvt = NULL;
 
 typedef struct devPvt {
 	dbCommon	*precord;
@@ -95,12 +99,10 @@ epicsExportAddress(dset, asynSoftGlue);
 /* signal name/number stuff */
 #define MAXSIGNALS 16
 #define MAXPORTS 5
-#define ACCEPT_BUS_LINE_NUMBER 0
 
 /* If signal name ends with '*', use inverted value of signal.  Only valid for inputs.
  * If implemented, output names will have trailing '*' stripped.
  */
-#define IMPLEMENT_SIGNAL_NAME_STAR 1
 
 /* a softGlue stringout record can identify itself as an input or an output either
  * by having the first character of its DESC field be 'O', or by defining the info
@@ -111,9 +113,14 @@ epicsExportAddress(dset, asynSoftGlue);
  */
 #define USE_INFO_ITEM 1
 
+struct userListItem {
+    ELLNODE node;
+	stringoutRecord *precord;
+};
+
 struct sigEntry {
-	char name[40];
-	int numUsers;
+	char	name[40];
+	ELLLIST	userList;
 };
 
 static struct portInfo {
@@ -131,29 +138,22 @@ struct recordListItem {
 static long init(int after) {
 	int i, j;
 	if (after) return(0);
+	/* initialize freeList stuff */
+	freeListInitPvt(&freeListPvt, sizeof(struct userListItem), 10);
 	for (i=0; i<MAXPORTS; i++) {
 		portInfo[i].portName[0] = '\0';
 		portInfo[i].sig_mutex = epicsMutexCreate();
 		for (j=0; j<MAXSIGNALS; j++) {
 			portInfo[i].sigList[j].name[0] = '\0';
-			portInfo[i].sigList[j].numUsers = 0;
+			/* list of signal-name records using this signal */
+			ellInit(&(portInfo[i].sigList[j].userList));
 		}
+		/* list of all signal-name records associated with this asyn port */
 		ellInit(&(portInfo[i].recordList));
 	}
 	return(0);
 }
 
-static int isBusLine(char *s) {
-#if ACCEPT_BUS_LINE_NUMBER
-	if (s[0] != 'B') return(0);
-	if ((s[1] != '0') && (s[1] != '1')) return(0);
-	if ((s[2] != '\0') && (s[3] != '\0')) return(0);
-	if (atoi(s+1) >= MAXSIGNALS) return(0);
-	return(1);
-#else
-	return(0);
-#endif
-}
 
 static void initSignal(stringoutRecord *pso) {
 	devPvt *pdevPvt = (devPvt *)pso->dpvt;
@@ -180,6 +180,50 @@ static void initSignal(stringoutRecord *pso) {
 	}
 }
 
+void showUserList(ELLLIST *puserList) {
+	struct userListItem *pitem;
+
+	pitem = (struct userListItem *)ellFirst(puserList);
+	while (pitem) {
+		printf("showUserList: plist=%p, prec=%p %s\n", puserList, pitem->precord, pitem->precord->name);
+		pitem = (struct userListItem *)ellNext(&(pitem->node));
+	}
+	printf("showUserList: list count=%d\n", ellCount(puserList));
+}
+
+static long deleteSignalUser(ELLLIST *puserList, stringoutRecord *pso) {
+	struct userListItem *pitem;
+
+	if (devAsynSoftGlueDebug) printf("devAsynSoftGlue:deleteSignalUser: deleting from list %p\n", puserList);
+
+	pitem = (struct userListItem *)ellFirst(puserList);
+	while (pitem) {
+		if (pitem->precord == pso) {
+			ellDelete(puserList, &(pitem->node));
+			if (devAsynSoftGlueDebug) printf("deleteSignalUser: delete memory at %p\n", &(pitem->node));
+			/*free(&(pitem->node));*/
+			freeListFree(freeListPvt, &(pitem->node));
+			break;
+		}
+		pitem = (struct userListItem *)ellNext(&(pitem->node));
+	}
+	if (pitem == NULL) printf("devAsynSoftGlue:deleteSignalUser: couldn't find userList item.\n");
+	if (devAsynSoftGlueDebug) showUserList(puserList);
+	return(0);
+}
+
+static long addSignalUser(ELLLIST *puserList, stringoutRecord *pso) {
+	struct userListItem *puserListItem;
+	
+	if (devAsynSoftGlueDebug) printf("devAsynSoftGlue:addSignalUser: adding to list %p\n", puserList);
+	/*puserListItem = (struct userListItem *) malloc(sizeof(struct userListItem));*/
+	puserListItem = (struct userListItem *) freeListCalloc(freeListPvt);
+	if (devAsynSoftGlueDebug) printf("addSignalUser: allocated memory at %p\n", puserListItem);
+	puserListItem->precord = pso;
+	ellAdd(puserList, &(puserListItem->node));
+	if (devAsynSoftGlueDebug) showUserList(puserList);
+	return(0);
+}
 
 /* Check the signal name (the val field) and the signal number (pdevPvt->signalNum).  If there is
  * a disagreement, reconcile it.  If it can't be reconciled, return -1.
@@ -191,7 +235,7 @@ static long checkSignal(stringoutRecord *pso) {
 	char signalName[60];
 	struct portInfo *pi = &(portInfo[pdevPvt->portInfoNum]);
 	int portNum=-1;
-	struct recordListItem *pitem;
+	struct recordListItem *precordListItem;
 	struct sigEntry *sig;
 
 	if (devAsynSoftGlueDebug) {
@@ -219,26 +263,28 @@ static long checkSignal(stringoutRecord *pso) {
 	}
 #endif
 
-	/* See if this signal's new name is the PVname of some other signal attached to the same port.
+	/* See if this signal's new name contains the PVname of some other signal attached to the same port.
 	 * If so, user is probably trying to use Drag-N-Drop to connect signals, and probably expects
 	 * this to connect the signals.  If the source signal has a name, we can do what user wants;
 	 * otherwise, we can at least make the signal names the same empty string.
+	 * Note that Drag-N-Drop of a PV name on a signal whose value is not the empty string results in
+	 * the old value followed by the PV name, so we have to use strstr, instead of strcmp.
 	 */
 	for (i=0; i<MAXPORTS; i++) {
 		/* Same port?  If not, don't bother checking further */
 		if (strcmp(pi->portName, portInfo[i].portName) == 0) portNum = i;
 	}
 	if (portNum >= 0) {
-		pitem = (struct recordListItem *)ellFirst(&(portInfo[portNum].recordList));
-		while (pitem) {
-			if ((strlen(pso->val) > 1) && (strlen(pso->val) >= strlen(pitem->precord->name))) {
-				if (strstr(pso->val, pitem->precord->name) != 0) {
-					strcpy(pso->val, pitem->precord->val);
+		precordListItem = (struct recordListItem *)ellFirst(&(portInfo[portNum].recordList));
+		while (precordListItem) {
+			if ((strlen(pso->val) > 1) && (strlen(pso->val) >= strlen(precordListItem->precord->name))) {
+				if (strstr(pso->val, precordListItem->precord->name) != 0) {
+					strcpy(pso->val, precordListItem->precord->val);
 					needPost = 1;
 					break;
 				}
 			}
-			pitem = (struct recordListItem *)ellNext(&(pitem->node));
+			precordListItem = (struct recordListItem *)ellNext(&(precordListItem->node));
 		}
 	}
 
@@ -253,16 +299,13 @@ static long checkSignal(stringoutRecord *pso) {
 			compareLength--;
 			needPost = 1;
 		}
-#if IMPLEMENT_SIGNAL_NAME_STAR
 		/* output-signal names are not permitted to end in '*' */
 		if (pso->val[strlen(pso->val)-1] == '*') {
 			compareLength--;
 			pso->val[strlen(pso->val)-1] = '\0';
 			needPost = 1;
 		}
-#endif
 	} else {
-#if IMPLEMENT_SIGNAL_NAME_STAR
 		/* Check if signal name ends with '*'.  If so, it is to be regarded
 		 * as the same signal as the signal name with the trailing '*' deleted.
 		 */
@@ -274,7 +317,6 @@ static long checkSignal(stringoutRecord *pso) {
 			pso->val[0] = '\0';
 			needPost = 1;
 		}
-#endif
 	}
 	if (needPost) db_post_events(pso, &pso->val, DBE_VALUE);
 
@@ -288,8 +330,9 @@ static long checkSignal(stringoutRecord *pso) {
 		/* We're attached to a nonzero signal.  Should we stay attached? */
 		if (isdigit((int)signalName[0])) {
 			/* We're a binary value; signal number should be 0.  Detach. */
-			if (--(sig->numUsers) <= 0) {
-				sig->numUsers = 0;
+			/*+ delete record from sigEntry->userList +*/
+			deleteSignalUser(&(sig->userList), pso);
+			if (ellCount(&(sig->userList)) == 0) {
 				sig->name[0] = '\0';
 				/* We should tell user how many signals are still available for use. */
 			}
@@ -303,10 +346,11 @@ static long checkSignal(stringoutRecord *pso) {
 			epicsMutexUnlock(pi->sig_mutex);
 			return(0);
 		} else {
-			/* The VAL field disagrees with the signal's name.  Detach. */
 			if (pdevPvt->signalNum && strcmp(signalName, sig->name)) {
-				if (--(sig->numUsers) <= 0) {
-					sig->numUsers = 0;
+				/* The VAL field disagrees with the signal's name.  Detach. */
+				/*+ delete record from sigEntry->userList +*/
+				deleteSignalUser(&(sig->userList), pso);
+				if (ellCount(&(sig->userList)) == 0) {
 					sig->name[0] = '\0';
 					/* We should tell user how many signals are still available for use. */
 				}
@@ -323,20 +367,14 @@ static long checkSignal(stringoutRecord *pso) {
 		return(0);
 	}
 
-	if (isBusLine(signalName)) {
-		/* 'B0' .. 'Bnn', where nn is MAXSIGNALS-1. */
-		i = atoi(signalName+1);
-		pdevPvt->signalNum = i;
-		if (devAsynSoftGlueDebug) printf("checkSignal: Attaching to signal %d\n", pdevPvt->signalNum);
-		epicsMutexUnlock(pi->sig_mutex);
-		return(0);
-	} else if (signalName[0]) {
+	if (signalName[0]) {
 		if (devAsynSoftGlueDebug) printf("checkSignal: Signal name = '%s'\n", signalName);
 		/* We have a signal name.  See if it's already assigned. */
 		for (i=1; i<MAXSIGNALS; i++) {
 			if (strcmp(signalName, pi->sigList[i].name) == 0) {
 				pdevPvt->signalNum = i;
-				pi->sigList[i].numUsers += 1;
+				/*+ add record to sigEntry->userList +*/
+				addSignalUser(&(pi->sigList[i].userList), pso);
 				if (devAsynSoftGlueDebug) printf("checkSignal: Attaching to existing signal %d\n", pdevPvt->signalNum);
 				epicsMutexUnlock(pi->sig_mutex);
 				return(0);
@@ -344,9 +382,10 @@ static long checkSignal(stringoutRecord *pso) {
 		}
 		/* Assign busline to name */
 		for (i=1; i<MAXSIGNALS; i++) {
-			if (pi->sigList[i].numUsers == 0) {
+			if (ellCount(&(pi->sigList[i].userList)) == 0) {
 				pdevPvt->signalNum = i;
-				pi->sigList[i].numUsers = 1;
+				/*+ add record to sigEntry->userList +*/
+				addSignalUser(&(pi->sigList[i].userList), pso);
 				strcpy(pi->sigList[i].name, signalName);
 				if (devAsynSoftGlueDebug) printf("checkSignal: Assigning name '%s' to signal %d\n", signalName, pdevPvt->signalNum);
 				/* We should tell user how many signals are still available for use. */
@@ -377,7 +416,7 @@ static long report(int level) {
 		if ((level > 1) && (strlen(portInfo[i].portName)>0)) {
 			for (j=0; j<MAXSIGNALS; j++) {
 				printf("signal %d name '%s'; %d users\n", j,
-					portInfo[i].sigList[j].name, portInfo[i].sigList[j].numUsers);
+					portInfo[i].sigList[j].name, ellCount(&(portInfo[i].sigList[j].userList)));
 			}
 		}
 	}
@@ -632,7 +671,7 @@ static long initSoWrite(stringoutRecord *pso)
 				i, portInfo[i].portName);
 			if (strstr(s, portInfo[i].portName) != NULL) {
 				/* We should tell user how many signals are still available for use. */
-				if (portInfo[i].sigList[j].numUsers >= 1) {
+				if (ellCount(&(portInfo[i].sigList[j].userList)) >= 1) {
 				}
 				return 0;
 			}
@@ -659,11 +698,7 @@ static void callbackSoWrite(asynUser *pasynUser)
 	asynStatus		status;
 	epicsUInt32		value=0;
 	double			nvalue;
-#if IMPLEMENT_SIGNAL_NAME_STAR
 	epicsUInt32		mask=0x6f;
-#else
-	epicsUInt32		mask=0x2f;
-#endif
 
 	/* See if string value begins with a number or something else */
 	if (isdigit((int)pso->val[0])) {
@@ -689,23 +724,12 @@ static void callbackSoWrite(asynUser *pasynUser)
 		/* It's not a number.  Use assigned signalNum. */
 		value = pdevPvt->signalNum;
 
-#if IMPLEMENT_SIGNAL_NAME_STAR
 		/* If signal name end with '*', set bit in control register that tells
-		 * the FPGA component to negate the signal.  We're just thinking about adding
-		 * this feature.
+		 * the FPGA component to negate the signal.
 		 */
 		if (pso->val[strlen(pso->val)-1] == '*') {
 			value |= 0x40;
 		}
-#endif
-
-#if ACCEPT_BUS_LINE_NUMBER
-		/* If 'B0*' or 'B1*', use number directly as signal number. */
-		if ((pso->val[0] == 'B') && ((pso->val[0] == '0')||(pso->val[0] == '1'))) {
-			/* e.g., the string "B13" produces the integer 13 */
-			value = atoi(&pso->val[1]);
-		}
-#endif
 	}
 	if (devAsynSoftGlueDebug) printf("devAsynSoftGlue:callbackSoWrite: writing 0x%x 0x%x\n", value, mask);
 
