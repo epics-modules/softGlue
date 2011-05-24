@@ -26,4 +26,13 @@ record(event,"$(P)$(H)ReadRate") {
 	field(SCAN,".2 second")
 	field(UDF,"0")
 }
-
+record(longout,"$(P)$(H)numSignalsInUse") {
+	field(DTYP,"softGlueSigNum")
+	field(OUT,"@COUNT $(PORT)")
+	field(FLNK,"$(P)$(H)availableSignals")
+}
+record(calcout,"$(P)$(H)availableSignals") {
+	field(PINI,"YES")
+	field(INPA,"$(P)$(H)numSignalsInUse.VAL")
+	field(CALC,"15-a")
+}
