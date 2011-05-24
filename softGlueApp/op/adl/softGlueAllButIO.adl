@@ -459,3 +459,68 @@ composite {
 		}
 	}
 }
+composite {
+	object {
+		x=517
+		y=739
+		width=350
+		height=20
+	}
+	"composite name"=""
+	children {
+		"text update" {
+			object {
+				x=837
+				y=739
+				width=30
+				height=20
+			}
+			monitor {
+				chan="$(P)$(H)availableSignals"
+				clr=54
+				bclr=2
+			}
+			limits {
+			}
+		}
+		text {
+			object {
+				x=517
+				y=739
+				width=160
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="#Signals In Use:"
+		}
+		text {
+			object {
+				x=727
+				y=739
+				width=110
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="#Remaining:"
+		}
+		"text update" {
+			object {
+				x=677
+				y=739
+				width=30
+				height=20
+			}
+			monitor {
+				chan="$(P)$(H)numSignalsInUse"
+				clr=54
+				bclr=2
+			}
+			limits {
+			}
+		}
+	}
+}
