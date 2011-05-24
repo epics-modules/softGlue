@@ -12,7 +12,7 @@
 </HEAD>
 <BODY LANG="en-US" BGCOLOR="#ffffff" DIR="LTR">
 
-<h1><center>The synApps softGlue module (v2.x)</center></h1>
+<h1><center>The synApps softGlue module (v2.2)</center></h1>
 <hr>
 <h2><center>Overview</center></h2>
 
@@ -362,6 +362,166 @@ development of support for add-on packages.
 			<pre>make rebuild</pre>
 
 		</ul>
+
+	<h3>Configuring softGlue (editing softGlue.cmd)</h3>
+
+<h4>User Callable Functions:</h4>
+<ul>
+<li>
+<pre>
+initIP_EP200_FPGA(ushort carrier, ushort slot, char *filename)
+   carrier:  IP-carrier number (numbering begins at 0)
+   slot:     IP-slot number (numbering begins at 0)
+   filename: Name of the FPGA-content hex file to load into the FPGA.
+
+Example:
+   initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2.hex")
+
+Write content to the FPGA.  This command will fail if the FPGA already
+has content loaded, as it will after a soft reboot.  To load new FPGA
+content, you must power cycle the ioc.
+</pre>
+
+<li>
+<pre>
+int initIP_EP200(ushort carrier, ushort slot, char *portName1,
+    char *portName2, char *portName3, int sopcBase)
+    carrier:   IP-carrier number (numbering begins at 0)
+    slot:      IP-slot number (numbering begins at 0)
+    portName1: Name of asyn port for component at sopcBase
+    portName2: Name of asyn port for component at sopcBase+0x10
+    portName3: Name of asyn port for component at sopcBase+0x20
+    sopcBase:  must agree with FPGA content (0x800000)
+
+Example:
+    initIP_EP200(0, 2, "SGIO_1", "SGIO_2", "SGIO_3", 0x800000)
+
+Initialize basic field I/O 
+</pre>
+
+<li>
+<pre>
+int initIP_EP200_Int(ushort carrier, ushort slot, int intVectorBase,
+        int risingMaskMS, int risingMaskLS, int fallingMaskMS,
+        int fallingMaskLS)
+    carrier:       IP-carrier number (numbering begins at 0)
+    slot:          IP-slot number (numbering begins at 0)
+    intVectorBase: must agree with the FPGA content loaded (0x90 for softGlue
+                   2.1 and higher; 0x80 for softGlue 2.0 and lower).  softGlue
+                   uses three vectors, for example, 0x90, 0x91, 0x92.
+    risingMaskMS:  interrupt on 0->1 for I/O pins 33-48
+    risingMaskLS:  interrupt on 0->1 for I/O pins 1-32
+    fallingMaskMS: interrupt on 1->0 for I/O pins 33-48
+    fallingMaskLS: interrupt on 1->0 for I/O pins 1-32
+
+Example:
+    initIP_EP200_Int(0, 2, 0x90, 0x0, 0x0, 0x0, 0x0)
+
+Initialize field-I/O interrupt support
+</pre>
+
+<li>
+<pre>
+int initIP_EP200_IO(ushort carrier, ushort slot, ushort moduleType,
+        ushort dataDir)
+    carrier:    IP-carrier number (numbering begins at 0)
+    slot:       IP-slot number (numbering begins at 0)
+    moduleType: one of [201, 202, 203, 204]
+    dataDir:    Bit mask, in which only the first 9 bits are significant.  The
+                meaning of each bit depends on moduleType, as shown in the
+                table below.  If a bit is set, the corresponding field I/O pins
+                are outputs.  Note that for the 202 and 204 modules, all I/O
+                is differential, and I/O pin N is paired with pin N+1.  For the
+                203 module, pins 25/26 through 47/48 are differential pairs.
+</pre>
+Correspondence between dataDir bits (0-8) and I/O pins (1-48)
+<table border=true>
+<tr><th>dataDir bit<th>201<th>202 or 204<th>203
+<tr><td>bit 0 <td>pins 1-8<td>pins 1, 3,25,27<td>pins 25,27
+<tr><td>bit 1 <td>pins 9-16<td>pins 5, 7,29,31<td>pins 29,31
+<tr><td>bit 2 <td>pins 17-24<td>pins 9,11,33,35<td>pins 33,35
+<tr><td>bit 3 <td>pins 25-32<td>pins 13,15,37,39<td>pins 37,39
+<tr><td><td><td><td>
+<tr><td>bit 4 <td>pins 33-40<td>pins 17,19,41,43<td>pins 41,43
+<tr><td>bit 5 <td>pins 41-48<td>pins 21,23,45,47<td>pins 45,47
+<tr><td>bit 6 <td>x<td>x<td>pins 1-8
+<tr><td>bit 7 <td>x<td>x<td>pins 9-16
+<tr><td><td><td><td>
+<tr><td>bit 8 <td>x<td>x<td>pins 17-24
+</table>
+
+<pre>
+    Examples:
+    1. For the IP-EP201, moduleType is 201, and dataDir == 0x3c would mean
+       that I/O bits 17-48 are outputs.
+    2. For the IP-EP202 or IP-EP204, moduleType is 202 or 204, and dataDir == 0x13
+       would mean that I/O bits 1,3,25,27, 5,7,29,31, 17,19,41,43 are outputs.
+    3. For the IP-EP203, moduleType is 203, and dataDir == 0x??? would mean
+       that I/O bits 1-8, 25,27, 29,31, 33,35, 45,47 are outputs.
+
+Example:
+    initIP_EP200_IO(0, 2, 201, 0x3c)
+
+Set field-I/O data direction
+</pre>
+
+<li>
+<pre>
+int initIP_EP201(char *portName, ushort carrier, ushort slot,
+        int msecPoll, int dataDir, int sopcOffset, int interruptVector,
+        int risingMask, int fallingMask)
+    portName: Name of asyn port for component at sopcOffset
+    carrier:         IP-carrier number (numbering begins at 0)
+    slot:            IP-slot number (numbering begins at 0)
+    msecPoll:        Time interval between driver polls of field I/O bits
+    dataDir:         Data direction for I/O bits, explained below.
+    sopcOffset:      SOPC offset (must be as in example below).
+    interruptVector: Must agree with the FPGA content loaded (0x90, 0x91,
+                     0x92 for softGlue 2.1 and higher; 0x80, 0x81, 0x82 for
+                     softGlue 2.0 and lower).
+    risingMask:      16-bit mask: if a bit is 1, the corresponding I/O bit will
+                     generate an interrupt when its value goes from 0 to 1.
+                     Bit 0 corresponds to field I/O pin 1, bit 1 to pin 2, etc.
+    fallingMask:     Similar to risingMask, but for 1-to-0 transitions.
+    
+                     Note that the user can overwrite risingMask and
+                     fallingMask at run time, with menu selections, and
+                     probably has those selections autosaved.
+
+    dataDir is a bit mask in which only bits 0 and 8 are significant.
+         for sopcOffset 0x800000
+             If bit 0 of dataDir is set, I/O bits 1-8 are outputs.
+             If bit 8 of dataDir is set, I/O bits 9-16 are outputs.
+         for sopcOffset 0x800010
+             If bit 0 of dataDir is set, I/O bits 17-24 are outputs.
+             If bit 8 of dataDir is set, I/O bits 25-32 are outputs.
+         for sopcOffset 0x800020
+             If bit 0 of dataDir is set, I/O bits 33-40 are outputs.
+             If bit 8 of dataDir is set, I/O bits 41-48 are outputs.
+
+Example:
+    initIP_EP201("SGIO_1",0,2,1000000,0x101,0x800000,0x90,0x00,0x00)
+    initIP_EP201("SGIO_2",0,2,1000000,0x101,0x800010,0x91,0x00,0x00)
+    initIP_EP201("SGIO_3",0,2,1000000,0x101,0x800020,0x92,0x00,0x00)
+
+For backward compatibility with softGlue 2.1 and earlier, the following
+command can be used to initialize an IP_EP201 module, instead of the
+above calls to initIP_EP200(), initIP_EP200_Int(), and initIP_EP200_IO().
+This won't work for any other IP_EP200 module.
+</pre>
+
+<li>
+<pre>
+initIP_EP201SingleRegisterPort(char *portName, ushort carrier, ushort slot)
+
+initIP_EP201SingleRegisterPort("SOFTGLUE", 0, 2)
+
+Initialize softGlue signal-name support.
+All instances of a single-register component are initialized with a single
+call, as follows:
+</pre>
+
+</ul>
 
 <hr>
 <h2><center>User's Manual</center></h2>
@@ -863,11 +1023,11 @@ CA put will succeed in clearing it and causing its processing to appear done to 
 time.
 
 <P><dl>
-<dt>SoftGlue_2_1.hex
+<dt>SoftGlue_2_2.hex
 <dd>This file contains all standard softGlue components.
 
-<dt>SoftGlue_2_1_0_Octupole_0_0.hex
-<dd>This file contains everything in SoftGlue_2_1.hex, plus two 32-bit shift registers.
+<dt>SoftGlue_2_2_0_Octupole_0_0.hex
+<dd>This file contains everything in SoftGlue_2_2.hex, plus two 32-bit shift registers.
 </dl>
 
 	<h3>Database files</h3>
@@ -981,8 +1141,8 @@ and take the same macro definitions.<P>
 
 <dt>softGlue_settings.req
 
-<dd>This autosave-request file <i>includes</i> all of the files above, with
-<code>softGlue_FPGAContent_octupole_settings.req</code> commented out.  Normally this is the only
+<dd>This autosave-request file <i>includes</i> all of the files above, except
+<code>softGlue_FPGAContent_octupole_settings.req</code>.  Normally this is the only
 request file an IOC needs.<P>
 
 </dl>
@@ -1238,7 +1398,7 @@ This SOPC component supports 16 bits of field I/O
 <table border>
 <tr><th>Address Offset<th>Function<th>Description<th>Read/Write
 <tr><td>0<td>Control/Status<td>Field-I/O direction, IRQ status<td>Read/Write
-<tr><td>1<td>Field I/O Write Data<td>Write Field I/O ONLY when dir = 1<td>Read/Write
+<tr><td>1<td>Field I/O Write Data OR Diff/Dir register<td>Write Field I/O or differential/direction register, depending on the FPGA content and how "DIFF_DIR" is defined in drvIP_EP201.c<td>Read/Write
 <tr><td>2<td>Field I/O Read Data<td>Read Field I/O ONLY when dir = 0<td>Read
 <tr><td>3<td>Rising IRQ Status Bits<td>Which Bits are causing interrupt from field I/O on transition to 1<td>Read/Write*
 <tr><td>4<td>Rising IRQ Interrupt-Enable Bits<td>Which Rising edge bits have IRQ Enabled<td>Read/Write
@@ -1251,7 +1411,7 @@ a rising-edge interrupt from bit 0, the interrupt-service routine writes 0x01 to
 <h5> Control/Status-register bits </h5>
 <table border>
 <tr><th>Bit<th>Function<th>Value<th>Description
-<tr><td>0<td>Field I/O Direction Lower 8-Bits<td>0=Input, 1=Output<td>Sets I/O direction for the lower 8 field-I/O bits
+<tr><td>0<td>Field I/O Direction Lower 8-Bits<td>0=Input, 1=Output<td>Sets I/O direction for the lower 8 field-I/O bits (single-ended signals only)
 <tr><td>1<td>&nbsp<td>0<td>&nbsp
 <tr><td>2<td>&nbsp<td>0<td>&nbsp
 <tr><td>3<td>&nbsp<td>0<td>&nbsp
@@ -1259,7 +1419,7 @@ a rising-edge interrupt from bit 0, the interrupt-service routine writes 0x01 to
 <tr><td>5<td>Falling Edge IRQ Present<td>1=Present<td>Falling Edge interrupt from bits 0-7 sets bit to 1
 <tr><td>6<td>Rising Edge IRQ Present<td>1=Present<td>Rising Edge interrupt from bits 0-7 sets bit to 1
 <tr><td>7<td>Lower 8-bits IRQ Present<td>1=Present<td>Interrupt from bits 0-7 sets bit to 1
-<tr><td>8<td>Field I/O Direction Upper 8-Bits<td>0=Input, 1=Output<td>Sets I/O direction for the upper 8 field-I/O bits
+<tr><td>8<td>Field I/O Direction Upper 8-Bits<td>0=Input, 1=Output<td>Sets I/O direction for the upper 8 field-I/O bits (single-ended signals only)
 <tr><td>9<td>&nbsp<td>0<td>&nbsp
 <tr><td>10<td>&nbsp<td>0<td>&nbsp
 <tr><td>11<td>&nbsp<td>0<td>&nbsp
@@ -1268,6 +1428,55 @@ a rising-edge interrupt from bit 0, the interrupt-service routine writes 0x01 to
 <tr><td>14<td>Rising Edge IRQ Present  Upper 8-Bits<td>1=Present<td>Rising Edge interrupt from bits 8-15 sets bit to 1
 <tr><td>15<td>Upper 8-bits IRQ Present<td>1=Present<td>Interrupt from bits 8-15 sets bit to 1
 </table>
+
+<h5> Diff/Dir-register bits </h5>
+<table border>
+<tr><th>Bit<th>Function<th>Value<th>Description
+<tr><td>0<td>Field I/O Direction Bit 0<td>0=Input, 1=Output<td>Sets I/O direction for differential signals only
+<tr><td>1<td>Field I/O Direction Bit 1<td>0=Input, 1=Output<td>Sets I/O direction for differential signals only
+<tr><td>2<td>Field I/O Direction Bit 2<td>0=Input, 1=Output<td>Sets I/O direction for differential signals only
+<tr><td>3<td>Field I/O Direction Bit 3<td>0=Input, 1=Output<td>Sets I/O direction for differential signals only
+<tr><td>4<td>Field I/O Direction Bit 4<td>0=Input, 1=Output<td>Sets I/O direction for differential signals only
+<tr><td>5<td>Field I/O Direction Bit 5<td>0=Input, 1=Output<td>Sets I/O direction for differential signals only
+<tr><td>6<td>Differential<td>1=lower eight bits represent four differential signals<td>See Diff/Dir note below
+<tr><td>7<td>Differential<td>1=upper eight bits represent four differential signals<td>See Diff/Dir note below
+<tr><td>8<td>&nbsp<td>0<td>&nbsp
+<tr><td>9<td>&nbsp<td>0<td>&nbsp
+<tr><td>10<td>&nbsp<td>0<td>&nbsp
+<tr><td>11<td>&nbsp<td>0<td>&nbsp
+<tr><td>12<td>&nbsp<td>0<td>&nbsp
+<tr><td>13<td>&nbsp<td>0<td>&nbsp
+<tr><td>14<td>&nbsp<td>0<td>&nbsp
+<tr><td>15<td>&nbsp<td>0<td>&nbsp
+</table>
+
+	<h4>Diff/Dir note</h4>
+
+Field-I/O data direction for IP_EP200-series modules is awkward and unfortunate, and is different for the different module
+types.  The module types differ in which I/O bits are single ended and which are differential.  Bit numbering can be a little
+confusing in this context, because two single ended signals from one module type use the same pins as a single differential
+signal from another module type.  In this documentation, I'll just talk about field I/O connector pins, which are numbered
+1-48, and which are the same for all module types.
+
+<P><dl>
+<dt>IP_EP201<dd>pins 1-48 are single ended.
+<dt>IP_EP202 & IP_EP204<dd>pins 1-48 are differential.  The software acts like it's driving only odd
+numbered pins, because the even numbered pins are their differential pairs.
+<dt>IP_EP203<dd>pins 1-24 are single ended, pins 25-48 are differential.  For differential pins, the
+software acts like it's driving only odd numbered pins, because the even numbered pins are their
+differential pairs.
+</dl>
+
+<P>For single ended pins, data direction is controlled by the Control/Status register of a "Field I/O register set" component. 
+Each component controls 16 I/O pins.  Bit 0 of Control/Status controls the direction of the lower eight I/O pins, bit 8
+controls the direction of the upper eight pins.
+
+<P>For differential pins, data direction is controlled by bits 0-5 of the Diff/Dir register of the first (lowest SOPC address)
+"Field I/O register set" component.
+
+<P>FPGA content must be told which pins are single ended and which are differential.  Bits 6-7 of the Diff/Dir register of a
+"Field I/O register set" component are used for this purpose.  If bit 6 is 1, the lower eight I/O pins are differential.  If
+bit 7 is 1, the upper eight I/O pins are differential.  
 
 	<h3>Miscellaneous notes</h3>
 
