@@ -149,15 +149,27 @@ volatile int drvIP_EP201Debug = 0;
 #define POLL_TIME				2	/* drvParam POLLTIME */
 #define INTERRUPT_EDGE_RESET	3	/* drvParam INT_EDGE_RESET */
 
+/* DIFF_DIR: Use second register of fieldIO_registerSet to mark I/O as single-ended
+ * or differential, and to hold I/O direction data for differential bits.
+ * If DIFF_DIR, reg[0..5] are direction bits and reg[6..7] mark differential bits.
+ * If DIFF_DIR==0, then it's ok to use reg to directly write to field I/O.
+ */
+#define DIFF_DIR 1
+
 typedef struct {
     epicsUInt16 controlRegister;    /* control register            */
+#if DIFF_DIR
+    epicsUInt16 diffDirRegister;    /* differential, I/O dir       */
+#else
     epicsUInt16 writeDataRegister;  /* 16-bit data write/read      */
+#endif
     epicsUInt16 readDataRegister;   /* Input Data Read register    */
     epicsUInt16 risingIntStatus;    /* Rising Int Status Register  */
     epicsUInt16 risingIntEnable;    /* Rising Int Enable Reg       */
     epicsUInt16 fallingIntStatus;   /* Falling Int Status Register */
     epicsUInt16 fallingIntEnable;   /* Falling Int Enable Register */
 } fieldIO_registerSet;
+
 
 typedef struct {
     epicsUInt16 bits;
@@ -339,7 +351,9 @@ int initIP_EP200_IO(ushort_t carrier, ushort_t slot, ushort_t moduleType, ushort
 		if (pPvt && (pPvt->carrier == carrier) && (pPvt->slot == slot)) {
 			switch (moduleType) {
 			case 201:
-				pPvt->regs->writeDataRegister = 0;
+#if DIFF_DIR
+				pPvt->regs->diffDirRegister = 0;
+#endif
 				if (j==0) {
 					if (dataDir & 0x1) pPvt->regs->controlRegister |= 1;
 					if (dataDir & 0x2) pPvt->regs->controlRegister |= 0x100;
@@ -352,21 +366,29 @@ int initIP_EP200_IO(ushort_t carrier, ushort_t slot, ushort_t moduleType, ushort
 				}
 				break;
 			case 202: case 204:
-				pPvt->regs->writeDataRegister = 0xc0;
+#if DIFF_DIR
+				pPvt->regs->diffDirRegister = 0xc0;
+#endif
 				if (j==0) pPvt->regs->controlRegister = dataDir;
 				break;
 			case 203:
 				if (j==0) {
-					pPvt->regs->writeDataRegister = dataDir;
+#if DIFF_DIR
+					pPvt->regs->diffDirRegister = dataDir;
+#endif
 					if (dataDir & 0x40) pPvt->regs->controlRegister |= 1;
 					if (dataDir & 0x80) pPvt->regs->controlRegister |= 0x100;
 				}
 				if (j==1) {
-					pPvt->regs->writeDataRegister |= 0x80;
+#if DIFF_DIR
+					pPvt->regs->diffDirRegister |= 0x80;
+#endif
 					if (dataDir & 0x100) pPvt->regs->controlRegister |= 1;
 				}
 				if (j==2) {
-					pPvt->regs->writeDataRegister |= 0xc0;
+#if DIFF_DIR
+					pPvt->regs->diffDirRegister |= 0xc0;
+#endif
 				}
 				break;
 			}
@@ -607,8 +629,12 @@ int initIP_EP201(const char *portName, ushort_t carrier, ushort_t slot,
 	}
 
 	/* Set up the control register */
-	pPvt->regs->controlRegister = dataDir;	/* Set Data Direction Reg IP_EP201 */  
-	pPvt->regs->writeDataRegister = 0;		/* Set Data Differential Reg IP_EP201 */  
+	pPvt->regs->controlRegister = dataDir;	/* Set Data Direction Reg IP_EP201 */ 
+#if DIFF_DIR
+	pPvt->regs->diffDirRegister = 0;		/* Set Data Differential Reg */  
+#else
+	pPvt->regs->writeDataRegister = 0;		/* Clear direct-write to field I/O */  
+#endif
 	pPvt->risingMask = risingMask;
 	pPvt->fallingMask = fallingMask;
 	
@@ -976,7 +1002,7 @@ STATIC asynStatus readUInt32D(void *drvPvt, asynUser *pasynUser,
 /*
  * writeUInt32D
  * This method provides bit level write access to the writeDataRegister of a
- * fieldIO_registerSet component, or to the sopc address of a single register
+ * fieldIO_registerSet component, and to the sopc address of a single register
  * component.  Bits of 'value' that correspond to zero bits of 'mask' will
  * be ignored -- corresponding bits of the destination register will be left
  * as they were before the write operation.  
@@ -995,9 +1021,11 @@ STATIC asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 va
 	}
 	if (pPvt->is_fieldIO_registerSet) {
 		if (pasynUser->reason == 0) {
+#if DIFF_DIR==0
 			/* write data */
 			if (drvIP_EP201Debug) printf("drvIP_EP201:writeUInt32D: fieldIO reg address=%p\n", &(pPvt->regs->writeDataRegister));
-			pPvt->regs->writeDataRegister = (pPvt->regs->writeDataRegister & ~mask) | (value & mask);	
+			pPvt->regs->writeDataRegister = (pPvt->regs->writeDataRegister & ~mask) | (value & mask);
+#endif
 		} else if (pasynUser->reason == INTERRUPT_EDGE) {
 			/* set interrupt-enable edge bits */
 			/* move value from shifted position to unshifted position */
@@ -1081,7 +1109,7 @@ STATIC asynStatus readInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 *value
 
 /* writeInt32
  * This method writes to the writeDataRegister of a fieldIO_registerSet
- * component, or to the sopc address of a single register component.  
+ * component, and to the sopc address of a single register component.  
  * Note that fieldIO_registerSet components have a control register that
  * may determine what use will be made of the data we write.
  */
@@ -1095,8 +1123,10 @@ STATIC asynStatus writeInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 value
 	}
 	if (pasynUser->reason == 0) {
 		if (pPvt->is_fieldIO_registerSet) {
+#if DIFF_DIR==0
 			if (drvIP_EP201Debug) printf("drvIP_EP201:writeInt32: fieldIO reg address=%p\n", &(pPvt->regs->writeDataRegister));
-			pPvt->regs->writeDataRegister = (epicsUInt16) value;	
+			pPvt->regs->writeDataRegister = (epicsUInt16) value;
+#endif
 		} else {
 			reg = calcRegisterAddress(drvPvt, pasynUser);
 			if (drvIP_EP201Debug) printf("drvIP_EP201:writeInt32: softGlue reg address=%p\n", reg);
