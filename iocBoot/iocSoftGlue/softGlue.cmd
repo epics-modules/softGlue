@@ -85,7 +85,7 @@ initIP_EP200_Int(0, 2, 0x90, 0x0, 0x0, 0x0, 0x0)
 #    Examples:
 #    1. For the IP-EP201, moduleType is 201, and dataDir == 0x3c would mean
 #       that I/O bits 17-48 are outputs.
-#    2. For the IP-EP202 or IP-EP204, moduleType is 202 or 204, and dataDir == 0x13
+#    2. For the IP-EP202 (IP-EP204), moduleType is 202(204), and dataDir == 0x13
 #       would mean that I/O bits 1,3,25,27, 5,7,29,31, 17,19,41,43 are outputs.
 #    3. For the IP-EP203, moduleType is 203, and dataDir == 0x??? would mean
 #       that I/O bits 1-8, 25,27, 29,31, 33,35, 45,47 are outputs.
@@ -127,9 +127,9 @@ initIP_EP200_IO(0, 2, 201, 0x3c)
 #         for sopcOffset 0x800020
 #             If bit 0 of dataDir is set, I/O bits 33-40 are outputs.
 #             If bit 8 of dataDir is set, I/O bits 41-48 are outputs.
-#initIP_EP201("SGIO_1",0,2,1000000,0x101,0x800000,0x90,0x00,0x00)
-#initIP_EP201("SGIO_2",0,2,1000000,0x101,0x800010,0x91,0x00,0x00)
-#initIP_EP201("SGIO_3",0,2,1000000,0x101,0x800020,0x92,0x00,0x00)
+#!initIP_EP201("SGIO_1",0,2,1000000,0x101,0x800000,0x90,0x00,0x00)
+#!initIP_EP201("SGIO_2",0,2,1000000,0x101,0x800010,0x91,0x00,0x00)
+#!initIP_EP201("SGIO_3",0,2,1000000,0x101,0x800020,0x92,0x00,0x00)
 
 ################################################################################
 #    Initialize softGlue signal-name support
@@ -155,12 +155,12 @@ dbLoadRecords("$(SOFTGLUE)/db/softGlue_SignalShow.db","P=xxx:,H=softGlue:,PORT=S
 
 #    Load a set of database fragments for each single-register component.
 dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent.db", "P=xxx:,H=softGlue:,PORT=SOFTGLUE,READEVENT=10")
-dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_octupole.db", "P=xxx:,H=softGlue:,PORT=SOFTGLUE,READEVENT=10")
+#!dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_octupole.db", "P=xxx:,H=softGlue:,PORT=SOFTGLUE,READEVENT=10")
 
 #    Interrupt support.
 #    ('putenv' is used to fit the command into the vxWorks command line space.)
 putenv "SDB=$(SOFTGLUE)/db/softGlue_FPGAInt.db"
-dbLoadRecords("$(SDB)","P=xxx:,H=softGlue:,PORT1=SGIO_1,ADDR1=0x800000,PORT2=SGIO_2,ADDR2=0x800010,PORT3=SGIO_3,ADDR3=0x800020")
+dbLoadRecords("$(SDB)","P=xxx:,H=softGlue:,PORT1=SGIO_1,PORT2=SGIO_2,PORT3=SGIO_3,FIFO=10")
 
 #    Some stuff just for convenience: software clock and pulse generators, and
 #    a couple of busy records.
