@@ -859,8 +859,16 @@ static long initShowDevSup(int after) {
 							printf("initShowDevSup: bo '%s', so '%s'\n", pbo->name, pso->name);
 						pdevPvt = (devPvt *)pso->dpvt;
 						if (strncmp(pbo->out.value.instio.string, "MATCH", 5)==0) {
+							/*
+							 * Tell the stringout record to light us up when its signal name
+							 * is selected for display (when its "=" button is pressed).
+							 */
 							pdevPvt->pmatchRecord = pbo;
-						} else {
+						} else if (strncmp(pbo->out.value.instio.string, "SHOW", 4)==0) {
+							/*
+							 * Save a pointer to the stringout record for which this record
+							 * is the "=" button.
+							 */
 							pBoDevPvt = (struct boDevPvt*)calloc(1, sizeof(struct boDevPvt));
 							pbo->dpvt = pBoDevPvt;
 							pBoDevPvt->pso = pso;
@@ -883,7 +891,8 @@ static long initShowDevSup(int after) {
  * Read the name of the signal record with which this record is associated
  * from the instio string.  Get a pointer to that record.  Postpone further
  * initialization until after all signal records have been initialized, by
- * putting pointers to both records on a work list.
+ * putting pointers to both records on a work list.  initShowDevSup() will
+ * process the list after all records have been initialized.
  */
 static long initBo(boRecord *pbo) {
 	char	*c;
@@ -895,11 +904,16 @@ static long initBo(boRecord *pbo) {
 	if (pbo->out.type==INST_IO) {
 		c = pbo->out.value.instio.string;
 		if (devAsynSoftGlueDebug > 1) printf("initBo: instio string = '%s'\n", c);
-		/* parse string of the form "@TYPE RECORDNAME" for recordname */
-		while (*c && isspace((int)*c)) c++; /* skip any leading whitespace */
-		while (*c && !isspace((int)*c)) c++; /* skip non whitespace */
+		/*
+		 * Parse string of the form "<purpose> <name of stringout record>" for <name of stringout record>
+		 * Examples:
+		 *    "MATCH xxx:softGlue:AND-1_IN1_Signal"
+		 *    "SHOW xxx:softGlue:AND-1_IN1_Signal"
+		 */
+		while (*c && isspace((int)*c)) c++; /* skip any leading whitespace before "<purpose>" */
+		while (*c && !isspace((int)*c)) c++; /* skip <purpose>, which may not contain whitespace. */
 		while (*c && isspace((int)*c)) c++; /* skip any extra leading whitespace */
-		/* c now points to beginning of record name */
+		/* c now points to beginning of <name of stringout record> */
 		if (devAsynSoftGlueDebug > 1) printf("initBo: signal record '%s'\n", c);
 
 		/* add to list of records */
