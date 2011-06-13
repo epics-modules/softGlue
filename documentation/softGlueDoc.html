@@ -740,18 +740,17 @@ clock returns <code>Q</code> to <code>0</code> (regardless of the states of <cod
 <P><code>EN==1</code> enables the clock (">") input.  Every <code>N</code>'th rising edge of the
 clock drives <code>Q</code> to <code>1</code>.  The next rising edge returns <code>Q</code> to
 <code>0</code>.  In softGlue version 2.1 and earlier, the <code>RESET</code> signal doesn't do
-anything.
+anything.  In softGlue 2.2, the <code>RESET</code> signal loads the counter with <code>N</code>,
+so that <code>Q</code> will be driven to <code>1</code> after <code>N</code> rising edges of the
+clock.
 
 <P>The Divide-by-N circuit has an error condition that can make it appear not be functioning at all.
 The circuit is essentially a down counter which is preset to N, counts down to zero, and is
 again preset to N, repeatedly.  If the counter goes through zero without resetting itself,
 it will have to count through the entire range of a 32-bit number to get back into the
 useful range (N,0), which can take a very long time.  The circuit will get into this state if
-a clock is applied while N is set to 0, for example.
-
-<P>Until a reset is implemented, the best solution is to apply a very high frequency clock
-to the clock input, and set N to some nonzero value.  (You can make a clock with a frequency of
-around 70 MHz by applying the inverted value of an AND gate to one input of that AND gate.)
+a clock is applied while N is set to 0, for example.  If this happens, writing a positive-going pulse
+to <code>RESET</code> will fix the problem.
 
 <P>
 
