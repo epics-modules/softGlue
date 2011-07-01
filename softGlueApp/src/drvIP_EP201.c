@@ -361,7 +361,7 @@ int initIP_EP200_IO(ushort_t carrier, ushort_t slot, ushort_t moduleType, ushort
 		printf("initIP_EP200_IO: unrecognized moduleType %d\n", moduleType);
 		return(-1);
 	}
-	if (drvIP_EP201Debug) printf("initIP_EP200_IO: dataDir = 0x%x\n", dataDir);
+	if (drvIP_EP201Debug > 2) printf("initIP_EP200_IO: dataDir = 0x%x\n", dataDir);
 	/*
 	 * Go through driverTable for all drvIP_EP201Pvt pointers assoc with this carrier/slot,
 	 * and initialize the control registers of all three field I/O register set components.
@@ -971,14 +971,14 @@ STATIC asynStatus readUInt32D(void *drvPvt, asynUser *pasynUser,
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	volatile epicsUInt16 *reg;
 
-	if (drvIP_EP201Debug) {
+	if (drvIP_EP201Debug >= 5) {
 		printf("drvIP_EP201:readUInt32D: pasynUser->reason=%d\n", pasynUser->reason);
 	}
 	*value = 0;
 	if (pPvt->is_fieldIO_registerSet) {
 		if (pasynUser->reason == 0) {
 			/* read data */
-			if (drvIP_EP201Debug) printf("drvIP_EP201:readUInt32D: fieldIO reg address=%p\n", &(pPvt->regs->readDataRegister));
+			if (drvIP_EP201Debug >= 5) printf("drvIP_EP201:readUInt32D: fieldIO reg address=%p\n", &(pPvt->regs->readDataRegister));
 			*value = (epicsUInt32) (pPvt->regs->readDataRegister & mask);
 		} else if (pasynUser->reason == INTERRUPT_EDGE) {
 			/* read interrupt-enable edge bits.  This is a kludge.  We need to specify one of 16 I/O
@@ -1002,7 +1002,7 @@ STATIC asynStatus readUInt32D(void *drvPvt, asynUser *pasynUser,
 		}
 	} else {
 		reg = calcRegisterAddress(drvPvt, pasynUser);
-		if (drvIP_EP201Debug) printf("drvIP_EP201:readUInt32D: softGlue reg address=%p\n", reg);
+		if (drvIP_EP201Debug >= 5) printf("drvIP_EP201:readUInt32D: softGlue reg address=%p\n", reg);
 		*value = (epicsUInt32) (*reg & mask);
 	}
 	asynPrint(pasynUser, ASYN_TRACEIO_DRIVER,
@@ -1027,13 +1027,13 @@ STATIC asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 va
 	volatile epicsUInt16 *reg=0;
 	epicsUInt32 maskCopy;
 
-	if (drvIP_EP201Debug) {
+	if (drvIP_EP201Debug >= 5) {
 		printf("drvIP_EP201:writeUInt32D: pasynUser->reason=%d\n", pasynUser->reason);
 	}
 	if (pPvt->is_fieldIO_registerSet) {
 		if (pasynUser->reason == 0) {
 			/* write data */
-			if (drvIP_EP201Debug) printf("drvIP_EP201:writeUInt32D: fieldIO reg address=%p\n", &(pPvt->regs->writeDataRegister));
+			if (drvIP_EP201Debug >= 5) printf("drvIP_EP201:writeUInt32D: fieldIO reg address=%p\n", &(pPvt->regs->writeDataRegister));
 			pPvt->regs->writeDataRegister = (pPvt->regs->writeDataRegister & ~mask) | (value & mask);
 		} else if (pasynUser->reason == INTERRUPT_EDGE) {
 			/* set interrupt-enable edge bits in the FPGA */
@@ -1065,7 +1065,7 @@ STATIC asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 va
 		int addr;
 		pasynManager->getAddr(pasynUser, &addr);
 		reg = calcRegisterAddress(drvPvt, pasynUser);
-		if (drvIP_EP201Debug) printf("drvIP_EP201:writeUInt32D: softGlue reg address=%p\n", reg);
+		if (drvIP_EP201Debug >= 5) printf("drvIP_EP201:writeUInt32D: softGlue reg address=%p\n", reg);
 		if (addr & 0x800000) {
 			*reg = (*reg & ~mask) | (epicsUInt16) (value & mask);
 		} else {
@@ -1091,18 +1091,18 @@ STATIC asynStatus readInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 *value
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	volatile epicsUInt16 *reg;
 
-	if (drvIP_EP201Debug) {
+	if (drvIP_EP201Debug >= 5) {
 		printf("drvIP_EP201:readInt32: pasynUser->reason=%d\n", pasynUser->reason);
 	}
 	*value = 0;
 
 	if (pasynUser->reason == 0) {
 		if (pPvt->is_fieldIO_registerSet) {
-			if (drvIP_EP201Debug) printf("drvIP_EP201:readInt32: fieldIO reg address=%p\n", &(pPvt->regs->readDataRegister));
+			if (drvIP_EP201Debug >= 5) printf("drvIP_EP201:readInt32: fieldIO reg address=%p\n", &(pPvt->regs->readDataRegister));
 			*value = (epicsUInt32) pPvt->regs->readDataRegister;
 		} else {
 			reg = calcRegisterAddress(drvPvt, pasynUser);
-			if (drvIP_EP201Debug) printf("drvIP_EP201:readInt32: softGlue reg address=%p\n", reg);
+			if (drvIP_EP201Debug >= 5) printf("drvIP_EP201:readInt32: softGlue reg address=%p\n", reg);
 			*value = (epicsUInt32)(*reg);
 		}
 	} else if (pasynUser->reason == POLL_TIME) {
@@ -1127,16 +1127,16 @@ STATIC asynStatus writeInt32(void *drvPvt, asynUser *pasynUser, epicsInt32 value
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	volatile epicsUInt16 *reg;
 
-	if (drvIP_EP201Debug) {
+	if (drvIP_EP201Debug >= 5) {
 		printf("drvIP_EP201:writeInt32: pasynUser->reason=%d\n", pasynUser->reason);
 	}
 	if (pasynUser->reason == 0) {
 		if (pPvt->is_fieldIO_registerSet) {
-			if (drvIP_EP201Debug) printf("drvIP_EP201:writeInt32: fieldIO reg address=%p\n", &(pPvt->regs->writeDataRegister));
+			if (drvIP_EP201Debug >= 5) printf("drvIP_EP201:writeInt32: fieldIO reg address=%p\n", &(pPvt->regs->writeDataRegister));
 			pPvt->regs->writeDataRegister = (epicsUInt16) value;
 		} else {
 			reg = calcRegisterAddress(drvPvt, pasynUser);
-			if (drvIP_EP201Debug) printf("drvIP_EP201:writeInt32: softGlue reg address=%p\n", reg);
+			if (drvIP_EP201Debug >= 5) printf("drvIP_EP201:writeInt32: softGlue reg address=%p\n", reg);
 			*reg = (epicsUInt16) value;
 		}
 	} else if (pasynUser->reason == POLL_TIME) {
@@ -1246,6 +1246,7 @@ STATIC void pollerThread(drvIP_EP201Pvt *pPvt)
 			readUInt32D(pPvt, pPvt->pasynUser, &newBits32, 0xffff);
 			newBits = newBits32;
 			hardware = 0;
+			interruptMask = 0;
 		} else {
 			newBits = msg.bits;
 			interruptMask = msg.interruptMask;
@@ -1268,13 +1269,13 @@ STATIC void pollerThread(drvIP_EP201Pvt *pPvt)
 		}
 		if (drvIP_EP201Debug)
 			printf("drvIP_EP201:pollerThread: hardware=%d, IntMask=0x%x\n", hardware, interruptMask);
+		pPvt->oldBits = newBits;
 
 		/*
 		 * Process any records that (1) have registered with registerInterruptUser, and (2) that have a mask
 		 * value that includes this bit.
 		 */
 		if (interruptMask) {
-			pPvt->oldBits = newBits;
 			pasynManager->interruptStart(pPvt->interruptPvt, &pclientList);
 			pnode = (interruptNode *)ellFirst(pclientList);
 			while (pnode) {
@@ -1283,6 +1284,9 @@ STATIC void pollerThread(drvIP_EP201Pvt *pPvt)
 					asynPrint(pPvt->pasynUser, ASYN_TRACE_FLOW, "drvIP_EP201:pollerThread, calling client %p"
 						" mask=%x, callback=%p\n", pUInt32D, pUInt32D->mask, pUInt32D->callback);
 					pUInt32D->callback(pUInt32D->userPvt, pUInt32D->pasynUser, pUInt32D->mask & newBits);
+					if (drvIP_EP201Debug) {
+						printf("drvIP_EP201:pollerThread: calling client %p\n", pUInt32D);
+					}
 				}
 				pnode = (interruptNode *)ellNext(&pnode->node);
 			}
