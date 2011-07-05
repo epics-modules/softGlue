@@ -470,3 +470,31 @@ menu {
 		bclr=51
 	}
 }
+text {
+	object {
+		x=10
+		y=0
+		width=50
+		height=10
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="VERSION: "
+}
+"text update" {
+	object {
+		x=60
+		y=0
+		width=30
+		height=10
+	}
+	monitor {
+		chan="$(P)$(H)version"
+		clr=54
+		bclr=2
+	}
+	format="string"
+	limits {
+	}
+}
