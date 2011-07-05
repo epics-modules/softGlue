@@ -74,29 +74,22 @@ bits, and the pinout.</blockquote>
 	<blockquote>To use an earlier version, see "Building softGlue" below.
 	</blockquote>
 
-<li>The EPICS <a href="http://www.aps.anl.gov/bcda/synApps/busy/busy.html">busy</a> module, version
-	1.3 or higher.
-
-	<blockquote>This module is not required for any essential feature of softGlue, but it provides a
-	nice way for softGlue to signal the completion of an EPICS database operation. Any version that
-	agrees with your version of EPICS base should work;  version 1.3 is nice only because it
-	contains an MEDM display for the busy record.  If you don't have a copy of this module, don't
-	load softGlue_convenience.db, and don't include softGlue_convenience_settings.req in your
-	autosave request file. </blockquote>
-
 <li>The EPICS extension, <a href="http://www.aps.anl.gov/epics/extensions/msi/index.php">msi</a>,
     version 1-5 or higher.
 	
 	<blockquote>This tool is needed to build some softGlue databases.</blockquote>
 
-<li>MEDM, or the ability to adapt some other display manager or Channel Access client to implement
-	softGlue's user interface.
+<li>MEDM, or CSS-BOY, or the ability to adapt some other display manager or
+	Channel Access client to implement softGlue's user interface.
 
 </ul>
 </ul>
 
 	<blockquote>SoftGlue versions 2.1 and lower also require the EPICS <a
-	href="http://www.aps.anl.gov/bcda/synApps/calc/calc.html">calc</a> module.
+	href="http://www.aps.anl.gov/bcda/synApps/calc/calc.html">calc</a> module. 
+	Some of the databases, displays, and examples presume the availability of
+	other synApps modules, such as calc, busy, and std, but these are not needed
+	for any essential feature of softGlue.
 
 	</blockquote>
 
@@ -744,14 +737,6 @@ anything.  In softGlue 2.2, the <code>RESET</code> signal loads the counter with
 so that <code>Q</code> will be driven to <code>1</code> after <code>N</code> rising edges of the
 clock.
 
-<P>The Divide-by-N circuit has an error condition that can make it appear not be functioning at all.
-The circuit is essentially a down counter which is preset to N, counts down to zero, and is
-again preset to N, repeatedly.  If the counter goes through zero without resetting itself,
-it will have to count through the entire range of a 32-bit number to get back into the
-useful range (N,0), which can take a very long time.  The circuit will get into this state if
-a clock is applied while N is set to 0, for example.  If this happens, writing a positive-going pulse
-to <code>RESET</code> will fix the problem.
-
 <P>
 
 <hr>
@@ -1028,16 +1013,16 @@ time.
 
 <dt>softGlue_FPGAContent.substitutions
 
-<dd>This substitutions file is run through <code>msi</code> at build time to produce the database file
-<code>softGlue_FPGAContent.db</code>.  The database file loads records matching most of the FPGA
-content that is loaded at cold-boot time from either <code>SoftGlue_2_1.hex</code> or
-<code>SoftGlue_2_1_0_Octupole_0_0.hex</code>.<P>
+<dd>This substitutions file is run through <code>msi</code> at build time to
+produce the database file <code>softGlue_FPGAContent.db</code>.  The database
+file loads records matching most of the FPGA content that is loaded at cold-boot
+time from <code>SoftGlue_2_2.hex</code>.<P>
 
 <dt>softGlue_FPGAContent_octupole.substitutions
 
 <dd>This substitutions file is run through <code>msi</code> at build time to produce the database file
 <code>softGlue_FPGAContent_octupole.db</code>.  The database file loads records for the two 32-bit
-shift registers in <code>SoftGlue_2_1_0_Octupole_0_0.hex</code>.<P>
+shift registers in <code>SoftGlue_2_1_Octupole_0_0.hex</code>.<P>
 
 <dt>softGlue_FPGAInt.substitutions
 
@@ -1300,12 +1285,14 @@ request file an IOC needs.<P>
 
 		<dt>softGlue-supported records
 
-		<dd>These records are part of a database that also includes signal-wiring fields
-		(the <code>softGlue_FPGAContent.db</code> database); they are connected to hardware via
-		softGlue's asyn port (the port initialized by the function
-		<code>initIP_EP201SingleRegisterPort()</code>), and no interrupt support is provided for
-		them.  They are polled at a rate determined by the <code>CONNECTED</code> or
-		<code>UNCONNECTED</code> menus on the <code>softGlueMenu.adl</code> display.
+		<dd>These records are part of a database that also includes
+		signal-wiring fields (the <code>softGlue_FPGAContent.db</code>
+		database); they are connected to hardware via softGlue's asyn port (the
+		port initialized by the function
+		<code>initIP_EP201SingleRegisterPort()</code>), and no interrupt support
+		is provided for them.  They are polled at a rate determined by the
+		<code>READ PERIOD</code> menu on the <code>softGlueMenu.adl</code>
+		display.
 
 		<dt>non-softGlue-supported records
 
