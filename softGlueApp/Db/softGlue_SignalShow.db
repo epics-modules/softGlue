@@ -13,3 +13,6 @@ record(calcout,"$(P)$(H)availableSignals") {
 	field(INPA,"$(P)$(H)numSignalsInUse.VAL")
 	field(CALC,"15-a")
 }
+record(stringout,"$(P)$(H)version") {
+	field(DOL,"2.2")
+}
