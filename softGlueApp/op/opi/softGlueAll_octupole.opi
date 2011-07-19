@@ -10,7 +10,7 @@
   <snap_to_geometry>false</snap_to_geometry>
   <show_grid>false</show_grid>
   <background_color>
-    <color name="MEDM_COLOR_2" />
+    <color name="Gray_2" />
   </background_color>
   <foreground_color>
     <color name="default_fg" />
@@ -1466,7 +1466,7 @@
       <transparent>false</transparent>
       <pv_name>$(P)$(H)availableSignals</pv_name>
       <background_color>
-        <color name="MEDM_COLOR_2" />
+        <color name="Gray_2" />
       </background_color>
       <foreground_color>
         <color name="ioc_read_fg" />
@@ -1579,7 +1579,7 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <pv_name>$(P)$(H)numSignalsInUse</pv_name>
       <background_color>
-        <color name="MEDM_COLOR_2" />
+        <color name="Gray_2" />
       </background_color>
       <foreground_color>
         <color name="ioc_read_fg" />

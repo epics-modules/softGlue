@@ -10,7 +10,7 @@
   <snap_to_geometry>false</snap_to_geometry>
   <show_grid>false</show_grid>
   <background_color>
-    <color name="MEDM_COLOR_2" />
+    <color name="Gray_2" />
   </background_color>
   <foreground_color>
     <color name="default_fg" />
@@ -29,7 +29,7 @@
     <visible>true</visible>
     <fill_level>0.0</fill_level>
     <line_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="callup_bg" />
     </line_color>
     <scripts />
     <height>26</height>
@@ -42,7 +42,7 @@
       <color red="0" green="0" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="callup_bg" />
     </foreground_color>
     <widget_type>Rectangle</widget_type>
     <enabled>true</enabled>
@@ -81,7 +81,7 @@ $(pv_value)</tooltip>
     <visible>true</visible>
     <fill_level>0.0</fill_level>
     <line_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="callup_bg" />
     </line_color>
     <scripts />
     <height>26</height>
@@ -94,7 +94,7 @@ $(pv_value)</tooltip>
       <color red="0" green="0" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="callup_bg" />
     </foreground_color>
     <widget_type>Rectangle</widget_type>
     <enabled>true</enabled>
@@ -133,7 +133,7 @@ $(pv_value)</tooltip>
     <visible>true</visible>
     <fill_level>0.0</fill_level>
     <line_color>
-      <color name="MEDM_COLOR_34" />
+      <color name="softGlue_output" />
     </line_color>
     <scripts />
     <height>26</height>
@@ -146,7 +146,7 @@ $(pv_value)</tooltip>
       <color red="0" green="0" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="MEDM_COLOR_34" />
+      <color name="softGlue_output" />
     </foreground_color>
     <widget_type>Rectangle</widget_type>
     <enabled>true</enabled>
@@ -185,7 +185,7 @@ $(pv_value)</tooltip>
     <visible>true</visible>
     <fill_level>0.0</fill_level>
     <line_color>
-      <color name="alarm" />
+      <color name="Red" />
     </line_color>
     <scripts />
     <height>26</height>
@@ -198,7 +198,7 @@ $(pv_value)</tooltip>
       <color red="0" green="0" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="alarm" />
+      <color name="Red" />
     </foreground_color>
     <widget_type>Rectangle</widget_type>
     <enabled>true</enabled>
@@ -237,7 +237,7 @@ $(pv_value)</tooltip>
     <visible>true</visible>
     <fill_level>0.0</fill_level>
     <line_color>
-      <color name="MEDM_COLOR_34" />
+      <color name="softGlue_output" />
     </line_color>
     <scripts />
     <height>26</height>
@@ -250,7 +250,7 @@ $(pv_value)</tooltip>
       <color red="0" green="0" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="MEDM_COLOR_34" />
+      <color name="softGlue_output" />
     </foreground_color>
     <widget_type>Rectangle</widget_type>
     <enabled>true</enabled>
@@ -289,7 +289,7 @@ $(pv_value)</tooltip>
     <visible>true</visible>
     <fill_level>0.0</fill_level>
     <line_color>
-      <color name="alarm" />
+      <color name="Red" />
     </line_color>
     <scripts />
     <height>26</height>
@@ -302,7 +302,7 @@ $(pv_value)</tooltip>
       <color red="0" green="0" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="alarm" />
+      <color name="Red" />
     </foreground_color>
     <widget_type>Rectangle</widget_type>
     <enabled>true</enabled>
@@ -387,7 +387,7 @@ $(pv_value)</tooltip>
         <color red="0" green="0" blue="255" />
       </background_color>
       <foreground_color>
-        <color name="alarm" />
+        <color name="Red" />
       </foreground_color>
       <widget_type>Ellipse</widget_type>
       <enabled>true</enabled>
@@ -439,7 +439,7 @@ $(pv_value)</tooltip>
         <color red="0" green="0" blue="255" />
       </background_color>
       <foreground_color>
-        <color name="MEDM_COLOR_24" />
+        <color name="Gray_24" />
       </foreground_color>
       <widget_type>Ellipse</widget_type>
       <enabled>true</enabled>
@@ -525,7 +525,7 @@ $(pv_value)</tooltip>
         <color red="0" green="0" blue="255" />
       </background_color>
       <foreground_color>
-        <color name="alarm" />
+        <color name="Red" />
       </foreground_color>
       <widget_type>Ellipse</widget_type>
       <enabled>true</enabled>
@@ -577,7 +577,7 @@ $(pv_value)</tooltip>
         <color red="0" green="0" blue="255" />
       </background_color>
       <foreground_color>
-        <color name="MEDM_COLOR_24" />
+        <color name="Gray_24" />
       </foreground_color>
       <widget_type>Ellipse</widget_type>
       <enabled>true</enabled>
@@ -951,7 +951,7 @@ $(pv_value)</tooltip>
     <selector_type>0</selector_type>
     <pv_name>$(P)$(H)AND-$(N)_IN2_Signal</pv_name>
     <background_color>
-      <color name="warning" />
+      <color name="softGlue_input" />
     </background_color>
     <foreground_color>
       <color name="default_fg" />
@@ -1095,7 +1095,7 @@ $(pv_value)</tooltip>
     <selector_type>0</selector_type>
     <pv_name>$(P)$(H)AND-$(N)_IN1_Signal</pv_name>
     <background_color>
-      <color name="warning" />
+      <color name="softGlue_input" />
     </background_color>
     <foreground_color>
       <color name="default_fg" />
@@ -1283,7 +1283,7 @@ $(pv_value)</tooltip>
     <selector_type>0</selector_type>
     <pv_name>$(P)$(H)AND-$(N)_NOUT_Signal</pv_name>
     <background_color>
-      <color name="warning" />
+      <color name="softGlue_input" />
     </background_color>
     <foreground_color>
       <color name="default_fg" />
@@ -1330,7 +1330,7 @@ $(pv_value)</tooltip>
       <color red="0" green="0" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="alarm" />
+      <color name="Red" />
     </foreground_color>
     <widget_type>Ellipse</widget_type>
     <enabled>true</enabled>
@@ -1382,7 +1382,7 @@ $(pv_value)</tooltip>
       <color red="0" green="0" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="MEDM_COLOR_24" />
+      <color name="Gray_24" />
     </foreground_color>
     <widget_type>Ellipse</widget_type>
     <enabled>true</enabled>
@@ -1477,7 +1477,7 @@ $(pv_value)</tooltip>
     <transparent>false</transparent>
     <pv_name />
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="callup_bg" />
     </background_color>
     <foreground_color>
       <color name="callup_fg" />
@@ -1622,7 +1622,7 @@ $(pv_value)</tooltip>
     <selector_type>0</selector_type>
     <pv_name>$(P)$(H)AND-$(N)_POUT_Signal</pv_name>
     <background_color>
-      <color name="warning" />
+      <color name="softGlue_input" />
     </background_color>
     <foreground_color>
       <color name="default_fg" />
@@ -1669,7 +1669,7 @@ $(pv_value)</tooltip>
       <color red="0" green="0" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="alarm" />
+      <color name="Red" />
     </foreground_color>
     <widget_type>Ellipse</widget_type>
     <enabled>true</enabled>
@@ -1721,7 +1721,7 @@ $(pv_value)</tooltip>
       <color red="0" green="0" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="MEDM_COLOR_24" />
+      <color name="Gray_24" />
     </foreground_color>
     <widget_type>Ellipse</widget_type>
     <enabled>true</enabled>
@@ -1816,7 +1816,7 @@ $(pv_value)</tooltip>
     <transparent>false</transparent>
     <pv_name />
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="callup_bg" />
     </background_color>
     <foreground_color>
       <color name="callup_fg" />
@@ -1907,7 +1907,7 @@ $(pv_value)</tooltip>
     <transparent>false</transparent>
     <pv_name />
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="callup_bg" />
     </background_color>
     <foreground_color>
       <color name="callup_fg" />
@@ -1971,7 +1971,7 @@ $(pv_value)</tooltip>
     <transparent>false</transparent>
     <pv_name />
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="callup_bg" />
     </background_color>
     <foreground_color>
       <color name="callup_fg" />

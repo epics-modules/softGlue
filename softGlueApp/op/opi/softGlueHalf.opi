@@ -10,7 +10,7 @@
   <snap_to_geometry>false</snap_to_geometry>
   <show_grid>false</show_grid>
   <background_color>
-    <color name="MEDM_COLOR_2" />
+    <color name="Gray_2" />
   </background_color>
   <foreground_color>
     <color name="default_fg" />
@@ -480,7 +480,7 @@
         <color red="255" green="255" blue="255" />
       </background_color>
       <foreground_color>
-        <color name="alarm" />
+        <color name="Red" />
       </foreground_color>
       <widget_type>Label</widget_type>
       <enabled>true</enabled>
@@ -515,7 +515,7 @@
         <color red="255" green="255" blue="255" />
       </background_color>
       <foreground_color>
-        <color name="alarm" />
+        <color name="Red" />
       </foreground_color>
       <widget_type>Label</widget_type>
       <enabled>true</enabled>

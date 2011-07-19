@@ -10,7 +10,7 @@
   <snap_to_geometry>false</snap_to_geometry>
   <show_grid>false</show_grid>
   <background_color>
-    <color name="MEDM_COLOR_2" />
+    <color name="Gray_2" />
   </background_color>
   <foreground_color>
     <color name="default_fg" />
@@ -108,10 +108,10 @@
     <transparent>false</transparent>
     <pv_name>$(P)$(H)FI$(N)_Signal.DESC</pv_name>
     <background_color>
-      <color name="MEDM_COLOR_2" />
+      <color name="Gray_2" />
     </background_color>
     <foreground_color>
-      <color name="alarm" />
+      <color name="Red" />
     </foreground_color>
     <widget_type>Text Update</widget_type>
     <enabled>true</enabled>

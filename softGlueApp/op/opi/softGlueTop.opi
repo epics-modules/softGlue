@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <display typeId="org.csstudio.opibuilder.Display" version="1.0">
   <auto_zoom_to_fit_all>false</auto_zoom_to_fit_all>
   <macros>
@@ -10,7 +11,7 @@
   <snap_to_geometry>false</snap_to_geometry>
   <show_grid>false</show_grid>
   <background_color>
-    <color name="MEDM_COLOR_1" />
+    <color name="Gray_1" />
   </background_color>
   <foreground_color>
     <color name="MEDM_COLOR_64" />
@@ -29,180 +30,13 @@
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
     <scripts />
-    <height>22</height>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-    <name>Menu Button</name>
-    <transparent>false</transparent>
-    <pv_name />
-    <background_color>
-      <color name="MEDM_COLOR_52" />
-    </background_color>
-    <foreground_color>
-      <color name="ioc_read_fg" />
-    </foreground_color>
-    <widget_type>Menu Button</widget_type>
-    <enabled>true</enabled>
-    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-    <font>
-      <opifont.name>Default</opifont.name>
-    </font>
-    <width>136</width>
-    <border_style>6</border_style>
-    <label />
-    <rules />
-    <border_width>1</border_width>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <y>525</y>
-    <actions hook="false">
-      <action type="OPEN_DISPLAY">
-        <path>trs.opi</path>
-        <macros>
-          <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
-          <M1>m7</M1>
-          <M2>m8</M2>
-        </macros>
-        <replace>false</replace>
-        <description>TR_SLIT (S)</description>
-      </action>
-      <action type="OPEN_DISPLAY">
-        <path>topMotors8.opi</path>
-        <macros>
-          <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
-          <M1>m9</M1>
-          <M2>m10</M2>
-          <M3>m11</M3>
-          <M4>m12</M4>
-          <M5>m13</M5>
-          <M6>m14</M6>
-          <M7>m15</M7>
-          <M8>m16</M8>
-        </macros>
-        <replace>false</replace>
-        <description>9-16</description>
-      </action>
-      <action type="OPEN_DISPLAY">
-        <path>topMotors8.opi</path>
-        <macros>
-          <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
-          <M1>m17</M1>
-          <M2>m18</M2>
-          <M3>m19</M3>
-          <M4>m20</M4>
-          <M5>m21</M5>
-          <M6>m22</M6>
-          <M7>m23</M7>
-          <M8>m24</M8>
-        </macros>
-        <replace>false</replace>
-        <description>17-24</description>
-      </action>
-      <action type="OPEN_DISPLAY">
-        <path>topMotors8.opi</path>
-        <macros>
-          <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
-          <M1>m25</M1>
-          <M2>m26</M2>
-          <M3>m27</M3>
-          <M4>m28</M4>
-          <M5>m29</M5>
-          <M6>m30</M6>
-          <M7>m31</M7>
-          <M8>m32</M8>
-        </macros>
-        <replace>false</replace>
-        <description>25-32</description>
-      </action>
-      <action type="OPEN_DISPLAY">
-        <path>topMotors8.opi</path>
-        <macros>
-          <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
-          <M1>m33</M1>
-          <M2>m34</M2>
-          <M3>m35</M3>
-          <M4>m36</M4>
-          <M5>m37</M5>
-          <M6>m38</M6>
-          <M7>m39</M7>
-          <M8>m40</M8>
-        </macros>
-        <replace>false</replace>
-        <description>33-40</description>
-      </action>
-      <action type="OPEN_DISPLAY">
-        <path>topMotors8.opi</path>
-        <macros>
-          <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
-          <M1>m41</M1>
-          <M2>m42</M2>
-          <M3>m43</M3>
-          <M4>m44</M4>
-          <M5>m45</M5>
-          <M6>m46</M6>
-          <M7>m47</M7>
-          <M8>m48</M8>
-        </macros>
-        <replace>false</replace>
-        <description>41-48</description>
-      </action>
-      <action type="OPEN_DISPLAY">
-        <path>topMotors8.opi</path>
-        <macros>
-          <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
-          <M1>m49</M1>
-          <M2>m50</M2>
-          <M3>m51</M3>
-          <M4>m52</M4>
-          <M5>m53</M5>
-          <M6>m54</M6>
-          <M7>m55</M7>
-          <M8>m56</M8>
-        </macros>
-        <replace>false</replace>
-        <description>49-56</description>
-      </action>
-      <action type="OPEN_DISPLAY">
-        <path>topMotors8.opi</path>
-        <macros>
-          <include_parent_macros>true</include_parent_macros>
-          <P>xxx:</P>
-          <M1>m57</M1>
-          <M2>m58</M2>
-          <M3>m59</M3>
-          <M4>m60</M4>
-          <M5>m61</M5>
-          <M6>m62</M6>
-          <M7>m63</M7>
-          <M8>m64</M8>
-        </macros>
-        <replace>false</replace>
-        <description>57-64</description>
-      </action>
-    </actions>
-    <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-    <x>-113</x>
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
-    <border_alarm_sensitive>false</border_alarm_sensitive>
-    <visible>true</visible>
-    <actions_from_pv>false</actions_from_pv>
-    <scripts />
     <height>20</height>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <name>Menu Button</name>
     <transparent>false</transparent>
     <pv_name />
     <background_color>
-      <color name="MEDM_COLOR_17" />
+      <color name="callup_bg" />
     </background_color>
     <foreground_color>
       <color name="callup_fg" />
