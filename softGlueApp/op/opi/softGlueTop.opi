@@ -39,7 +39,7 @@
       <color name="callup_bg" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="Gray_0" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
@@ -67,7 +67,7 @@
           <IPORT>SGI1</IPORT>
           <OPORT>SGO1</OPORT>
         </macros>
-        <replace>false</replace>
+        <replace>1</replace>
         <description>softGlueMenu</description>
       </action>
       <action type="OPEN_DISPLAY">
@@ -80,7 +80,7 @@
           <IPORT>SGI2</IPORT>
           <OPORT>SGO2</OPORT>
         </macros>
-        <replace>false</replace>
+        <replace>1</replace>
         <description>softGlue2 Menu</description>
       </action>
     </actions>

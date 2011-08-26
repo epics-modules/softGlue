@@ -13,7 +13,7 @@
     <color name="Gray_2" />
   </background_color>
   <foreground_color>
-    <color name="default_fg" />
+    <color name="Gray_14" />
   </foreground_color>
   <widget_type>Display</widget_type>
   <show_close_button>true</show_close_button>
@@ -24,11 +24,13 @@
   <actions hook="false" />
   <y>789</y>
   <x>761</x>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <SIG>MUX2-$(N)_IN0</SIG>
     </macros>
     <visible>true</visible>
     <font>
@@ -36,19 +38,19 @@
     </font>
     <width>155</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>10</y>
     <actions hook="false" />
+    <opi_file>softGlue_Input.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -58,11 +60,13 @@
     <x>10</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <SIG>MUX2-$(N)_IN1</SIG>
     </macros>
     <visible>true</visible>
     <font>
@@ -70,19 +74,19 @@
     </font>
     <width>155</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>32</y>
     <actions hook="false" />
+    <opi_file>softGlue_Input.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -92,11 +96,13 @@
     <x>10</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <SIG>MUX2-$(N)_SEL</SIG>
     </macros>
     <visible>true</visible>
     <font>
@@ -104,19 +110,19 @@
     </font>
     <width>155</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>112</y>
     <actions hook="false" />
+    <opi_file>softGlue_Input.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -126,11 +132,13 @@
     <x>10</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <SIG>MUX2-$(N)_IN2</SIG>
     </macros>
     <visible>true</visible>
     <font>
@@ -138,19 +146,19 @@
     </font>
     <width>155</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>54</y>
     <actions hook="false" />
+    <opi_file>softGlue_Input.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -160,11 +168,13 @@
     <x>10</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <SIG>MUX2-$(N)_IN3</SIG>
     </macros>
     <visible>true</visible>
     <font>
@@ -172,19 +182,19 @@
     </font>
     <width>155</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>76</y>
     <actions hook="false" />
+    <opi_file>softGlue_Input.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -215,7 +225,7 @@
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
+    <transparent>true</transparent>
     <show_scrollbar>false</show_scrollbar>
     <y>16</y>
     <actions hook="false" />
@@ -232,7 +242,7 @@
       <visible>true</visible>
       <fill_level>0.0</fill_level>
       <line_color>
-        <color name="default_fg" />
+        <color name="Gray_14" />
       </line_color>
       <scripts />
       <height>87</height>
@@ -245,7 +255,7 @@
         <color red="0" green="0" blue="255" />
       </background_color>
       <foreground_color>
-        <color name="default_fg" />
+        <color name="Gray_14" />
       </foreground_color>
       <widget_type>Rectangle</widget_type>
       <enabled>true</enabled>
@@ -290,7 +300,7 @@ $(pv_value)</tooltip>
       <border_color>
         <color red="0" green="128" blue="255" />
       </border_color>
-      <transparent>false</transparent>
+      <transparent>true</transparent>
       <show_scrollbar>false</show_scrollbar>
       <y>32</y>
       <actions hook="false" />
@@ -302,11 +312,13 @@ $(pv_value)</tooltip>
       </background_color>
       <x>71</x>
       <tooltip />
-      <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+      <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+        <group_name />
         <enabled>true</enabled>
-        <widget_type>Grouping Container</widget_type>
+        <widget_type>Linking Container</widget_type>
         <macros>
           <include_parent_macros>true</include_parent_macros>
+          <SIG>MUX2-$(N)_OUT</SIG>
         </macros>
         <visible>true</visible>
         <font>
@@ -314,19 +326,19 @@ $(pv_value)</tooltip>
         </font>
         <width>157</width>
         <border_style>0</border_style>
+        <auto_size>false</auto_size>
         <rules />
-        <lock_children>false</lock_children>
         <scripts />
+        <zoom_to_fit>true</zoom_to_fit>
         <height>26</height>
         <border_width>1</border_width>
-        <name>Grouping Container</name>
+        <name>Linking Container</name>
         <border_color>
           <color red="0" green="128" blue="255" />
         </border_color>
-        <transparent>false</transparent>
-        <show_scrollbar>true</show_scrollbar>
         <y>0</y>
         <actions hook="false" />
+        <opi_file>softGlue_Output.opi</opi_file>
         <foreground_color>
           <color red="0" green="0" blue="0" />
         </foreground_color>
@@ -341,7 +353,7 @@ $(pv_value)</tooltip>
         <fill_arrow>true</fill_arrow>
         <arrow_length>20</arrow_length>
         <visible>true</visible>
-        <fill_level>0.0</fill_level>
+        <fill_level>100.0</fill_level>
         <rotation_angle>0.0</rotation_angle>
         <scripts />
         <arrows>0</arrows>
@@ -353,13 +365,13 @@ $(pv_value)</tooltip>
           <point x="34" y="14" />
           <point x="22" y="14" />
         </points>
-        <transparent>false</transparent>
+        <transparent>true</transparent>
         <pv_name />
         <background_color>
-          <color name="default_fg" />
+          <color red="0" green="0" blue="255" />
         </background_color>
         <foreground_color>
-          <color red="255" green="0" blue="0" />
+          <color name="Gray_14" />
         </foreground_color>
         <widget_type>Polyline</widget_type>
         <enabled>true</enabled>
@@ -372,7 +384,7 @@ $(pv_value)</tooltip>
         <border_style>0</border_style>
         <rules />
         <border_width>1</border_width>
-        <line_width>2</line_width>
+        <line_width>1</line_width>
         <horizontal_fill>true</horizontal_fill>
         <border_color>
           <color red="0" green="128" blue="255" />
@@ -396,7 +408,7 @@ $(pv_value)</tooltip>
           <color red="255" green="255" blue="255" />
         </background_color>
         <foreground_color>
-          <color name="default_fg" />
+          <color name="Gray_14" />
         </foreground_color>
         <widget_type>Label</widget_type>
         <enabled>true</enabled>
@@ -424,7 +436,7 @@ $(pv_value)</tooltip>
       <fill_arrow>true</fill_arrow>
       <arrow_length>20</arrow_length>
       <visible>true</visible>
-      <fill_level>0.0</fill_level>
+      <fill_level>100.0</fill_level>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
       <arrows>0</arrows>
@@ -436,13 +448,13 @@ $(pv_value)</tooltip>
         <point x="11" y="8" />
         <point x="1" y="8" />
       </points>
-      <transparent>false</transparent>
+      <transparent>true</transparent>
       <pv_name />
       <background_color>
-        <color name="default_fg" />
+        <color red="0" green="0" blue="255" />
       </background_color>
       <foreground_color>
-        <color red="255" green="0" blue="0" />
+        <color name="Gray_14" />
       </foreground_color>
       <widget_type>Polyline</widget_type>
       <enabled>true</enabled>
@@ -455,7 +467,7 @@ $(pv_value)</tooltip>
       <border_style>0</border_style>
       <rules />
       <border_width>1</border_width>
-      <line_width>2</line_width>
+      <line_width>1</line_width>
       <horizontal_fill>true</horizontal_fill>
       <border_color>
         <color red="0" green="128" blue="255" />
@@ -479,7 +491,7 @@ $(pv_value)</tooltip>
         <color red="255" green="255" blue="255" />
       </background_color>
       <foreground_color>
-        <color name="default_fg" />
+        <color name="Gray_14" />
       </foreground_color>
       <widget_type>Label</widget_type>
       <enabled>true</enabled>
@@ -514,7 +526,7 @@ $(pv_value)</tooltip>
         <color red="255" green="255" blue="255" />
       </background_color>
       <foreground_color>
-        <color name="default_fg" />
+        <color name="Gray_14" />
       </foreground_color>
       <widget_type>Label</widget_type>
       <enabled>true</enabled>
@@ -541,7 +553,7 @@ $(pv_value)</tooltip>
       <fill_arrow>true</fill_arrow>
       <arrow_length>20</arrow_length>
       <visible>true</visible>
-      <fill_level>0.0</fill_level>
+      <fill_level>100.0</fill_level>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
       <arrows>0</arrows>
@@ -556,10 +568,10 @@ $(pv_value)</tooltip>
       <transparent>false</transparent>
       <pv_name />
       <background_color>
-        <color name="default_fg" />
+        <color red="0" green="0" blue="255" />
       </background_color>
       <foreground_color>
-        <color red="255" green="0" blue="0" />
+        <color name="Gray_14" />
       </foreground_color>
       <widget_type>Polyline</widget_type>
       <enabled>true</enabled>
@@ -572,7 +584,7 @@ $(pv_value)</tooltip>
       <border_style>0</border_style>
       <rules />
       <border_width>1</border_width>
-      <line_width>2</line_width>
+      <line_width>1</line_width>
       <horizontal_fill>true</horizontal_fill>
       <border_color>
         <color red="0" green="128" blue="255" />
@@ -588,7 +600,7 @@ $(pv_value)</tooltip>
       <fill_arrow>true</fill_arrow>
       <arrow_length>20</arrow_length>
       <visible>true</visible>
-      <fill_level>0.0</fill_level>
+      <fill_level>100.0</fill_level>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
       <arrows>0</arrows>
@@ -600,13 +612,13 @@ $(pv_value)</tooltip>
         <point x="61" y="109" />
         <point x="1" y="109" />
       </points>
-      <transparent>false</transparent>
+      <transparent>true</transparent>
       <pv_name />
       <background_color>
-        <color name="default_fg" />
+        <color red="0" green="0" blue="255" />
       </background_color>
       <foreground_color>
-        <color red="255" green="0" blue="0" />
+        <color name="Gray_14" />
       </foreground_color>
       <widget_type>Polyline</widget_type>
       <enabled>true</enabled>
@@ -619,7 +631,7 @@ $(pv_value)</tooltip>
       <border_style>0</border_style>
       <rules />
       <border_width>1</border_width>
-      <line_width>2</line_width>
+      <line_width>1</line_width>
       <horizontal_fill>true</horizontal_fill>
       <border_color>
         <color red="0" green="128" blue="255" />
@@ -635,7 +647,7 @@ $(pv_value)</tooltip>
       <fill_arrow>true</fill_arrow>
       <arrow_length>20</arrow_length>
       <visible>true</visible>
-      <fill_level>0.0</fill_level>
+      <fill_level>100.0</fill_level>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
       <arrows>0</arrows>
@@ -647,13 +659,13 @@ $(pv_value)</tooltip>
         <point x="12" y="30" />
         <point x="1" y="30" />
       </points>
-      <transparent>false</transparent>
+      <transparent>true</transparent>
       <pv_name />
       <background_color>
-        <color name="default_fg" />
+        <color red="0" green="0" blue="255" />
       </background_color>
       <foreground_color>
-        <color red="255" green="0" blue="0" />
+        <color name="Gray_14" />
       </foreground_color>
       <widget_type>Polyline</widget_type>
       <enabled>true</enabled>
@@ -666,7 +678,7 @@ $(pv_value)</tooltip>
       <border_style>0</border_style>
       <rules />
       <border_width>1</border_width>
-      <line_width>2</line_width>
+      <line_width>1</line_width>
       <horizontal_fill>true</horizontal_fill>
       <border_color>
         <color red="0" green="128" blue="255" />
@@ -690,7 +702,7 @@ $(pv_value)</tooltip>
         <color red="255" green="255" blue="255" />
       </background_color>
       <foreground_color>
-        <color name="default_fg" />
+        <color name="Gray_14" />
       </foreground_color>
       <widget_type>Label</widget_type>
       <enabled>true</enabled>
@@ -717,7 +729,7 @@ $(pv_value)</tooltip>
       <fill_arrow>true</fill_arrow>
       <arrow_length>20</arrow_length>
       <visible>true</visible>
-      <fill_level>0.0</fill_level>
+      <fill_level>100.0</fill_level>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
       <arrows>0</arrows>
@@ -729,13 +741,13 @@ $(pv_value)</tooltip>
         <point x="13" y="52" />
         <point x="2" y="52" />
       </points>
-      <transparent>false</transparent>
+      <transparent>true</transparent>
       <pv_name />
       <background_color>
-        <color name="default_fg" />
+        <color red="0" green="0" blue="255" />
       </background_color>
       <foreground_color>
-        <color red="255" green="0" blue="0" />
+        <color name="Gray_14" />
       </foreground_color>
       <widget_type>Polyline</widget_type>
       <enabled>true</enabled>
@@ -748,7 +760,7 @@ $(pv_value)</tooltip>
       <border_style>0</border_style>
       <rules />
       <border_width>1</border_width>
-      <line_width>2</line_width>
+      <line_width>1</line_width>
       <horizontal_fill>true</horizontal_fill>
       <border_color>
         <color red="0" green="128" blue="255" />
@@ -772,7 +784,7 @@ $(pv_value)</tooltip>
         <color red="255" green="255" blue="255" />
       </background_color>
       <foreground_color>
-        <color name="default_fg" />
+        <color name="Gray_14" />
       </foreground_color>
       <widget_type>Label</widget_type>
       <enabled>true</enabled>
@@ -799,7 +811,7 @@ $(pv_value)</tooltip>
       <fill_arrow>true</fill_arrow>
       <arrow_length>20</arrow_length>
       <visible>true</visible>
-      <fill_level>0.0</fill_level>
+      <fill_level>100.0</fill_level>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
       <arrows>0</arrows>
@@ -811,13 +823,13 @@ $(pv_value)</tooltip>
         <point x="13" y="74" />
         <point x="2" y="74" />
       </points>
-      <transparent>false</transparent>
+      <transparent>true</transparent>
       <pv_name />
       <background_color>
-        <color name="default_fg" />
+        <color red="0" green="0" blue="255" />
       </background_color>
       <foreground_color>
-        <color red="255" green="0" blue="0" />
+        <color name="Gray_14" />
       </foreground_color>
       <widget_type>Polyline</widget_type>
       <enabled>true</enabled>
@@ -830,7 +842,7 @@ $(pv_value)</tooltip>
       <border_style>0</border_style>
       <rules />
       <border_width>1</border_width>
-      <line_width>2</line_width>
+      <line_width>1</line_width>
       <horizontal_fill>true</horizontal_fill>
       <border_color>
         <color red="0" green="128" blue="255" />
@@ -854,7 +866,7 @@ $(pv_value)</tooltip>
         <color red="255" green="255" blue="255" />
       </background_color>
       <foreground_color>
-        <color name="default_fg" />
+        <color name="Gray_14" />
       </foreground_color>
       <widget_type>Label</widget_type>
       <enabled>true</enabled>

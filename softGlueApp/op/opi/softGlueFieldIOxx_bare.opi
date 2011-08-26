@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <display typeId="org.csstudio.opibuilder.Display" version="1.0">
   <auto_zoom_to_fit_all>false</auto_zoom_to_fit_all>
   <macros>
@@ -14,7 +13,7 @@
     <color name="Gray_2" />
   </background_color>
   <foreground_color>
-    <color name="default_fg" />
+    <color name="Gray_14" />
   </foreground_color>
   <widget_type>Display</widget_type>
   <show_close_button>true</show_close_button>
@@ -53,7 +52,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -81,7 +80,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_1</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -89,7 +88,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -117,7 +116,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_2</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -125,7 +124,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -153,7 +152,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_3</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -161,7 +160,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -189,7 +188,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_4</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -197,7 +196,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -225,7 +224,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_5</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -233,7 +232,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -261,7 +260,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_6</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -269,7 +268,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -297,7 +296,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_7</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -305,7 +304,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -333,7 +332,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_8</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -341,7 +340,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -369,7 +368,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_9</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -377,7 +376,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -405,7 +404,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_10</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -413,7 +412,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -441,7 +440,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_11</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -449,7 +448,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -477,7 +476,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_12</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -485,7 +484,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -513,7 +512,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_13</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -521,7 +520,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -549,7 +548,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_14</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -557,7 +556,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -585,7 +584,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_15</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -593,7 +592,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -621,7 +620,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_16</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -629,7 +628,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -657,7 +656,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_17</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -665,7 +664,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -693,7 +692,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_18</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -701,7 +700,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -729,7 +728,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_19</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -737,7 +736,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -765,7 +764,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_20</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -773,7 +772,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -801,7 +800,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_21</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -809,7 +808,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -837,7 +836,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_22</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -845,7 +844,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -873,7 +872,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_23</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -881,7 +880,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -909,7 +908,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_24</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -917,7 +916,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -945,7 +944,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_25</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -953,7 +952,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -981,7 +980,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_26</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -989,7 +988,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -1017,7 +1016,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_27</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1025,7 +1024,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -1053,7 +1052,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_28</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1061,7 +1060,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -1089,7 +1088,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_29</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1097,7 +1096,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -1125,7 +1124,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_30</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1133,7 +1132,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -1161,7 +1160,7 @@
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_31</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1169,7 +1168,7 @@
     <actions hook="false" />
     <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <display typeId="org.csstudio.opibuilder.Display" version="1.0">
   <auto_zoom_to_fit_all>false</auto_zoom_to_fit_all>
   <macros>
@@ -14,7 +13,7 @@
     <color name="Gray_2" />
   </background_color>
   <foreground_color>
-    <color name="default_fg" />
+    <color name="Gray_14" />
   </foreground_color>
   <widget_type>Display</widget_type>
   <show_close_button>true</show_close_button>
@@ -39,7 +38,7 @@
       <color name="callup_bg" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="Gray_0" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
@@ -202,7 +201,7 @@ $(pv_value)</tooltip>
       <color name="callup_bg" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="Gray_0" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
@@ -311,7 +310,7 @@ $(pv_value)</tooltip>
       <color name="callup_bg" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="Gray_0" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
@@ -428,7 +427,7 @@ $(pv_value)</tooltip>
       <color name="callup_bg" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="Gray_0" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
@@ -581,7 +580,7 @@ $(pv_value)</tooltip>
       <color name="callup_bg" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="Gray_0" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
@@ -685,7 +684,7 @@ $(pv_value)</tooltip>
     <x>10</x>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0">
-    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_alarm_sensitive>true</border_alarm_sensitive>
     <visible>true</visible>
     <vertical_alignment>1</vertical_alignment>
     <show_units>false</show_units>
@@ -740,7 +739,7 @@ $(pv_value)</tooltip>
       <color red="255" green="255" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="default_fg" />
+      <color name="Gray_14" />
     </foreground_color>
     <widget_type>Label</widget_type>
     <enabled>true</enabled>
@@ -775,7 +774,7 @@ $(pv_value)</tooltip>
       <color red="255" green="255" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="default_fg" />
+      <color name="Gray_14" />
     </foreground_color>
     <widget_type>Label</widget_type>
     <enabled>true</enabled>
@@ -810,7 +809,7 @@ $(pv_value)</tooltip>
       <color red="255" green="255" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="default_fg" />
+      <color name="Gray_14" />
     </foreground_color>
     <widget_type>Label</widget_type>
     <enabled>true</enabled>
@@ -818,7 +817,7 @@ $(pv_value)</tooltip>
     <font>
       <fontdata fontName="Sans" height="14" style="0" />
     </font>
-    <width>35</width>
+    <width>20</width>
     <border_style>0</border_style>
     <rules />
     <border_width>1</border_width>
@@ -830,7 +829,7 @@ $(pv_value)</tooltip>
     <y>175</y>
     <wrap_words>true</wrap_words>
     <tooltip />
-    <x>75</x>
+    <x>85</x>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
@@ -846,7 +845,7 @@ $(pv_value)</tooltip>
       <color name="callup_bg" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="Gray_0" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
@@ -905,6 +904,14 @@ $(pv_value)</tooltip>
         <Position>1</Position>
         <description>octupole</description>
       </action>
+      <action type="OPEN_OPI_IN_VIEW">
+        <path>softGlueVgate.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+        </macros>
+        <Position>1</Position>
+        <description>velocity gate</description>
+      </action>
     </actions>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
@@ -923,7 +930,7 @@ $(pv_value)</tooltip>
       <color red="255" green="255" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="default_fg" />
+      <color name="Gray_14" />
     </foreground_color>
     <widget_type>Label</widget_type>
     <enabled>true</enabled>
@@ -959,7 +966,7 @@ $(pv_value)</tooltip>
       <color name="ioc_write_bg" />
     </background_color>
     <foreground_color>
-      <color name="default_fg" />
+      <color name="Gray_14" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
@@ -976,8 +983,87 @@ $(pv_value)</tooltip>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>150</y>
+    <actions hook="false" />
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
     <x>10</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
+    <visible>true</visible>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>false</auto_size>
+    <scripts />
+    <height>10</height>
+    <name>Label</name>
+    <transparent>true</transparent>
+    <show_scrollbar>false</show_scrollbar>
+    <background_color>
+      <color red="255" green="255" blue="255" />
+    </background_color>
+    <foreground_color>
+      <color name="Gray_14" />
+    </foreground_color>
+    <widget_type>Label</widget_type>
+    <enabled>true</enabled>
+    <text>VERSION:</text>
+    <font>
+      <fontdata fontName="Sans" height="6" style="0" />
+    </font>
+    <width>50</width>
+    <border_style>0</border_style>
+    <rules />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <horizontal_alignment>0</horizontal_alignment>
+    <actions hook="false" />
+    <y>0</y>
+    <wrap_words>true</wrap_words>
+    <tooltip />
+    <x>10</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0">
+    <border_alarm_sensitive>true</border_alarm_sensitive>
+    <visible>true</visible>
+    <vertical_alignment>1</vertical_alignment>
+    <show_units>false</show_units>
+    <auto_size>false</auto_size>
+    <scripts />
+    <height>10</height>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <name>Text Update</name>
+    <format_type>4</format_type>
+    <precision_from_pv>true</precision_from_pv>
+    <transparent>false</transparent>
+    <pv_name>$(P)$(H)version</pv_name>
+    <background_color>
+      <color name="Gray_2" />
+    </background_color>
+    <foreground_color>
+      <color name="ioc_read_fg" />
+    </foreground_color>
+    <widget_type>Text Update</widget_type>
+    <enabled>true</enabled>
+    <text>######</text>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <precision>0</precision>
+    <font>
+      <fontdata fontName="Sans" height="6" style="0" />
+    </font>
+    <width>30</width>
+    <border_style>0</border_style>
+    <rules />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <horizontal_alignment>0</horizontal_alignment>
+    <actions hook="false" />
+    <y>0</y>
+    <wrap_words>false</wrap_words>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <x>60</x>
   </widget>
 </display>

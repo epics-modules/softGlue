@@ -13,7 +13,7 @@
     <color name="Gray_2" />
   </background_color>
   <foreground_color>
-    <color name="default_fg" />
+    <color name="Gray_14" />
   </foreground_color>
   <widget_type>Display</widget_type>
   <show_close_button>true</show_close_button>
@@ -24,11 +24,13 @@
   <actions hook="false" />
   <y>236</y>
   <x>1014</x>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N1)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -36,19 +38,19 @@
     </font>
     <width>195</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>0</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -58,11 +60,13 @@
     <x>0</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N2)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -70,19 +74,19 @@
     </font>
     <width>195</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>21</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -92,11 +96,13 @@
     <x>0</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N3)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -104,19 +110,19 @@
     </font>
     <width>195</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>42</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -126,11 +132,13 @@
     <x>0</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N4)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -138,19 +146,19 @@
     </font>
     <width>195</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>63</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -160,11 +168,13 @@
     <x>0</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N5)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -172,19 +182,19 @@
     </font>
     <width>195</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>84</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -194,11 +204,13 @@
     <x>0</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N6)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -206,19 +218,19 @@
     </font>
     <width>195</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>105</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -228,11 +240,13 @@
     <x>0</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N7)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -240,19 +254,19 @@
     </font>
     <width>195</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>126</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -262,11 +276,13 @@
     <x>0</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N8)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -274,19 +290,19 @@
     </font>
     <width>195</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>147</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -296,11 +312,13 @@
     <x>0</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N9)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -308,19 +326,19 @@
     </font>
     <width>195</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>168</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -330,11 +348,13 @@
     <x>0</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N10)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -342,19 +362,19 @@
     </font>
     <width>195</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>189</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -364,11 +384,13 @@
     <x>0</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N11)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -376,19 +398,19 @@
     </font>
     <width>195</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>210</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -398,11 +420,13 @@
     <x>0</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N12)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -410,19 +434,19 @@
     </font>
     <width>195</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>231</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -432,11 +456,13 @@
     <x>0</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N13)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -444,19 +470,19 @@
     </font>
     <width>195</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>252</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -466,11 +492,13 @@
     <x>0</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N14)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -478,19 +506,19 @@
     </font>
     <width>195</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>273</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -500,11 +528,13 @@
     <x>0</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N15)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -512,19 +542,19 @@
     </font>
     <width>195</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>294</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -534,11 +564,13 @@
     <x>0</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N16)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -546,19 +578,19 @@
     </font>
     <width>195</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>315</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -568,11 +600,13 @@
     <x>0</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N1)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -580,19 +614,19 @@
     </font>
     <width>197</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>0</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -602,11 +636,13 @@
     <x>210</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N2)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -614,19 +650,19 @@
     </font>
     <width>197</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>21</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -636,11 +672,13 @@
     <x>210</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N3)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -648,19 +686,19 @@
     </font>
     <width>197</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>42</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -670,11 +708,13 @@
     <x>210</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N4)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -682,19 +722,19 @@
     </font>
     <width>197</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>63</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -704,11 +744,13 @@
     <x>210</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N5)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -716,19 +758,19 @@
     </font>
     <width>197</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>84</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -738,11 +780,13 @@
     <x>210</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N6)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -750,19 +794,19 @@
     </font>
     <width>197</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>105</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -772,11 +816,13 @@
     <x>210</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N7)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -784,19 +830,19 @@
     </font>
     <width>197</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>126</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -806,11 +852,13 @@
     <x>210</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N8)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -818,19 +866,19 @@
     </font>
     <width>197</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>147</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -840,11 +888,13 @@
     <x>210</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N9)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -852,19 +902,19 @@
     </font>
     <width>197</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>168</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -874,11 +924,13 @@
     <x>210</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N10)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -886,19 +938,19 @@
     </font>
     <width>197</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>189</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -908,11 +960,13 @@
     <x>210</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N11)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -920,19 +974,19 @@
     </font>
     <width>197</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>210</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -942,11 +996,13 @@
     <x>210</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N12)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -954,19 +1010,19 @@
     </font>
     <width>197</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>231</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -976,11 +1032,13 @@
     <x>210</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N13)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -988,19 +1046,19 @@
     </font>
     <width>197</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>252</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -1010,11 +1068,13 @@
     <x>210</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N14)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -1022,19 +1082,19 @@
     </font>
     <width>197</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>273</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -1044,11 +1104,13 @@
     <x>210</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N15)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -1056,19 +1118,19 @@
     </font>
     <width>197</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>294</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -1078,11 +1140,13 @@
     <x>210</x>
     <tooltip />
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>$(N16)</N>
     </macros>
     <visible>true</visible>
     <font>
@@ -1090,19 +1154,19 @@
     </font>
     <width>197</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>25</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>315</y>
     <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>

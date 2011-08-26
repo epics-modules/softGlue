@@ -13,7 +13,7 @@
     <color name="Gray_2" />
   </background_color>
   <foreground_color>
-    <color name="default_fg" />
+    <color name="Gray_14" />
   </foreground_color>
   <widget_type>Display</widget_type>
   <show_close_button>true</show_close_button>
@@ -94,7 +94,7 @@ $(pv_value)</tooltip>
       <color red="0" green="0" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="default_fg" />
+      <color name="Gray_14" />
     </foreground_color>
     <widget_type>Ellipse</widget_type>
     <enabled>true</enabled>
@@ -133,7 +133,7 @@ $(pv_value)</tooltip>
     <fill_arrow>true</fill_arrow>
     <arrow_length>20</arrow_length>
     <visible>true</visible>
-    <fill_level>0.0</fill_level>
+    <fill_level>100.0</fill_level>
     <rotation_angle>0.0</rotation_angle>
     <scripts />
     <arrows>0</arrows>
@@ -145,13 +145,13 @@ $(pv_value)</tooltip>
       <point x="38" y="14" />
       <point x="11" y="14" />
     </points>
-    <transparent>false</transparent>
+    <transparent>true</transparent>
     <pv_name />
     <background_color>
-      <color name="default_fg" />
+      <color red="0" green="0" blue="255" />
     </background_color>
     <foreground_color>
-      <color red="255" green="0" blue="0" />
+      <color name="Gray_14" />
     </foreground_color>
     <widget_type>Polyline</widget_type>
     <enabled>true</enabled>
@@ -164,7 +164,7 @@ $(pv_value)</tooltip>
     <border_style>0</border_style>
     <rules />
     <border_width>1</border_width>
-    <line_width>2</line_width>
+    <line_width>1</line_width>
     <horizontal_fill>true</horizontal_fill>
     <border_color>
       <color red="0" green="128" blue="255" />
@@ -196,7 +196,7 @@ $(pv_value)</tooltip>
       <color name="MEDM_COLOR_31" />
     </background_color>
     <foreground_color>
-      <color name="default_fg" />
+      <color name="Gray_14" />
     </foreground_color>
     <widget_type>Text Input</widget_type>
     <enabled>true</enabled>
@@ -207,7 +207,7 @@ $(pv_value)</tooltip>
       <fontdata fontName="Sans" height="14" style="0" />
     </font>
     <width>100</width>
-    <border_style>3</border_style>
+    <border_style>0</border_style>
     <rules />
     <border_width>1</border_width>
     <maximum>Infinity</maximum>
@@ -240,7 +240,7 @@ $(pv_value)</tooltip>
       <color red="0" green="0" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="Red" />
+      <color name="alarm" />
     </foreground_color>
     <widget_type>Ellipse</widget_type>
     <enabled>true</enabled>
@@ -286,7 +286,7 @@ $(pv_value)</tooltip>
       <color name="ioc_write_bg" />
     </background_color>
     <foreground_color>
-      <color name="default_fg" />
+      <color name="Gray_14" />
     </foreground_color>
     <widget_type>Action Button</widget_type>
     <enabled>true</enabled>
@@ -342,7 +342,7 @@ $(pv_value)</tooltip>
       <color name="Gray_2" />
     </background_color>
     <foreground_color>
-      <color name="default_fg" />
+      <color name="Gray_14" />
     </foreground_color>
     <widget_type>Text Update</widget_type>
     <enabled>true</enabled>

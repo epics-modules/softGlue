@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <display typeId="org.csstudio.opibuilder.Display" version="1.0">
   <auto_zoom_to_fit_all>false</auto_zoom_to_fit_all>
   <macros>
@@ -14,7 +13,7 @@
     <color name="Gray_2" />
   </background_color>
   <foreground_color>
-    <color name="default_fg" />
+    <color name="Gray_14" />
   </foreground_color>
   <widget_type>Display</widget_type>
   <show_close_button>true</show_close_button>
@@ -25,52 +24,581 @@
   <actions hook="false" />
   <y>283</y>
   <x>203</x>
-  <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0">
-    <border_alarm_sensitive>false</border_alarm_sensitive>
-    <fill_arrow>true</fill_arrow>
-    <arrow_length>20</arrow_length>
-    <visible>true</visible>
-    <fill_level>0.0</fill_level>
-    <rotation_angle>0.0</rotation_angle>
-    <scripts />
-    <arrows>0</arrows>
-    <height>369</height>
-    <anti_alias>true</anti_alias>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-    <name>Polyline</name>
-    <points>
-      <point x="481" y="1" />
-      <point x="481" y="369" />
-    </points>
-    <transparent>false</transparent>
-    <pv_name />
-    <background_color>
-      <color name="default_fg" />
-    </background_color>
-    <foreground_color>
-      <color red="255" green="0" blue="0" />
-    </foreground_color>
-    <widget_type>Polyline</widget_type>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <widget_type>Linking Container</widget_type>
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>$(N1)</N>
+    </macros>
+    <visible>true</visible>
     <font>
       <opifont.name>Default</opifont.name>
     </font>
-    <line_style>0</line_style>
-    <width>1</width>
+    <width>197</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>26</height>
     <border_width>1</border_width>
-    <line_width>3</line_width>
-    <horizontal_fill>true</horizontal_fill>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
+    <y>0</y>
     <actions hook="false" />
-    <y>1</y>
-    <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-    <x>481</x>
+    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
+    <x>490</x>
+    <tooltip />
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
+    <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>$(N2)</N>
+    </macros>
+    <visible>true</visible>
+    <font>
+      <opifont.name>Default</opifont.name>
+    </font>
+    <width>197</width>
+    <border_style>0</border_style>
+    <auto_size>false</auto_size>
+    <rules />
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>26</height>
+    <border_width>1</border_width>
+    <name>Linking Container</name>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>23</y>
+    <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
+    <x>490</x>
+    <tooltip />
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
+    <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>$(N3)</N>
+    </macros>
+    <visible>true</visible>
+    <font>
+      <opifont.name>Default</opifont.name>
+    </font>
+    <width>197</width>
+    <border_style>0</border_style>
+    <auto_size>false</auto_size>
+    <rules />
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>26</height>
+    <border_width>1</border_width>
+    <name>Linking Container</name>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>46</y>
+    <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
+    <x>490</x>
+    <tooltip />
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
+    <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>$(N4)</N>
+    </macros>
+    <visible>true</visible>
+    <font>
+      <opifont.name>Default</opifont.name>
+    </font>
+    <width>197</width>
+    <border_style>0</border_style>
+    <auto_size>false</auto_size>
+    <rules />
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>26</height>
+    <border_width>1</border_width>
+    <name>Linking Container</name>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>69</y>
+    <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
+    <x>490</x>
+    <tooltip />
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
+    <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>$(N5)</N>
+    </macros>
+    <visible>true</visible>
+    <font>
+      <opifont.name>Default</opifont.name>
+    </font>
+    <width>197</width>
+    <border_style>0</border_style>
+    <auto_size>false</auto_size>
+    <rules />
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>26</height>
+    <border_width>1</border_width>
+    <name>Linking Container</name>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>92</y>
+    <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
+    <x>490</x>
+    <tooltip />
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
+    <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>$(N6)</N>
+    </macros>
+    <visible>true</visible>
+    <font>
+      <opifont.name>Default</opifont.name>
+    </font>
+    <width>197</width>
+    <border_style>0</border_style>
+    <auto_size>false</auto_size>
+    <rules />
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>26</height>
+    <border_width>1</border_width>
+    <name>Linking Container</name>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>115</y>
+    <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
+    <x>490</x>
+    <tooltip />
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
+    <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>$(N7)</N>
+    </macros>
+    <visible>true</visible>
+    <font>
+      <opifont.name>Default</opifont.name>
+    </font>
+    <width>197</width>
+    <border_style>0</border_style>
+    <auto_size>false</auto_size>
+    <rules />
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>26</height>
+    <border_width>1</border_width>
+    <name>Linking Container</name>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>138</y>
+    <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
+    <x>490</x>
+    <tooltip />
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
+    <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>$(N8)</N>
+    </macros>
+    <visible>true</visible>
+    <font>
+      <opifont.name>Default</opifont.name>
+    </font>
+    <width>197</width>
+    <border_style>0</border_style>
+    <auto_size>false</auto_size>
+    <rules />
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>26</height>
+    <border_width>1</border_width>
+    <name>Linking Container</name>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>161</y>
+    <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
+    <x>490</x>
+    <tooltip />
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
+    <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>$(N9)</N>
+    </macros>
+    <visible>true</visible>
+    <font>
+      <opifont.name>Default</opifont.name>
+    </font>
+    <width>197</width>
+    <border_style>0</border_style>
+    <auto_size>false</auto_size>
+    <rules />
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>26</height>
+    <border_width>1</border_width>
+    <name>Linking Container</name>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>184</y>
+    <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
+    <x>490</x>
+    <tooltip />
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
+    <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>$(N10)</N>
+    </macros>
+    <visible>true</visible>
+    <font>
+      <opifont.name>Default</opifont.name>
+    </font>
+    <width>197</width>
+    <border_style>0</border_style>
+    <auto_size>false</auto_size>
+    <rules />
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>26</height>
+    <border_width>1</border_width>
+    <name>Linking Container</name>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>207</y>
+    <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
+    <x>490</x>
+    <tooltip />
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
+    <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>$(N11)</N>
+    </macros>
+    <visible>true</visible>
+    <font>
+      <opifont.name>Default</opifont.name>
+    </font>
+    <width>197</width>
+    <border_style>0</border_style>
+    <auto_size>false</auto_size>
+    <rules />
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>26</height>
+    <border_width>1</border_width>
+    <name>Linking Container</name>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>230</y>
+    <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
+    <x>490</x>
+    <tooltip />
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
+    <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>$(N12)</N>
+    </macros>
+    <visible>true</visible>
+    <font>
+      <opifont.name>Default</opifont.name>
+    </font>
+    <width>197</width>
+    <border_style>0</border_style>
+    <auto_size>false</auto_size>
+    <rules />
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>26</height>
+    <border_width>1</border_width>
+    <name>Linking Container</name>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>253</y>
+    <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
+    <x>490</x>
+    <tooltip />
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
+    <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>$(N13)</N>
+    </macros>
+    <visible>true</visible>
+    <font>
+      <opifont.name>Default</opifont.name>
+    </font>
+    <width>197</width>
+    <border_style>0</border_style>
+    <auto_size>false</auto_size>
+    <rules />
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>26</height>
+    <border_width>1</border_width>
+    <name>Linking Container</name>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>276</y>
+    <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
+    <x>490</x>
+    <tooltip />
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
+    <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>$(N14)</N>
+    </macros>
+    <visible>true</visible>
+    <font>
+      <opifont.name>Default</opifont.name>
+    </font>
+    <width>197</width>
+    <border_style>0</border_style>
+    <auto_size>false</auto_size>
+    <rules />
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>26</height>
+    <border_width>1</border_width>
+    <name>Linking Container</name>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>299</y>
+    <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
+    <x>490</x>
+    <tooltip />
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
+    <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>$(N15)</N>
+    </macros>
+    <visible>true</visible>
+    <font>
+      <opifont.name>Default</opifont.name>
+    </font>
+    <width>197</width>
+    <border_style>0</border_style>
+    <auto_size>false</auto_size>
+    <rules />
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>26</height>
+    <border_width>1</border_width>
+    <name>Linking Container</name>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>322</y>
+    <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
+    <x>490</x>
+    <tooltip />
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
+    <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>$(N16)</N>
+    </macros>
+    <visible>true</visible>
+    <font>
+      <opifont.name>Default</opifont.name>
+    </font>
+    <width>197</width>
+    <border_style>0</border_style>
+    <auto_size>false</auto_size>
+    <rules />
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>26</height>
+    <border_width>1</border_width>
+    <name>Linking Container</name>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>345</y>
+    <actions hook="false" />
+    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
+    <x>490</x>
+    <tooltip />
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
     <group_name />
@@ -100,7 +628,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -128,7 +656,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_1</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -136,7 +664,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -164,7 +692,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_2</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -172,7 +700,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -200,7 +728,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_3</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -208,7 +736,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -236,7 +764,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_4</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -244,7 +772,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -272,7 +800,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_5</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -280,7 +808,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -308,7 +836,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_6</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -316,7 +844,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -344,7 +872,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_7</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -352,7 +880,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -380,7 +908,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_8</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -388,7 +916,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -416,7 +944,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_9</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -424,7 +952,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -452,7 +980,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_10</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -460,7 +988,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -488,7 +1016,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_11</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -496,7 +1024,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -524,7 +1052,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_12</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -532,7 +1060,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -560,7 +1088,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_13</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -568,7 +1096,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -596,7 +1124,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_14</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -604,7 +1132,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -632,7 +1160,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>26</height>
     <border_width>1</border_width>
-    <name>Linking Container_15</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -640,588 +1168,12 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_FieldInput_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
     </background_color>
     <x>0</x>
-    <tooltip />
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
-    <group_name />
-    <enabled>true</enabled>
-    <widget_type>Linking Container</widget_type>
-    <macros>
-      <include_parent_macros>true</include_parent_macros>
-      <N>$(N1)</N>
-    </macros>
-    <visible>true</visible>
-    <font>
-      <opifont.name>Default</opifont.name>
-    </font>
-    <width>197</width>
-    <border_style>0</border_style>
-    <auto_size>false</auto_size>
-    <rules />
-    <scripts />
-    <zoom_to_fit>true</zoom_to_fit>
-    <height>26</height>
-    <border_width>1</border_width>
-    <name>Linking Container_16</name>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <y>0</y>
-    <actions hook="false" />
-    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
-    <foreground_color>
-      <color red="192" green="192" blue="192" />
-    </foreground_color>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
-    <x>490</x>
-    <tooltip />
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
-    <group_name />
-    <enabled>true</enabled>
-    <widget_type>Linking Container</widget_type>
-    <macros>
-      <include_parent_macros>true</include_parent_macros>
-      <N>$(N2)</N>
-    </macros>
-    <visible>true</visible>
-    <font>
-      <opifont.name>Default</opifont.name>
-    </font>
-    <width>197</width>
-    <border_style>0</border_style>
-    <auto_size>false</auto_size>
-    <rules />
-    <scripts />
-    <zoom_to_fit>true</zoom_to_fit>
-    <height>26</height>
-    <border_width>1</border_width>
-    <name>Linking Container_17</name>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <y>23</y>
-    <actions hook="false" />
-    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
-    <foreground_color>
-      <color red="192" green="192" blue="192" />
-    </foreground_color>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
-    <x>490</x>
-    <tooltip />
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
-    <group_name />
-    <enabled>true</enabled>
-    <widget_type>Linking Container</widget_type>
-    <macros>
-      <include_parent_macros>true</include_parent_macros>
-      <N>$(N3)</N>
-    </macros>
-    <visible>true</visible>
-    <font>
-      <opifont.name>Default</opifont.name>
-    </font>
-    <width>197</width>
-    <border_style>0</border_style>
-    <auto_size>false</auto_size>
-    <rules />
-    <scripts />
-    <zoom_to_fit>true</zoom_to_fit>
-    <height>26</height>
-    <border_width>1</border_width>
-    <name>Linking Container_18</name>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <y>46</y>
-    <actions hook="false" />
-    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
-    <foreground_color>
-      <color red="192" green="192" blue="192" />
-    </foreground_color>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
-    <x>490</x>
-    <tooltip />
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
-    <group_name />
-    <enabled>true</enabled>
-    <widget_type>Linking Container</widget_type>
-    <macros>
-      <include_parent_macros>true</include_parent_macros>
-      <N>$(N4)</N>
-    </macros>
-    <visible>true</visible>
-    <font>
-      <opifont.name>Default</opifont.name>
-    </font>
-    <width>197</width>
-    <border_style>0</border_style>
-    <auto_size>false</auto_size>
-    <rules />
-    <scripts />
-    <zoom_to_fit>true</zoom_to_fit>
-    <height>26</height>
-    <border_width>1</border_width>
-    <name>Linking Container_19</name>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <y>69</y>
-    <actions hook="false" />
-    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
-    <foreground_color>
-      <color red="192" green="192" blue="192" />
-    </foreground_color>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
-    <x>490</x>
-    <tooltip />
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
-    <group_name />
-    <enabled>true</enabled>
-    <widget_type>Linking Container</widget_type>
-    <macros>
-      <include_parent_macros>true</include_parent_macros>
-      <N>$(N5)</N>
-    </macros>
-    <visible>true</visible>
-    <font>
-      <opifont.name>Default</opifont.name>
-    </font>
-    <width>197</width>
-    <border_style>0</border_style>
-    <auto_size>false</auto_size>
-    <rules />
-    <scripts />
-    <zoom_to_fit>true</zoom_to_fit>
-    <height>26</height>
-    <border_width>1</border_width>
-    <name>Linking Container_20</name>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <y>92</y>
-    <actions hook="false" />
-    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
-    <foreground_color>
-      <color red="192" green="192" blue="192" />
-    </foreground_color>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
-    <x>490</x>
-    <tooltip />
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
-    <group_name />
-    <enabled>true</enabled>
-    <widget_type>Linking Container</widget_type>
-    <macros>
-      <include_parent_macros>true</include_parent_macros>
-      <N>$(N6)</N>
-    </macros>
-    <visible>true</visible>
-    <font>
-      <opifont.name>Default</opifont.name>
-    </font>
-    <width>197</width>
-    <border_style>0</border_style>
-    <auto_size>false</auto_size>
-    <rules />
-    <scripts />
-    <zoom_to_fit>true</zoom_to_fit>
-    <height>26</height>
-    <border_width>1</border_width>
-    <name>Linking Container_21</name>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <y>115</y>
-    <actions hook="false" />
-    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
-    <foreground_color>
-      <color red="192" green="192" blue="192" />
-    </foreground_color>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
-    <x>490</x>
-    <tooltip />
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
-    <group_name />
-    <enabled>true</enabled>
-    <widget_type>Linking Container</widget_type>
-    <macros>
-      <include_parent_macros>true</include_parent_macros>
-      <N>$(N7)</N>
-    </macros>
-    <visible>true</visible>
-    <font>
-      <opifont.name>Default</opifont.name>
-    </font>
-    <width>197</width>
-    <border_style>0</border_style>
-    <auto_size>false</auto_size>
-    <rules />
-    <scripts />
-    <zoom_to_fit>true</zoom_to_fit>
-    <height>26</height>
-    <border_width>1</border_width>
-    <name>Linking Container_22</name>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <y>138</y>
-    <actions hook="false" />
-    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
-    <foreground_color>
-      <color red="192" green="192" blue="192" />
-    </foreground_color>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
-    <x>490</x>
-    <tooltip />
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
-    <group_name />
-    <enabled>true</enabled>
-    <widget_type>Linking Container</widget_type>
-    <macros>
-      <include_parent_macros>true</include_parent_macros>
-      <N>$(N8)</N>
-    </macros>
-    <visible>true</visible>
-    <font>
-      <opifont.name>Default</opifont.name>
-    </font>
-    <width>197</width>
-    <border_style>0</border_style>
-    <auto_size>false</auto_size>
-    <rules />
-    <scripts />
-    <zoom_to_fit>true</zoom_to_fit>
-    <height>26</height>
-    <border_width>1</border_width>
-    <name>Linking Container_23</name>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <y>161</y>
-    <actions hook="false" />
-    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
-    <foreground_color>
-      <color red="192" green="192" blue="192" />
-    </foreground_color>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
-    <x>490</x>
-    <tooltip />
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
-    <group_name />
-    <enabled>true</enabled>
-    <widget_type>Linking Container</widget_type>
-    <macros>
-      <include_parent_macros>true</include_parent_macros>
-      <N>$(N9)</N>
-    </macros>
-    <visible>true</visible>
-    <font>
-      <opifont.name>Default</opifont.name>
-    </font>
-    <width>197</width>
-    <border_style>0</border_style>
-    <auto_size>false</auto_size>
-    <rules />
-    <scripts />
-    <zoom_to_fit>true</zoom_to_fit>
-    <height>26</height>
-    <border_width>1</border_width>
-    <name>Linking Container_24</name>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <y>184</y>
-    <actions hook="false" />
-    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
-    <foreground_color>
-      <color red="192" green="192" blue="192" />
-    </foreground_color>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
-    <x>490</x>
-    <tooltip />
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
-    <group_name />
-    <enabled>true</enabled>
-    <widget_type>Linking Container</widget_type>
-    <macros>
-      <include_parent_macros>true</include_parent_macros>
-      <N>$(N10)</N>
-    </macros>
-    <visible>true</visible>
-    <font>
-      <opifont.name>Default</opifont.name>
-    </font>
-    <width>197</width>
-    <border_style>0</border_style>
-    <auto_size>false</auto_size>
-    <rules />
-    <scripts />
-    <zoom_to_fit>true</zoom_to_fit>
-    <height>26</height>
-    <border_width>1</border_width>
-    <name>Linking Container_25</name>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <y>207</y>
-    <actions hook="false" />
-    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
-    <foreground_color>
-      <color red="192" green="192" blue="192" />
-    </foreground_color>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
-    <x>490</x>
-    <tooltip />
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
-    <group_name />
-    <enabled>true</enabled>
-    <widget_type>Linking Container</widget_type>
-    <macros>
-      <include_parent_macros>true</include_parent_macros>
-      <N>$(N11)</N>
-    </macros>
-    <visible>true</visible>
-    <font>
-      <opifont.name>Default</opifont.name>
-    </font>
-    <width>197</width>
-    <border_style>0</border_style>
-    <auto_size>false</auto_size>
-    <rules />
-    <scripts />
-    <zoom_to_fit>true</zoom_to_fit>
-    <height>26</height>
-    <border_width>1</border_width>
-    <name>Linking Container_26</name>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <y>230</y>
-    <actions hook="false" />
-    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
-    <foreground_color>
-      <color red="192" green="192" blue="192" />
-    </foreground_color>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
-    <x>490</x>
-    <tooltip />
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
-    <group_name />
-    <enabled>true</enabled>
-    <widget_type>Linking Container</widget_type>
-    <macros>
-      <include_parent_macros>true</include_parent_macros>
-      <N>$(N12)</N>
-    </macros>
-    <visible>true</visible>
-    <font>
-      <opifont.name>Default</opifont.name>
-    </font>
-    <width>197</width>
-    <border_style>0</border_style>
-    <auto_size>false</auto_size>
-    <rules />
-    <scripts />
-    <zoom_to_fit>true</zoom_to_fit>
-    <height>26</height>
-    <border_width>1</border_width>
-    <name>Linking Container_27</name>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <y>253</y>
-    <actions hook="false" />
-    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
-    <foreground_color>
-      <color red="192" green="192" blue="192" />
-    </foreground_color>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
-    <x>490</x>
-    <tooltip />
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
-    <group_name />
-    <enabled>true</enabled>
-    <widget_type>Linking Container</widget_type>
-    <macros>
-      <include_parent_macros>true</include_parent_macros>
-      <N>$(N13)</N>
-    </macros>
-    <visible>true</visible>
-    <font>
-      <opifont.name>Default</opifont.name>
-    </font>
-    <width>197</width>
-    <border_style>0</border_style>
-    <auto_size>false</auto_size>
-    <rules />
-    <scripts />
-    <zoom_to_fit>true</zoom_to_fit>
-    <height>26</height>
-    <border_width>1</border_width>
-    <name>Linking Container_28</name>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <y>276</y>
-    <actions hook="false" />
-    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
-    <foreground_color>
-      <color red="192" green="192" blue="192" />
-    </foreground_color>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
-    <x>490</x>
-    <tooltip />
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
-    <group_name />
-    <enabled>true</enabled>
-    <widget_type>Linking Container</widget_type>
-    <macros>
-      <include_parent_macros>true</include_parent_macros>
-      <N>$(N14)</N>
-    </macros>
-    <visible>true</visible>
-    <font>
-      <opifont.name>Default</opifont.name>
-    </font>
-    <width>197</width>
-    <border_style>0</border_style>
-    <auto_size>false</auto_size>
-    <rules />
-    <scripts />
-    <zoom_to_fit>true</zoom_to_fit>
-    <height>26</height>
-    <border_width>1</border_width>
-    <name>Linking Container_29</name>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <y>299</y>
-    <actions hook="false" />
-    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
-    <foreground_color>
-      <color red="192" green="192" blue="192" />
-    </foreground_color>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
-    <x>490</x>
-    <tooltip />
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
-    <group_name />
-    <enabled>true</enabled>
-    <widget_type>Linking Container</widget_type>
-    <macros>
-      <include_parent_macros>true</include_parent_macros>
-      <N>$(N15)</N>
-    </macros>
-    <visible>true</visible>
-    <font>
-      <opifont.name>Default</opifont.name>
-    </font>
-    <width>197</width>
-    <border_style>0</border_style>
-    <auto_size>false</auto_size>
-    <rules />
-    <scripts />
-    <zoom_to_fit>true</zoom_to_fit>
-    <height>26</height>
-    <border_width>1</border_width>
-    <name>Linking Container_30</name>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <y>322</y>
-    <actions hook="false" />
-    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
-    <foreground_color>
-      <color red="192" green="192" blue="192" />
-    </foreground_color>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
-    <x>490</x>
-    <tooltip />
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
-    <group_name />
-    <enabled>true</enabled>
-    <widget_type>Linking Container</widget_type>
-    <macros>
-      <include_parent_macros>true</include_parent_macros>
-      <N>$(N16)</N>
-    </macros>
-    <visible>true</visible>
-    <font>
-      <opifont.name>Default</opifont.name>
-    </font>
-    <width>197</width>
-    <border_style>0</border_style>
-    <auto_size>false</auto_size>
-    <rules />
-    <scripts />
-    <zoom_to_fit>true</zoom_to_fit>
-    <height>26</height>
-    <border_width>1</border_width>
-    <name>Linking Container_31</name>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <y>345</y>
-    <actions hook="false" />
-    <opi_file>softGlue_FieldOutput_bare.opi</opi_file>
-    <foreground_color>
-      <color red="192" green="192" blue="192" />
-    </foreground_color>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
-    <x>490</x>
     <tooltip />
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
@@ -1244,7 +1196,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>24</height>
     <border_width>1</border_width>
-    <name>Linking Container_32</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1252,7 +1204,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_IntBit_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -1280,7 +1232,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>24</height>
     <border_width>1</border_width>
-    <name>Linking Container_33</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1288,7 +1240,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_IntBit_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -1316,7 +1268,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>24</height>
     <border_width>1</border_width>
-    <name>Linking Container_34</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1324,7 +1276,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_IntBit_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -1352,7 +1304,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>24</height>
     <border_width>1</border_width>
-    <name>Linking Container_35</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1360,7 +1312,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_IntBit_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -1388,7 +1340,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>24</height>
     <border_width>1</border_width>
-    <name>Linking Container_36</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1396,7 +1348,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_IntBit_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -1424,7 +1376,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>24</height>
     <border_width>1</border_width>
-    <name>Linking Container_37</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1432,7 +1384,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_IntBit_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -1460,7 +1412,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>24</height>
     <border_width>1</border_width>
-    <name>Linking Container_38</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1468,7 +1420,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_IntBit_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -1496,7 +1448,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>24</height>
     <border_width>1</border_width>
-    <name>Linking Container_39</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1504,7 +1456,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_IntBit_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -1532,7 +1484,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>24</height>
     <border_width>1</border_width>
-    <name>Linking Container_40</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1540,7 +1492,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_IntBit_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -1568,7 +1520,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>24</height>
     <border_width>1</border_width>
-    <name>Linking Container_41</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1576,7 +1528,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_IntBit_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -1604,7 +1556,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>24</height>
     <border_width>1</border_width>
-    <name>Linking Container_42</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1612,7 +1564,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_IntBit_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -1640,7 +1592,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>24</height>
     <border_width>1</border_width>
-    <name>Linking Container_43</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1648,7 +1600,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_IntBit_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -1676,7 +1628,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>24</height>
     <border_width>1</border_width>
-    <name>Linking Container_44</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1684,7 +1636,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_IntBit_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -1712,7 +1664,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>24</height>
     <border_width>1</border_width>
-    <name>Linking Container_45</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1720,7 +1672,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_IntBit_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -1748,7 +1700,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>24</height>
     <border_width>1</border_width>
-    <name>Linking Container_46</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1756,7 +1708,7 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_IntBit_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
@@ -1784,7 +1736,7 @@ $(pv_value)</tooltip>
     <zoom_to_fit>true</zoom_to_fit>
     <height>24</height>
     <border_width>1</border_width>
-    <name>Linking Container_47</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -1792,12 +1744,59 @@ $(pv_value)</tooltip>
     <actions hook="false" />
     <opi_file>softGlue_IntBit_bare.opi</opi_file>
     <foreground_color>
-      <color red="192" green="192" blue="192" />
+      <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
     </background_color>
     <x>205</x>
     <tooltip />
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0">
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <fill_arrow>true</fill_arrow>
+    <arrow_length>20</arrow_length>
+    <visible>true</visible>
+    <fill_level>100.0</fill_level>
+    <rotation_angle>0.0</rotation_angle>
+    <scripts />
+    <arrows>0</arrows>
+    <height>369</height>
+    <anti_alias>true</anti_alias>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <name>Polyline</name>
+    <points>
+      <point x="481" y="1" />
+      <point x="481" y="369" />
+    </points>
+    <transparent>false</transparent>
+    <pv_name />
+    <background_color>
+      <color red="0" green="0" blue="255" />
+    </background_color>
+    <foreground_color>
+      <color name="Gray_14" />
+    </foreground_color>
+    <widget_type>Polyline</widget_type>
+    <enabled>true</enabled>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <font>
+      <opifont.name>Default</opifont.name>
+    </font>
+    <line_style>0</line_style>
+    <width>1</width>
+    <border_style>0</border_style>
+    <rules />
+    <border_width>1</border_width>
+    <line_width>1</line_width>
+    <horizontal_fill>true</horizontal_fill>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <actions hook="false" />
+    <y>1</y>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <x>481</x>
   </widget>
 </display>

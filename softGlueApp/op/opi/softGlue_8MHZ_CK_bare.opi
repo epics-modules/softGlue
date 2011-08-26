@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <display typeId="org.csstudio.opibuilder.Display" version="1.0">
   <auto_zoom_to_fit_all>false</auto_zoom_to_fit_all>
   <macros>
@@ -13,7 +14,7 @@
     <color name="Gray_2" />
   </background_color>
   <foreground_color>
-    <color name="default_fg" />
+    <color name="Gray_14" />
   </foreground_color>
   <widget_type>Display</widget_type>
   <show_close_button>true</show_close_button>
@@ -81,7 +82,7 @@ $(pv_value)</tooltip>
     <fill_arrow>true</fill_arrow>
     <arrow_length>20</arrow_length>
     <visible>true</visible>
-    <fill_level>0.0</fill_level>
+    <fill_level>100.0</fill_level>
     <rotation_angle>0.0</rotation_angle>
     <scripts />
     <arrows>0</arrows>
@@ -93,13 +94,13 @@ $(pv_value)</tooltip>
       <point x="172" y="23" />
       <point x="133" y="23" />
     </points>
-    <transparent>false</transparent>
+    <transparent>true</transparent>
     <pv_name />
     <background_color>
-      <color name="default_fg" />
+      <color red="0" green="0" blue="255" />
     </background_color>
     <foreground_color>
-      <color red="255" green="0" blue="0" />
+      <color name="Gray_14" />
     </foreground_color>
     <widget_type>Polyline</widget_type>
     <enabled>true</enabled>
@@ -112,7 +113,7 @@ $(pv_value)</tooltip>
     <border_style>0</border_style>
     <rules />
     <border_width>1</border_width>
-    <line_width>2</line_width>
+    <line_width>1</line_width>
     <horizontal_fill>true</horizontal_fill>
     <border_color>
       <color red="0" green="128" blue="255" />
@@ -126,7 +127,7 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="1.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
-    <minimum>-Infinity</minimum>
+    <minimum>-1.7976931348623157E308</minimum>
     <vertical_alignment>1</vertical_alignment>
     <show_units>false</show_units>
     <multiline_input>false</multiline_input>
@@ -144,7 +145,7 @@ $(pv_value)</tooltip>
       <color name="MEDM_COLOR_31" />
     </background_color>
     <foreground_color>
-      <color name="default_fg" />
+      <color name="Gray_14" />
     </foreground_color>
     <widget_type>Text Input</widget_type>
     <enabled>true</enabled>
@@ -155,10 +156,10 @@ $(pv_value)</tooltip>
       <fontdata fontName="Sans" height="14" style="0" />
     </font>
     <width>100</width>
-    <border_style>3</border_style>
+    <border_style>0</border_style>
     <rules />
     <border_width>1</border_width>
-    <maximum>Infinity</maximum>
+    <maximum>1.7976931348623157E308</maximum>
     <limits_from_pv>false</limits_from_pv>
     <border_color>
       <color red="0" green="128" blue="255" />
@@ -182,7 +183,7 @@ $(pv_value)</tooltip>
       <color name="ioc_write_bg" />
     </background_color>
     <foreground_color>
-      <color name="default_fg" />
+      <color name="Gray_14" />
     </foreground_color>
     <widget_type>Action Button</widget_type>
     <enabled>true</enabled>
@@ -198,6 +199,7 @@ $(pv_value)</tooltip>
     <rules />
     <toggle_button>true</toggle_button>
     <border_width>1</border_width>
+    <release_action_index>0</release_action_index>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
@@ -241,7 +243,7 @@ $(pv_value)</tooltip>
     <font>
       <fontdata fontName="Sans" height="14" style="0" />
     </font>
-    <width>30</width>
+    <width>123</width>
     <border_style>0</border_style>
     <rules />
     <border_width>1</border_width>

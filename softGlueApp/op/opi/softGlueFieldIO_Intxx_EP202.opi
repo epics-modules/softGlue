@@ -13,7 +13,7 @@
     <color name="Gray_2" />
   </background_color>
   <foreground_color>
-    <color name="default_fg" />
+    <color name="Gray_14" />
   </foreground_color>
   <widget_type>Display</widget_type>
   <show_close_button>true</show_close_button>
@@ -24,9 +24,10 @@
   <actions hook="false" />
   <y>283</y>
   <x>203</x>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <group_name />
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <macros>
       <include_parent_macros>true</include_parent_macros>
     </macros>
@@ -36,19 +37,19 @@
     </font>
     <width>687</width>
     <border_style>0</border_style>
+    <auto_size>false</auto_size>
     <rules />
-    <lock_children>false</lock_children>
     <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
     <height>371</height>
     <border_width>1</border_width>
-    <name>Grouping Container</name>
+    <name>Linking Container</name>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>true</show_scrollbar>
     <y>50</y>
     <actions hook="false" />
+    <opi_file>softGlueFieldIO_Intxx_EP202_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -79,7 +80,7 @@
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <transparent>false</transparent>
+    <transparent>true</transparent>
     <show_scrollbar>false</show_scrollbar>
     <y>430</y>
     <actions hook="false" />
@@ -112,7 +113,7 @@
         <color name="ioc_write_bg" />
       </background_color>
       <foreground_color>
-        <color name="default_fg" />
+        <color name="Gray_14" />
       </foreground_color>
       <widget_type>Text Input</widget_type>
       <enabled>true</enabled>
@@ -123,7 +124,7 @@
         <fontdata fontName="Sans" height="12" style="0" />
       </font>
       <width>40</width>
-      <border_style>3</border_style>
+      <border_style>0</border_style>
       <rules />
       <border_width>1</border_width>
       <maximum>Infinity</maximum>
@@ -151,7 +152,7 @@ $(pv_value)</tooltip>
         <color red="255" green="255" blue="255" />
       </background_color>
       <foreground_color>
-        <color name="default_fg" />
+        <color name="Gray_14" />
       </foreground_color>
       <widget_type>Label</widget_type>
       <enabled>true</enabled>
@@ -187,7 +188,7 @@ $(pv_value)</tooltip>
       <color red="255" green="255" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="default_fg" />
+      <color name="Gray_14" />
     </foreground_color>
     <widget_type>Label</widget_type>
     <enabled>true</enabled>
@@ -222,7 +223,7 @@ $(pv_value)</tooltip>
       <color red="255" green="255" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="default_fg" />
+      <color name="Gray_14" />
     </foreground_color>
     <widget_type>Label</widget_type>
     <enabled>true</enabled>
@@ -257,7 +258,7 @@ $(pv_value)</tooltip>
       <color red="255" green="255" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="default_fg" />
+      <color name="Gray_14" />
     </foreground_color>
     <widget_type>Label</widget_type>
     <enabled>true</enabled>
@@ -292,7 +293,7 @@ $(pv_value)</tooltip>
       <color red="255" green="255" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="default_fg" />
+      <color name="Gray_14" />
     </foreground_color>
     <widget_type>Label</widget_type>
     <enabled>true</enabled>
@@ -327,7 +328,7 @@ $(pv_value)</tooltip>
       <color red="255" green="255" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="default_fg" />
+      <color name="Gray_14" />
     </foreground_color>
     <widget_type>Label</widget_type>
     <enabled>true</enabled>
@@ -362,7 +363,7 @@ $(pv_value)</tooltip>
       <color red="255" green="255" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="default_fg" />
+      <color name="Gray_14" />
     </foreground_color>
     <widget_type>Label</widget_type>
     <enabled>true</enabled>
@@ -397,7 +398,7 @@ $(pv_value)</tooltip>
       <color red="255" green="255" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="default_fg" />
+      <color name="Gray_14" />
     </foreground_color>
     <widget_type>Label</widget_type>
     <enabled>true</enabled>
@@ -433,7 +434,7 @@ $(pv_value)</tooltip>
       <color name="callup_bg" />
     </background_color>
     <foreground_color>
-      <color name="callup_fg" />
+      <color name="Gray_0" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
@@ -456,7 +457,7 @@ $(pv_value)</tooltip>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
-        <replace>false</replace>
+        <replace>1</replace>
         <description>Plain I/O</description>
       </action>
     </actions>
@@ -477,7 +478,7 @@ $(pv_value)</tooltip>
       <color red="255" green="255" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="Red" />
+      <color name="alarm" />
     </foreground_color>
     <widget_type>Label</widget_type>
     <enabled>true</enabled>
@@ -512,7 +513,7 @@ $(pv_value)</tooltip>
       <color red="255" green="255" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="Red" />
+      <color name="alarm" />
     </foreground_color>
     <widget_type>Label</widget_type>
     <enabled>true</enabled>
