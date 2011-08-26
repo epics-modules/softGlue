@@ -1005,6 +1005,11 @@ time.
 
 <dt>SoftGlue_2_2_0_Octupole_0_0.hex
 <dd>This file contains everything in SoftGlue_2_2.hex, plus two 32-bit shift registers.
+
+<dt>SoftGlue_2_2_1ID_Vgate_0_1.hex
+<dd>This file contains everything in SoftGlue_2_2.hex, plus two 32-bit up/down
+counters.
+
 </dl>
 
 	<h3>Database files</h3>
@@ -1022,7 +1027,14 @@ time from <code>SoftGlue_2_2.hex</code>.<P>
 
 <dd>This substitutions file is run through <code>msi</code> at build time to produce the database file
 <code>softGlue_FPGAContent_octupole.db</code>.  The database file loads records for the two 32-bit
-shift registers in <code>SoftGlue_2_1_Octupole_0_0.hex</code>.<P>
+shift registers in <code>SoftGlue_2_2_Octupole_0_0.hex</code>.<P>
+
+<dt>softGlue_FPGAContent_s1ID_Vgate.substitutions
+
+<dd>This substitutions file is run through <code>msi</code> at build time to
+produce the database file <code>softGlue_FPGAContent_s1ID_Vgate.db</code>.  The
+database file loads records for the two 32-bit up/down counters in
+<code>SoftGlue_2_2_1ID_Vgate_0_1.hex</code>.<P>
 
 <dt>softGlue_FPGAInt.substitutions
 
@@ -1109,6 +1121,7 @@ resolved databases loaded by dbLoadRecords().<P>
 <dl>
 <dt>softGlue_FPGAContent_settings.req<br>
 softGlue_FPGAContent_octupole_settings.req<br>
+softGlue_FPGAContent_s1ID_Vgate.substitutions<br>
 softGlue_FPGAInt_settings.req<br>
 softGlue_SignalShow_settings.req<br>
 softGlue_convenience_settings.req<br>
@@ -1124,18 +1137,27 @@ request file an IOC needs.<P>
 
 </dl>
 
-	<h3>MEDM-display files</h3> There are too many display files to describe individually, and many are
-	similar, so I'll just describe classes of display files, and the overall implementation strategy. 
-	Displays whose names begin with "softGlue_" support individual circuit elements.  Displays whose
-	names are of the form "softGlueXxx" (no underscore after "softGlue") support collections of circuit
-	elements, either by implementing menus for calling up other displays, or by including several
-	"softGlue_" displays.  ("Include", in this context, means specified as a "Composite File", with
-	macro arguments, in the definition of an MEDM grouped item.)
+	<h3>Display files (MEDM and CSS-BOY)</h3>
 
-	<P>The MEDM display of a softGlue circuit element is built in layers, from instances of
-	softGlue_Input.adl and softGlue_Output.adl, which are <i>included</i> in softGlue_&lt;element
-	name&gt;_bare.adl, which in turn is included in one of the user displays (for example,
-	softGlueAll.adl, softGlue_AND.adl, etc.). 
+	There are too many display files to describe individually, and many are
+	similar, so I'll just describe classes of display files, and the overall
+	implementation strategy.  Displays whose names begin with "softGlue_"
+	support individual circuit elements.  Displays whose names are of the form
+	"softGlueXxx" (no underscore after "softGlue") support collections of
+	circuit elements, either by implementing menus for calling up other
+	displays, or by including several "softGlue_" displays.  ("Include", in this
+	context, means specified as a "Composite File", with macro arguments, in the
+	definition of an MEDM grouped item, or specified as a "linkgroup" in
+	CSS-BOY.)
+
+	<P>In the rest of this display-file documentation, I'll give MEDM examples.
+	For CSS-BOY examples, just substitute ".opi" for ".adl".
+
+	<P>The display of a softGlue circuit element is built in layers, from
+	instances of softGlue_Input.adl and softGlue_Output.adl, which are
+	<i>included</i> in softGlue_&lt;element name&gt;_bare.adl, which in turn is
+	included in one of the user displays (for example, softGlueAll.adl,
+	softGlue_AND.adl, etc.).
 
 	<P><dl>
 	<dt>softGlueMenu.adl<br>
