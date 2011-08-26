@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlueMenu.adl"
+	name="/home/oxygen4/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlueMenu.adl"
 	version=030105
 }
 display {
@@ -438,6 +438,11 @@ text {
 	display[6] {
 		label="octupole"
 		name="softGlueOctupole.adl"
+		args="P=$(P),H=$(H)"
+	}
+	display[7] {
+		label="velocity gate"
+		name="softGlueVgate.adl"
 		args="P=$(P),H=$(H)"
 	}
 	clr=0
