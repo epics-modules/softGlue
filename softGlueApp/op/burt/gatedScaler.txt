@@ -74,7 +74,7 @@ process, reading their values so that a client can acquire them.
 	You can, of course, use any field output bit for this purpose, as long as
 	you configure it correctly.
 	
-	The only reason for using an output bit it to generate an interrupt when the
+	The only reason for using an output bit is to generate an interrupt when the
 	counting is finished.
 	
 	The counter doesn't actually rely on the interrupt.  It's only needed to get
