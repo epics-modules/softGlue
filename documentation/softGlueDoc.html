@@ -913,18 +913,55 @@ CA put will succeed in clearing it and causing its processing to appear done to 
 	<pre>burtwb -f myCircuit.snap</pre>
 
 	<h3>Example circuits</h3>
-		<h4>motor-pulse gate</h4>
+		<P><i>Files mentioned below are in <code>softGlueApp/op/burt</code></i>
 
-		Positive-going signals can be gated with an AND gate, by applying the signal to one input of the AND gate,
+		<ol>
+		<li><h4>Motor-pulse gate </h4>
+
+		Positive-going pulses can be gated with an AND gate, by applying the signal to one input of the AND gate,
 		and setting the other input to 0(1) to deny(allow) passage through the gate.
 
-		<P>Negative-going signals can be gated with an OR gate, by applying the signal to one input
+		<P>Negative-going pulses can be gated with an OR gate, by applying the signal to one input
 		of the OR gate, and setting the other input to 0(1) to allow(deny) passage through the
 		gate.
 
-		<h4>motor-pulse accel/decel gate</h4>
+		<li><h4>Gated scaler</h4>
+		<P><i>Files: <code>gatedScaler.snap,  gatedScaler.txt</code></i>
 
-		If you know the number of steps a stepper motor will move during its acceleration time, you
+		<P>This circuit implements four counter channels, a time base to control
+		counting time, an overall gate, and additional circuitry to control
+		starting,  stopping, and processing of the count-value records.  Note
+		that the scaler is controlled by a busy record from the softGlue
+		convenience database, so that client software can discover when counting
+		is finished in the standard EPICS way.  See <code>gatedScaler.txt</code>
+		for more details.
+
+
+		<P><img src="gatedScaler.gif" name="gatedScaler">
+
+		<li><h4>Four independent start-time/stop-time pulses</h4>
+		<P><i>File: <code>fourPulses.snap</code></i>
+
+		<P>This circuit produces four separate pulse signals, which start at
+		specified start-delay times after (the falling edge of) an initial start
+		pulse, and which last for specified pulse-length times.  It uses four
+		DnCntr's to implement the start-delay times, and four DivByN's to
+		implement the pulse-length times.  Times are specified as multiples of
+		the (125 ns) clock period (<code>PRESET</code> for the DnCntr's;
+		<code>N</code> for the DivByN's), and these numbers must be greater than
+		or equal to 1.  The pulse sequence starts on the falling edge of the
+		signal <code>BUF-1</code>, written by a periodically scanned EPICS
+		record (one of the softGlue convenience clocks).  One spare signal name
+		is available, however, so the pulse sequence could also be started by an
+		external signal.
+
+		<P><img src="fourPulses.gif" name="fourPulses">
+
+		<li><h4>Motor-pulse accel/decel gate</h4>
+		
+		<P><i>Files: <code>accelDecelGate.snap, accelDecelGate_transform.sav</code></i>
+
+		<P>If you know the number of steps a stepper motor will move during its acceleration time, you
 		can easily arrange to deliver motor pulses to some external circuit only while the motor is
 		moving at constant speed.  For a stepper motor controlled by the motor record, the number of
 		acceleration/deceleration steps, <code>N<sub>a</sub></code>, can be calculated with the following
@@ -974,9 +1011,10 @@ CA put will succeed in clearing it and causing its processing to appear done to 
 		<P><code>AND-1</code> combines the gate signals produced above into a signal that is 1 while
 		the motor is moving at constant speed.
 
-		<P><code>AND-2</code> gates the negative-going motor pulses, using what was described
-		earlier as a positive-going-pulse gate, by inverting the "motor" signal before applying it
-		to the gate.
+		<P><code>AND-2</code> gates the negative-going motor pulses, using what
+		was described in the "Motor-pulse gate" example as a
+		positive-going-pulse gate, by inverting the "motor" signal before
+		applying it to the gate.
 
 		<P>Note that the down counters are clocked by (rising edges of) "motor", to produce the
 		signal used to gate "motor<code>*</code>".  This choice avoids a race condition between simultaneous
@@ -989,7 +1027,7 @@ CA put will succeed in clearing it and causing its processing to appear done to 
 		record.
 
 		<P><img src="accelDecelGateCalc.gif" name="accelDecelGateCalc">
-
+		</ol>
 
 <hr>
 <h2><center>Implementation</center></h2>
