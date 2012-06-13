@@ -57,10 +57,11 @@ and connecting or driving inputs and outputs according to those names.
 
 </ul>
 
-<blockquote> SoftGlue 2.x is intended to be useable with any IP_EP200-series module, but the
-databases and MEDM displays supplied in this version are for the IP_EP201, and other modules in
-the series have not yet been tested.  The differences between modules are in the numbers of I/O
-bits, and the pinout.</blockquote>
+<blockquote> SoftGlue 2.x is intended to be useable with any IP_EP200-series
+module, but the databases and MEDM displays supplied in this version are for the
+IP_EP201, and other modules in the series have not yet been tested.  The
+differences between modules are in the numbers of I/O bits, and the
+pinout.</blockquote>
 
 <li><h4>Software</h4>
 <ul>
@@ -282,7 +283,7 @@ development of support for add-on packages.
 				<code>dbLoadRecords()</code> commands in your copy of <code>softGlue.cmd</code> to
 				define the macro <code>P</code>, so that it's unique to your IOC.
 
-				<blockquote>If you'll have more than one IP_EO20x module in an IOC, you'll also need
+				<blockquote>If you'll have more than one IP_EP20x module in an IOC, you'll also need
 				to maintain separate definitions for the macro, <code>H</code>, and for asyn port
 				names associated with the modules.  Port names are supplied as arguments
 				to the functions <code>initIP_EP200()</code>, <code>initIP_EP201(), and
@@ -359,10 +360,10 @@ initIP_EP200_FPGA(ushort carrier, ushort slot, char *filename)
 Example:
    initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2.hex")
 
-Write content to the FPGA.  This command will fail if the FPGA already
-has content loaded, as it will after a soft reboot.  To load new FPGA
-content, you must power cycle the ioc.
-</pre>
+Write content to the FPGA.  This command will fail if the FPGA already has
+content loaded, as it will after a soft reboot.  When the command fails for this
+reason, the already loaded FPGA content will be left as it was, with no ill
+effect.  To load new FPGA content, you must power cycle the ioc. </pre>
 
 <li>
 <pre>
@@ -402,6 +403,19 @@ Example:
 Initialize field-I/O interrupt support
 </pre>
 
+<blockquote>
+
+Note that interrupt vectors currently are hardwired in the supplied FPGA
+content.  Thus, if you want to use two or more IP_EP20x modules, only one may be
+permitted to generate interrupts.  Interrupt generation is entirely an end-user
+choice, and it occurs only for the purpose of causing some EPICS record to
+process on the change of state of a softGlue field I/O signal.  See "Field I/O
+Interrupt support" below for a description of the
+<code>softGlueFieldIO_Intxx.adl</code> MEDM-display file by which interrupt
+generation is controlled.
+
+</blockquote>
+
 <li>
 <pre>
 int initIP_EP200_IO(ushort carrier, ushort slot, ushort moduleType,
@@ -440,12 +454,15 @@ Correspondence between dataDir bits (0-8) and I/O pins (1-48)
        would mean that I/O bits 1,3,25,27, 5,7,29,31, 17,19,41,43 are outputs.
     3. For the IP-EP203, moduleType is 203, and dataDir == 0x??? would mean
        that I/O bits 1-8, 25,27, 29,31, 33,35, 45,47 are outputs.
-
-Example:
-    initIP_EP200_IO(0, 2, 201, 0x3c)
-
-Set field-I/O data direction
 </pre>
+
+<P>Example:
+
+<pre>
+    initIP_EP200_IO(0, 2, 201, 0x3c)
+</pre>
+
+<P>Set field-I/O data direction
 
 <li>
 For backward compatibility with softGlue 2.1 and earlier, the following
@@ -489,19 +506,32 @@ Example:
     initIP_EP201("SGIO_1",0,2,1000000,0x101,0x800000,0x90,0x00,0x00)
     initIP_EP201("SGIO_2",0,2,1000000,0x101,0x800010,0x91,0x00,0x00)
     initIP_EP201("SGIO_3",0,2,1000000,0x101,0x800020,0x92,0x00,0x00)
-
-
 </pre>
+
+<blockquote>
+
+Note that interrupt vectors currently are hardwired in the supplied FPGA
+content.  Thus, if you want to use two or more IP_EP20x modules, only one may be
+permitted to generate interrupts.  Interrupt generation is entirely an end-user
+choice, and it occurs only for the purpose of causing some EPICS record to
+process on the change of state of a softGlue field I/O signal.  See "Field I/O
+Interrupt support" below for a description of the
+<code>softGlueFieldIO_Intxx.adl</code> MEDM-display file by which interrupt
+generation is controlled.
+
+</blockquote>
 
 <li>
 <pre>
 initIP_EP201SingleRegisterPort(char *portName, ushort carrier, ushort slot)
+</pre>
 
+<P>Initialize softGlue signal-name support.
+
+<P>Example:
+
+<pre>
 initIP_EP201SingleRegisterPort("SOFTGLUE", 0, 2)
-
-Initialize softGlue signal-name support.
-All instances of a single-register component are initialized with a single
-call, as follows:
 </pre>
 
 </ul>
@@ -595,6 +625,10 @@ This <em>names</em> the signal, and connects it to all other signals with the sa
 same name followed by '<code>*</code>', as described below).  Case is significant in comparing
 signal names.
 
+<blockquote>Note that a "signal", as the word is used in this documentation, is a named connection
+between softGlue circuit elements.  It might be more intuitive to think of a "signal" as a wire,
+to avoid confusing it with, say, field I/O.</blockquote>
+
 <blockquote>Note, if you're using more than one IP-EP20x module, that you can't connect signals implemented in
 different IP-EP20x modules using their text-entry boxes. To accomplish this, you must connect the signals to
 field I/O and make a physical connection.</blockquote>
@@ -619,10 +653,11 @@ name; it merely describes how the signal should be used.)
 <P>Text-entry boxes for output signals won't accept names beginning with a number, or ending with
 '<code>*</code>'.  (softGlue will simply strip the offending characters, and leave the rest.)
 
-<blockquote>Signal names beginning with a number cannot be connected to inputs, because the
-leading number would be misinterpreted by input-signal-name parsing as a direct-write command. 
-Output-signal names ending with '<code>*</code>' are logically sensible, but are not permitted
-to simplify the implementation of '<code>*</code>' appended to input-signal names. </blockquote>
+<blockquote>A signal name beginning with a number can only be a direct-write command; it cannot connect
+things together, because the leading number would be misinterpreted by input-signal-name parsing as a
+direct-write command.  Output-signal names ending with '<code>*</code>' are logically sensible, but are
+not permitted to simplify the implementation of '<code>*</code>' appended to input-signal names.
+</blockquote>
 
 <P>A signal's blue "= button" is used to find all other signals to which the signal is connected.
 While a signal's "= button" is pressed, input signals connected to it are bordered in green, and output
@@ -730,12 +765,18 @@ clock returns <code>Q</code> to <code>0</code> (regardless of the states of <cod
 <li><P>32-bit Divide By N
 <P><img src="DivByN.gif" name="Divide By N">
 
-<P><code>EN==1</code> enables the clock (">") input.  Every <code>N</code>'th rising edge of the
-clock drives <code>Q</code> to <code>1</code>.  The next rising edge returns <code>Q</code> to
-<code>0</code>.  In softGlue version 2.1 and earlier, the <code>RESET</code> signal doesn't do
-anything.  In softGlue 2.2, the <code>RESET</code> signal loads the counter with <code>N</code>,
-so that <code>Q</code> will be driven to <code>1</code> after <code>N</code> rising edges of the
-clock.
+<P><code>EN==1</code> enables the clock (">") input.  Every <code>N</code>'th
+rising edge of the clock drives <code>Q</code> to <code>1</code>.  The next
+rising edge returns <code>Q</code> to <code>0</code>.  This behavior produces
+the correct number of rising edges of the output signal, but it does not
+guarantee the same number of falling edges. Therefore, using an inverted copy of
+the output to clock downstream electronics will in some cases have inconsistent
+results.
+
+<P>In softGlue version 2.1 and earlier, the <code>RESET</code> signal doesn't do
+anything.  Beginning with softGlue 2.2, the <code>RESET</code> signal loads the
+counter with <code>N</code>, so that <code>Q</code> will be driven to
+<code>1</code> after <code>N</code> rising edges of the clock.
 
 <P>
 
@@ -894,26 +935,59 @@ CA put will succeed in clearing it and causing its processing to appear done to 
 
 	<h3>Saving and restoring circuits</h3>
 	
-	softGlue circuits can be saved using autosave, BURT, or any other channel access client that can
+	softGlue circuits can be saved using autosave,
+	<a href="http://www.aps.anl.gov/epics/extensions/burt/index.php">BURT</a>, or any other channel access client that can
 	read and write PV's.  The BURT request file <code>softGlueApp/op/burt/softGlue.snap</code> can
 	be used to save all softGlue user modifiable PV's.  For example, the following command saves the
-	state of softGlue to the file <code>myCircuit.snap</code> 
+	state of softGlue to the file <code>myCircuit.snap</code>.
 
 	<pre>burtrb -f softGlue.req -DPREFIX=xxx:softGlue -o myCircuit.snap</pre>
 
-	<blockquote>No doubt your PREFIX will be different from mine, but it should
+	<blockquote>
+	<dl>
+	<dt> "<code>-f softGlue.req</code>"
+	<dd>specifies that the request file <code>softGlue.req</code> should be
+	used to specify the EPICS PVs whose values are to be saved.   This file
+	contains lines like this: "<code>PREFIX:AND-1_IN1_Signal</code>", where
+	"<code>PREFIX</code>" is to be replaced by text specific to your ioc.
+	<dt>"<code>-DPREFIX=xxx:softGlue</code>"
+	<dd>specifies that <code>PREFIX</code>
+	is to be replaced by <code>xxx:softGlue</code>.
+	<dt>"<code>-o myCircuit.snap</code>"
+	<dd>specifies that the saved PV names and values are to be written to the
+	snapshot file "<code>myCircuit.snap</code>".
+	</dl>
+	No doubt your PREFIX will be different from mine, but it should
 	be <code>$(P)$(H)</code> from your copy of <code>softGlue.cmd</code>,
 	minus the trailing ':' from $(H).  BURT needs the ':' to separate "PREFIX"
 	from the rest of the PV names it parses.  If you defined H without a
 	trailing ':', you'll need to make some adjustment to satisfy BURT.
 	</blockquote>
 
-	<P>The following command restores the circuit:
+	<P>The following commands restore the circuit:
 	
+	<pre>burtwb -f clearAll.snap</pre>
 	<pre>burtwb -f myCircuit.snap</pre>
 
-	<h3>Example circuits</h3>
-		<P><i>Files mentioned below are in <code>softGlueApp/op/burt</code></i>
+	<P>The first command is often needed because there is a limit to the number
+	of signal names that softGlue will accept.  If you neglect to clear all
+	signals before restoring a circuit, the allowed number of signal names might
+	be exceeded during the restore, if new signal names are defined before old
+	signal names are deleted.  (Alternatively, you could simply run the second
+	command twice.)
+
+	<P>To restore example circuits included in the softGlue module, or to
+	restore a snapshot file emailed to you by some other softGlue user, you will
+	need to edit the snapshot file to change PV names such as
+	"<code><b>xxx</b>:softGlue:AND-1_IN2_Signal</code>" to PV names in your ioc, which
+	might look like  "<code><b>1ida</b>:softGlue:AND-1_IN2_Signal</code>".
+
+<hr>
+<h2><center>Example circuits</center></h2>
+
+<P>The following circuits have been tested and saved in BURT snapshot files,
+as described above (see <i>Saving and Restoring Circuits</i>).  The snapshot files
+can be found in <code>softGlueApp/op/burt</code>.
 
 		<ol>
 		<li><h4>Motor-pulse gate </h4>
@@ -1028,6 +1102,74 @@ CA put will succeed in clearing it and causing its processing to appear done to 
 
 		<P><img src="accelDecelGateCalc.gif" name="accelDecelGateCalc">
 		</ol>
+
+<hr>
+<h2><center>Field wiring</center></h2>
+
+<h3>IP-EP201 (TTL)</h3>
+
+<P>Getting clean electrical signals from the IP-EP201 out to field wiring
+requires some attention to detail.  The signals have short rise times (on the
+order of a few ns), and the IP-EP201 pinout places 48 of them on adjacent
+ribbon-cable conductors, with a single ground conductor at one end of the
+ribbon.  This combination pretty much guarantees problems with crosstalk and
+ringing.
+
+<P>Firstly, sharp-edged signals produce significant crosstalk between
+conductors, because the magnetic fields generated by signal currents vary
+rapidly enough during changes of state to induce significant voltages in nearby
+conductors. There is also the possibility of crosstalk from the fact that return
+currents of all signals share a single ground conductor.  The shared-ground 
+contribution is small, compared to the magnetic-field-induced contribution, but
+it could be significant in long (tens of feet) ribbon cables.
+
+<P>Secondly, sharp-edged signals require transmission-line termination to damp
+reflections at impedance mismatches.  Otherwise downstream electronics will see
+ringing, as current sloshes back and forth through the cable, which can (if it
+exceeds the TTL noise margin) make each transition look like two or more. But the
+IP-EP201 has no termination, and its pinout results in 48 coupled transmissions
+lines, for which effective termination is probably not possible.
+
+<P>Nevertheless, it's possible to get clean signals to field wiring using the
+following strategy:
+
+<ol>
+
+<li>Interface the single 50-pin ribbon header to two 50-conductor twisted-pair
+cables, so that each signal is paired with a ground line, and all ground lines
+are connected to pin 50.  The characteristic impedance of this configuration is
+around 100 Ohms for most ribbon cables.
+
+<li>Terminate each output signal with a series resistor whose value matches the
+characteristic impedance.
+
+</ol>
+
+Series termination does three very nice things for us:
+<ol>
+
+<li>It permits the IP-EP201 outputs to drive the transmission line.  The
+IP-EP201 outputs can only sink or source 24 mA -- not enough to drive a 50-Ohm
+load to TTL levels, so parallel termination (100-Ohm resistors at each end of
+the ribbon) would require a buffer.  Even a single 100-Ohm resistor would reduce
+the noise margin considerably.
+
+<li>It damps reflections returned from the cable end.  (This only works for
+outputs, which are low impedance.  Inputs are high impedance, and series
+termination cannot reduce the impedance.)
+
+<li>It acts as a low-pass filter to soften the signal edges, effectively
+reducing magnetic crosstalk to values well below the TTL noise margin.
+
+</ol>
+
+<h3>IP-EP202 (RS-485/422)</h3>
+
+<P>This section not yet written.
+
+<h3>IP-EP241 (lvds)</h3>
+
+<P>This section not yet written.
 
 <hr>
 <h2><center>Implementation</center></h2>
