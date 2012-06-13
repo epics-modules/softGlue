@@ -347,7 +347,7 @@ xxx:softGlue:sseq1.DLY1 1 0.000000000000000e+00
 xxx:softGlue:sseq1.DOL1 1 \0
 xxx:softGlue:sseq1.STR1 1 0
 xxx:softGlue:sseq1.DO1 1 0.000000000000000e+00
-xxx:softGlue:sseq1.LNK1 1 "xxx:softGlue:UpCntr-1_COUNTS.PROC NPP "
+xxx:softGlue:sseq1.LNK1 1 "xxx:softGlue:UpCntr-1_COUNTS.PROC PP N"
 xxx:softGlue:sseq1.WAIT1 1 NoWait
 xxx:softGlue:sseq1.DLY2 1 0.000000000000000e+00
 xxx:softGlue:sseq1.DOL2 1 \0
