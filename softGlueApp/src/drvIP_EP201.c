@@ -5,7 +5,7 @@
         ability to program FPGA over the IP bus, renamed.
 
 
-    This is the driver for the Acromag IP_EP201 series of reconfigurable
+    This is the driver for the Acromag IP_EP20x series of reconfigurable
     digital I/O IP modules.
 
     Modifications:
@@ -16,7 +16,7 @@
                       https://subversion.xor.aps.anl.gov/synApps/softGlue/
 
     This driver cooperates with specific FPGA firmware loaded into the Acromag
-    IP-EP201 (and probably other IP-EP200-series modules).  The loaded FPGA
+    IP-EP201 (and other IP-EP200-series modules).  The loaded FPGA
     firmware includes Eric Norum's IndustryPack Bridge, which is an interface
     between the IndustryPack bus and the Altera FPGA's Avalon bus.  The
     IndustryPack Bridge does not define anything we can write to in the FPGA. 
