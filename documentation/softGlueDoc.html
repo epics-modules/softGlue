@@ -767,16 +767,21 @@ clock returns <code>Q</code> to <code>0</code> (regardless of the states of <cod
 
 <P><code>EN==1</code> enables the clock (">") input.  Every <code>N</code>'th
 rising edge of the clock drives <code>Q</code> to <code>1</code>.  The next
-rising edge returns <code>Q</code> to <code>0</code>.  This behavior produces
-the correct number of rising edges of the output signal, but it does not
-guarantee the same number of falling edges. Therefore, using an inverted copy of
-the output to clock downstream electronics will in some cases have inconsistent
-results.
+rising edge returns <code>Q</code> to <code>0</code>.    This behavior produces the correct number of rising edges of
+the output signal, but it does not guarantee the same number of falling edges.
+Therefore, using an inverted copy of the output to clock downstream electronics
+will in some cases have inconsistent results.
+
+When <code>N</code>==<code>0</code>, the divide circuitry is bypassed, and the
+clock is connected directly to <code>Q</code>.  This is an error; the output
+should still be gated by the <code>EN</code> signal.
 
 <P>In softGlue version 2.1 and earlier, the <code>RESET</code> signal doesn't do
 anything.  Beginning with softGlue 2.2, the <code>RESET</code> signal loads the
 counter with <code>N</code>, so that <code>Q</code> will be driven to
-<code>1</code> after <code>N</code> rising edges of the clock.
+<code>1</code> after <code>N</code> rising edges of the clock. 
+<code>RESET</code> does not clear the output <code>Q</code>.  If <code>Q</code>
+is <code>1</code>, it will be cleared on the first rising edge of the clock.
 
 <P>
 
@@ -1162,6 +1167,12 @@ termination cannot reduce the impedance.)
 reducing magnetic crosstalk to values well below the TTL noise margin.
 
 </ol>
+
+<P>The APS BCDA group has produced circuit boards that implement this strategy.
+See "BC-092" in the <a
+href="http://www.aps.anl.gov/bcda/hardware/custom_hw/bcda_hw_all.php">BCDA
+Custom Hardware</a> web page.
+
 
 <h3>IP-EP202 (RS-485/422)</h3>
 
