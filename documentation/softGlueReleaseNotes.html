@@ -7,8 +7,16 @@
 <BODY LANG="en-US" BGCOLOR="#ffffff" DIR="LTR">
 <H2 ALIGN=CENTER>softGlue Release Notes</H2>
 
-<H2 ALIGN=LEFT>Release 2-2 (Aug 26, 2011)</H2>
+<H2 ALIGN=LEFT>Release 2-2-1 (Xxx xx, xxxx)</H2>
+<ul>
 
+	<li>macLib didn't like softGlue_FPGAInt.db's use of PORT1 (etc.) to tell
+	  softGlue_PollTime.db what value to give it's PORT1 macro (recursive).
+	  Modified softGlue_PollTime.db to use PORTA. 
+
+</ul>
+
+<H2 ALIGN=LEFT>Release 2-2 (Aug 26, 2011)</H2>
 <ul>
 	<li>Significant rewrite, including new configuration functions, to support IP_EP20x modules
 	other than the IP_EP201.
