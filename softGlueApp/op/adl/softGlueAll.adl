@@ -565,3 +565,20 @@ composite {
 		}
 	}
 }
+"related display" {
+	object {
+		x=1305
+		y=750
+		width=50
+		height=20
+	}
+	display[1] {
+		label="all but I/O"
+		name="softGlueAllButIO.adl"
+		args="P=$(P),H=$(H)"
+		policy="replace display"
+	}
+	clr=0
+	bclr=63
+	label="-Less"
+}
