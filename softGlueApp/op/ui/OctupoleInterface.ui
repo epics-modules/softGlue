@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+<class>MainWindow</class>
+<widget class="QMainWindow" name="MainWindow">
+    <property name="geometry">
+        <rect>
+            <x>900</x>
+            <y>375</y>
+            <width>275</width>
+            <height>275</height>
+        </rect>
+    </property>
+    <property name="styleSheet">
+        <string>
+
+QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
+
+</string>
+    </property>
+    <widget class="QWidget" name="centralWidget">
+        <widget class="caInclude" name="caInclude_0">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>20</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>20</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleInput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=status,M=1,N=1</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_1">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>35</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>35</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleInput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=status,M=2,N=2</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_2">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>50</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>50</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleInput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=status,M=3,N=3</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_3">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>65</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>65</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleInput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=status,M=4,N=4</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_4">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>80</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>80</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleInput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=status,M=5,N=5</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_5">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>95</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>95</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleInput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=status,M=6,N=6</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_6">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>110</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>110</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleInput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=status,M=7,N=7</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_7">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>125</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>125</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleInput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=status,M=8,N=8</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_8">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>140</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>140</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleInput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=readData,M= ,N=9</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_9">
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>20</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>20</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleOutput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=clamp,M=1,N=17</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_10">
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>35</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>35</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleOutput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=clamp,M=2,N=18</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_11">
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>50</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>50</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleOutput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=clamp,M=3,N=19</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_12">
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>65</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>65</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleOutput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=clamp,M=4,N=20</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_13">
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>80</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>80</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleOutput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=clamp,M=5,N=21</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_14">
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>95</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>95</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleOutput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=clamp,M=6,N=22</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_15">
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>110</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>110</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleOutput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=clamp,M=7,N=23</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_16">
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>125</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>125</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleOutput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=clamp,M=8,N=24</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_17">
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>140</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>140</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleOutput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=faultReset,M= ,N=25</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_18">
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>155</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>155</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleOutput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=cal,M= ,N=26</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_19">
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>170</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>170</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleOutput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=dsel,M= ,N=27</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_20">
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>185</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>185</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleOutput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=cvtSelect,M=0,N=28</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_21">
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>200</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>200</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleOutput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=cvtSelect,M=1,N=29</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_22">
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>215</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>215</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleOutput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=cvtSelect,M=2,N=30</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_23">
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>230</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>230</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleOutput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=loadData,M= ,N=31</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_24">
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>245</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>245</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleOutput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=loadClock,M= ,N=32</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_25">
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>260</y>
+                    <width>125</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>260</y>
+                    <width>123</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>OctupoleOutput.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),SIG=readClock,M= ,N=33</string>
+            </property>
+        </widget>
+        <widget class="caLabel" name="caLabel_0">
+            <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>123</width>
+                    <height>20</height>
+                </rect>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="0">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="text">
+                <string>Inputs</string>
+            </property>
+            <property name="fontScaleMode">
+                <enum>ESimpleLabel::Height</enum>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
+            </property>
+        </widget>
+        <widget class="caLabel" name="caLabel_1">
+            <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>150</x>
+                    <y>0</y>
+                    <width>123</width>
+                    <height>20</height>
+                </rect>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="0">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="text">
+                <string>Outputs</string>
+            </property>
+            <property name="fontScaleMode">
+                <enum>ESimpleLabel::Height</enum>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
+            </property>
+        </widget>
+        <widget class="caPolyLine" name="caPolyLine_0">
+            <property name="geometry">
+                <rect>
+                    <x>135</x>
+                    <y>0</y>
+                    <width>3</width>
+                    <height>279</height>
+                </rect>
+            </property>
+            <property name="lineSize">
+                <number>3</number>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="fillstyle">
+                <enum>Filled</enum>
+            </property>
+            <property name="lineColor">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="linestyle">
+                <enum>Solid</enum>
+            </property>
+            <property name="xyPairs">
+                <string>1,1;1,277;</string>
+            </property>
+        </widget>
+        <zorder>caInclude_0</zorder>
+        <zorder>caInclude_1</zorder>
+        <zorder>caInclude_2</zorder>
+        <zorder>caInclude_3</zorder>
+        <zorder>caInclude_4</zorder>
+        <zorder>caInclude_5</zorder>
+        <zorder>caInclude_6</zorder>
+        <zorder>caInclude_7</zorder>
+        <zorder>caInclude_8</zorder>
+        <zorder>caInclude_9</zorder>
+        <zorder>caInclude_10</zorder>
+        <zorder>caInclude_11</zorder>
+        <zorder>caInclude_12</zorder>
+        <zorder>caInclude_13</zorder>
+        <zorder>caInclude_14</zorder>
+        <zorder>caInclude_15</zorder>
+        <zorder>caInclude_16</zorder>
+        <zorder>caInclude_17</zorder>
+        <zorder>caInclude_18</zorder>
+        <zorder>caInclude_19</zorder>
+        <zorder>caInclude_20</zorder>
+        <zorder>caInclude_21</zorder>
+        <zorder>caInclude_22</zorder>
+        <zorder>caInclude_23</zorder>
+        <zorder>caInclude_24</zorder>
+        <zorder>caInclude_25</zorder>
+        <zorder>caLabel_0</zorder>
+        <zorder>caLabel_1</zorder>
+        <zorder>caPolyLine_0</zorder>
+    </widget>
+</widget>
+</ui>
