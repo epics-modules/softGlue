@@ -346,6 +346,12 @@ development of support for add-on packages.
 
 		</ul>
 
+	<h3>Configuring hardware</h3>
+
+The IP-EP20x board must be configured to permit programming the FPGA via the
+IndustryPack bus, by moving the DIP jumper to "IP BUS".  (This is the factory
+default setting.)
+
 	<h3>Configuring softGlue (editing softGlue.cmd)</h3>
 
 <h4>User Callable Functions:</h4>
@@ -405,14 +411,21 @@ Initialize field-I/O interrupt support
 
 <blockquote>
 
-Note that interrupt vectors currently are hardwired in the supplied FPGA
-content.  Thus, if you want to use two or more IP_EP20x modules, only one may be
-permitted to generate interrupts.  Interrupt generation is entirely an end-user
-choice, and it occurs only for the purpose of causing some EPICS record to
-process on the change of state of a softGlue field I/O signal.  See "Field I/O
-Interrupt support" below for a description of the
-<code>softGlueFieldIO_Intxx.adl</code> MEDM-display file by which interrupt
-generation is controlled.
+Note that interrupt vectors are hardwired in the supplied FPGA content.  Each
+IP-EP20x module uses three vectors (0x90, 0x91, 0x92), one for each set of 16
+I/O bits.  Depending on the interrupt-service mechanism supported by the
+operating system, multiple IP-EP20x boards may or may not all be able to
+generate interrupts.  For PowerPC processors, interrupt-service routines
+(ISRs) are chained, so multiple IP-EP20x modules can all generate interrupts. 
+But if the operating system doesn't permit multiple ISRs attached to a single
+interrupt vector, then only one IP-EP20x board will be able to generate
+interrupts.
+
+<P>Interrupt generation is an end-user choice, and it occurs only for the
+purpose of causing some EPICS record to process on the change of state of a
+softGlue field I/O signal.  See "Field I/O Interrupt support" below for a
+description of the <code>softGlueFieldIO_Intxx.adl</code> MEDM-display file by
+which interrupt generation is controlled.
 
 </blockquote>
 
