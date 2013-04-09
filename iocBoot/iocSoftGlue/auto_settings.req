@@ -1,2 +1,7 @@
+# Normal autosave treatment for softGlue PVs
 file softGlue_settings.req  P=$(P) H=softGlue:
 file softGlue_FPGAContent_octupole_settings.req   P=$(P) H=softGlue:
+
+# autosave treatment for configMenu.db, which implements a menu of softGlu
+# circuits
+file configMenu_settings.req P=$(P),CONFIG=SG,H=softGlue:
