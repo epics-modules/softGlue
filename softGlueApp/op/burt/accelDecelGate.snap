@@ -233,7 +233,7 @@ xxx:softGlue:FO45_Signal 1 \0
 xxx:softGlue:FO46_Signal 1 \0
 xxx:softGlue:FO47_Signal 1 \0
 xxx:softGlue:FO48_Signal 1 \0
-xxx:softGlue:In_1Do.OUT 1 "xxx:userStringSeq2.PROC PP NMS"
+xxx:softGlue:In_1Do.OUT 1 \0
 xxx:softGlue:In_2Do.OUT 1 \0
 xxx:softGlue:In_3Do.OUT 1 \0
 xxx:softGlue:In_4Do.OUT 1 \0
