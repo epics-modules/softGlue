@@ -3,7 +3,7 @@
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <wuid>-35547c25:13a0384ab1a:-32b5</wuid>
+  <wuid>39872d87:13e14015f61:5bd4</wuid>
   <boy_version>3.1.2.20120830</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
@@ -37,7 +37,7 @@
       <N>2</N>
     </macros>
     <visible>true</visible>
-    <wuid>-35547c25:13a0384ab1a:-32b4</wuid>
+    <wuid>39872d87:13e14015f61:5bd5</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -79,7 +79,7 @@
       <N>1</N>
     </macros>
     <visible>true</visible>
-    <wuid>-35547c25:13a0384ab1a:-32b3</wuid>
+    <wuid>39872d87:13e14015f61:5bd6</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>

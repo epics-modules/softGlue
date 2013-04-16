@@ -3,12 +3,12 @@
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <wuid>39872d87:13e14015f61:5dc7</wuid>
+  <wuid>39872d87:13e14015f61:5efd</wuid>
   <boy_version>3.1.2.20120830</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
   <height>26</height>
-  <name>softGlue_Input</name>
+  <name>softGlue_OutputDebug</name>
   <snap_to_geometry>false</snap_to_geometry>
   <show_grid>false</show_grid>
   <background_color>
@@ -19,7 +19,7 @@
   </foreground_color>
   <widget_type>Display</widget_type>
   <show_close_button>true</show_close_button>
-  <width>156</width>
+  <width>200</width>
   <rules />
   <show_edit_range>true</show_edit_range>
   <grid_space>5</grid_space>
@@ -29,16 +29,16 @@
     <min_height>-1</min_height>
   </auto_scale_widgets>
   <actions hook="false" hook_all="false" />
-  <y>25</y>
-  <x>385</x>
+  <y>38</y>
+  <x>9</x>
   <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <fill_level>0.0</fill_level>
     <line_color>
-      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
+      <color name="softGlue_output" red="205" green="97" blue="0" />
     </line_color>
-    <wuid>39872d87:13e14015f61:5dca</wuid>
+    <wuid>39872d87:13e14015f61:5efe</wuid>
     <bg_gradient_color>
       <color red="255" green="255" blue="255" />
     </bg_gradient_color>
@@ -59,7 +59,7 @@
       <color red="30" green="144" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
+      <color name="softGlue_output" red="205" green="97" blue="0" />
     </foreground_color>
     <widget_type>Rectangle</widget_type>
     <enabled>true</enabled>
@@ -95,40 +95,40 @@
     <y>0</y>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
-    <x>20</x>
+    <x>31</x>
     <gradient>false</gradient>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.Ellipse" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
-    <fill_level>100.0</fill_level>
+    <fill_level>0.0</fill_level>
     <line_color>
-      <color red="128" green="0" blue="255" />
+      <color name="alarm" red="253" green="0" blue="0" />
     </line_color>
-    <wuid>39872d87:13e14015f61:5dc8</wuid>
+    <wuid>39872d87:13e14015f61:5eff</wuid>
     <bg_gradient_color>
       <color red="255" green="255" blue="255" />
     </bg_gradient_color>
     <scripts />
-    <height>13</height>
+    <height>26</height>
     <anti_alias>true</anti_alias>
-    <name>Ellipse</name>
+    <name>Rectangle</name>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <alpha>255</alpha>
     <scale_options>
       <width_scalable>true</width_scalable>
       <height_scalable>true</height_scalable>
-      <keep_wh_ratio>true</keep_wh_ratio>
+      <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
-    <transparent>false</transparent>
+    <transparent>true</transparent>
     <pv_name></pv_name>
     <background_color>
       <color red="30" green="144" blue="255" />
     </background_color>
     <foreground_color>
-      <color name="Gray_14" red="0" green="0" blue="0" />
+      <color name="alarm" red="253" green="0" blue="0" />
     </foreground_color>
-    <widget_type>Ellipse</widget_type>
+    <widget_type>Rectangle</widget_type>
     <enabled>true</enabled>
     <fg_gradient_color>
       <color red="255" green="255" blue="255" />
@@ -137,90 +137,33 @@ $(pv_value)</tooltip>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
-    <width>13</width>
-    <line_style>0</line_style>
+    <width>106</width>
+    <line_style>1</line_style>
     <border_style>0</border_style>
     <rules>
       <rule name="Visibility" prop_id="visible" out_exp="false">
-        <exp bool_exp="pv0==0">
+        <exp bool_exp="pv0!=0">
           <value>true</value>
         </exp>
-        <exp bool_exp="!(pv0==0)">
+        <exp bool_exp="!(pv0!=0)">
           <value>false</value>
         </exp>
-        <pv trig="true">$(P)$(H)$(SIG)_BI</pv>
+        <pv trig="true">$(P)$(H)$(SIG)_SigCheckShow.VAL</pv>
       </rule>
     </rules>
     <pv_value />
     <border_width>1</border_width>
-    <line_width>0</line_width>
+    <line_width>3</line_width>
     <horizontal_fill>true</horizontal_fill>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
     <actions hook="false" hook_all="false" />
-    <y>7</y>
+    <y>0</y>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
-    <x>142</x>
+    <x>31</x>
     <gradient>false</gradient>
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="1.0">
-    <border_alarm_sensitive>false</border_alarm_sensitive>
-    <visible>true</visible>
-    <wuid>39872d87:13e14015f61:5dc9</wuid>
-    <scripts />
-    <height>20</height>
-    <name>Action Button</name>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-    <scale_options>
-      <width_scalable>true</width_scalable>
-      <height_scalable>true</height_scalable>
-      <keep_wh_ratio>false</keep_wh_ratio>
-    </scale_options>
-    <pv_name>$(P)$(H)$(SIG)_Show</pv_name>
-    <background_color>
-      <color name="ioc_write_bg" red="115" green="223" blue="255" />
-    </background_color>
-    <foreground_color>
-      <color name="Gray_14" red="0" green="0" blue="0" />
-    </foreground_color>
-    <widget_type>Action Button</widget_type>
-    <enabled>true</enabled>
-    <text></text>
-    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-    <font>
-      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
-    </font>
-    <width>20</width>
-    <border_style>0</border_style>
-    <push_action_index>0</push_action_index>
-    <image></image>
-    <rules />
-    <pv_value />
-    <toggle_button>true</toggle_button>
-    <border_width>1</border_width>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <y>3</y>
-    <actions hook="false" hook_all="false">
-      <action type="WRITE_PV">
-        <pv_name>$(P)$(H)$(SIG)_Show</pv_name>
-        <value>1</value>
-        <timeout>10</timeout>
-        <description></description>
-      </action>
-      <action type="WRITE_PV">
-        <pv_name>$(P)$(H)$(SIG)_Show</pv_name>
-        <value>0</value>
-        <timeout>10</timeout>
-        <description></description>
-      </action>
-    </actions>
-    <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-    <x>0</x>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
@@ -228,7 +171,7 @@ $(pv_value)</tooltip>
     <arrow_length>20</arrow_length>
     <visible>true</visible>
     <fill_level>100.0</fill_level>
-    <wuid>39872d87:13e14015f61:5dcb</wuid>
+    <wuid>39872d87:13e14015f61:5f00</wuid>
     <rotation_angle>0.0</rotation_angle>
     <scripts />
     <arrows>0</arrows>
@@ -243,8 +186,8 @@ $(pv_value)</tooltip>
       <keep_wh_ratio>true</keep_wh_ratio>
     </scale_options>
     <points>
-      <point x="153" y="14" />
-      <point x="124" y="14" />
+      <point x="38" y="14" />
+      <point x="11" y="14" />
     </points>
     <transparent>true</transparent>
     <pv_name></pv_name>
@@ -260,7 +203,7 @@ $(pv_value)</tooltip>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
-    <width>30</width>
+    <width>28</width>
     <line_style>0</line_style>
     <border_style>0</border_style>
     <rules />
@@ -275,7 +218,7 @@ $(pv_value)</tooltip>
     <y>14</y>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
-    <x>124</x>
+    <x>11</x>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="1.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
@@ -303,7 +246,7 @@ $(pv_value)</tooltip>
     <maximum>Infinity</maximum>
     <minimum>-Infinity</minimum>
     <show_units>false</show_units>
-    <wuid>39872d87:13e14015f61:5dcc</wuid>
+    <wuid>39872d87:13e14015f61:5f01</wuid>
     <rotation_angle>0.0</rotation_angle>
     <name>Text Input</name>
     <scale_options>
@@ -331,7 +274,7 @@ $(pv_value)</tooltip>
     <y>3</y>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
-    <x>23</x>
+    <x>34</x>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.Ellipse" version="1.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
@@ -340,7 +283,7 @@ $(pv_value)</tooltip>
     <line_color>
       <color red="128" green="0" blue="255" />
     </line_color>
-    <wuid>39872d87:13e14015f61:5dcd</wuid>
+    <wuid>39872d87:13e14015f61:5f02</wuid>
     <bg_gradient_color>
       <color red="255" green="255" blue="255" />
     </bg_gradient_color>
@@ -397,58 +340,220 @@ $(pv_value)</tooltip>
     <y>7</y>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
-    <x>142</x>
+    <x>0</x>
     <gradient>false</gradient>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0">
-    <border_alarm_sensitive>true</border_alarm_sensitive>
+  <widget typeId="org.csstudio.opibuilder.widgets.Ellipse" version="1.0">
+    <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
-    <vertical_alignment>1</vertical_alignment>
-    <show_units>false</show_units>
-    <wuid>39872d87:13e14015f61:5dce</wuid>
-    <auto_size>false</auto_size>
-    <rotation_angle>0.0</rotation_angle>
+    <fill_level>100.0</fill_level>
+    <line_color>
+      <color red="128" green="0" blue="255" />
+    </line_color>
+    <wuid>39872d87:13e14015f61:5f03</wuid>
+    <bg_gradient_color>
+      <color red="255" green="255" blue="255" />
+    </bg_gradient_color>
     <scripts />
-    <height>10</height>
-    <name>Text Update</name>
+    <height>13</height>
+    <anti_alias>true</anti_alias>
+    <name>Ellipse</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <alpha>255</alpha>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>true</keep_wh_ratio>
+    </scale_options>
+    <transparent>false</transparent>
+    <pv_name></pv_name>
+    <background_color>
+      <color red="30" green="144" blue="255" />
+    </background_color>
+    <foreground_color>
+      <color name="MEDM_COLOR_24" red="130" green="4" blue="0" />
+    </foreground_color>
+    <widget_type>Ellipse</widget_type>
+    <enabled>true</enabled>
+    <fg_gradient_color>
+      <color red="255" green="255" blue="255" />
+    </fg_gradient_color>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>13</width>
+    <line_style>0</line_style>
+    <border_style>0</border_style>
+    <rules>
+      <rule name="Visibility" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0==0">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="!(pv0==0)">
+          <value>false</value>
+        </exp>
+        <pv trig="true">$(P)$(H)$(SIG)_BI</pv>
+      </rule>
+    </rules>
+    <pv_value />
+    <border_width>1</border_width>
+    <line_width>0</line_width>
+    <horizontal_fill>true</horizontal_fill>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <actions hook="false" hook_all="false" />
+    <y>7</y>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <x>0</x>
+    <gradient>false</gradient>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="1.0">
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <visible>true</visible>
+    <wuid>39872d87:13e14015f61:5f04</wuid>
+    <scripts />
+    <height>20</height>
+    <name>Action Button</name>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <scale_options>
       <width_scalable>true</width_scalable>
       <height_scalable>true</height_scalable>
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
-    <format_type>1</format_type>
-    <precision_from_pv>true</precision_from_pv>
-    <transparent>false</transparent>
-    <pv_name>$(P)$(H)$(SIG)_BI</pv_name>
+    <pv_name>$(P)$(H)$(SIG)_Show</pv_name>
     <background_color>
-      <color name="Gray_2" red="218" green="218" blue="218" />
+      <color name="ioc_write_bg" red="115" green="223" blue="255" />
     </background_color>
     <foreground_color>
       <color name="Gray_14" red="0" green="0" blue="0" />
     </foreground_color>
-    <widget_type>Text Update</widget_type>
+    <widget_type>Action Button</widget_type>
     <enabled>true</enabled>
-    <text>######</text>
+    <text></text>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-    <precision>0</precision>
     <font>
-      <fontdata fontName="Sans" height="6" style="0" />
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
-    <width>10</width>
+    <width>20</width>
     <border_style>0</border_style>
+    <push_action_index>0</push_action_index>
+    <image></image>
+    <rules />
+    <pv_value />
+    <toggle_button>true</toggle_button>
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>3</y>
+    <actions hook="false" hook_all="false">
+      <action type="WRITE_PV">
+        <pv_name>$(P)$(H)$(SIG)_Show</pv_name>
+        <value>1</value>
+        <timeout>10</timeout>
+        <description></description>
+      </action>
+      <action type="WRITE_PV">
+        <pv_name>$(P)$(H)$(SIG)_Show</pv_name>
+        <value>0</value>
+        <timeout>10</timeout>
+        <description></description>
+      </action>
+    </actions>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <x>137</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <visible>true</visible>
+    <actions_from_pv>false</actions_from_pv>
+    <wuid>39872d87:13e14015f61:5f05</wuid>
+    <scripts />
+    <height>20</height>
+    <name>Menu Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <transparent>false</transparent>
+    <pv_name></pv_name>
+    <background_color>
+      <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
+    </background_color>
+    <foreground_color>
+      <color name="Gray_0" red="255" green="255" blue="255" />
+    </foreground_color>
+    <widget_type>Menu Button</widget_type>
+    <enabled>true</enabled>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>35</width>
+    <border_style>6</border_style>
+    <label>debug</label>
     <rules />
     <pv_value />
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <horizontal_alignment>0</horizontal_alignment>
-    <actions hook="false" hook_all="false" />
-    <y>3</y>
-    <wrap_words>false</wrap_words>
+    <y>6</y>
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>yySseq.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <S>$(H)$(SIG)_DoShow</S>
+        </macros>
+        <replace>0</replace>
+        <description>Show sseq</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>yysCalcoutRecord.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <C>$(H)$(SIG)_SigShow</C>
+        </macros>
+        <replace>0</replace>
+        <description>SigShow scalcout</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>yySseq.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <S>$(H)$(SIG)_DoCheck</S>
+        </macros>
+        <replace>0</replace>
+        <description>Check sseq</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>yysCalcoutRecord.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <C>$(H)$(SIG)_SigCheck</C>
+        </macros>
+        <replace>0</replace>
+        <description>SigCheck scalcout</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>yyCalcoutRecord.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <C>$(H)$(SIG)_SigCheckShow</C>
+        </macros>
+        <replace>0</replace>
+        <description>SigCheckShow calcout</description>
+      </action>
+    </actions>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
-    <x>132</x>
+    <x>165</x>
   </widget>
 </display>
