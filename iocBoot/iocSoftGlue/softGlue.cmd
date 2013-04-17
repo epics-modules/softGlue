@@ -189,6 +189,6 @@ dbLoadRecords("$(SOFTGLUE)/db/softGlue_convenience.db", "P=xxx:,H=softGlue:")
 # the autosave directory.  For loading, this is all you need.  For saving, you
 # also need a command like the following to be executed after iocInit:
 #    create_manual_set("SGMenu.req","P=xxx:,CONFIG=SG,H=softGlue:")
-dbLoadRecords("$(AUTOSAVE)/asApp/Db/configMenu.db","P=xxx:,CONFIG=SG")
+#dbLoadRecords("$(AUTOSAVE)/asApp/Db/configMenu.db","P=xxx:,CONFIG=SG")
 
 # END softGlue.cmd ------------------------------------------------------------
