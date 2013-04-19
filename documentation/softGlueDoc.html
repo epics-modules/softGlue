@@ -80,8 +80,8 @@ pinout.</blockquote>
 	
 	<blockquote>This tool is needed to build some softGlue databases.</blockquote>
 
-<li>MEDM, or CSS-BOY, or the ability to adapt some other display manager or
-	Channel Access client to implement softGlue's user interface.
+<li>MEDM, or CSS-BOY, or caQtDM, or the ability to adapt some other display
+	manager or Channel Access client to implement softGlue's user interface.
 
 </ul>
 </ul>
@@ -905,6 +905,9 @@ will write a value, but the value won't have any effect until the next time the 
 (For most PV's in softGlue, the value written by an NPP link won't even be displayed until the
 record processes.)
 
+<P><b>Note:</b> if the link writes to a PV in a different IOC, the specified link
+attribute will be ignored, and the attribute "CA" will be used instead.
+
 <hr>
 
 <li><P>Everything on one display, with the signal named "clock" highlighted so that all of its connections
@@ -976,17 +979,17 @@ CA put will succeed in clearing it and causing its processing to appear done to 
 	of configMenu.  The files it loads and saves will be named "<font
 	color="blue">SG</font>_&lt;<i>config Name</i>&gt;.cfg".)
 
-	<blockquote>
-	<ol>
-	<li>Create an autosave request file, which I'll call
-	"<font color="blue">SG</font>Menu.req", with the following content:
+	<blockquote> <ol> <li>In the IOC's startup directory, create an autosave
+	request file, which I'll call "<font color="blue">SG</font>Menu.req", with
+	the following content:
 
 	<P><code>
 	file configMenu.req P=$(P),CONFIG=$(CONFIG)<br>
 	file softGlue_settings.req  P=$(P),H=$(H)
 	</code>
 
-	<P><li>Uncomment the following line in <code>softGlue.cmd</code>:
+	<P><li>Uncomment the following line in the IOC's copy of
+	<code>softGlue.cmd</code>:
 
 	<P><code>dbLoadRecords("$(AUTOSAVE)/asApp/Db/configMenu.db","P=xxx:,CONFIG=<font color="blue">SG</font>")</code>
 
@@ -1061,9 +1064,10 @@ CA put will succeed in clearing it and causing its processing to appear done to 
 <hr>
 <h2><center>Example circuits</center></h2>
 
-<P>The following circuits have been tested and saved in BURT snapshot files,
-as described above (see <i>Saving and Restoring Circuits</i>).  The snapshot files
-can be found in <code>softGlueApp/op/burt</code>.
+<P>The following circuits have been tested and saved in BURT snapshot files, and
+as configMenu .cfg files,  as described above (see <i>Saving and Restoring
+Circuits</i>).  The snapshot files can be found in
+<code>softGlueApp/op/burt</code>; the .cfg files are in iocBoot/iocSoftGlue.
 
 		<ol>
 		<li><h4>Motor-pulse gate </h4>
@@ -1075,22 +1079,24 @@ can be found in <code>softGlueApp/op/burt</code>.
 		of the OR gate, and setting the other input to 0(1) to allow(deny) passage through the
 		gate.
 
-		<li><h4>Gated scaler</h4>
-		<P><i>Files: <code>gatedScaler.snap,  gatedScaler.txt</code></i>
+		<li><h4>Gated scaler</h4> <P><i>Files:
+			<code>softGlueApp/op/burt/gatedScaler.snap or 
+			iocBoot/iocSoftGlue/gatedScaler.cfg</code></i>
 
 		<P>This circuit implements four counter channels, a time base to control
 		counting time, an overall gate, and additional circuitry to control
 		starting,  stopping, and processing of the count-value records.  Note
 		that the scaler is controlled by a busy record from the softGlue
 		convenience database, so that client software can discover when counting
-		is finished in the standard EPICS way.  See <code>gatedScaler.txt</code>
-		for more details.
+		is finished in the standard EPICS way.  See
+		<code>softGlueApp/op/burt/gatedScaler.txt</code> for more details.
 
 
 		<P><img src="gatedScaler.gif" name="gatedScaler">
 
 		<li><h4>Four independent start-time/stop-time pulses</h4>
-		<P><i>File: <code>fourPulses.snap</code></i>
+		<P><i>File: <code>softGlueApp/op/burt/fourPulses.snap or 
+		iocBoot/iocSoftGlue/fourPulses.cfg</code></i>
 
 		<P>This circuit produces four separate pulse signals, which start at
 		specified start-delay times after (the falling edge of) an initial start
@@ -1109,7 +1115,11 @@ can be found in <code>softGlueApp/op/burt</code>.
 
 		<li><h4>Motor-pulse accel/decel gate</h4>
 		
-		<P><i>Files: <code>accelDecelGate.snap, accelDecelGate_transform.sav</code></i>
+		<P><i>Files: <code>softGlueApp/op/burt/accelDecelGate.snap or
+		iocBoot/iocSoftGlue/accelDecelGate.cfg</code></i>  <br>
+	
+		(Non-softGlue support in
+		<code>softGlueApp/op/burt/accelDecelGate_transform.sav</code>.)
 
 		<P>If you know the number of steps a stepper motor will move during its acceleration time, you
 		can easily arrange to deliver motor pulses to some external circuit only while the motor is
