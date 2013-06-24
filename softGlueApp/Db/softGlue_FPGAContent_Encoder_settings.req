@@ -1,0 +1,5 @@
+# up/dn counters
+file UpDnCntr_settings.req P=$(P),H=$(H),N=1
+file UpDnCntr_settings.req P=$(P),H=$(H),N=2
+file QuadDec_settings.req P=$(P),H=$(H),N=1
+file QuadDec_settings.req P=$(P),H=$(H),N=2
