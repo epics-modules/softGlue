@@ -165,14 +165,14 @@ in softGlue 2.x.  The functionality of the circuit will certainly still be
 achievable, but signal names have changed, and the circuit will have to be
 re-engineered.</blockquote>
 
-<P>In addition to the above listed components, softGlue 2.x includes a pair
-of shift registers in a separate FPGA package.  Currently, we don't have the
-capability of loading more than one FPGA-content file (the IP-EP20x FPGA
-does not support this), but we can combine the standard softGlue FPGA content
-with any one add-on package, and load that.  Thus, there's a clear path to
-standard softGlue plus application-specific FPGA content and support.
-softGlue databases and MEDM-display files are engineered to simplify the
-development of support for add-on packages.
+<P>In addition to the above listed components, softGlue 2.x includes shift
+registers, up/down counters, and quadrature decoders in separate FPGA packages. 
+Currently, we don't have the capability of loading more than one FPGA-content
+file (the IP-EP20x FPGA does not support this), but we can combine the standard
+softGlue FPGA content with any one add-on package, and load that.  Thus, there's
+a clear path to standard softGlue plus application-specific FPGA content and
+support. softGlue databases and MEDM-display files are engineered to simplify
+the development of support for add-on packages.
 
 
 <hr>
@@ -953,6 +953,61 @@ will decline to process any record that is already processing. The busy record i
 CA put will succeed in clearing it and causing its processing to appear done to EPICS.</blockquote>
 
 </ul>
+<hr>
+
+<h3>Add-on FPGA components</h3>
+
+The following components are not in the standard softGlue package, but in
+add-on packages typically made to solve a specific problem.
+
+<ul>
+
+<li><P>32-bit Up/Down Counter
+<P><img src="UpDnCntr.gif" name="Up/Down Counter">
+
+<P><code>EN==1</code> enables the clock (">") input.  <code>CLEAR==1</code> sets
+the current count and the output value <code>Q</code> to zero.  When
+<code>UP/DOWN==1</code> the counter counts up.  <code>LOAD</code> sets the
+current count to <code>PRESET</code>
+
+<P>
+<hr>
+
+<li><P>Quadrature Decoder
+<P><img src="QuadDec.gif" name="Quadrature Decoder">
+
+<P>This circuit converts a pair of digital quadrature signals <code>A, B</code>
+(for example, signals from an encoder) into a pair of <code>STEP, DIR</code>
+signals.  <code>A</code> and <code>B</code> are samples on rising edges of the
+<code>CLOCK</code> signal.  If either have changed since the last rising edge,
+the travel direction implied by the change is output to <code>DIR</code>, and a
+pulse is output to <code>STEP</code>.  The pulse width is equal to the period of
+the <code>CLOCK</code> signal, and the input frequency may not be greater than
+half the clock frequency.
+
+<P>
+<hr>
+
+<li><P>Shift Register
+<P><img src="ShiftReg.gif" name="Shift Register">
+
+<P>This circuit converts from parallel to serial, or from serial to parallel.
+
+<P>For parallel-to-serial conversion, a number is written into the
+<code>LOADVAL</code> register, and loaded by a positive-going pulse to the
+<code>LOAD</code> input.  On each rising edge of the clock input
+<code>&gt;</code>, the loaded value is shifted toward the most significant bit,
+the most significant bit is output to the <ocde>Q</code> output.
+
+<P>For serial-to-parallel conversion, the input <code>D</code> is sampled on the
+rising edge of the clock input, and that value is shifted into the least
+significant bit of the register.
+
+<P>
+
+</ul>
+
+<hr>
 
 <h3>Saving and restoring circuits</h3>
 	
