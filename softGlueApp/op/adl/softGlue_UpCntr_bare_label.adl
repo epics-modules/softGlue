@@ -1,14 +1,14 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue_UpDnCntr_bare.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue_UpCntr_bare_label.adl"
 	version=030107
 }
 display {
 	object {
-		x=633
-		y=257
-		width=480
-		height=200
+		x=681
+		y=210
+		width=440
+		height=100
 	}
 	clr=14
 	bclr=2
@@ -90,37 +90,37 @@ display {
 composite {
 	object {
 		x=10
-		y=81
+		y=69
 		width=155
 		height=26
 	}
 	"composite name"=""
-	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=UpDnCntr-$(N)_CLEAR"
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=UpCntr-$(N)_CLEAR"
 }
 composite {
 	object {
 		x=10
-		y=35
+		y=23
 		width=155
 		height=26
 	}
 	"composite name"=""
-	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=UpDnCntr-$(N)_ENABLE"
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=UpCntr-$(N)_ENABLE"
 }
 composite {
 	object {
 		x=10
-		y=58
+		y=46
 		width=155
 		height=26
 	}
 	"composite name"=""
-	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=UpDnCntr-$(N)_CLOCK"
+	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=UpCntr-$(N)_CLOCK"
 }
 polyline {
 	object {
 		x=163
-		y=71
+		y=59
 		width=13
 		height=2
 	}
@@ -130,14 +130,14 @@ polyline {
 		width=2
 	}
 	points {
-		(175,72)
-		(164,72)
+		(175,60)
+		(164,60)
 	}
 }
 polyline {
 	object {
 		x=163
-		y=48
+		y=36
 		width=13
 		height=2
 	}
@@ -147,15 +147,15 @@ polyline {
 		width=2
 	}
 	points {
-		(175,49)
-		(164,49)
+		(175,37)
+		(164,37)
 	}
 }
 polyline {
 	object {
 		x=163
-		y=94
-		width=13
+		y=82
+		width=54
 		height=2
 	}
 	"basic attribute" {
@@ -164,8 +164,8 @@ polyline {
 		width=2
 	}
 	points {
-		(175,95)
-		(164,95)
+		(216,83)
+		(164,83)
 	}
 }
 rectangle {
@@ -173,7 +173,7 @@ rectangle {
 		x=173
 		y=31
 		width=132
-		height=130
+		height=37
 	}
 	"basic attribute" {
 		clr=14
@@ -184,7 +184,7 @@ rectangle {
 polyline {
 	object {
 		x=172
-		y=64
+		y=52
 		width=11
 		height=16
 	}
@@ -193,15 +193,15 @@ polyline {
 		width=2
 	}
 	points {
-		(173,65)
-		(182,72)
-		(173,79)
+		(173,53)
+		(182,60)
+		(173,67)
 	}
 }
 text {
 	object {
 		x=179
-		y=43
+		y=34
 		width=10
 		height=13
 	}
@@ -214,7 +214,7 @@ text {
 text {
 	object {
 		x=261
-		y=113
+		y=56
 		width=40
 		height=10
 	}
@@ -226,8 +226,8 @@ text {
 }
 text {
 	object {
-		x=179
-		y=90
+		x=195
+		y=56
 		width=40
 		height=10
 	}
@@ -235,6 +235,23 @@ text {
 		clr=14
 	}
 	textix="CLEAR"
+	align="horiz. centered"
+}
+polyline {
+	object {
+		x=214
+		y=66
+		width=2
+		height=19
+	}
+	"basic attribute" {
+		clr=14
+		width=2
+	}
+	points {
+		(215,67)
+		(215,84)
+	}
 }
 rectangle {
 	object {
@@ -251,7 +268,7 @@ rectangle {
 polyline {
 	object {
 		x=304
-		y=117
+		y=60
 		width=17
 		height=2
 	}
@@ -261,19 +278,19 @@ polyline {
 		width=2
 	}
 	points {
-		(320,118)
-		(305,118)
+		(320,61)
+		(305,61)
 	}
 }
 "text update" {
 	object {
 		x=322
-		y=109
+		y=52
 		width=100
 		height=20
 	}
 	monitor {
-		chan="$(P)$(H)UpDnCntr-$(N)_COUNTS"
+		chan="$(P)$(H)UpCntr-$(N)_COUNTS"
 		clr=54
 		bclr=2
 	}
@@ -284,7 +301,7 @@ polyline {
 composite {
 	object {
 		x=318
-		y=107
+		y=50
 		width=106
 		height=24
 	}
@@ -293,7 +310,7 @@ composite {
 		polyline {
 			object {
 				x=318
-				y=107
+				y=50
 				width=106
 				height=24
 			}
@@ -306,15 +323,15 @@ composite {
 				chan="$(P)$(H)UpCntr-$(N)_COUNTS"
 			}
 			points {
-				(319,130)
-				(319,108)
-				(423,108)
+				(319,73)
+				(319,51)
+				(423,51)
 			}
 		}
 		polyline {
 			object {
 				x=318
-				y=107
+				y=50
 				width=106
 				height=24
 			}
@@ -327,16 +344,16 @@ composite {
 				chan="$(P)$(H)UpCntr-$(N)_COUNTS"
 			}
 			points {
-				(423,108)
-				(423,130)
-				(319,130)
+				(423,51)
+				(423,73)
+				(319,73)
 			}
 		}
 	}
 }
 text {
 	object {
-		x=204
+		x=216
 		y=39
 		width=50
 		height=10
@@ -344,195 +361,17 @@ text {
 	"basic attribute" {
 		clr=53
 	}
-	textix="UpDnCntr-$(N)"
-}
-composite {
-	object {
-		x=10
-		y=104
-		width=155
-		height=26
-	}
-	"composite name"=""
-	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=UpDnCntr-$(N)_UPDOWN"
-}
-polyline {
-	object {
-		x=163
-		y=117
-		width=13
-		height=2
-	}
-	"basic attribute" {
-		clr=14
-		fill="outline"
-		width=2
-	}
-	points {
-		(175,118)
-		(164,118)
-	}
-}
-text {
-	object {
-		x=179
-		y=113
-		width=40
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="UP/DOWN"
-}
-composite {
-	object {
-		x=10
-		y=127
-		width=155
-		height=26
-	}
-	"composite name"=""
-	"composite file"="softGlue_Input.adl;P=$(P),H=$(H),SIG=UpDnCntr-$(N)_LOAD"
-}
-polyline {
-	object {
-		x=163
-		y=140
-		width=13
-		height=2
-	}
-	"basic attribute" {
-		clr=14
-		fill="outline"
-		width=2
-	}
-	points {
-		(175,141)
-		(164,141)
-	}
-}
-text {
-	object {
-		x=179
-		y=136
-		width=40
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="LOAD"
-}
-text {
-	object {
-		x=221
-		y=148
-		width=40
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="PRESET"
-	align="horiz. centered"
-}
-polyline {
-	object {
-		x=240
-		y=159
-		width=2
-		height=16
-	}
-	"basic attribute" {
-		clr=14
-		width=2
-	}
-	points {
-		(241,160)
-		(241,174)
-	}
-}
-"text entry" {
-	object {
-		x=206
-		y=169
-		width=80
-		height=20
-	}
-	control {
-		chan="$(P)$(H)UpDnCntr-$(N)_PRESET"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
-}
-polyline {
-	object {
-		x=303
-		y=71
-		width=19
-		height=2
-	}
-	"basic attribute" {
-		clr=14
-		fill="outline"
-		width=2
-	}
-	points {
-		(321,72)
-		(304,72)
-	}
-}
-text {
-	object {
-		x=289
-		y=68
-		width=10
-		height=13
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Q"
-	align="horiz. centered"
-}
-composite {
-	object {
-		x=320
-		y=58
-		width=157
-		height=26
-	}
-	"composite name"=""
-	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=UpDnCntr-$(N)_OUT"
-}
-polyline {
-	object {
-		x=199
-		y=111
-		width=22
-		height=0
-	}
-	"basic attribute" {
-		clr=14
-		fill="outline"
-	}
-	points {
-		(199,111)
-		(221,111)
-	}
+	textix="UpCntr-$(N)"
 }
 "text entry" {
 	object {
 		x=10
-		y=10
-		width=465
+		y=5
+		width=420
 		height=16
 	}
 	control {
-		chan="$(P)$(H)UpDnCntr-$(N)_desc"
+		chan="$(P)$(H)UpCntr-$(N)_desc"
 		clr=14
 		bclr=2
 	}

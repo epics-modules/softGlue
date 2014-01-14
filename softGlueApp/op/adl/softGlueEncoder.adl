@@ -131,18 +131,18 @@ composite {
 	object {
 		x=10
 		y=35
-		width=438
-		height=72
+		width=440
+		height=89
 	}
 	"composite name"=""
-	"composite file"="softGlue_QuadDec_bare.adl;P=$(P),H=$(H),N=1"
+	"composite file"="softGlue_QuadDec_bare_label.adl;P=$(P),H=$(H),N=1"
 }
 composite {
 	object {
 		x=10
 		y=120
 		width=467
-		height=158
+		height=179
 	}
 	"composite name"=""
 	"composite file"="softGlue_UpDnCntr_bare.adl;P=$(P),H=$(H),N=1"
@@ -162,7 +162,7 @@ composite {
 		x=10
 		y=375
 		width=467
-		height=158
+		height=179
 	}
 	"composite name"=""
 	"composite file"="softGlue_UpDnCntr_bare.adl;P=$(P),H=$(H),N=2"
