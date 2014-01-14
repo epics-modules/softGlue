@@ -260,3 +260,45 @@ pattern {SIG     	ADDR_MSW	ADDR_LSW}
 {UpCntr-3_COUNTS	0x8005B0	0x8005A8}
 {UpCntr-4_COUNTS	0x8005D8	0x8005D0}
 }
+
+file "softGlue_description.db"
+{
+pattern {SIG N}
+{circuit 300}
+{8MHZ_CLOCK 80}
+{AND-1 80}
+{AND-2 80}
+{AND-3 80}
+{AND-4 80}
+{BUFFER-1 80}
+{BUFFER-2 80}
+{BUFFER-3 80}
+{BUFFER-4 80}
+{DEMUX2-1 80}
+{DEMUX2-2 80}
+{DFF-1 80}
+{DFF-2 80}
+{DFF-3 80}
+{DFF-4 80}
+{DivByN-1 80}
+{DivByN-2 80}
+{DivByN-3 80}
+{DivByN-4 80}
+{DnCntr-1 80}
+{DnCntr-2 80}
+{DnCntr-3 80}
+{DnCntr-4 80}
+{MUX2-1 80}
+{MUX2-2 80}
+{OR-1 80}
+{OR-2 80}
+{OR-3 80}
+{OR-4 80}
+{UpCntr-1 80}
+{UpCntr-2 80}
+{UpCntr-3 80}
+{UpCntr-4 80}
+{XOR-1 80}
+{XOR-2 80}
+}
+
