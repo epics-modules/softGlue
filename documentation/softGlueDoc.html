@@ -12,7 +12,7 @@
 </HEAD>
 <BODY LANG="en-US" BGCOLOR="#ffffff" DIR="LTR">
 
-<h1><center>The synApps softGlue module (v2.3)</center></h1>
+<h1><center>The synApps softGlue module (v2.3.1)</center></h1>
 <hr>
 <h2><center>Overview</center></h2>
 
@@ -623,7 +623,7 @@ sets the input to a logic value: 0 if the nearest integer to the converted value
 not.
 
 <blockquote>Allowing floats, and extra characters after the number makes it easier to drive softGlue
-inputs with calc records, replies from serial devices, etc.</blockquote>
+inputs with calcout records, replies from serial devices, etc.</blockquote>
 
 <P>The strings "0!" and "1!" (possibly followed by other ignored characters) direct softGlue to
 write a pair of logic values: "0!" writes "0" followed immediately by "1"; "1!" writes "1" followed
@@ -833,11 +833,14 @@ bit.
 will react to a change in the input value within nanoseconds.  I/O polling is
 not involved at all in the logic connection.
 
-<blockquote>You can change the "CONNECTOR&nbsp;#" numbers in this display &mdash; for example, to
-support a custom signal-breakout module.  The numbers are defined in
-<code>softGlueApp/Db/softGlue_FPGAContent.substitutions</code>, as the macro <code>IOPIN</code>
-supplied to <code>softGlue_FieldOutput.db</code> and <code>softGlue_FieldInput.db</code>.
-</blockquote>
+<blockquote>You can change the "CONNECTOR&nbsp;#" strings in this display
+&mdash; for example, to support a custom signal-breakout module, or to give the
+I/O signals application-specific names.  The strings are defined in
+<code>softGlueApp/Db/softGlue_FPGAContent.substitutions</code>, as the macro
+<code>IOPIN</code> supplied to <code>softGlue_FieldOutput.db</code> and
+<code>softGlue_FieldInput.db</code>.  In softGlue 2.3.1, field I/O displays
+leave room for longer strings, and there is a an autosave-request file for
+these PVs.</blockquote>
 
 <P>During a VME power cycle, and during a VME reset, field outputs are first put into a high
 impedance state, then are driven to ground, and finally are driven to values controlled by the user
@@ -1027,12 +1030,17 @@ significant bit of the register.
 
 	<h4>Saving and restoring circuits with autosave's configMenu facility</h4>
 
-	If you have autosave R5-1 or higher, you can use configMenu to save and
+	<P><img src="configMenu.gif" name="configMenu">
+
+	<P>If you have autosave R5-1 or higher, you can use configMenu to save and
 	restore circuits.  Here are the steps needed to implement a menu of softGlue
 	circuits, and to give the user a GUI display for saving and restoring them. 
 	(In the following, <font color="blue">SG</font> is the name of this instance
 	of configMenu.  The files it loads and saves will be named "<font
-	color="blue">SG</font>_&lt;<i>config Name</i>&gt;.cfg".)
+	color="blue">SG</font>_&lt;<i>config Name</i>&gt;.cfg".  For examples, the
+	configMenu instance pictured above has files named "<font
+	color="blue">SG</font>_clear.cfg", "<font
+	color="blue">SG</font>_encoderTest.cfg", etc..)
 
 	<blockquote> <ol> <li>In the IOC's startup directory, create an autosave
 	request file, which I'll call "<font color="blue">SG</font>Menu.req", with
@@ -1876,11 +1884,12 @@ It was prepared as follows, in Quartus, according to an email from Marty Smith:
 <h3>Credits</h3>
 
 The essential enabling work underlying softGlue is Eric Norum's <a
-href="IndustryPackBridge.html">IndustryPack Bridge</a>.  David Kline engineered a proof-of-principle
-implementation, working from another of Eric's bus-interface solutions, for a non-VME architecture. 
-Marty Smith wrote a driver to talk to custom FPGA content interfaced to Eric's IndustryPack Bridge. 
-Marty Smith and Kurt Goetze implemented the FPGA content included with softGlue, and Tim Mooney
-extended Marty's driver and wrote the EPICS application.
+href="IndustryPackBridge.html">IndustryPack Bridge</a>.  David Kline engineered
+a proof-of-principle implementation, working from another of Eric's
+bus-interface solutions, for a non-VME architecture.  Marty Smith wrote a driver
+to talk to custom FPGA content interfaced to Eric's IndustryPack Bridge.  Kurt
+Goetze and Marty Smith implemented the FPGA content included with softGlue, and
+Tim Mooney extended Marty's driver and wrote the EPICS application.
 
 <hr>
 <ADDRESS STYLE="text-align: left">Suggestions and Comments to: <br>
