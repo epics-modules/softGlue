@@ -7,7 +7,7 @@
             <x>946</x>
             <y>255</y>
             <width>400</width>
-            <height>70</height>
+            <height>75</height>
         </rect>
     </property>
     <property name="styleSheet">
@@ -55,14 +55,6 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
-            <property name="geometry">
-                <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>400</width>
-                    <height>25</height>
-                </rect>
-            </property>
             <property name="foreground">
                 <color alpha="255">
                     <red>0</red>
@@ -81,10 +73,18 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <string>BUFFER $(N)</string>
             </property>
             <property name="fontScaleMode">
-                <enum>ESimpleLabel::Height</enum>
+                <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="alignment">
                 <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>400</width>
+                    <height>25</height>
+                </rect>
             </property>
         </widget>
         <widget class="caPolyLine" name="caPolyLine_0">
@@ -127,21 +127,21 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
             <property name="geometry">
                 <rect>
                     <x>10</x>
-                    <y>35</y>
+                    <y>30</y>
                     <width>402</width>
-                    <height>37</height>
+                    <height>52</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
-                    <y>35</y>
+                    <y>30</y>
                     <width>400</width>
-                    <height>35</height>
+                    <height>50</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>softGlue_BUFFER_bare.adl</string>
+                <string>softGlue_BUFFER_bare_label.adl</string>
             </property>
             <property name="macro">
                 <string>P=$(P),H=$(H),N=$(N)</string>

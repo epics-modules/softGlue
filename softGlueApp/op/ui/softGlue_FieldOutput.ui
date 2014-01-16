@@ -4,9 +4,9 @@
 <widget class="QMainWindow" name="MainWindow">
     <property name="geometry">
         <rect>
-            <x>1369</x>
-            <y>117</y>
-            <width>200</width>
+            <x>982</x>
+            <y>366</y>
+            <width>250</width>
             <height>46</height>
         </rect>
     </property>
@@ -23,7 +23,7 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <rect>
                     <x>0</x>
                     <y>20</y>
-                    <width>197</width>
+                    <width>252</width>
                     <height>28</height>
                 </rect>
             </property>
@@ -31,12 +31,12 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <rect>
                     <x>0</x>
                     <y>20</y>
-                    <width>195</width>
+                    <width>250</width>
                     <height>26</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>softGlue_FieldOutput_bare.adl</string>
+                <string>softGlue_FieldOutput_small_bare_label.adl</string>
             </property>
             <property name="macro">
                 <string>P=$(P),H=$(H),N=$(N),SIG=FO$(N)</string>
@@ -45,14 +45,6 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
         <widget class="caLabel" name="caLabel_0">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>165</x>
-                    <y>25</y>
-                    <width>15</width>
-                    <height>20</height>
-                </rect>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -72,10 +64,18 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <string>$(N)</string>
             </property>
             <property name="fontScaleMode">
-                <enum>ESimpleLabel::Height</enum>
+                <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="alignment">
                 <set>Qt::AlignAbsolute|Qt::AlignRight|Qt::AlignVCenter</set>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>165</x>
+                    <y>25</y>
+                    <width>48</width>
+                    <height>20</height>
+                </rect>
             </property>
         </widget>
         <widget class="caLineEdit" name="caLineEdit_0">
@@ -88,7 +88,7 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 </rect>
             </property>
             <property name="fontScaleMode">
-                <enum>caLineEdit::Height</enum>
+                <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
                 <string>$(P)$(H)FO$(N)_Signal.DESC</string>
@@ -136,14 +136,6 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
-            <property name="geometry">
-                <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>200</width>
-                    <height>20</height>
-                </rect>
-            </property>
             <property name="foreground">
                 <color alpha="255">
                     <red>0</red>
@@ -162,10 +154,18 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <string>Field Output $(N)</string>
             </property>
             <property name="fontScaleMode">
-                <enum>ESimpleLabel::Height</enum>
+                <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="alignment">
                 <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>0</y>
+                    <width>230</width>
+                    <height>20</height>
+                </rect>
             </property>
         </widget>
         <zorder>caInclude_0</zorder>

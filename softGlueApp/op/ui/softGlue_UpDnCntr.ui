@@ -7,7 +7,7 @@
             <x>449</x>
             <y>171</y>
             <width>490</width>
-            <height>200</height>
+            <height>215</height>
         </rect>
     </property>
     <property name="styleSheet">
@@ -55,14 +55,6 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
-            <property name="geometry">
-                <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>490</width>
-                    <height>25</height>
-                </rect>
-            </property>
             <property name="foreground">
                 <color alpha="255">
                     <red>0</red>
@@ -81,10 +73,18 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <string>Up/Down Counter $(N)</string>
             </property>
             <property name="fontScaleMode">
-                <enum>ESimpleLabel::Height</enum>
+                <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="alignment">
                 <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>490</width>
+                    <height>25</height>
+                </rect>
             </property>
         </widget>
         <widget class="caPolyLine" name="caPolyLine_0">
@@ -127,17 +127,17 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
             <property name="geometry">
                 <rect>
                     <x>10</x>
-                    <y>35</y>
-                    <width>487</width>
-                    <height>182</height>
+                    <y>30</y>
+                    <width>482</width>
+                    <height>202</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
-                    <y>35</y>
-                    <width>485</width>
-                    <height>180</height>
+                    <y>30</y>
+                    <width>480</width>
+                    <height>200</height>
                 </rect>
             </property>
             <property name="filename">
