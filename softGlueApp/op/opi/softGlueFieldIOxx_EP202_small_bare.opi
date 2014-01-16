@@ -3,8 +3,8 @@
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <wuid>39872d87:13e14015f61:59e3</wuid>
-  <boy_version>3.1.2.20120830</boy_version>
+  <wuid>-38aa0a56:1439cea4d24:-76bc</wuid>
+  <boy_version>3.1.4.20130717</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
   <height>341</height>
@@ -37,7 +37,7 @@
       <N>$(N1)</N>
     </macros>
     <visible>true</visible>
-    <wuid>39872d87:13e14015f61:59e4</wuid>
+    <wuid>-38aa0a56:1439cea4d24:-76bb</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -49,15 +49,15 @@
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
     <group_name></group_name>
-    <widget_type>Linking Container</widget_type>
     <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
@@ -68,10 +68,10 @@
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <actions hook="false" hook_all="false" />
     <y>0</y>
-    <tooltip></tooltip>
+    <actions hook="false" hook_all="false" />
     <x>0</x>
+    <tooltip></tooltip>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
     <macros>
@@ -79,7 +79,7 @@
       <N>$(N3)</N>
     </macros>
     <visible>true</visible>
-    <wuid>39872d87:13e14015f61:59e5</wuid>
+    <wuid>-38aa0a56:1439cea4d24:-76ba</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -91,15 +91,15 @@
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
     <group_name></group_name>
-    <widget_type>Linking Container</widget_type>
     <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
@@ -110,10 +110,10 @@
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <actions hook="false" hook_all="false" />
     <y>42</y>
-    <tooltip></tooltip>
+    <actions hook="false" hook_all="false" />
     <x>0</x>
+    <tooltip></tooltip>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
     <macros>
@@ -121,7 +121,7 @@
       <N>$(N5)</N>
     </macros>
     <visible>true</visible>
-    <wuid>39872d87:13e14015f61:59e6</wuid>
+    <wuid>-38aa0a56:1439cea4d24:-76b9</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -133,15 +133,15 @@
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
     <group_name></group_name>
-    <widget_type>Linking Container</widget_type>
     <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
@@ -152,10 +152,10 @@
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <actions hook="false" hook_all="false" />
     <y>84</y>
-    <tooltip></tooltip>
+    <actions hook="false" hook_all="false" />
     <x>0</x>
+    <tooltip></tooltip>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
     <macros>
@@ -163,7 +163,7 @@
       <N>$(N7)</N>
     </macros>
     <visible>true</visible>
-    <wuid>39872d87:13e14015f61:59e7</wuid>
+    <wuid>-38aa0a56:1439cea4d24:-76b8</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -175,15 +175,15 @@
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
     <group_name></group_name>
-    <widget_type>Linking Container</widget_type>
     <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
@@ -194,10 +194,10 @@
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <actions hook="false" hook_all="false" />
     <y>126</y>
-    <tooltip></tooltip>
+    <actions hook="false" hook_all="false" />
     <x>0</x>
+    <tooltip></tooltip>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
     <macros>
@@ -205,7 +205,7 @@
       <N>$(N9)</N>
     </macros>
     <visible>true</visible>
-    <wuid>39872d87:13e14015f61:59e8</wuid>
+    <wuid>-38aa0a56:1439cea4d24:-76b7</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -217,15 +217,15 @@
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
     <group_name></group_name>
-    <widget_type>Linking Container</widget_type>
     <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
@@ -236,10 +236,10 @@
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <actions hook="false" hook_all="false" />
     <y>168</y>
-    <tooltip></tooltip>
+    <actions hook="false" hook_all="false" />
     <x>0</x>
+    <tooltip></tooltip>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
     <macros>
@@ -247,7 +247,7 @@
       <N>$(N11)</N>
     </macros>
     <visible>true</visible>
-    <wuid>39872d87:13e14015f61:59e9</wuid>
+    <wuid>-38aa0a56:1439cea4d24:-76b6</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -259,15 +259,15 @@
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
     <group_name></group_name>
-    <widget_type>Linking Container</widget_type>
     <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
@@ -278,10 +278,10 @@
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <actions hook="false" hook_all="false" />
     <y>210</y>
-    <tooltip></tooltip>
+    <actions hook="false" hook_all="false" />
     <x>0</x>
+    <tooltip></tooltip>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
     <macros>
@@ -289,7 +289,7 @@
       <N>$(N13)</N>
     </macros>
     <visible>true</visible>
-    <wuid>39872d87:13e14015f61:59ea</wuid>
+    <wuid>-38aa0a56:1439cea4d24:-76b5</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -301,15 +301,15 @@
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
     <group_name></group_name>
-    <widget_type>Linking Container</widget_type>
     <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
@@ -320,10 +320,10 @@
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <actions hook="false" hook_all="false" />
     <y>252</y>
-    <tooltip></tooltip>
+    <actions hook="false" hook_all="false" />
     <x>0</x>
+    <tooltip></tooltip>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
     <macros>
@@ -331,7 +331,7 @@
       <N>$(N15)</N>
     </macros>
     <visible>true</visible>
-    <wuid>39872d87:13e14015f61:59eb</wuid>
+    <wuid>-38aa0a56:1439cea4d24:-76b4</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -343,15 +343,15 @@
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <opi_file>softGlue_FieldInput_small_bare.opi</opi_file>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
     <group_name></group_name>
-    <widget_type>Linking Container</widget_type>
     <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
@@ -362,10 +362,10 @@
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <actions hook="false" hook_all="false" />
     <y>294</y>
-    <tooltip></tooltip>
+    <actions hook="false" hook_all="false" />
     <x>0</x>
+    <tooltip></tooltip>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
     <macros>
@@ -373,7 +373,7 @@
       <N>$(N1)</N>
     </macros>
     <visible>true</visible>
-    <wuid>39872d87:13e14015f61:59ec</wuid>
+    <wuid>-38aa0a56:1439cea4d24:-76b3</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -385,15 +385,15 @@
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
     <group_name></group_name>
-    <widget_type>Linking Container</widget_type>
     <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
@@ -404,10 +404,10 @@
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <actions hook="false" hook_all="false" />
     <y>0</y>
-    <tooltip></tooltip>
+    <actions hook="false" hook_all="false" />
     <x>210</x>
+    <tooltip></tooltip>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
     <macros>
@@ -415,7 +415,7 @@
       <N>$(N3)</N>
     </macros>
     <visible>true</visible>
-    <wuid>39872d87:13e14015f61:59ed</wuid>
+    <wuid>-38aa0a56:1439cea4d24:-76b2</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -427,15 +427,15 @@
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
     <group_name></group_name>
-    <widget_type>Linking Container</widget_type>
     <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
@@ -446,10 +446,10 @@
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <actions hook="false" hook_all="false" />
     <y>42</y>
-    <tooltip></tooltip>
+    <actions hook="false" hook_all="false" />
     <x>210</x>
+    <tooltip></tooltip>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
     <macros>
@@ -457,7 +457,7 @@
       <N>$(N5)</N>
     </macros>
     <visible>true</visible>
-    <wuid>39872d87:13e14015f61:59ee</wuid>
+    <wuid>-38aa0a56:1439cea4d24:-76b1</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -469,15 +469,15 @@
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
     <group_name></group_name>
-    <widget_type>Linking Container</widget_type>
     <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
@@ -488,10 +488,10 @@
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <actions hook="false" hook_all="false" />
     <y>84</y>
-    <tooltip></tooltip>
+    <actions hook="false" hook_all="false" />
     <x>210</x>
+    <tooltip></tooltip>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
     <macros>
@@ -499,7 +499,7 @@
       <N>$(N7)</N>
     </macros>
     <visible>true</visible>
-    <wuid>39872d87:13e14015f61:59ef</wuid>
+    <wuid>-38aa0a56:1439cea4d24:-76b0</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -511,15 +511,15 @@
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
     <group_name></group_name>
-    <widget_type>Linking Container</widget_type>
     <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
@@ -530,10 +530,10 @@
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <actions hook="false" hook_all="false" />
     <y>126</y>
-    <tooltip></tooltip>
+    <actions hook="false" hook_all="false" />
     <x>210</x>
+    <tooltip></tooltip>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
     <macros>
@@ -541,7 +541,7 @@
       <N>$(N9)</N>
     </macros>
     <visible>true</visible>
-    <wuid>39872d87:13e14015f61:59f0</wuid>
+    <wuid>-38aa0a56:1439cea4d24:-76af</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -553,15 +553,15 @@
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
     <group_name></group_name>
-    <widget_type>Linking Container</widget_type>
     <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
@@ -572,10 +572,10 @@
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <actions hook="false" hook_all="false" />
     <y>168</y>
-    <tooltip></tooltip>
+    <actions hook="false" hook_all="false" />
     <x>210</x>
+    <tooltip></tooltip>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
     <macros>
@@ -583,7 +583,7 @@
       <N>$(N11)</N>
     </macros>
     <visible>true</visible>
-    <wuid>39872d87:13e14015f61:59f1</wuid>
+    <wuid>-38aa0a56:1439cea4d24:-76ae</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -595,15 +595,15 @@
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
     <group_name></group_name>
-    <widget_type>Linking Container</widget_type>
     <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
@@ -614,10 +614,10 @@
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <actions hook="false" hook_all="false" />
     <y>210</y>
-    <tooltip></tooltip>
+    <actions hook="false" hook_all="false" />
     <x>210</x>
+    <tooltip></tooltip>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
     <macros>
@@ -625,7 +625,7 @@
       <N>$(N13)</N>
     </macros>
     <visible>true</visible>
-    <wuid>39872d87:13e14015f61:59f2</wuid>
+    <wuid>-38aa0a56:1439cea4d24:-76ad</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -637,15 +637,15 @@
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
     <group_name></group_name>
-    <widget_type>Linking Container</widget_type>
     <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
@@ -656,10 +656,10 @@
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <actions hook="false" hook_all="false" />
     <y>252</y>
-    <tooltip></tooltip>
+    <actions hook="false" hook_all="false" />
     <x>210</x>
+    <tooltip></tooltip>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
     <macros>
@@ -667,7 +667,7 @@
       <N>$(N15)</N>
     </macros>
     <visible>true</visible>
-    <wuid>39872d87:13e14015f61:59f3</wuid>
+    <wuid>-38aa0a56:1439cea4d24:-76ac</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -679,15 +679,15 @@
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
     <opi_file>softGlue_FieldOutput_small_bare.opi</opi_file>
-    <background_color>
-      <color red="218" green="218" blue="218" />
-    </background_color>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
     <group_name></group_name>
-    <widget_type>Linking Container</widget_type>
     <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
@@ -698,9 +698,9 @@
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <actions hook="false" hook_all="false" />
     <y>294</y>
-    <tooltip></tooltip>
+    <actions hook="false" hook_all="false" />
     <x>210</x>
+    <tooltip></tooltip>
   </widget>
 </display>

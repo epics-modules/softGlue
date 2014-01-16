@@ -426,14 +426,6 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
-            <property name="geometry">
-                <rect>
-                    <x>189</x>
-                    <y>30</y>
-                    <width>30</width>
-                    <height>10</height>
-                </rect>
-            </property>
             <property name="foreground">
                 <color alpha="255">
                     <red>42</red>
@@ -452,7 +444,15 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <string>XOR-$(N)</string>
             </property>
             <property name="fontScaleMode">
-                <enum>ESimpleLabel::Height</enum>
+                <enum>ESimpleLabel::WidthAndHeight</enum>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>189</x>
+                    <y>30</y>
+                    <width>48</width>
+                    <height>10</height>
+                </rect>
             </property>
             <property name="alignment">
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>

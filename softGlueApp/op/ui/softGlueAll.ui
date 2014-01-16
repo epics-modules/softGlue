@@ -979,7 +979,7 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                     </rect>
                 </property>
                 <property name="fontScaleMode">
-                    <enum>caLineEdit::Height</enum>
+                    <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
                     <string>$(P)$(H)availableSignals</string>
@@ -1027,14 +1027,6 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
-                <property name="geometry">
-                    <rect>
-                        <x>0</x>
-                        <y>0</y>
-                        <width>160</width>
-                        <height>20</height>
-                    </rect>
-                </property>
                 <property name="foreground">
                     <color alpha="255">
                         <red>0</red>
@@ -1053,7 +1045,15 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                     <string>#Signals In Use:</string>
                 </property>
                 <property name="fontScaleMode">
-                    <enum>ESimpleLabel::Height</enum>
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>192</width>
+                        <height>20</height>
+                    </rect>
                 </property>
                 <property name="alignment">
                     <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1062,14 +1062,6 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
             <widget class="caLabel" name="caLabel_1">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>210</x>
-                        <y>0</y>
-                        <width>110</width>
-                        <height>20</height>
-                    </rect>
                 </property>
                 <property name="foreground">
                     <color alpha="255">
@@ -1089,7 +1081,15 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                     <string>#Remaining:</string>
                 </property>
                 <property name="fontScaleMode">
-                    <enum>ESimpleLabel::Height</enum>
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>210</x>
+                        <y>0</y>
+                        <width>132</width>
+                        <height>20</height>
+                    </rect>
                 </property>
                 <property name="alignment">
                     <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1105,7 +1105,7 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                     </rect>
                 </property>
                 <property name="fontScaleMode">
-                    <enum>caLineEdit::Height</enum>
+                    <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
                     <string>$(P)$(H)numSignalsInUse</string>
@@ -1174,7 +1174,7 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 </color>
             </property>
             <property name="label">
-                <string>-Less</string>
+                <string>-No I/O</string>
             </property>
             <property name="stackingMode">
                 <enum>Menu</enum>
@@ -1184,6 +1184,48 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
             </property>
             <property name="files">
                 <string>softGlueAllButIO.adl</string>
+            </property>
+            <property name="args">
+                <string>P=$(P),H=$(H)</string>
+            </property>
+            <property name="removeParent">
+                <string>true</string>
+            </property>
+        </widget>
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_1">
+            <property name="geometry">
+                <rect>
+                    <x>1304</x>
+                    <y>725</y>
+                    <width>50</width>
+                    <height>20</height>
+                </rect>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="255">
+                    <red>40</red>
+                    <green>147</green>
+                    <blue>21</blue>
+                </color>
+            </property>
+            <property name="label">
+                <string>-Labels</string>
+            </property>
+            <property name="stackingMode">
+                <enum>Menu</enum>
+            </property>
+            <property name="labels">
+                <string>all with labels</string>
+            </property>
+            <property name="files">
+                <string>softGlueAll_label.adl</string>
             </property>
             <property name="args">
                 <string>P=$(P),H=$(H)</string>
@@ -1239,6 +1281,7 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
         <zorder>caLineEdit_0</zorder>
         <zorder>caLineEdit_1</zorder>
         <zorder>caRelatedDisplay_0</zorder>
+        <zorder>caRelatedDisplay_1</zorder>
     </widget>
 </widget>
 </ui>

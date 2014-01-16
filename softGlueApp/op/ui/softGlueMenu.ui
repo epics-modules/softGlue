@@ -4,8 +4,8 @@
 <widget class="QMainWindow" name="MainWindow">
     <property name="geometry">
         <rect>
-            <x>1376</x>
-            <y>384</y>
+            <x>157</x>
+            <y>25</y>
             <width>120</width>
             <height>200</height>
         </rect>
@@ -90,16 +90,16 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>UpCounter 1;UpCounter 2;UpCounter 3;UpCounter 4;DownCounter 1;DownCounter 2;DownCounter 3;DownCounter 4</string>
+                <string>UpCounter 1;UpCounter 2;UpCounter 3;UpCounter 4;DownCounter 1;DownCounter 2;DownCounter 3;DownCounter 4;UpDown Counter 1;UpDown Counter 2</string>
             </property>
             <property name="files">
-                <string>softGlue_UpCntr.adl;softGlue_UpCntr.adl;softGlue_UpCntr.adl;softGlue_UpCntr.adl;softGlue_DnCntr.adl;softGlue_DnCntr.adl;softGlue_DnCntr.adl;softGlue_DnCntr.adl</string>
+                <string>softGlue_UpCntr.adl;softGlue_UpCntr.adl;softGlue_UpCntr.adl;softGlue_UpCntr.adl;softGlue_DnCntr.adl;softGlue_DnCntr.adl;softGlue_DnCntr.adl;softGlue_DnCntr.adl;softGlue_UpDnCntr.adl;softGlue_UpDnCntr.adl</string>
             </property>
             <property name="args">
-                <string>P=$(P),H=$(H),N=1;P=$(P),H=$(H),N=2;P=$(P),H=$(H),N=3;P=$(P),H=$(H),N=4;P=$(P),H=$(H),N=1;P=$(P),H=$(H),N=2;P=$(P),H=$(H),N=3;P=$(P),H=$(H),N=4</string>
+                <string>P=$(P),H=$(H),N=1;P=$(P),H=$(H),N=2;P=$(P),H=$(H),N=3;P=$(P),H=$(H),N=4;P=$(P),H=$(H),N=1;P=$(P),H=$(H),N=2;P=$(P),H=$(H),N=3;P=$(P),H=$(H),N=4;P=$(P),H=$(H),N=1;P=$(P),H=$(H),N=2</string>
             </property>
             <property name="removeParent">
-                <string>false;false;false;false;false;false;false;false</string>
+                <string>false;false;false;false;false;false;false;false;false;false</string>
             </property>
         </widget>
         <widget class="caRelatedDisplay" name="caRelatedDisplay_2">
@@ -174,16 +174,16 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>8 MHZ Internal Clock;2-input multiplexer;2-input multiplexer;2-output demultiplexer;2-output demultiplexer;D FlipFlop 1;D FlipFlop 2;D FlipFlop 3;D FlipFlop 4;Divide By N 1;Divide By N 2;Divide By N 3;Divide By N 4</string>
+                <string>8 MHZ Internal Clock;2-input multiplexer;2-input multiplexer;2-output demultiplexer;2-output demultiplexer;D FlipFlop 1;D FlipFlop 2;D FlipFlop 3;D FlipFlop 4;Divide By N 1;Divide By N 2;Divide By N 3;Divide By N 4;Quadrature Decoder 1;Quadrature Decoder 2</string>
             </property>
             <property name="files">
-                <string>softGlue_8MHZ_CK_bare.adl;softGlue_MUX2.adl;softGlue_MUX2.adl;softGlue_DEMUX2.adl;softGlue_DEMUX2.adl;softGlue_DFF.adl;softGlue_DFF.adl;softGlue_DFF.adl;softGlue_DFF.adl;softGlue_DivByN.adl;softGlue_DivByN.adl;softGlue_DivByN.adl;softGlue_DivByN.adl</string>
+                <string>softGlue_8MHZ_CK_bare.adl;softGlue_MUX2.adl;softGlue_MUX2.adl;softGlue_DEMUX2.adl;softGlue_DEMUX2.adl;softGlue_DFF.adl;softGlue_DFF.adl;softGlue_DFF.adl;softGlue_DFF.adl;softGlue_DivByN.adl;softGlue_DivByN.adl;softGlue_DivByN.adl;softGlue_DivByN.adl;softGlue_QuadDec.adl;softGlue_QuadDec.adl</string>
             </property>
             <property name="args">
-                <string>P=$(P),H=$(H);P=$(P),H=$(H),N=1;P=$(P),H=$(H),N=2;P=$(P),H=$(H),N=1;P=$(P),H=$(H),N=2;P=$(P),H=$(H),N=1;P=$(P),H=$(H),N=2;P=$(P),H=$(H),N=3;P=$(P),H=$(H),N=4;P=$(P),H=$(H),N=1;P=$(P),H=$(H),N=2;P=$(P),H=$(H),N=3;P=$(P),H=$(H),N=4</string>
+                <string>P=$(P),H=$(H);P=$(P),H=$(H),N=1;P=$(P),H=$(H),N=2;P=$(P),H=$(H),N=1;P=$(P),H=$(H),N=2;P=$(P),H=$(H),N=1;P=$(P),H=$(H),N=2;P=$(P),H=$(H),N=3;P=$(P),H=$(H),N=4;P=$(P),H=$(H),N=1;P=$(P),H=$(H),N=2;P=$(P),H=$(H),N=3;P=$(P),H=$(H),N=4;P=$(P),H=$(H),N=1;P=$(P),H=$(H),N=2</string>
             </property>
             <property name="removeParent">
-                <string>false;false;false;false;false;false;false;false;false;false;false;false;false</string>
+                <string>false;false;false;false;false;false;false;false;false;false;false;false;false;false;false</string>
             </property>
         </widget>
         <widget class="caRelatedDisplay" name="caRelatedDisplay_4">
@@ -238,7 +238,7 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 </rect>
             </property>
             <property name="fontScaleMode">
-                <enum>caLineEdit::Height</enum>
+                <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
                 <string>$(P)$(H)numSignalsInUse</string>
@@ -286,14 +286,6 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
-            <property name="geometry">
-                <rect>
-                    <x>10</x>
-                    <y>175</y>
-                    <width>40</width>
-                    <height>10</height>
-                </rect>
-            </property>
             <property name="foreground">
                 <color alpha="255">
                     <red>0</red>
@@ -312,7 +304,15 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <string>#SIGS</string>
             </property>
             <property name="fontScaleMode">
-                <enum>ESimpleLabel::Height</enum>
+                <enum>ESimpleLabel::WidthAndHeight</enum>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>175</y>
+                    <width>40</width>
+                    <height>10</height>
+                </rect>
             </property>
             <property name="alignment">
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -321,14 +321,6 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
         <widget class="caLabel" name="caLabel_1">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>10</x>
-                    <y>185</y>
-                    <width>40</width>
-                    <height>10</height>
-                </rect>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -348,7 +340,15 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <string>IN USE</string>
             </property>
             <property name="fontScaleMode">
-                <enum>ESimpleLabel::Height</enum>
+                <enum>ESimpleLabel::WidthAndHeight</enum>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>185</y>
+                    <width>40</width>
+                    <height>10</height>
+                </rect>
             </property>
             <property name="alignment">
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -357,14 +357,6 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
         <widget class="caLabel" name="caLabel_2">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>85</x>
-                    <y>175</y>
-                    <width>20</width>
-                    <height>20</height>
-                </rect>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -384,10 +376,18 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <string>/15</string>
             </property>
             <property name="fontScaleMode">
-                <enum>ESimpleLabel::Height</enum>
+                <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="alignment">
                 <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>85</x>
+                    <y>175</y>
+                    <width>36</width>
+                    <height>20</height>
+                </rect>
             </property>
         </widget>
         <widget class="caRelatedDisplay" name="caRelatedDisplay_5">
@@ -420,29 +420,21 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>all softGlue;all but I/O;convenience;------------;octupole;velocity gate</string>
+                <string>all softGlue;all but I/O;convenience;------------;octupole;velocity gate;encoder</string>
             </property>
             <property name="files">
-                <string>softGlueAll.adl;softGlueAllButIO.adl;softGlueConvenience.adl;softGlueConvenience.adl;softGlueOctupole.adl;softGlueVgate.adl</string>
+                <string>softGlueAll.adl;softGlueAllButIO.adl;softGlueConvenience.adl;softGlueConvenience.adl;softGlueOctupole.adl;softGlueVgate.adl;softGlueEncoder.adl</string>
             </property>
             <property name="args">
-                <string>P=$(P),H=$(H);P=$(P),H=$(H),N=1,N1=1,N2=2,N3=3,N4=4,N5=5,N6=6,N7=7,N8=8;P=$(P),H=$(H),PORT=$(PORT),IPORT=$(IPORT),OPORT=$(OPORT);P=$(P),H=$(H),PORT=$(PORT),IPORT=$(IPORT),OPORT=$(OPORT);P=$(P),H=$(H);P=$(P),H=$(H)</string>
+                <string>P=$(P),H=$(H);P=$(P),H=$(H),N=1,N1=1,N2=2,N3=3,N4=4,N5=5,N6=6,N7=7,N8=8;P=$(P),H=$(H),PORT=$(PORT),IPORT=$(IPORT),OPORT=$(OPORT);P=$(P),H=$(H),PORT=$(PORT),IPORT=$(IPORT),OPORT=$(OPORT);P=$(P),H=$(H);P=$(P),H=$(H);P=$(P),H=$(H)</string>
             </property>
             <property name="removeParent">
-                <string>false;false;false;false;false;false</string>
+                <string>false;false;false;false;false;false;false</string>
             </property>
         </widget>
         <widget class="caLabel" name="caLabel_3">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>10</x>
-                    <y>140</y>
-                    <width>100</width>
-                    <height>10</height>
-                </rect>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -462,10 +454,18 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <string>READ PERIOD</string>
             </property>
             <property name="fontScaleMode">
-                <enum>ESimpleLabel::Height</enum>
+                <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="alignment">
                 <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>140</y>
+                    <width>100</width>
+                    <height>10</height>
+                </rect>
             </property>
         </widget>
         <widget class="caMenu" name="caMenu_0">
@@ -502,14 +502,6 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
-            <property name="geometry">
-                <rect>
-                    <x>10</x>
-                    <y>0</y>
-                    <width>50</width>
-                    <height>10</height>
-                </rect>
-            </property>
             <property name="foreground">
                 <color alpha="255">
                     <red>0</red>
@@ -528,7 +520,15 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <string>VERSION: </string>
             </property>
             <property name="fontScaleMode">
-                <enum>ESimpleLabel::Height</enum>
+                <enum>ESimpleLabel::WidthAndHeight</enum>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>10</x>
+                    <y>0</y>
+                    <width>54</width>
+                    <height>10</height>
+                </rect>
             </property>
             <property name="alignment">
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -544,7 +544,7 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 </rect>
             </property>
             <property name="fontScaleMode">
-                <enum>caLineEdit::Height</enum>
+                <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
                 <string>$(P)$(H)version</string>
