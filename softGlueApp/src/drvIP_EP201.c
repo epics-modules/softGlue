@@ -171,6 +171,7 @@ typedef struct {
 	volatile epicsUInt16 *mem;	/* MEM space (mapped to Avalon-bus-address range 0x800000 -- 0xffffff) */
 	ushort carrier;
 	ushort slot;
+	int sopcAddress;
 	int is_fieldIO_registerSet;
     unsigned char manufacturer;
     unsigned char model;
@@ -449,6 +450,7 @@ int init_one_IP_EP200(const char *portName, ushort_t carrier, ushort_t slot, int
 	/* Set up ID and I/O space addresses for IP module */
 	pPvt->carrier = carrier;
 	pPvt->slot = slot;
+	pPvt->sopcAddress = sopcAddress;
 	pPvt->id = (ipac_idProm_t *) ipmBaseAddr(carrier, slot, ipac_addrID);
 	pPvt->io = (epicsUInt16 *) ipmBaseAddr(carrier, slot, ipac_addrIO);
 	pPvt->mem = (epicsUInt16 *) ipmBaseAddr(carrier, slot, ipac_addrMem);
@@ -958,6 +960,30 @@ STATIC epicsUInt16 *calcRegisterAddress(void *drvPvt, asynUser *pasynUser)
 }
 
 /*
+ * softGlueCalcSpecifiedRegisterAddress - For access to a single-register component by
+ * other than an EPICS record (for example, by an interrupt-service routine).
+ * The carrier, slot, and sopc address are specified as arguments, and we need
+ * to translate that information into a VME address, as calcRegisterAddress()
+ * would have done for an EPICS record.
+ */
+epicsUInt16 *softGlueCalcSpecifiedRegisterAddress(ushort_t carrier, ushort_t slot, int addr)
+{
+	epicsUInt16 *reg;
+	epicsUInt16 *io = (epicsUInt16 *) ipmBaseAddr(carrier, slot, ipac_addrIO);
+	epicsUInt16 *mem = (epicsUInt16 *) ipmBaseAddr(carrier, slot, ipac_addrMem);
+
+	if (addr & 0x800000) {
+		addr &= 0x7fffff;	/* mask the sopc MEM-space indicator bit */
+		addr >>= 1;			/* convert byte-address offset to (two-byte) word-address offset */
+		reg = (epicsUInt16 *) (mem+addr);
+	} else {
+		addr = addr >> 1;
+		reg = (epicsUInt16 *) (io+addr);
+	}
+	return(reg);
+}
+
+/*
  * readUInt32D
  * This method provides masked read access to the readDataRegister of a
  * fieldIO_registerSet component, or to the sopc address of a single register
@@ -1165,7 +1191,64 @@ STATIC asynStatus getBounds(void *drvPvt, asynUser *pasynUser, epicsInt32 *low, 
 	return(asynSuccess);
 }
 
+/***********************************************************************
+ * Manage a table of registered interrupt-service routines to be called
+ * at interrupt level.  This is not the normal softGlue interrupt mechanism;
+ * it's for interrupts that will occur at too high a frequency, or too
+ * close together in time, for that mechanism to handle.
+ */
 
+/* table of registered routines for execution at interrupt level */
+#define MAXROUTINES 10
+typedef struct {
+	ushort carrier;
+	ushort slot;
+	ushort mask;
+	int sopcAddress;
+    volatile fieldIO_registerSet *regs;
+	void (*routine)(ushort mask);
+} intRoutineEntry;
+
+intRoutineEntry registeredIntRoutines[MAXROUTINES] = {{0}};
+int numRegisteredIntRoutines=0;
+
+/* Register a routine to be called at interrupt level when a specified
+ * I/O bit (addr/mask) from a specified carrier/slot generates an interrupt.
+ * example invocation:
+ *      void callMe(ushort mask);
+ *      softGlueRegisterInterruptRoutine(0, 0, 0x800000, 0x0, callMe);
+ *
+ */
+int softGlueRegisterInterruptRoutine(ushort carrier, ushort slot, int sopcAddress, ushort mask, void (*routine)(ushort mask)) {
+	int i;
+	drvIP_EP201Pvt *pPvt;
+
+	if (numRegisteredIntRoutines >= MAXROUTINES-1) return(-1);
+	registeredIntRoutines[numRegisteredIntRoutines].carrier = carrier;
+	registeredIntRoutines[numRegisteredIntRoutines].slot = slot;
+	registeredIntRoutines[numRegisteredIntRoutines].sopcAddress = sopcAddress;
+	registeredIntRoutines[numRegisteredIntRoutines].mask = mask;
+	registeredIntRoutines[numRegisteredIntRoutines].routine = routine;
+
+	/* Go through driverTable for all drvIP_EP201Pvt pointers assoc with this carrier/slot. */
+	for (i=0; i<MAX_DRVPVT; i++) {
+		pPvt = driverTable[i];
+		if (drvIP_EP201Debug>5) {
+			printf("softGlueRegisterInterruptRoutine: examining driverTable[%i]:\n",i);
+			printf("....carrier = %d, slot = %d, sopcAddress = 0x%x, regs=%p\n",
+				pPvt->carrier, pPvt->slot, pPvt->sopcAddress, pPvt->regs);
+			}
+		if (pPvt && (pPvt->carrier == carrier) && (pPvt->slot == slot) && (pPvt->sopcAddress == sopcAddress)) {
+			registeredIntRoutines[numRegisteredIntRoutines].regs = pPvt->regs;
+		}
+	}
+	if (drvIP_EP201Debug>5) printf("softGlueRegisterInterruptRoutine: #%d, carrier=%d, slot=%d, sopcAddress=0x%x, mask=0x%x, regs=%p",
+		numRegisteredIntRoutines, carrier, slot, sopcAddress, mask, registeredIntRoutines[numRegisteredIntRoutines].regs);
+	numRegisteredIntRoutines++;
+	return(0);
+}
+
+/***********************************************************************/
 /*
  * This is the interrupt-service routine associated with the interrupt
  * vector pPvt->intVector supplied in the drvPvt structure.
@@ -1178,6 +1261,7 @@ STATIC void intFunc(void *drvPvt)
 	drvIP_EP201Pvt *pPvt = (drvIP_EP201Pvt *)drvPvt;
 	epicsUInt16 pendingLow, pendingHigh;
 	interruptMessage msg;
+	int i, handled;
 
 	/* Make sure interrupt is from this hardware.  Otherwise just leave. */
 	if (pPvt->regs->risingIntStatus || pPvt->regs->fallingIntStatus) {
@@ -1194,17 +1278,31 @@ STATIC void intFunc(void *drvPvt)
 		msg.bits = pPvt->regs->readDataRegister;
 		if (drvIP_EP201Debug) logMsg("interruptMask=0x%x\n", msg.interruptMask);
 
-		if (epicsMessageQueueTrySend(pPvt->msgQId, &msg, sizeof(msg)) == 0)
-			pPvt->messagesSent++;
-		else
-			pPvt->messagesFailed++;
+		/* Go through registeredIntRoutines[] for a registered interrupt-level service routine. If one is found,
+		 * call it and mark the interrupt as "handled", so we don't queue any EPICS processing that
+		 * might also be attached to the interrupt.  (The whole purpose of this mechanism is to
+		 * handle interrupts at intervals EPICS would not be able to meet.) */
+		for (i=0, handled=0; i<numRegisteredIntRoutines; i++) {
+			if ((registeredIntRoutines[i].regs == pPvt->regs) && (msg.interruptMask & registeredIntRoutines[i].mask)) {
+				if (drvIP_EP201Debug>5) logMsg("intFunc: calling registered interrupt routine %p\n", registeredIntRoutines[i].routine);
+				registeredIntRoutines[i].routine((ushort)msg.interruptMask);
+				handled = 1;
+			}
+		}
 
-		/* If too many interrupts have been received, disable the offending bits. */
-		if (++(pPvt->interruptCount) > MAX_IRQ) {
-			pPvt->regs->risingIntEnable &= ~pendingHigh;
-			pPvt->regs->fallingIntEnable &= ~pendingLow;
-			pPvt->disabledIntMask = pendingHigh | pendingLow;
-			if (drvIP_EP201Debug) logMsg("intFunc: disabledIntMask=0x%x\n", pPvt->disabledIntMask);
+		if (!handled) {
+			if (epicsMessageQueueTrySend(pPvt->msgQId, &msg, sizeof(msg)) == 0)
+				pPvt->messagesSent++;
+			else
+				pPvt->messagesFailed++;
+
+			/* If too many interrupts have been received, disable the offending bits. */
+			if (++(pPvt->interruptCount) > MAX_IRQ) {
+				pPvt->regs->risingIntEnable &= ~pendingHigh;
+				pPvt->regs->fallingIntEnable &= ~pendingLow;
+				pPvt->disabledIntMask = pendingHigh | pendingLow;
+				if (drvIP_EP201Debug) logMsg("intFunc: disabledIntMask=0x%x\n", pPvt->disabledIntMask);
+			}
 		}
 
 		/* Clear the interrupt bits we handled */
@@ -1459,7 +1557,7 @@ STATIC const iocshArg initEP201Arg7 = { "Rising Edge Mask",		iocshArgInt};
 STATIC const iocshArg initEP201Arg8 = { "Falling Edge Mask",	iocshArgInt};
 STATIC const iocshArg * const initEP201Args[9] = {&initEP201Arg0, &initEP201Arg1, &initEP201Arg2,
 	&initEP201Arg3, &initEP201Arg4, &initEP201Arg5, &initEP201Arg6, &initEP201Arg7, &initEP201Arg8};
-STATIC const iocshFuncDef initFuncDef = {"initIP_EP201",9,initEP201Args};
+STATIC const iocshFuncDef initEP201FuncDef = {"initIP_EP201",9,initEP201Args};
 STATIC void initEP201CallFunc(const iocshArgBuf *args) {
 	initIP_EP201(args[0].sval, args[1].ival, args[2].ival, args[3].ival, args[4].ival, args[5].ival,
 	            args[6].ival, args[7].ival, args[8].ival);
@@ -1485,13 +1583,12 @@ STATIC void initFPGACallFunc(const iocshArgBuf *args) {
 	initIP_EP200_FPGA(args[0].ival, args[1].ival, args[2].sval);
 }
 
-
 void IP_EP201Register(void)
 {
-	iocshRegister(&initFuncDef,initEP200CallFunc);
-	iocshRegister(&initFuncDef,initEP200_IntCallFunc);
-	iocshRegister(&initFuncDef,initEP200_IOCallFunc);
-	iocshRegister(&initFuncDef,initEP201CallFunc);
+	iocshRegister(&initEP200FuncDef,initEP200CallFunc);
+	iocshRegister(&initEP200_IntFuncDef,initEP200_IntCallFunc);
+	iocshRegister(&initEP200_IOFuncDef,initEP200_IOCallFunc);
+	iocshRegister(&initEP201FuncDef,initEP201CallFunc);
 	iocshRegister(&initSRFuncDef,initSRCallFunc);
 	iocshRegister(&initFPGAFuncDef,initFPGACallFunc);
 }
