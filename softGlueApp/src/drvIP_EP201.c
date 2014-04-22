@@ -1217,7 +1217,6 @@ int numRegisteredIntRoutines=0;
  * example invocation:
  *      void callMe(ushort mask);
  *      softGlueRegisterInterruptRoutine(0, 0, 0x800000, 0x0, callMe);
- *
  */
 int softGlueRegisterInterruptRoutine(ushort carrier, ushort slot, int sopcAddress, ushort mask, void (*routine)(ushort mask)) {
 	int i;
