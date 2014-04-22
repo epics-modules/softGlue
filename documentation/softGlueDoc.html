@@ -12,7 +12,7 @@
 </HEAD>
 <BODY LANG="en-US" BGCOLOR="#ffffff" DIR="LTR">
 
-<h1><center>The synApps softGlue module (v2.3.1)</center></h1>
+<h1><center>The synApps softGlue module (v2.4)</center></h1>
 <hr>
 <h2><center>Overview</center></h2>
 
@@ -712,6 +712,15 @@ logic value, this is the PV name to use.
 by writing to a single PV, without using up a more valuable circuit element, such as the XOR gate below.
 
 <hr>
+<li><P>INVERTING BUFFER
+<P><img src="INVERTING_BUFFER.gif" name="BUFFER">
+
+<P>There is no inverting buffer - or any other inverting gate - in softGlue.  Signal inversion is
+accomplished by appending '*' to the name of a signal used as as input to any logic element, as
+demonstrated above for the buffer element.  Note that '*' appended to the name of an output
+signal will be removed.
+
+<hr>
 <li><P>XOR
 <P><img src="XOR.gif" name="XOR">
 
@@ -876,6 +885,9 @@ default ring buffer size is 10.  Asyn documentation describes how to change it.)
 EPICS link description into the purple box labelled "ON INTERRUPT, WRITE SIGNAL VALUE VIA THIS
 LINK", as shown for input 16 in the above screen shot.
 
+<P><i>For interrupts that may occur too closely spaced in time for softGlue's normal
+interrupt-response mechanism to handle reliably, see "Custom Interrupt Handlers", below.</i>
+
 <h4>About EPICS links</h4>
 
 <P>In softGlue displays (and in most other synApps displays), standard EPICS links are displayed as
@@ -961,7 +973,7 @@ CA put will succeed in clearing it and causing its processing to appear done to 
 <h3>Add-on FPGA components</h3>
 
 The following components are not in the standard softGlue package, but in
-add-on packages typically made to solve a specific problem.
+add-on packages typically made to solve specific problems.
 
 <ul>
 
@@ -1000,7 +1012,7 @@ half the clock frequency.
 <code>LOADVAL</code> register, and loaded by a positive-going pulse to the
 <code>LOAD</code> input.  On each rising edge of the clock input
 <code>&gt;</code>, the loaded value is shifted toward the most significant bit,
-the most significant bit is output to the <ocde>Q</code> output.
+and the most significant bit is output to the <ocde>Q</code> output.
 
 <P>For serial-to-parallel conversion, the input <code>D</code> is sampled on the
 rising edge of the clock input, and that value is shifted into the least
@@ -1016,7 +1028,7 @@ significant bit of the register.
 	
 	softGlue circuits can be saved and restored using <a
 	href="http://www.aps.anl.gov/bcda/synApps/autosave/autosave.html">autosave</a>,
-	autosave's configMenu facility, <a
+	autosave's <i>configMenu</i> facility, <a
 	href="http://www.aps.anl.gov/epics/extensions/burt/index.php">BURT</a>, or
 	any channel access client that can read and write PV's.  configMenu is
 	particularly handy, because it's driven by EPICS PVs, and because it saves a
@@ -1325,6 +1337,51 @@ Custom Hardware</a> web page.
 <h3>IP-EP241 (lvds)</h3>
 
 <P>This section not yet written.
+
+<hr>
+<h2><center>Custom Interrupt Handlers</center></h2>
+
+softGlue's normal interrupt-response mechanism allows you to specify the execution of an EPICS
+output link, which will write to and possibly process a specified EPICS record, whenever an
+enabled interrupt occurs.  This mechanism is unreliable for interrupts that are spaced in time by
+less than a few milliseconds, because the EPICS processing is dispatched through message queues,
+and requires several task switches before the target record gets processed.
+
+<P>For interrupts that may occur more closly spaced in time, you can write a custom
+interrupt-handler routine, and tell softGlue to call it at interrupt level whenever an enabled
+interrupt occurs.  There is an example in the softGlueApp/src directory: 
+sampleCustomInterruptHandler.c, which handles the following application requirement:
+
+<blockquote>When an enabled interrupt occurs on a specified bit of a specified IP_EP20x board,
+read a number from an array, write that number to the <code>N</code> register of a specified
+softGlue DivByN component on that same IP_EP20x board, and increment the array index for the
+next read.</blockquote>
+
+<P>sampleCustomInterruptHandler.c contains two functions:
+<dl>
+
+<dt><code>sampleCustomInterruptPrepare()</code>
+
+<dd>This function gathers some information for use by
+<code>sampleCustomInterruptRoutine()</code>, and tells softGlue to call
+<code>sampleCustomInterruptRoutine()</code> from its interrupt-service routine when a specified
+interrupt occurs.  The interrupt is specified by <code>carrier</code> and <code>slot</code>,
+which specify the IP_EP20x board; <code>sopcAddress</code>, which specifies the address of one of
+three I/O registers on the board; and <code>mask</code>, which specifies one or more bits of the
+specified I/O register.
+
+<dt><code>sampleCustomInterruptRoutine()</code>
+
+<dd>This function executes at interrupt level, reads a number from an array, writes that number
+to the <code>N</code> register whose VME addresses were calculated by
+<code>sampleCustomInterruptPrepare()</code>, and increments the array index.
+
+</dl>
+
+<P>Other files in softGlueApp/src that help implement sampleCustomInterruptHandler are
+<code>Makefile</code>, which builds it, and <code>softGlueSupport.dbd</code>, which
+contains the line <code>registrar(sampleCustomInterruptRegistrar)</code>.
+
 
 <hr>
 <h2><center>Implementation</center></h2>
