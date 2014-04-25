@@ -5,20 +5,34 @@
 #include <epicsExport.h>
 #include <iocsh.h>
 
-epicsUInt16 *addrMSW, *addrLSW;
+typedef struct {
+	epicsUInt16 *addrMSW;
+	epicsUInt16 *addrLSW;
+	int *DivByN_values;
+	int numValues;
+	int thisValue;
+} myISRDataStruct;
+myISRDataStruct myISRData;
 
 #define MAX_VALUES 1000
-int sampleCustomInterruptValues[MAX_VALUES];
-int thisValue = 0;
+static int sampleCustomInterruptValues[MAX_VALUES];
 
 /* When an interrupt matching conditions specified by sampleCustomInterruptPrepare() occurs,
  * we'll get called with the bitmask that generated the interrupt.
  */
-void sampleCustomInterruptRoutine(ushort mask) {
-	*addrMSW = (sampleCustomInterruptValues[thisValue]-1)/65536;
-	*addrLSW = (sampleCustomInterruptValues[thisValue]-1)%65536;
-	if (++thisValue >= MAX_VALUES) thisValue = 0;
-	/*logMsg("sampleCustomInterruptRoutine(0x%x)\n", mask);*/
+void sampleCustomInterruptRoutine(softGlueIntRoutineData *IRData) {
+	ushort mask = IRData->mask;
+	myISRDataStruct *myISRData = (myISRDataStruct *)(IRData->userPvt);
+	epicsUInt16 *addrMSW = myISRData->addrMSW;
+	epicsUInt16 *addrLSW = myISRData->addrLSW;
+	int *DivByN_values = myISRData->DivByN_values;
+	int numValues = myISRData->numValues;
+	int *thisValue = &(myISRData->thisValue);
+
+	logMsg("sampleCustomInterruptRoutine(0x%x) div[%d]=%d\n", mask, *thisValue, DivByN_values[*thisValue]);
+	*addrMSW = (DivByN_values[*thisValue]-1)/65536;
+	*addrLSW = (DivByN_values[*thisValue]-1)%65536;
+	if (++(*thisValue) >= numValues) (*thisValue) = 0;
 }
 
 /* int sampleCustomInterruptPrepare(int carrier, int slot, int sopcAddress, int mask)
@@ -31,24 +45,30 @@ void sampleCustomInterruptRoutine(ushort mask) {
 int sampleCustomInterruptPrepare(int carrier, int slot, int sopcAddress, int mask) {
 	int i;
 	
+	myISRData.numValues = MAX_VALUES;
+	myISRData.thisValue = 0;
+	myISRData.DivByN_values = sampleCustomInterruptValues;
+
 	/* Get the address of the divByN N register.
 	 * The sopc addresses 0x800720 and 0x800718 are from softGlue_FPGAContent.substitutions.
 	 * They specify the DivByN-3_N register to which we want to write.  It's a 32-bit register,
 	 * so we'll need to write to the MSW and LSW parts separately.
 	 */
-	addrMSW = softGlueCalcSpecifiedRegisterAddress((ushort_t) carrier, (ushort_t) slot, 0x800720);
-	addrLSW = softGlueCalcSpecifiedRegisterAddress((ushort_t) carrier, (ushort_t) slot, 0x800718);
+	myISRData.addrMSW = softGlueCalcSpecifiedRegisterAddress((epicsUInt16) carrier, (epicsUInt16) slot, 0x800720);
+	myISRData.addrLSW = softGlueCalcSpecifiedRegisterAddress((epicsUInt16) carrier, (epicsUInt16) slot, 0x800718);
 
 	/* Tell softGlue to call sampleCustomInterruptRoutine() when its interrupt-service routine handles an interrupt
 	 * from the specified carrier, slot, sopcAddress (I/O register), and bit (mask).  This also
 	 * tells softGlue to not execute any output links that might also have been programmed to
 	 * execute in response to this interrupt.
 	 */
-	softGlueRegisterInterruptRoutine(carrier, slot, sopcAddress, mask, sampleCustomInterruptRoutine);
+	softGlueRegisterInterruptRoutine(carrier, slot, sopcAddress, mask, sampleCustomInterruptRoutine,
+		(void *)&myISRData);
 
 	/* prepare example data for sampleCustomInterruptRoutine() */
-	for (i=0; i<MAX_VALUES; i++) {
-		sampleCustomInterruptValues[i] = 10+10*(i%2);
+	sampleCustomInterruptValues[0] = 10;
+	for (i=1; i<MAX_VALUES; i++) {
+		sampleCustomInterruptValues[i] = sampleCustomInterruptValues[i-1] + (i>MAX_VALUES/2 ? -1 : 1);
 	}
 	return(0);
 }

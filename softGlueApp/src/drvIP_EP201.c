@@ -128,6 +128,7 @@ extern int logMsg(char *fmt, ...);
 #include <asynUInt32Digital.h>
 #include <asynInt32.h>
 #include <epicsInterrupt.h>
+#include "drvIP_EP201.h"
 
 #define STATIC static
 /* #define STATIC */
@@ -269,10 +270,10 @@ STATIC void intFunc                	(void *); /* Interrupt function */
 STATIC void rebootCallback         	(void *);
 
 
-int init_one_IP_EP200(const char *portName, ushort_t carrier, ushort_t slot, int sopcAddress);
+int init_one_IP_EP200(const char *portName, epicsUInt16 carrier, epicsUInt16 slot, int sopcAddress);
 
 /* Initialize IP module */
-int initIP_EP200(ushort_t carrier, ushort_t slot, char *portName1,
+int initIP_EP200(epicsUInt16 carrier, epicsUInt16 slot, char *portName1,
 	char *portName2, char *portName3, int sopcBase) {
 	int retval;
 
@@ -284,7 +285,7 @@ int initIP_EP200(ushort_t carrier, ushort_t slot, char *portName1,
 	return(retval);
 }
 
-int initIP_EP200_Int(ushort_t carrier, ushort_t slot, int intVectorBase,
+int initIP_EP200_Int(epicsUInt16 carrier, epicsUInt16 slot, int intVectorBase,
 	int risingMaskMS, int risingMaskLS, int fallingMaskMS, int fallingMaskLS) {
 
 	int i, j;
@@ -354,7 +355,7 @@ int initIP_EP200_Int(ushort_t carrier, ushort_t slot, int intVectorBase,
  *  control_x[0] specify the data direction for the lower eight single-ended signals of component 'x'.
  */
 
-int initIP_EP200_IO(ushort_t carrier, ushort_t slot, ushort_t moduleType, ushort_t dataDir) {
+int initIP_EP200_IO(epicsUInt16 carrier, epicsUInt16 slot, epicsUInt16 moduleType, epicsUInt16 dataDir) {
 	int i, registerNum;
 	drvIP_EP201Pvt *pPvt;
 
@@ -415,7 +416,7 @@ int initIP_EP200_IO(ushort_t carrier, ushort_t slot, ushort_t moduleType, ushort
 }
 
 
-int init_one_IP_EP200(const char *portName, ushort_t carrier, ushort_t slot, int sopcAddress)
+int init_one_IP_EP200(const char *portName, epicsUInt16 carrier, epicsUInt16 slot, int sopcAddress)
 {
 	drvIP_EP201Pvt *pPvt;
 	int i, status;
@@ -540,7 +541,7 @@ int init_one_IP_EP200(const char *portName, ushort_t carrier, ushort_t slot, int
 }
 
 /* For backward compatibility, initIP_EP201().*/
-int initIP_EP201(const char *portName, ushort_t carrier, ushort_t slot,
+int initIP_EP201(const char *portName, epicsUInt16 carrier, epicsUInt16 slot,
 	int msecPoll, int dataDir, int sopcAddress, int interruptVector,
 	int risingMask, int fallingMask) {
 
@@ -717,7 +718,7 @@ STATIC asynStatus destroy_asynDrvUser(void *drvPvt,asynUser *pasynUser)
 
 
 /* Initialize IP module */
-int initIP_EP201SingleRegisterPort(const char *portName, ushort_t carrier, ushort_t slot)
+int initIP_EP201SingleRegisterPort(const char *portName, epicsUInt16 carrier, epicsUInt16 slot)
 {
 	drvIP_EP201Pvt *pPvt;
 	int status;
@@ -809,7 +810,7 @@ int initIP_EP201SingleRegisterPort(const char *portName, ushort_t carrier, ushor
 #define BUF_SIZE 1000
 #include "macLib.h"
 
-int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char *filepath)
+int initIP_EP200_FPGA(epicsUInt16 carrier, epicsUInt16 slot, char *filepath)
 {
 	volatile epicsUInt16 *id, *io;
 	volatile epicsUInt16 *pModeReg, *pStatusControlReg, *pConfigDataReg;
@@ -966,7 +967,7 @@ STATIC epicsUInt16 *calcRegisterAddress(void *drvPvt, asynUser *pasynUser)
  * to translate that information into a VME address, as calcRegisterAddress()
  * would have done for an EPICS record.
  */
-epicsUInt16 *softGlueCalcSpecifiedRegisterAddress(ushort_t carrier, ushort_t slot, int addr)
+epicsUInt16 *softGlueCalcSpecifiedRegisterAddress(epicsUInt16 carrier, epicsUInt16 slot, int addr)
 {
 	epicsUInt16 *reg;
 	epicsUInt16 *io = (epicsUInt16 *) ipmBaseAddr(carrier, slot, ipac_addrIO);
@@ -1200,13 +1201,15 @@ STATIC asynStatus getBounds(void *drvPvt, asynUser *pasynUser, epicsInt32 *low, 
 
 /* table of registered routines for execution at interrupt level */
 #define MAXROUTINES 10
+
 typedef struct {
 	ushort carrier;
 	ushort slot;
 	ushort mask;
 	int sopcAddress;
-    volatile fieldIO_registerSet *regs;
-	void (*routine)(ushort mask);
+	volatile fieldIO_registerSet *regs;
+	void (*routine)(softGlueIntRoutineData *IRData);
+	softGlueIntRoutineData IRData;
 } intRoutineEntry;
 
 intRoutineEntry registeredIntRoutines[MAXROUTINES] = {{0}};
@@ -1215,10 +1218,12 @@ int numRegisteredIntRoutines=0;
 /* Register a routine to be called at interrupt level when a specified
  * I/O bit (addr/mask) from a specified carrier/slot generates an interrupt.
  * example invocation:
- *      void callMe(ushort mask);
- *      softGlueRegisterInterruptRoutine(0, 0, 0x800000, 0x0, callMe);
+ *      void callMe(softGlueIntRoutineData *IRData);
+ *		myDataType myData;
+ *      softGlueRegisterInterruptRoutine(0, 0, 0x800000, 0x0, callMe, (void *)&myData);
  */
-int softGlueRegisterInterruptRoutine(ushort carrier, ushort slot, int sopcAddress, ushort mask, void (*routine)(ushort mask)) {
+int softGlueRegisterInterruptRoutine(ushort carrier, ushort slot, int sopcAddress, ushort mask,
+	void (*routine)(softGlueIntRoutineData *IRData), void *userPvt) {
 	int i;
 	drvIP_EP201Pvt *pPvt;
 
@@ -1228,6 +1233,7 @@ int softGlueRegisterInterruptRoutine(ushort carrier, ushort slot, int sopcAddres
 	registeredIntRoutines[numRegisteredIntRoutines].sopcAddress = sopcAddress;
 	registeredIntRoutines[numRegisteredIntRoutines].mask = mask;
 	registeredIntRoutines[numRegisteredIntRoutines].routine = routine;
+	registeredIntRoutines[numRegisteredIntRoutines].IRData.userPvt = userPvt;
 
 	/* Go through driverTable for all drvIP_EP201Pvt pointers assoc with this carrier/slot. */
 	for (i=0; i<MAX_DRVPVT; i++) {
@@ -1284,7 +1290,8 @@ STATIC void intFunc(void *drvPvt)
 		for (i=0, handled=0; i<numRegisteredIntRoutines; i++) {
 			if ((registeredIntRoutines[i].regs == pPvt->regs) && (msg.interruptMask & registeredIntRoutines[i].mask)) {
 				if (drvIP_EP201Debug>5) logMsg("intFunc: calling registered interrupt routine %p\n", registeredIntRoutines[i].routine);
-				registeredIntRoutines[i].routine((ushort)msg.interruptMask);
+				registeredIntRoutines[i].IRData.mask = msg.interruptMask;
+				registeredIntRoutines[i].routine(&(registeredIntRoutines[i].IRData));
 				handled = 1;
 			}
 		}
@@ -1494,7 +1501,7 @@ STATIC asynStatus disconnect(void *drvPvt, asynUser *pasynUser)
 
 /*** iocsh functions ***/
 
-/* int initIP_EP200(ushort_t carrier, ushort_t slot, char *portName1,
+/* int initIP_EP200(epicsUInt16 carrier, epicsUInt16 slot, char *portName1,
  *		char *portName2, char *portName3, int sopcBase);
  */
 STATIC const iocshArg initEP200Arg0 = { "Carrier Number",	iocshArgInt};
@@ -1510,7 +1517,7 @@ STATIC void initEP200CallFunc(const iocshArgBuf *args) {
 	initIP_EP200(args[0].ival, args[1].ival, args[2].sval, args[3].sval, args[4].sval, args[5].ival);
 }
 
-/* int initIP_EP200_Int(ushort_t carrier, ushort_t slot, int intVectorBase,
+/* int initIP_EP200_Int(epicsUInt16 carrier, epicsUInt16 slot, int intVectorBase,
  *		int risingMaskMS, int risingMaskLS, int fallingMaskMS, int fallingMaskLS);
  */
 STATIC const iocshArg initEP200_IntArg0 = { "Carrier Number",	iocshArgInt};
@@ -1528,7 +1535,7 @@ STATIC void initEP200_IntCallFunc(const iocshArgBuf *args) {
 		args[6].ival);
 }
 
-/* int initIP_EP200_IO(ushort_t carrier, ushort_t slot, int moduleType, int dataDir); */
+/* int initIP_EP200_IO(epicsUInt16 carrier, epicsUInt16 slot, int moduleType, int dataDir); */
 STATIC const iocshArg initEP200_IOArg0 = { "Carrier Number", iocshArgInt};
 STATIC const iocshArg initEP200_IOArg1 = { "Slot Number",	 iocshArgInt};
 STATIC const iocshArg initEP200_IOArg2 = { "moduleType",	 iocshArgInt};
@@ -1541,7 +1548,7 @@ STATIC void initEP200_IOCallFunc(const iocshArgBuf *args) {
 }
 
 
-/* int initIP_EP201(const char *portName, ushort_t carrier, ushort_t slot,
+/* int initIP_EP201(const char *portName, epicsUInt16 carrier, epicsUInt16 slot,
  *			int msecPoll, int dataDir, int sopcOffset, int interruptVector,
  *			int risingMask, int fallingMask)
  */
@@ -1562,7 +1569,7 @@ STATIC void initEP201CallFunc(const iocshArgBuf *args) {
 	            args[6].ival, args[7].ival, args[8].ival);
 }
 
-/* int initIP_EP201SingleRegisterPort(const char *portName, ushort_t carrier, ushort_t slot) */
+/* int initIP_EP201SingleRegisterPort(const char *portName, epicsUInt16 carrier, epicsUInt16 slot) */
 STATIC const iocshArg initSRArg0 = { "Port name",		iocshArgString};
 STATIC const iocshArg initSRArg1 = { "Carrier Number",	iocshArgInt};
 STATIC const iocshArg initSRArg2 = { "Slot Number",		iocshArgInt};
@@ -1572,7 +1579,7 @@ STATIC void initSRCallFunc(const iocshArgBuf *args) {
 	initIP_EP201SingleRegisterPort(args[0].sval, args[1].ival, args[2].ival);
 }
 
-/* int initIP_EP200_FPGA(ushort_t carrier, ushort_t slot, char filename) */
+/* int initIP_EP200_FPGA(epicsUInt16 carrier, epicsUInt16 slot, char filename) */
 STATIC const iocshArg initFPGAArg1 = { "Carrier Number",	iocshArgInt};
 STATIC const iocshArg initFPGAArg2 = { "Slot Number",		iocshArgInt};
 STATIC const iocshArg initFPGAArg3 = { "File pathStart",	iocshArgString};
@@ -1581,6 +1588,7 @@ STATIC const iocshFuncDef initFPGAFuncDef = {"initIP_EP200_FPGA",3,initFPGAArgs}
 STATIC void initFPGACallFunc(const iocshArgBuf *args) {
 	initIP_EP200_FPGA(args[0].ival, args[1].ival, args[2].sval);
 }
+
 
 void IP_EP201Register(void)
 {
