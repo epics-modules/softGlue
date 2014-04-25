@@ -5,6 +5,8 @@ include $(TOP)/configure/CONFIG
 #=============================
 DBD_INSTALLS += softGlueSupport.dbd
 
+INC += drvIP_EP201.h
+
 LIBRARY_IOC_vxWorks = softGlue
 LIB_SRCS_vxWorks += drvIP_EP201.c devAsynSoftGlue.c
 #LIB_SRCS_vxWorks += sampleCustomInterruptHandler.c
