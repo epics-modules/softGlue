@@ -14,6 +14,19 @@
 
 <h1><center>The synApps softGlue module (v2.4)</center></h1>
 <hr>
+<h1>Table of Contents</h1>
+<ul>
+  <li><a href="#Overview">Overview</a></li>
+  <li><a href="#Installation and deployment">Installation and deployment</a></li>
+  <li><a href="#User's Manual">User's Manual</a></li>
+  <li><a href="#Example circuits">Example circuits</a></li>
+  <li><a href="#Field wiring">Field wiring</a></li>
+  <li><a href="#Custom Interrupt Handlers">Custom Interrupt Handlers</a></li>
+  <li><a href="#Implementation">Implementation</a></li>
+</ul>
+<hr>
+
+<a name="Overview"></a>
 <h2><center>Overview</center></h2>
 
 The <a href="http://www.aps.anl.gov/bcda/synApps">synApps</a>
@@ -111,12 +124,17 @@ don't yet have documentation on how it's done.
 
 <h3>Capabilities</h3>
 
-<P>Here are a few examples of the sorts of things that can be accomplished with softGlue: 
+<P>Here are a few examples of the sorts of things that can be accomplished with
+softGlue and EPICS: 
+
 <ul>
 
 <li>With no programming at all, softGlue functions simply as good support for a 48-bit digital I/O module.
 
 <li>Conditionally send a trigger signal to a detector after every N steps of a stepper motor.
+
+<li>Conditionally send a trigger signal to a detector after every N(i) steps of
+a stepper motor, where N(i) is an array of step-interval numbers.
 
 <li>Gate a detector off during the acceleration and deceleration portions of a
 steppermotor's motion.
@@ -176,6 +194,7 @@ the development of support for add-on packages.
 
 
 <hr>
+<a name="Installation and deployment"></a>
 <h2><center>Installation and deployment</center></h2>
 
 	softGlue is a synApps module, so if you've used any other synApps module, you probably
@@ -550,6 +569,7 @@ initIP_EP201SingleRegisterPort("SOFTGLUE", 0, 2)
 </ul>
 
 <hr>
+<a name="User's Manual"></a>
 <h2><center>User's Manual</center></h2>
 
 <P>Most of the essential user-interface information &mdash; how to connect signals, what the display
@@ -1137,6 +1157,7 @@ significant bit of the register.
 	
 
 <hr>
+<a name="Example circuits"></a>
 <h2><center>Example circuits</center></h2>
 
 <P>The following circuits have been tested and saved in BURT snapshot files, and
@@ -1265,6 +1286,7 @@ Circuits</i>).  The snapshot files can be found in
 		</ol>
 
 <hr>
+<a name="Field wiring"></a>
 <h2><center>Field wiring</center></h2>
 
 <h3>IP-EP201 (TTL)</h3>
@@ -1325,10 +1347,51 @@ reducing magnetic crosstalk to values well below the TTL noise margin.
 </ol>
 
 <P>The APS BCDA group has produced circuit boards that implement this strategy.
-See "BC-092" in the <a
+See the <a
 href="http://www.aps.anl.gov/bcda/hardware/custom_hw/bcda_hw_all.php">BCDA
-Custom Hardware</a> web page.
+Custom Hardware</a> web page for more information.  The boards are packaged in
+DIN-rail mounts, and connected together as in the diagram below.  
 
+<P><img src="fieldWiring.png" name="fieldWiring.png">
+
+<P>The BC-092 plugs directly into the IP carrier's 50-pin ribbon connector. 
+(Take care: the connector is not polarized.  It's your job to plug it in the
+right way.)  A ribbon cable goes from the BC-092 to the <code>H1</code> ribbon
+header on the BC-020 board.  (The <code>H2</code> header is not used for
+softGlue.)  The BC-091 daughter board is plugged into the BC-020, and the I/O
+direction is set, for groups of eight bits, with DIP jumpers on the BC-091.
+
+<P><img src="colorLine.gif" name="colorLine.gif">
+
+<P><img src="020_IPLemoInterface.jpg" name="020_IPLemoInterface.jpg">
+<P>The IP-020 LEMO interface.  With the EP-201 board, only the first 24 LEMO
+connectors are used.  The BC-091 daughter board is plugged into the white
+headers at the center of the board.
+<P><img src="colorLine.gif" name="colorLine.gif">
+
+<P><img src="BC-091_EP201_Buffer_Lemo.jpg" name="BC-091_EP201_Buffer_Lemo.jpg">
+<P> A BC-020 board with the BC-091 daughter board installed.  Note the DIP
+jumpers near the center of the daughter board.  With this setting, I/O pins
+1-16 are inputs (jumper on), and pins 17-24 are outputs.
+<P><img src="colorLine.gif" name="colorLine.gif">
+
+<P><img src="BC-092_EP201_Header.jpg" name="BC-092_EP201_Header.jpg">
+
+<P>Closeup of the BC-092 board, with SIP resistor packs installed.  Normally,
+100-Ohm resistors are used, because this is the nominal impedance of many ribbon
+cables.  Although the terminating resistors are useful only for outputs, they
+are usually installed for all I/O pins.
+<P><img src="colorLine.gif" name="colorLine.gif">
+
+<P><img src="BC092_connect_front.jpg" name="BC092_connect_front.jpg">
+<P>Closeup showing how to connect the BC-092 to the TEWS TVME-200 IP carrier.
+<P><img src="colorLine.gif" name="colorLine.gif">
+
+<P><img src="BC092_connect_back.jpg" name="BC092_connect_back.jpg">
+
+<P>Closeup of the other side of the BC-092 board.  The ribbon connector closest
+to the IP carrier (the <code>J2</code> connector) handles I/O pins 1-24.
+<P><img src="colorLine.gif" name="colorLine.gif">
 
 <h3>IP-EP202 (RS-485/422)</h3>
 
@@ -1339,6 +1402,7 @@ Custom Hardware</a> web page.
 <P>This section not yet written.
 
 <hr>
+<a name="Custom Interrupt Handlers"></a>
 <h2><center>Custom Interrupt Handlers</center></h2>
 
 softGlue's normal interrupt-response mechanism allows you to specify the execution of an EPICS
@@ -1384,6 +1448,7 @@ contains the line <code>registrar(sampleCustomInterruptRegistrar)</code>.
 
 
 <hr>
+<a name="Implementation"></a>
 <h2><center>Implementation</center></h2>
 
 	<h3>FPGA-content files</h3>
