@@ -1285,6 +1285,20 @@ Circuits</i>).  The snapshot files can be found in
 		<P><img src="accelDecelGateCalc.gif" name="accelDecelGateCalc">
 		</ol>
 
+<P>For more softGlue-circuit examples, see
+<a
+href="https://subversion.xray.aps.anl.gov/admin_bcdaext/softGlue_examples">https://subversion.xray.aps.anl.gov/admin_bcdaext/softGlue_examples</a>
+Currently, the following circuits are documented:
+<ul>
+<li>Programmable pulse train
+<li>Gated scaler
+<li>Pulse burst
+<li>Delay generator
+<li>Motor accel/decel pulse gate
+<li>Debouncer
+</ul>
+
+
 <hr>
 <a name="Field wiring"></a>
 <h2><center>Field wiring</center></h2>
@@ -1346,11 +1360,19 @@ reducing magnetic crosstalk to values well below the TTL noise margin.
 
 </ol>
 
-<P>The APS BCDA group has produced circuit boards that implement this strategy.
+<P>The APS BCDA group has produced three circuit boards that implement this
+strategy:
+
+<ul>
+<li>BC-020 - Multi purpose IP to Lemo interface (DIN-rail)
+<li>BC-091 - Daughter board for BC-020
+<li>BC-092 - Ribbon-cable adapter
+</ul>
+
 See the <a
 href="http://www.aps.anl.gov/bcda/hardware/custom_hw/bcda_hw_all.php">BCDA
-Custom Hardware</a> web page for more information.  The boards are packaged in
-DIN-rail mounts, and connected together as in the diagram below.  
+Custom Hardware</a> web page for more information.  The boards are connected
+together as in the diagram below.  
 
 <P><img src="fieldWiring.png" name="fieldWiring.png">
 
