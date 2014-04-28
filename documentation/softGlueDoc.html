@@ -1453,7 +1453,7 @@ contains the line <code>registrar(sampleCustomInterruptRegistrar)</code>.
 
 	<h3>FPGA-content files</h3>
 
-	This version of softGlue contains two FPGA-content files, only one of which can be loaded at a
+	This version of softGlue contains four FPGA-content files, only one of which can be loaded at a
 time.
 
 <P><dl>
@@ -1463,9 +1463,14 @@ time.
 <dt>SoftGlue_2_2_0_Octupole_0_0.hex
 <dd>This file contains everything in SoftGlue_2_2.hex, plus two 32-bit shift registers.
 
+<dt>SoftGlue_2_2_Encoder.hex
+<dd>This file contains everything in SoftGlue_2_2.hex, plus two 32-bit up/down
+counters, plus two quadrature decoders.
+
 <dt>SoftGlue_2_2_1ID_Vgate_0_1.hex
 <dd>This file contains everything in SoftGlue_2_2.hex, plus two 32-bit up/down
 counters.
+
 
 </dl>
 
@@ -1485,6 +1490,13 @@ time from <code>SoftGlue_2_2.hex</code>.<P>
 <dd>This substitutions file is run through <code>msi</code> at build time to produce the database file
 <code>softGlue_FPGAContent_octupole.db</code>.  The database file loads records for the two 32-bit
 shift registers in <code>SoftGlue_2_2_Octupole_0_0.hex</code>.<P>
+
+<dt>softGlue_FPGAContent_Encoder.substitutions
+
+<dd>This substitutions file is run through <code>msi</code> at build time to
+produce the database file <code>softGlue_FPGAContent_Encoder.db</code>.  The
+database file loads records for the two 32-bit up/down counters in
+<code>SoftGlue_2_2_Encoder.hex</code>.<P>
 
 <dt>softGlue_FPGAContent_s1ID_Vgate.substitutions
 
@@ -1578,19 +1590,21 @@ resolved databases loaded by dbLoadRecords().<P>
 <dl>
 <dt>softGlue_FPGAContent_settings.req<br>
 softGlue_FPGAContent_octupole_settings.req<br>
-softGlue_FPGAContent_s1ID_Vgate.substitutions<br>
+softGlue_FPGAContent_Encoder_settings.req<br>
+softGlue_FPGAContent_s1ID_Vgate_settings.req<br>
 softGlue_FPGAInt_settings.req<br>
 softGlue_SignalShow_settings.req<br>
 softGlue_convenience_settings.req<br>
 
-<dd>These autosave request files correspond with similarly named database or substitutions files,
-and take the same macro definitions.<P>
+<dd>These autosave request files correspond with similarly named database or
+substitutions files, and take the same macro definitions.<P>
 
 <dt>softGlue_settings.req
 
-<dd>This autosave-request file <i>includes</i> all of the files above, except
-<code>softGlue_FPGAContent_octupole_settings.req</code>.  Normally this is the only
-request file an IOC needs.<P>
+<dd>This autosave-request file <i>includes</i> softGlue_SignalShow_settings.req,
+softGlue_FPGAContent_settings.req, softGlue_FPGAInt_settings.req, and
+softGlue_convenience_settings.req.  For standard softGlue, this is the only
+autosave-request file an IOC needs.<P>
 
 </dl>
 
