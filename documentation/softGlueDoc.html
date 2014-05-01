@@ -440,11 +440,9 @@ But if the operating system doesn't permit multiple ISRs attached to a single
 interrupt vector, then only one IP-EP20x board will be able to generate
 interrupts.
 
-<P>Interrupt generation is an end-user choice, and it occurs only for the
-purpose of causing some EPICS record to process on the change of state of a
-softGlue field I/O signal.  See "Field I/O Interrupt support" below for a
+<P>See "Field I/O Interrupt support", in the "User's Manual" section, for a
 description of the <code>softGlueFieldIO_Intxx.adl</code> MEDM-display file by
-which interrupt generation is controlled.
+which interrupt generation can be controlled by the end user.
 
 </blockquote>
 
@@ -689,7 +687,7 @@ name; it merely describes how the signal should be used.)
 <blockquote>A signal name beginning with a number can only be a direct-write command; it cannot connect
 things together, because the leading number would be misinterpreted by input-signal-name parsing as a
 direct-write command.  Output-signal names ending with '<code>*</code>' are logically sensible, but are
-not permitted to simplify the implementation of '<code>*</code>' appended to input-signal names.
+not permitted; this simplifies the implementation of '<code>*</code>' appended to input-signal names.
 </blockquote>
 
 <P>A signal's blue "= button" is used to find all other signals to which the signal is connected.
@@ -760,7 +758,7 @@ signal will be removed.
 edge sensitive.  All clock inputs in softGlue act on the rising edge of the input signal.
 
 <P>The open circle ("bubble") in the <code>SET</code> and <code>CLEAR</code> inputs' signal paths indicate
-that these signals are inverted before being used.  Thus applying '0' to the <code>CLEAR</code> input causes
+that these signals are inverted before being used.  Thus, applying '0' to the <code>CLEAR</code> input causes
 the output to be "cleared" (given the value 0).
 
 <P><table border>
