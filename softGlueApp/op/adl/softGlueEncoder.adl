@@ -5,10 +5,10 @@ file {
 }
 display {
 	object {
-		x=414
-		y=316
+		x=2
+		y=142
 		width=490
-		height=540
+		height=595
 	}
 	clr=14
 	bclr=2
@@ -140,7 +140,7 @@ composite {
 composite {
 	object {
 		x=10
-		y=120
+		y=130
 		width=467
 		height=179
 	}
@@ -150,17 +150,17 @@ composite {
 composite {
 	object {
 		x=10
-		y=290
-		width=438
-		height=72
+		y=315
+		width=440
+		height=89
 	}
 	"composite name"=""
-	"composite file"="softGlue_QuadDec_bare.adl;P=$(P),H=$(H),N=2"
+	"composite file"="softGlue_QuadDec_bare_label.adl;P=$(P),H=$(H),N=2"
 }
 composite {
 	object {
 		x=10
-		y=375
+		y=410
 		width=467
 		height=179
 	}
