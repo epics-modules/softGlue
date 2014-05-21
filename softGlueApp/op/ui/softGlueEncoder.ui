@@ -4,10 +4,10 @@
 <widget class="QMainWindow" name="MainWindow">
     <property name="geometry">
         <rect>
-            <x>414</x>
-            <y>316</y>
+            <x>2</x>
+            <y>142</y>
             <width>490</width>
-            <height>540</height>
+            <height>595</height>
         </rect>
     </property>
     <property name="styleSheet">
@@ -128,16 +128,16 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <rect>
                     <x>10</x>
                     <y>35</y>
-                    <width>462</width>
-                    <height>112</height>
+                    <width>444</width>
+                    <height>93</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
                     <y>35</y>
-                    <width>460</width>
-                    <height>110</height>
+                    <width>442</width>
+                    <height>91</height>
                 </rect>
             </property>
             <property name="filename">
@@ -151,17 +151,17 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
             <property name="geometry">
                 <rect>
                     <x>10</x>
-                    <y>120</y>
-                    <width>482</width>
-                    <height>202</height>
+                    <y>130</y>
+                    <width>471</width>
+                    <height>183</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
-                    <y>120</y>
-                    <width>480</width>
-                    <height>200</height>
+                    <y>130</y>
+                    <width>469</width>
+                    <height>181</height>
                 </rect>
             </property>
             <property name="filename">
@@ -175,21 +175,21 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
             <property name="geometry">
                 <rect>
                     <x>10</x>
-                    <y>290</y>
-                    <width>462</width>
-                    <height>97</height>
+                    <y>315</y>
+                    <width>444</width>
+                    <height>93</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
-                    <y>290</y>
-                    <width>460</width>
-                    <height>95</height>
+                    <y>315</y>
+                    <width>442</width>
+                    <height>91</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>softGlue_QuadDec_bare.adl</string>
+                <string>softGlue_QuadDec_bare_label.adl</string>
             </property>
             <property name="macro">
                 <string>P=$(P),H=$(H),N=2</string>
@@ -199,17 +199,17 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
             <property name="geometry">
                 <rect>
                     <x>10</x>
-                    <y>375</y>
-                    <width>482</width>
-                    <height>202</height>
+                    <y>410</y>
+                    <width>471</width>
+                    <height>183</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
-                    <y>375</y>
-                    <width>480</width>
-                    <height>200</height>
+                    <y>410</y>
+                    <width>469</width>
+                    <height>181</height>
                 </rect>
             </property>
             <property name="filename">
