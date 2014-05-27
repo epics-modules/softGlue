@@ -1086,7 +1086,12 @@ STATIC asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 va
 			pPvt->risingMask = pPvt->regs->risingIntEnable;
 			pPvt->fallingMask = pPvt->regs->fallingIntEnable;
 		} else if (pasynUser->reason == POLL_TIME) {
-			pPvt->pollTime = value/1000;
+			pPvt->pollTime = value/1000.;
+			if (pPvt->pollTime < .05) {
+				pPvt->pollTime = .05;
+				printf("drvIP_EP201:writeUInt32D: pollTime lower limit = %d ms\n", (int)(pPvt->pollTime*1000));
+			}
+			if (drvIP_EP201Debug) printf("drvIP_EP201:writeUInt32D: pPvt->pollTime=%f s\n", pPvt->pollTime);
 		}
 	} else {
 		int addr;
