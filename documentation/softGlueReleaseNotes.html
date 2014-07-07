@@ -7,6 +7,14 @@
 <BODY LANG="en-US" BGCOLOR="#ffffff" DIR="LTR">
 <H2 ALIGN=CENTER>softGlue Release Notes</H2>
 
+<H2 ALIGN=LEFT>Release 2-4-1 </H2>
+<ul>
+	<li>pollTimeMS was not being acted on at init time.  Also, pollTimeMS
+	was improperly converted to double, so that pollTimeMS < 1000 yielded zero,
+	which took all of the cpy cycles.  Now, pollTimeMS is not honored if less
+	than 50.
+</ul>
+
 <H2 ALIGN=LEFT>Release 2-4</H2>
 <ul>
 	<li>Added support for registering and calling a custom interrupt handler.
