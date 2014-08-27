@@ -7,13 +7,13 @@ DBD_INSTALLS += softGlueSupport.dbd
 
 INC += drvIP_EP201.h
 
-LIBRARY_IOC_vxWorks = softGlue
-LIB_SRCS_vxWorks += drvIP_EP201.c devAsynSoftGlue.c
-#LIB_SRCS_vxWorks += sampleCustomInterruptHandler.c
+LIBRARY_IOC = softGlue
+LIB_SRCS += drvIP_EP201.c devAsynSoftGlue.c
+#LIB_SRCS += sampleCustomInterruptHandler.c
 
-LIB_vxWorks_LIBS += asyn Ipac
+LIB_LIBS += asyn Ipac
 
-LIB_vxWorks_LIBS += $(EPICS_BASE_IOC_LIBS)
+LIB_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 include $(TOP)/configure/RULES
 #----------------------------------------
