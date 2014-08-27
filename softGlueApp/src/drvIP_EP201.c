@@ -868,7 +868,7 @@ int initIP_EP200_FPGA(epicsUInt16 carrier, epicsUInt16 slot, char *filepath)
 	maxwait = 0;
 	total_bytes = 0;
 	line = 0;
-	while ((bp=fgets(buffer, BUF_SIZE, source_fd))) {
+	while ((bp=(unsigned char *)fgets((char *)buffer, BUF_SIZE, source_fd))) {
 		int bytes;
 		int recType;
 		
@@ -1106,7 +1106,7 @@ STATIC asynStatus writeUInt32D(void *drvPvt, asynUser *pasynUser, epicsUInt32 va
 	}
 
 	asynPrint(pasynUser, ASYN_TRACEIO_DRIVER,
-		"drvIP_EP201::writeUInt32D, addr=0x%X, value=0x%X, mask=0x%X, reason=%d\n",
+		"drvIP_EP201::writeUInt32D, addr=%p, value=0x%X, mask=0x%X, reason=%d\n",
 			reg, value, mask, pasynUser->reason);
 	return(asynSuccess);
 }
@@ -1275,10 +1275,12 @@ STATIC void intFunc(void *drvPvt)
 
 	/* Make sure interrupt is from this hardware.  Otherwise just leave. */
 	if (pPvt->regs->risingIntStatus || pPvt->regs->fallingIntStatus) {
+#ifdef vxWorks
 		if (drvIP_EP201Debug) {
 			logMsg("fallingIntStatus=0x%x, risingIntStatus=0x%x\n", pPvt->regs->fallingIntStatus, pPvt->regs->risingIntStatus);
 			logMsg("fallingIntEnable=0x%x, risingIntEnable=0x%x\n", pPvt->regs->fallingIntEnable, pPvt->regs->risingIntEnable);
 		}
+#endif
 		pendingLow = pPvt->regs->fallingIntStatus;
 		pendingHigh = pPvt->regs->risingIntStatus;
 		msg.interruptMask = (pendingLow & pPvt->regs->fallingIntEnable);
@@ -1286,7 +1288,9 @@ STATIC void intFunc(void *drvPvt)
 
 		/* Read the current input */
 		msg.bits = pPvt->regs->readDataRegister;
+#ifdef vxWorks
 		if (drvIP_EP201Debug) logMsg("interruptMask=0x%x\n", msg.interruptMask);
+#endif
 
 		/* Go through registeredIntRoutines[] for a registered interrupt-level service routine. If one is found,
 		 * call it and mark the interrupt as "handled", so we don't queue any EPICS processing that
@@ -1294,7 +1298,9 @@ STATIC void intFunc(void *drvPvt)
 		 * handle interrupts at intervals EPICS would not be able to meet.) */
 		for (i=0, handled=0; i<numRegisteredIntRoutines; i++) {
 			if ((registeredIntRoutines[i].regs == pPvt->regs) && (msg.interruptMask & registeredIntRoutines[i].mask)) {
+#ifdef vxWorks
 				if (drvIP_EP201Debug>5) logMsg("intFunc: calling registered interrupt routine %p\n", registeredIntRoutines[i].routine);
+#endif
 				registeredIntRoutines[i].IRData.mask = msg.interruptMask;
 				registeredIntRoutines[i].routine(&(registeredIntRoutines[i].IRData));
 				handled = 1;
@@ -1312,7 +1318,9 @@ STATIC void intFunc(void *drvPvt)
 				pPvt->regs->risingIntEnable &= ~pendingHigh;
 				pPvt->regs->fallingIntEnable &= ~pendingLow;
 				pPvt->disabledIntMask = pendingHigh | pendingLow;
+#ifdef vxWorks
 				if (drvIP_EP201Debug) logMsg("intFunc: disabledIntMask=0x%x\n", pPvt->disabledIntMask);
+#endif
 			}
 		}
 
