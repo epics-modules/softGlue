@@ -14,6 +14,7 @@
         <string>
 
 QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
+QPushButton::menu-indicator {image: url(none.png); width: 0}
 
 </string>
     </property>
@@ -128,16 +129,16 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <rect>
                     <x>10</x>
                     <y>35</y>
-                    <width>444</width>
-                    <height>93</height>
+                    <width>462</width>
+                    <height>112</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
                     <y>35</y>
-                    <width>442</width>
-                    <height>91</height>
+                    <width>460</width>
+                    <height>110</height>
                 </rect>
             </property>
             <property name="filename">
@@ -152,16 +153,16 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <rect>
                     <x>10</x>
                     <y>130</y>
-                    <width>471</width>
-                    <height>183</height>
+                    <width>482</width>
+                    <height>202</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
                     <y>130</y>
-                    <width>469</width>
-                    <height>181</height>
+                    <width>480</width>
+                    <height>200</height>
                 </rect>
             </property>
             <property name="filename">
@@ -176,16 +177,16 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <rect>
                     <x>10</x>
                     <y>315</y>
-                    <width>444</width>
-                    <height>93</height>
+                    <width>462</width>
+                    <height>112</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
                     <y>315</y>
-                    <width>442</width>
-                    <height>91</height>
+                    <width>460</width>
+                    <height>110</height>
                 </rect>
             </property>
             <property name="filename">
@@ -200,16 +201,16 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <rect>
                     <x>10</x>
                     <y>410</y>
-                    <width>471</width>
-                    <height>183</height>
+                    <width>482</width>
+                    <height>202</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
                     <y>410</y>
-                    <width>469</width>
-                    <height>181</height>
+                    <width>480</width>
+                    <height>200</height>
                 </rect>
             </property>
             <property name="filename">
