@@ -14,6 +14,7 @@
         <string>
 
 QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
+QPushButton::menu-indicator {image: url(none.png); width: 0}
 
 </string>
     </property>
@@ -23,16 +24,16 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <rect>
                     <x>9</x>
                     <y>203</y>
-                    <width>471</width>
-                    <height>183</height>
+                    <width>482</width>
+                    <height>202</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>9</x>
                     <y>203</y>
-                    <width>469</width>
-                    <height>181</height>
+                    <width>480</width>
+                    <height>200</height>
                 </rect>
             </property>
             <property name="filename">
@@ -47,16 +48,16 @@ QWidget#centralWidget {background: rgba(218, 218, 218, 255);}
                 <rect>
                     <x>9</x>
                     <y>14</y>
-                    <width>471</width>
-                    <height>183</height>
+                    <width>482</width>
+                    <height>202</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>9</x>
                     <y>14</y>
-                    <width>469</width>
-                    <height>181</height>
+                    <width>480</width>
+                    <height>200</height>
                 </rect>
             </property>
             <property name="filename">
