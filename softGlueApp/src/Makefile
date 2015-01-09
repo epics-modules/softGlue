@@ -3,7 +3,8 @@ include $(TOP)/configure/CONFIG
 #----------------------------------------
 #  ADD MACRO DEFINITIONS AFTER THIS LINE
 #=============================
-DBD_INSTALLS += softGlueSupport.dbd
+#DBD_INSTALLS += softGlueSupport.dbd
+DBD += softGlueSupport.dbd
 
 INC += drvIP_EP201.h
 
