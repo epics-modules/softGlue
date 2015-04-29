@@ -121,13 +121,13 @@ extern int logMsg(char *fmt, ...);
 #include <epicsString.h>
 #include <epicsExit.h>
 #include <epicsMessageQueue.h>
-#include <epicsExport.h>
 #include <iocsh.h>
 #include <asynDriver.h>
 #include <asynDrvUser.h> /* used for setting interrupt enable to rising, falling, or both */
 #include <asynUInt32Digital.h>
 #include <asynInt32.h>
 #include <epicsInterrupt.h>
+#include <epicsExport.h>
 #include "drvIP_EP201.h"
 
 #define STATIC static
@@ -170,8 +170,8 @@ typedef struct {
 	ipac_idProm_t *id;			/* ID space */
 	volatile epicsUInt16 *io;	/* IO space (mapped to Avalon-bus-address range 0x00 -- 0x7f) */
 	volatile epicsUInt16 *mem;	/* MEM space (mapped to Avalon-bus-address range 0x800000 -- 0xffffff) */
-	ushort carrier;
-	ushort slot;
+	epicsUInt16 carrier;
+	epicsUInt16 slot;
 	int sopcAddress;
 	int is_fieldIO_registerSet;
     unsigned char manufacturer;
@@ -1023,7 +1023,7 @@ STATIC asynStatus readUInt32D(void *drvPvt, asynUser *pasynUser,
 			/* Left shift the (two-bit) value so it overlaps the mask that caller gave us. */
 			for (; mask && ((mask&1) == 0); mask>>=1, *value<<=1);
 		} else if (pasynUser->reason == POLL_TIME) {
-			*value = pPvt->pollTime*1000;
+			*value = (epicsUInt32) pPvt->pollTime*1000;
 		} else if (pasynUser->reason == INTERRUPT_EDGE_RESET) {
 			*value = pPvt->disabledIntMask;
 		}
@@ -1208,9 +1208,9 @@ STATIC asynStatus getBounds(void *drvPvt, asynUser *pasynUser, epicsInt32 *low, 
 #define MAXROUTINES 10
 
 typedef struct {
-	ushort carrier;
-	ushort slot;
-	ushort mask;
+	epicsUInt16 carrier;
+	epicsUInt16 slot;
+	epicsUInt16 mask;
 	int sopcAddress;
 	volatile fieldIO_registerSet *regs;
 	void (*routine)(softGlueIntRoutineData *IRData);
@@ -1227,7 +1227,7 @@ int numRegisteredIntRoutines=0;
  *		myDataType myData;
  *      softGlueRegisterInterruptRoutine(0, 0, 0x800000, 0x0, callMe, (void *)&myData);
  */
-int softGlueRegisterInterruptRoutine(ushort carrier, ushort slot, int sopcAddress, ushort mask,
+int softGlueRegisterInterruptRoutine(epicsUInt16 carrier, epicsUInt16 slot, int sopcAddress, epicsUInt16 mask,
 	void (*routine)(softGlueIntRoutineData *IRData), void *userPvt) {
 	int i;
 	drvIP_EP201Pvt *pPvt;
