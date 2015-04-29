@@ -14,10 +14,10 @@ extern int logMsg(char *fmt, ...);
 #include <iocsh.h>
 
 typedef struct {
-	ushort mask;
+	epicsUInt16 mask;
 	void *userPvt;
 } softGlueIntRoutineData;
 
-int softGlueRegisterInterruptRoutine(ushort carrier, ushort slot, int sopcAddress, ushort mask,
+int softGlueRegisterInterruptRoutine(epicsUInt16 carrier, epicsUInt16 slot, int sopcAddress, epicsUInt16 mask,
 	void (*routine)(softGlueIntRoutineData *IRData), void *userPvt);
 epicsUInt16 *softGlueCalcSpecifiedRegisterAddress(epicsUInt16 carrier, epicsUInt16 slot, int addr);
