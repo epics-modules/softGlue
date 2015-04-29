@@ -42,7 +42,6 @@
 #include <boRecord.h> /* signal show */
 #include <longoutRecord.h> /* number of signals in use */
 
-#include <epicsExport.h>
 #include "asynDriver.h"
 #include "asynDrvUser.h"
 #include "asynUInt32Digital.h"
@@ -284,7 +283,7 @@ static long checkSignal(stringoutRecord *pso) {
 		needPost = 1;
 	}
 	/* Delete any trailing whitespace */
-	i = strlen(pso->val)-1;
+	i = (int) strlen(pso->val)-1;
 	while (i>0 && isspace((int)pso->val[i])) {
 		pso->val[i--] = '\0';
 		needPost = 1;
@@ -321,7 +320,7 @@ static long checkSignal(stringoutRecord *pso) {
 		precordListItem = (struct recordListItem *)ellNext(&(precordListItem->node));
 	}
 
-	compareLength = strlen(pso->val);
+	compareLength = (int) strlen(pso->val);
 
 	/* If signal is an output, leading decimal digit is illegal */
 	if (pdevPvt->isOutput) {
@@ -663,7 +662,7 @@ static asynStatus writeIt(asynUser *pasynUser, epicsUInt32 value, epicsUInt32 ma
 		return status;
 	}
 	asynPrint(pasynUser,ASYN_TRACEIO_DEVICE,
-		"%s devAsynSoftGlue:writeIt: value=%lu\n", precord->name, value);
+		"%s devAsynSoftGlue:writeIt: value=%d\n", precord->name, value);
 	return status;
 }
 
@@ -711,7 +710,6 @@ static void finish(dbCommon *pr)
 static long initSoWrite(stringoutRecord *pso)
 {
 	asynStatus	status;
-	devPvt		*pdevPvt;
 
 	if (devAsynSoftGlueDebug > 1) {
 		printf("devAsynSoftGlue:initSoWrite: entry for '%s'\n", pso->name);
@@ -719,7 +717,6 @@ static long initSoWrite(stringoutRecord *pso)
 
 	status = initCommon((dbCommon *)pso,&pso->out,callbackSoWrite);
 	if (status!=asynSuccess) return 0;
-	pdevPvt = (devPvt *)pso->dpvt;
 	initDrvUser((devPvt *)pso->dpvt);
 	/* write at init time */
 	status = processCommon((dbCommon *)pso);
@@ -733,7 +730,6 @@ static void callbackSoWrite(asynUser *pasynUser)
 {
 	devPvt			*pdevPvt = (devPvt *)pasynUser->userPvt;
 	stringoutRecord	*pso = (stringoutRecord *)pdevPvt->precord;
-	asynStatus		status;
 	epicsUInt32		value=0;
 	double			nvalue;
 	epicsUInt32		mask=0x6f;
@@ -771,11 +767,11 @@ static void callbackSoWrite(asynUser *pasynUser)
 	}
 	if (devAsynSoftGlueDebug > 1) printf("devAsynSoftGlue:callbackSoWrite: writing 0x%x 0x%x\n", value, mask);
 
-	status = writeIt(pasynUser, value, mask);
+	writeIt(pasynUser, value, mask);
 
 	/* Implement "1!" for a positive going pulse; "0!" for a negative going pulse */
 	if (isdigit((int)pso->val[0]) && (pso->val[1] == '!')) {
-		status = writeIt(pasynUser, (epicsUInt32)(value?0:0x20), mask);
+		writeIt(pasynUser, (epicsUInt32)(value?0:0x20), mask);
 	}
 	finish((dbCommon *)pso);
 }
