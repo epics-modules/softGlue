@@ -3,7 +3,7 @@
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <wuid>1735f56e:147125545e9:-7fff</wuid>
+  <wuid>-423a1393:14e21bb12d7:-7c6d</wuid>
   <boy_version>3.2.10.20140131</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
@@ -29,8 +29,8 @@
     <min_height>-1</min_height>
   </auto_scale_widgets>
   <actions hook="false" hook_all="false" />
-  <y>142</y>
-  <x>2</x>
+  <y>395</y>
+  <x>568</x>
   <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
@@ -38,7 +38,7 @@
     <line_color>
       <color red="128" green="0" blue="255" />
     </line_color>
-    <wuid>1735f56e:147125545e9:-7ffe</wuid>
+    <wuid>-423a1393:14e21bb12d7:-7c6c</wuid>
     <bg_gradient_color>
       <color red="255" green="255" blue="255" />
     </bg_gradient_color>
@@ -94,7 +94,7 @@ $(pv_value)</tooltip>
       <N>1</N>
     </macros>
     <visible>true</visible>
-    <wuid>1735f56e:147125545e9:-7ffb</wuid>
+    <wuid>-423a1393:14e21bb12d7:-7c69</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -136,7 +136,7 @@ $(pv_value)</tooltip>
       <N>1</N>
     </macros>
     <visible>true</visible>
-    <wuid>1735f56e:147125545e9:-7ffa</wuid>
+    <wuid>-423a1393:14e21bb12d7:-7c68</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -178,7 +178,7 @@ $(pv_value)</tooltip>
       <N>2</N>
     </macros>
     <visible>true</visible>
-    <wuid>1735f56e:147125545e9:-7ff9</wuid>
+    <wuid>-423a1393:14e21bb12d7:-7c67</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -220,7 +220,7 @@ $(pv_value)</tooltip>
       <N>2</N>
     </macros>
     <visible>true</visible>
-    <wuid>1735f56e:147125545e9:-7ff8</wuid>
+    <wuid>-423a1393:14e21bb12d7:-7c66</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -259,7 +259,7 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
     <visible>true</visible>
     <vertical_alignment>1</vertical_alignment>
-    <wuid>1735f56e:147125545e9:-7ffd</wuid>
+    <wuid>-423a1393:14e21bb12d7:-7c6b</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <height>25</height>
@@ -283,7 +283,7 @@ $(pv_value)</tooltip>
     <font>
       <fontdata fontName="Sans" height="15" style="0" />
     </font>
-    <width>470</width>
+    <width>230</width>
     <border_style>0</border_style>
     <rules />
     <border_width>1</border_width>
@@ -295,7 +295,7 @@ $(pv_value)</tooltip>
     <y>0</y>
     <wrap_words>false</wrap_words>
     <tooltip></tooltip>
-    <x>10</x>
+    <x>250</x>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
@@ -303,7 +303,7 @@ $(pv_value)</tooltip>
     <arrow_length>20</arrow_length>
     <visible>true</visible>
     <fill_level>100.0</fill_level>
-    <wuid>1735f56e:147125545e9:-7ffc</wuid>
+    <wuid>-423a1393:14e21bb12d7:-7c6a</wuid>
     <rotation_angle>0.0</rotation_angle>
     <scripts />
     <arrows>0</arrows>
@@ -351,5 +351,46 @@ $(pv_value)</tooltip>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
     <x>1</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
+    <visible>true</visible>
+    <vertical_alignment>1</vertical_alignment>
+    <wuid>-423a1393:14e21bb12d7:-7c65</wuid>
+    <auto_size>false</auto_size>
+    <scripts />
+    <height>25</height>
+    <name>Label</name>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <transparent>true</transparent>
+    <show_scrollbar>false</show_scrollbar>
+    <background_color>
+      <color red="255" green="255" blue="255" />
+    </background_color>
+    <foreground_color>
+      <color name="Gray_14" red="0" green="0" blue="0" />
+    </foreground_color>
+    <widget_type>Label</widget_type>
+    <enabled>true</enabled>
+    <text>$(P)$(H)</text>
+    <font>
+      <fontdata fontName="Sans" height="15" style="0" />
+    </font>
+    <width>240</width>
+    <border_style>0</border_style>
+    <rules />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <horizontal_alignment>0</horizontal_alignment>
+    <actions hook="false" hook_all="false" />
+    <y>0</y>
+    <wrap_words>false</wrap_words>
+    <tooltip></tooltip>
+    <x>10</x>
   </widget>
 </display>

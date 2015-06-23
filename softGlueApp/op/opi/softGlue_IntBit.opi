@@ -1,10 +1,10 @@
-<display typeId="org.csstudio.opibuilder.Display" version="1.0">
+<display typeId="org.csstudio.opibuilder.Display" version="1.0.0">
   <auto_zoom_to_fit_all>false</auto_zoom_to_fit_all>
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <wuid>-38aa0a56:1439cea4d24:-70c7</wuid>
-  <boy_version>3.1.4.20130717</boy_version>
+  <wuid>-423a1393:14e21bb12d7:-6ebc</wuid>
+  <boy_version>3.2.10.20140131</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
   <height>50</height>
@@ -31,12 +31,12 @@
   <actions hook="false" hook_all="false" />
   <y>200</y>
   <x>900</x>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
     <macros>
       <include_parent_macros>true</include_parent_macros>
     </macros>
     <visible>true</visible>
-    <wuid>-38aa0a56:1439cea4d24:-70c5</wuid>
+    <wuid>-423a1393:14e21bb12d7:-6eba</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -72,10 +72,10 @@
     <x>0</x>
     <tooltip></tooltip>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
     <visible>true</visible>
     <vertical_alignment>1</vertical_alignment>
-    <wuid>-38aa0a56:1439cea4d24:-70c6</wuid>
+    <wuid>-423a1393:14e21bb12d7:-6ebb</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <height>20</height>
@@ -109,7 +109,7 @@
     <horizontal_alignment>1</horizontal_alignment>
     <actions hook="false" hook_all="false" />
     <y>0</y>
-    <wrap_words>true</wrap_words>
+    <wrap_words>false</wrap_words>
     <tooltip></tooltip>
     <x>0</x>
   </widget>

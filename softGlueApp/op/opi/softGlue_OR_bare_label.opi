@@ -1,10 +1,10 @@
-<display typeId="org.csstudio.opibuilder.Display" version="1.0">
+<display typeId="org.csstudio.opibuilder.Display" version="1.0.0">
   <auto_zoom_to_fit_all>false</auto_zoom_to_fit_all>
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <wuid>-38aa0a56:1439cea4d24:-6f85</wuid>
-  <boy_version>3.1.4.20130717</boy_version>
+  <wuid>-423a1393:14e21bb12d7:-6d74</wuid>
+  <boy_version>3.2.10.20140131</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
   <height>80</height>
@@ -31,13 +31,13 @@
   <actions hook="false" hook_all="false" />
   <y>247</y>
   <x>639</x>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
     <macros>
       <include_parent_macros>true</include_parent_macros>
       <SIG>OR-$(N)_IN1</SIG>
     </macros>
     <visible>true</visible>
-    <wuid>-38aa0a56:1439cea4d24:-6f83</wuid>
+    <wuid>-423a1393:14e21bb12d7:-6d72</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -73,13 +73,13 @@
     <x>10</x>
     <tooltip></tooltip>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
     <macros>
       <include_parent_macros>true</include_parent_macros>
       <SIG>OR-$(N)_IN2</SIG>
     </macros>
     <visible>true</visible>
-    <wuid>-38aa0a56:1439cea4d24:-6f82</wuid>
+    <wuid>-423a1393:14e21bb12d7:-6d71</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -115,12 +115,12 @@
     <x>10</x>
     <tooltip></tooltip>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
     <macros>
       <include_parent_macros>true</include_parent_macros>
     </macros>
     <visible>true</visible>
-    <wuid>-38aa0a56:1439cea4d24:-6f7e</wuid>
+    <wuid>-423a1393:14e21bb12d7:-6d6d</wuid>
     <scripts />
     <height>40</height>
     <name>Grouping Container</name>
@@ -145,6 +145,7 @@
     <width>50</width>
     <border_style>0</border_style>
     <rules />
+    <fc>false</fc>
     <lock_children>false</lock_children>
     <border_width>1</border_width>
     <border_color>
@@ -154,13 +155,13 @@
     <actions hook="false" hook_all="false" />
     <x>173</x>
     <tooltip></tooltip>
-    <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0">
+    <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0.0">
       <border_alarm_sensitive>false</border_alarm_sensitive>
       <fill_arrow>true</fill_arrow>
       <arrow_length>20</arrow_length>
       <visible>true</visible>
       <fill_level>100.0</fill_level>
-      <wuid>-38aa0a56:1439cea4d24:-6f7d</wuid>
+      <wuid>-423a1393:14e21bb12d7:-6d6c</wuid>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
       <arrows>0</arrows>
@@ -215,13 +216,13 @@
 $(pv_value)</tooltip>
       <x>1</x>
     </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0">
+    <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0.0">
       <border_alarm_sensitive>false</border_alarm_sensitive>
       <fill_arrow>true</fill_arrow>
       <arrow_length>20</arrow_length>
       <visible>true</visible>
       <fill_level>100.0</fill_level>
-      <wuid>-38aa0a56:1439cea4d24:-6f7c</wuid>
+      <wuid>-423a1393:14e21bb12d7:-6d6b</wuid>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
       <arrows>0</arrows>
@@ -277,13 +278,13 @@ $(pv_value)</tooltip>
       <x>2</x>
     </widget>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
     <macros>
       <include_parent_macros>true</include_parent_macros>
       <SIG>OR-$(N)_OUT</SIG>
     </macros>
     <visible>true</visible>
-    <wuid>-38aa0a56:1439cea4d24:-6f7b</wuid>
+    <wuid>-423a1393:14e21bb12d7:-6d6a</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -319,11 +320,11 @@ $(pv_value)</tooltip>
     <x>226</x>
     <tooltip></tooltip>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.arc" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.arc" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <total_angle>115</total_angle>
-    <wuid>-38aa0a56:1439cea4d24:-6f84</wuid>
+    <wuid>-423a1393:14e21bb12d7:-6d73</wuid>
     <start_angle>305</start_angle>
     <scripts />
     <height>48</height>
@@ -366,13 +367,13 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>154</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <fill_arrow>true</fill_arrow>
     <arrow_length>20</arrow_length>
     <visible>true</visible>
     <fill_level>100.0</fill_level>
-    <wuid>-38aa0a56:1439cea4d24:-6f81</wuid>
+    <wuid>-423a1393:14e21bb12d7:-6d70</wuid>
     <rotation_angle>0.0</rotation_angle>
     <scripts />
     <arrows>0</arrows>
@@ -421,13 +422,13 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>165</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <fill_arrow>true</fill_arrow>
     <arrow_length>20</arrow_length>
     <visible>true</visible>
     <fill_level>100.0</fill_level>
-    <wuid>-38aa0a56:1439cea4d24:-6f80</wuid>
+    <wuid>-423a1393:14e21bb12d7:-6d6f</wuid>
     <rotation_angle>0.0</rotation_angle>
     <scripts />
     <arrows>0</arrows>
@@ -476,13 +477,13 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>165</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <fill_arrow>true</fill_arrow>
     <arrow_length>20</arrow_length>
     <visible>true</visible>
     <fill_level>100.0</fill_level>
-    <wuid>-38aa0a56:1439cea4d24:-6f7f</wuid>
+    <wuid>-423a1393:14e21bb12d7:-6d6e</wuid>
     <rotation_angle>0.0</rotation_angle>
     <scripts />
     <arrows>0</arrows>
@@ -531,10 +532,10 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
     <x>217</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
     <visible>true</visible>
     <vertical_alignment>1</vertical_alignment>
-    <wuid>-38aa0a56:1439cea4d24:-6f7a</wuid>
+    <wuid>-423a1393:14e21bb12d7:-6d69</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <height>10</height>
@@ -568,25 +569,27 @@ $(pv_value)</tooltip>
     <horizontal_alignment>0</horizontal_alignment>
     <actions hook="false" hook_all="false" />
     <y>46</y>
-    <wrap_words>true</wrap_words>
+    <wrap_words>false</wrap_words>
     <tooltip></tooltip>
     <x>182</x>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="2.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
+    <read_only>false</read_only>
     <visible>true</visible>
-    <vertical_alignment>1</vertical_alignment>
     <multiline_input>false</multiline_input>
+    <show_native_border>true</show_native_border>
     <auto_size>false</auto_size>
     <scripts />
     <height>16</height>
+    <password_input>false</password_input>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <precision_from_pv>true</precision_from_pv>
     <background_color>
       <color name="Gray_2" red="218" green="218" blue="218" />
     </background_color>
-    <widget_type>Text Input</widget_type>
     <enabled>true</enabled>
+    <widget_type>Text Input</widget_type>
     <text></text>
     <font>
       <fontdata fontName="Sans" height="7" style="0" />
@@ -594,38 +597,42 @@ $(pv_value)</tooltip>
     <width>380</width>
     <border_style>3</border_style>
     <pv_value />
-    <border_width>1</border_width>
+    <show_h_scroll>false</show_h_scroll>
     <maximum>Infinity</maximum>
+    <border_width>1</border_width>
+    <show_v_scroll>false</show_v_scroll>
     <minimum>-Infinity</minimum>
+    <next_focus>0</next_focus>
     <show_units>false</show_units>
-    <wuid>-38aa0a56:1439cea4d24:-6f79</wuid>
+    <wuid>-423a1393:14e21bb12d7:-6d68</wuid>
     <rotation_angle>0.0</rotation_angle>
+    <style>0</style>
     <name>Text Input</name>
+    <format_type>4</format_type>
     <scale_options>
       <width_scalable>true</width_scalable>
       <height_scalable>true</height_scalable>
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
-    <format_type>4</format_type>
-    <transparent>false</transparent>
     <selector_type>0</selector_type>
+    <transparent>false</transparent>
     <pv_name>$(P)$(H)OR-$(N)_desc</pv_name>
     <foreground_color>
       <color name="Gray_14" red="0" green="0" blue="0" />
     </foreground_color>
-    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <precision>0</precision>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <confirm_message></confirm_message>
     <rules />
     <limits_from_pv>false</limits_from_pv>
+    <horizontal_alignment>0</horizontal_alignment>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <horizontal_alignment>0</horizontal_alignment>
-    <actions hook="false" hook_all="false" />
     <y>10</y>
+    <actions hook="false" hook_all="false" />
+    <x>10</x>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
-    <x>10</x>
   </widget>
 </display>

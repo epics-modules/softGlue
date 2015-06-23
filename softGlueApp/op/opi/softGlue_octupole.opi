@@ -1,10 +1,10 @@
-<display typeId="org.csstudio.opibuilder.Display" version="1.0">
+<display typeId="org.csstudio.opibuilder.Display" version="1.0.0">
   <auto_zoom_to_fit_all>false</auto_zoom_to_fit_all>
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <wuid>-38aa0a56:1439cea4d24:-6c19</wuid>
-  <boy_version>3.1.4.20130717</boy_version>
+  <wuid>-423a1393:14e21bb12d7:-69fe</wuid>
+  <boy_version>3.2.10.20140131</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
   <height>210</height>
@@ -31,12 +31,12 @@
   <actions hook="false" hook_all="false" />
   <y>25</y>
   <x>31</x>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
     <macros>
       <include_parent_macros>true</include_parent_macros>
     </macros>
     <visible>true</visible>
-    <wuid>-38aa0a56:1439cea4d24:-6c18</wuid>
+    <wuid>-423a1393:14e21bb12d7:-69fd</wuid>
     <scripts />
     <height>198</height>
     <name>Grouping Container</name>
@@ -61,6 +61,7 @@
     <width>475</width>
     <border_style>0</border_style>
     <rules />
+    <fc>false</fc>
     <lock_children>false</lock_children>
     <border_width>1</border_width>
     <border_color>
@@ -70,13 +71,13 @@
     <actions hook="false" hook_all="false" />
     <x>9</x>
     <tooltip></tooltip>
-    <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
       <macros>
         <include_parent_macros>true</include_parent_macros>
         <N>2</N>
       </macros>
       <visible>true</visible>
-      <wuid>-38aa0a56:1439cea4d24:-6c17</wuid>
+      <wuid>-423a1393:14e21bb12d7:-69fc</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <zoom_to_fit>true</zoom_to_fit>
@@ -112,13 +113,13 @@
       <x>0</x>
       <tooltip></tooltip>
     </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
       <macros>
         <include_parent_macros>true</include_parent_macros>
         <N>1</N>
       </macros>
       <visible>true</visible>
-      <wuid>-38aa0a56:1439cea4d24:-6c16</wuid>
+      <wuid>-423a1393:14e21bb12d7:-69fb</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <zoom_to_fit>true</zoom_to_fit>

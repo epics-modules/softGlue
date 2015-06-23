@@ -1,10 +1,10 @@
-<display typeId="org.csstudio.opibuilder.Display" version="1.0">
+<display typeId="org.csstudio.opibuilder.Display" version="1.0.0">
   <auto_zoom_to_fit_all>false</auto_zoom_to_fit_all>
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <wuid>-38aa0a56:1439cea4d24:-7016</wuid>
-  <boy_version>3.1.4.20130717</boy_version>
+  <wuid>-423a1393:14e21bb12d7:-6e07</wuid>
+  <boy_version>3.2.10.20140131</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
   <height>150</height>
@@ -31,13 +31,13 @@
   <actions hook="false" hook_all="false" />
   <y>789</y>
   <x>761</x>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
     <macros>
       <include_parent_macros>true</include_parent_macros>
       <SIG>MUX2-$(N)_IN0</SIG>
     </macros>
     <visible>true</visible>
-    <wuid>-38aa0a56:1439cea4d24:-7015</wuid>
+    <wuid>-423a1393:14e21bb12d7:-6e06</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -73,13 +73,13 @@
     <x>10</x>
     <tooltip></tooltip>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
     <macros>
       <include_parent_macros>true</include_parent_macros>
       <SIG>MUX2-$(N)_IN1</SIG>
     </macros>
     <visible>true</visible>
-    <wuid>-38aa0a56:1439cea4d24:-7014</wuid>
+    <wuid>-423a1393:14e21bb12d7:-6e05</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -115,13 +115,13 @@
     <x>10</x>
     <tooltip></tooltip>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
     <macros>
       <include_parent_macros>true</include_parent_macros>
       <SIG>MUX2-$(N)_SEL</SIG>
     </macros>
     <visible>true</visible>
-    <wuid>-38aa0a56:1439cea4d24:-7013</wuid>
+    <wuid>-423a1393:14e21bb12d7:-6e04</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -157,13 +157,13 @@
     <x>10</x>
     <tooltip></tooltip>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
     <macros>
       <include_parent_macros>true</include_parent_macros>
       <SIG>MUX2-$(N)_IN2</SIG>
     </macros>
     <visible>true</visible>
-    <wuid>-38aa0a56:1439cea4d24:-7012</wuid>
+    <wuid>-423a1393:14e21bb12d7:-6e03</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -199,13 +199,13 @@
     <x>10</x>
     <tooltip></tooltip>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
     <macros>
       <include_parent_macros>true</include_parent_macros>
       <SIG>MUX2-$(N)_IN3</SIG>
     </macros>
     <visible>true</visible>
-    <wuid>-38aa0a56:1439cea4d24:-7011</wuid>
+    <wuid>-423a1393:14e21bb12d7:-6e02</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -241,12 +241,12 @@
     <x>10</x>
     <tooltip></tooltip>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
     <macros>
       <include_parent_macros>true</include_parent_macros>
     </macros>
     <visible>true</visible>
-    <wuid>-38aa0a56:1439cea4d24:-7010</wuid>
+    <wuid>-423a1393:14e21bb12d7:-6e01</wuid>
     <scripts />
     <height>110</height>
     <name>Grouping Container</name>
@@ -271,6 +271,7 @@
     <width>258</width>
     <border_style>0</border_style>
     <rules />
+    <fc>false</fc>
     <lock_children>false</lock_children>
     <border_width>1</border_width>
     <border_color>
@@ -280,14 +281,14 @@
     <actions hook="false" hook_all="false" />
     <x>163</x>
     <tooltip></tooltip>
-    <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0">
+    <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0.0">
       <border_alarm_sensitive>false</border_alarm_sensitive>
       <visible>true</visible>
       <fill_level>0.0</fill_level>
       <line_color>
         <color name="Gray_14" red="0" green="0" blue="0" />
       </line_color>
-      <wuid>-38aa0a56:1439cea4d24:-700e</wuid>
+      <wuid>-423a1393:14e21bb12d7:-6dff</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -337,12 +338,12 @@ $(pv_value)</tooltip>
       <x>11</x>
       <gradient>false</gradient>
     </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
+    <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
       <macros>
         <include_parent_macros>true</include_parent_macros>
       </macros>
       <visible>true</visible>
-      <wuid>-38aa0a56:1439cea4d24:-7003</wuid>
+      <wuid>-423a1393:14e21bb12d7:-6df4</wuid>
       <scripts />
       <height>26</height>
       <name>Grouping Container</name>
@@ -367,6 +368,7 @@ $(pv_value)</tooltip>
       <width>187</width>
       <border_style>0</border_style>
       <rules />
+      <fc>false</fc>
       <lock_children>false</lock_children>
       <border_width>1</border_width>
       <border_color>
@@ -376,13 +378,13 @@ $(pv_value)</tooltip>
       <actions hook="false" hook_all="false" />
       <x>71</x>
       <tooltip></tooltip>
-      <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+      <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <SIG>MUX2-$(N)_OUT</SIG>
         </macros>
         <visible>true</visible>
-        <wuid>-38aa0a56:1439cea4d24:-7000</wuid>
+        <wuid>-423a1393:14e21bb12d7:-6df1</wuid>
         <auto_size>false</auto_size>
         <scripts />
         <zoom_to_fit>true</zoom_to_fit>
@@ -418,13 +420,13 @@ $(pv_value)</tooltip>
         <x>30</x>
         <tooltip></tooltip>
       </widget>
-      <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0">
+      <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0.0">
         <border_alarm_sensitive>false</border_alarm_sensitive>
         <fill_arrow>true</fill_arrow>
         <arrow_length>20</arrow_length>
         <visible>true</visible>
         <fill_level>100.0</fill_level>
-        <wuid>-38aa0a56:1439cea4d24:-7002</wuid>
+        <wuid>-423a1393:14e21bb12d7:-6df3</wuid>
         <rotation_angle>0.0</rotation_angle>
         <scripts />
         <arrows>0</arrows>
@@ -473,10 +475,10 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
         <x>22</x>
       </widget>
-      <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
+      <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
         <visible>true</visible>
         <vertical_alignment>1</vertical_alignment>
-        <wuid>-38aa0a56:1439cea4d24:-7001</wuid>
+        <wuid>-423a1393:14e21bb12d7:-6df2</wuid>
         <auto_size>false</auto_size>
         <scripts />
         <height>14</height>
@@ -510,18 +512,18 @@ $(pv_value)</tooltip>
         <horizontal_alignment>1</horizontal_alignment>
         <actions hook="false" hook_all="false" />
         <y>8</y>
-        <wrap_words>true</wrap_words>
+        <wrap_words>false</wrap_words>
         <tooltip></tooltip>
         <x>0</x>
       </widget>
     </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0">
+    <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0.0">
       <border_alarm_sensitive>false</border_alarm_sensitive>
       <fill_arrow>true</fill_arrow>
       <arrow_length>20</arrow_length>
       <visible>true</visible>
       <fill_level>100.0</fill_level>
-      <wuid>-38aa0a56:1439cea4d24:-700f</wuid>
+      <wuid>-423a1393:14e21bb12d7:-6e00</wuid>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
       <arrows>0</arrows>
@@ -570,10 +572,10 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
       <x>1</x>
     </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
+    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>-38aa0a56:1439cea4d24:-700d</wuid>
+      <wuid>-423a1393:14e21bb12d7:-6dfe</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>14</height>
@@ -607,14 +609,14 @@ $(pv_value)</tooltip>
       <horizontal_alignment>1</horizontal_alignment>
       <actions hook="false" hook_all="false" />
       <y>3</y>
-      <wrap_words>true</wrap_words>
+      <wrap_words>false</wrap_words>
       <tooltip></tooltip>
       <x>21</x>
     </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
+    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>-38aa0a56:1439cea4d24:-700c</wuid>
+      <wuid>-423a1393:14e21bb12d7:-6dfd</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>14</height>
@@ -648,17 +650,17 @@ $(pv_value)</tooltip>
       <horizontal_alignment>1</horizontal_alignment>
       <actions hook="false" hook_all="false" />
       <y>71</y>
-      <wrap_words>true</wrap_words>
+      <wrap_words>false</wrap_words>
       <tooltip></tooltip>
       <x>48</x>
     </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0">
+    <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0.0">
       <border_alarm_sensitive>false</border_alarm_sensitive>
       <fill_arrow>true</fill_arrow>
       <arrow_length>20</arrow_length>
       <visible>true</visible>
       <fill_level>100.0</fill_level>
-      <wuid>-38aa0a56:1439cea4d24:-700b</wuid>
+      <wuid>-423a1393:14e21bb12d7:-6dfc</wuid>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
       <arrows>0</arrows>
@@ -707,13 +709,13 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
       <x>60</x>
     </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0">
+    <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0.0">
       <border_alarm_sensitive>false</border_alarm_sensitive>
       <fill_arrow>true</fill_arrow>
       <arrow_length>20</arrow_length>
       <visible>true</visible>
       <fill_level>100.0</fill_level>
-      <wuid>-38aa0a56:1439cea4d24:-700a</wuid>
+      <wuid>-423a1393:14e21bb12d7:-6dfb</wuid>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
       <arrows>0</arrows>
@@ -762,13 +764,13 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
       <x>1</x>
     </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0">
+    <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0.0">
       <border_alarm_sensitive>false</border_alarm_sensitive>
       <fill_arrow>true</fill_arrow>
       <arrow_length>20</arrow_length>
       <visible>true</visible>
       <fill_level>100.0</fill_level>
-      <wuid>-38aa0a56:1439cea4d24:-7009</wuid>
+      <wuid>-423a1393:14e21bb12d7:-6dfa</wuid>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
       <arrows>0</arrows>
@@ -817,10 +819,10 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
       <x>1</x>
     </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
+    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>-38aa0a56:1439cea4d24:-7008</wuid>
+      <wuid>-423a1393:14e21bb12d7:-6df9</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>14</height>
@@ -854,17 +856,17 @@ $(pv_value)</tooltip>
       <horizontal_alignment>1</horizontal_alignment>
       <actions hook="false" hook_all="false" />
       <y>22</y>
-      <wrap_words>true</wrap_words>
+      <wrap_words>false</wrap_words>
       <tooltip></tooltip>
       <x>21</x>
     </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0">
+    <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0.0">
       <border_alarm_sensitive>false</border_alarm_sensitive>
       <fill_arrow>true</fill_arrow>
       <arrow_length>20</arrow_length>
       <visible>true</visible>
       <fill_level>100.0</fill_level>
-      <wuid>-38aa0a56:1439cea4d24:-7007</wuid>
+      <wuid>-423a1393:14e21bb12d7:-6df8</wuid>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
       <arrows>0</arrows>
@@ -913,10 +915,10 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
       <x>2</x>
     </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
+    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>-38aa0a56:1439cea4d24:-7006</wuid>
+      <wuid>-423a1393:14e21bb12d7:-6df7</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>14</height>
@@ -950,17 +952,17 @@ $(pv_value)</tooltip>
       <horizontal_alignment>1</horizontal_alignment>
       <actions hook="false" hook_all="false" />
       <y>45</y>
-      <wrap_words>true</wrap_words>
+      <wrap_words>false</wrap_words>
       <tooltip></tooltip>
       <x>21</x>
     </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0">
+    <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0.0">
       <border_alarm_sensitive>false</border_alarm_sensitive>
       <fill_arrow>true</fill_arrow>
       <arrow_length>20</arrow_length>
       <visible>true</visible>
       <fill_level>100.0</fill_level>
-      <wuid>-38aa0a56:1439cea4d24:-7005</wuid>
+      <wuid>-423a1393:14e21bb12d7:-6df6</wuid>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
       <arrows>0</arrows>
@@ -1009,10 +1011,10 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
       <x>2</x>
     </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
+    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>-38aa0a56:1439cea4d24:-7004</wuid>
+      <wuid>-423a1393:14e21bb12d7:-6df5</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>14</height>
@@ -1046,7 +1048,7 @@ $(pv_value)</tooltip>
       <horizontal_alignment>1</horizontal_alignment>
       <actions hook="false" hook_all="false" />
       <y>67</y>
-      <wrap_words>true</wrap_words>
+      <wrap_words>false</wrap_words>
       <tooltip></tooltip>
       <x>21</x>
     </widget>

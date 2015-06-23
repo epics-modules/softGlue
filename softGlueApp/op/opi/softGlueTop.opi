@@ -1,10 +1,10 @@
-<display typeId="org.csstudio.opibuilder.Display" version="1.0">
+<display typeId="org.csstudio.opibuilder.Display" version="1.0.0">
   <auto_zoom_to_fit_all>false</auto_zoom_to_fit_all>
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <wuid>-38aa0a56:1439cea4d24:-7408</wuid>
-  <boy_version>3.1.4.20130717</boy_version>
+  <wuid>-423a1393:14e21bb12d7:-7209</wuid>
+  <boy_version>3.2.10.20140131</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
   <height>40</height>
@@ -31,11 +31,11 @@
   <actions hook="false" hook_all="false" />
   <y>25</y>
   <x>11</x>
-  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-38aa0a56:1439cea4d24:-7407</wuid>
+    <wuid>-423a1393:14e21bb12d7:-7208</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
