@@ -7,7 +7,7 @@
             <x>598</x>
             <y>29</y>
             <width>280</width>
-            <height>180</height>
+            <height>200</height>
         </rect>
     </property>
     <property name="styleSheet">
@@ -23,7 +23,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             <property name="geometry">
                 <rect>
                     <x>5</x>
-                    <y>155</y>
+                    <y>175</y>
                     <width>80</width>
                     <height>20</height>
                 </rect>
@@ -91,7 +91,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             <property name="geometry">
                 <rect>
                     <x>5</x>
-                    <y>80</y>
+                    <y>100</y>
                     <width>265</width>
                     <height>16</height>
                 </rect>
@@ -127,7 +127,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             <property name="geometry">
                 <rect>
                     <x>5</x>
-                    <y>5</y>
+                    <y>25</y>
                     <width>265</width>
                     <height>16</height>
                 </rect>
@@ -137,7 +137,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             <property name="geometry">
                 <rect>
                     <x>90</x>
-                    <y>50</y>
+                    <y>70</y>
                     <width>180</width>
                     <height>20</height>
                 </rect>
@@ -188,7 +188,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             <property name="geometry">
                 <rect>
                     <x>90</x>
-                    <y>100</y>
+                    <y>120</y>
                     <width>180</width>
                     <height>20</height>
                 </rect>
@@ -239,7 +239,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             <property name="geometry">
                 <rect>
                     <x>90</x>
-                    <y>125</y>
+                    <y>145</y>
                     <width>180</width>
                     <height>20</height>
                 </rect>
@@ -290,7 +290,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             <property name="geometry">
                 <rect>
                     <x>5</x>
-                    <y>50</y>
+                    <y>70</y>
                     <width>80</width>
                     <height>20</height>
                 </rect>
@@ -329,7 +329,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             <property name="geometry">
                 <rect>
                     <x>5</x>
-                    <y>100</y>
+                    <y>120</y>
                     <width>80</width>
                     <height>20</height>
                 </rect>
@@ -359,7 +359,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             <property name="geometry">
                 <rect>
                     <x>5</x>
-                    <y>125</y>
+                    <y>145</y>
                     <width>80</width>
                     <height>20</height>
                 </rect>
@@ -389,7 +389,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             <property name="geometry">
                 <rect>
                     <x>90</x>
-                    <y>25</y>
+                    <y>45</y>
                     <width>180</width>
                     <height>20</height>
                 </rect>
@@ -440,7 +440,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             <property name="geometry">
                 <rect>
                     <x>5</x>
-                    <y>25</y>
+                    <y>45</y>
                     <width>80</width>
                     <height>20</height>
                 </rect>
@@ -479,7 +479,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             <property name="geometry">
                 <rect>
                     <x>90</x>
-                    <y>155</y>
+                    <y>175</y>
                     <width>80</width>
                     <height>20</height>
                 </rect>
@@ -517,8 +517,127 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false;false</string>
             </property>
         </widget>
+        <widget class="caFrame" name="caFrame_0">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>282</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <widget class="caGraphics" name="caRectangle_0">
+                <property name="form">
+                    <enum>caGraphics::Rectangle</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>280</width>
+                        <height>14</height>
+                    </rect>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>255</red>
+                        <green>255</green>
+                        <blue>255</blue>
+                    </color>
+                </property>
+                <property name="fillstyle">
+                    <enum>Filled</enum>
+                </property>
+                <property name="lineColor">
+                    <color alpha="255">
+                        <red>255</red>
+                        <green>255</green>
+                        <blue>255</blue>
+                    </color>
+                </property>
+                <property name="linestyle">
+                    <enum>Solid</enum>
+                </property>
+            </widget>
+            <widget class="caLabel" name="caLabel_2">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>$(P)$(H) </string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>280</width>
+                        <height>14</height>
+                    </rect>
+                </property>
+            </widget>
+        </widget>
+        <widget class="caPolyLine" name="caPolyLine_0">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>15</y>
+                    <width>279</width>
+                    <height>3</height>
+                </rect>
+            </property>
+            <property name="lineSize">
+                <number>3</number>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>10</red>
+                    <green>0</green>
+                    <blue>184</blue>
+                </color>
+            </property>
+            <property name="fillstyle">
+                <enum>Filled</enum>
+            </property>
+            <property name="lineColor">
+                <color alpha="255">
+                    <red>10</red>
+                    <green>0</green>
+                    <blue>184</blue>
+                </color>
+            </property>
+            <property name="linestyle">
+                <enum>Solid</enum>
+            </property>
+            <property name="xyPairs">
+                <string>1,1;277,1;</string>
+            </property>
+        </widget>
         <zorder>caLabel_0</zorder>
         <zorder>caLabel_1</zorder>
+        <zorder>caRectangle_0</zorder>
+        <zorder>caLabel_2</zorder>
+        <zorder>caFrame_0</zorder>
+        <zorder>caPolyLine_0</zorder>
         <zorder>caRelatedDisplay_0</zorder>
         <zorder>caTextEntry_0</zorder>
         <zorder>caTextEntry_1</zorder>
