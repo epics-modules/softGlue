@@ -100,9 +100,9 @@ rectangle {
 }
 text {
 	object {
-		x=0
+		x=170
 		y=0
-		width=460
+		width=290
 		height=25
 	}
 	"basic attribute" {
@@ -136,4 +136,16 @@ composite {
 	}
 	"composite name"=""
 	"composite file"="softGlue_QuadDec_bare_label.adl;P=$(P),H=$(H),N=$(N)"
+}
+text {
+	object {
+		x=10
+		y=0
+		width=160
+		height=25
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="$(P)$(H)"
 }

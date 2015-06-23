@@ -1,14 +1,14 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlueConvenience.adl"
-	version=030105
+	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlueConvenience.adl"
+	version=030107
 }
 display {
 	object {
 		x=598
 		y=29
 		width=280
-		height=180
+		height=200
 	}
 	clr=14
 	bclr=2
@@ -90,7 +90,7 @@ display {
 "related display" {
 	object {
 		x=5
-		y=155
+		y=175
 		width=80
 		height=20
 	}
@@ -111,7 +111,7 @@ display {
 text {
 	object {
 		x=5
-		y=80
+		y=100
 		width=265
 		height=16
 	}
@@ -124,7 +124,7 @@ text {
 text {
 	object {
 		x=5
-		y=5
+		y=25
 		width=265
 		height=16
 	}
@@ -137,7 +137,7 @@ text {
 "text entry" {
 	object {
 		x=90
-		y=50
+		y=70
 		width=180
 		height=20
 	}
@@ -153,7 +153,7 @@ text {
 "text entry" {
 	object {
 		x=90
-		y=100
+		y=120
 		width=180
 		height=20
 	}
@@ -169,7 +169,7 @@ text {
 "text entry" {
 	object {
 		x=90
-		y=125
+		y=145
 		width=180
 		height=20
 	}
@@ -185,7 +185,7 @@ text {
 "message button" {
 	object {
 		x=5
-		y=50
+		y=70
 		width=80
 		height=20
 	}
@@ -200,7 +200,7 @@ text {
 menu {
 	object {
 		x=5
-		y=100
+		y=120
 		width=80
 		height=20
 	}
@@ -213,7 +213,7 @@ menu {
 menu {
 	object {
 		x=5
-		y=125
+		y=145
 		width=80
 		height=20
 	}
@@ -226,7 +226,7 @@ menu {
 "text entry" {
 	object {
 		x=90
-		y=25
+		y=45
 		width=180
 		height=20
 	}
@@ -242,7 +242,7 @@ menu {
 "message button" {
 	object {
 		x=5
-		y=25
+		y=45
 		width=80
 		height=20
 	}
@@ -257,7 +257,7 @@ menu {
 "related display" {
 	object {
 		x=90
-		y=155
+		y=175
 		width=80
 		height=20
 	}
@@ -274,4 +274,55 @@ menu {
 	clr=0
 	bclr=63
 	label="-sseq records"
+}
+composite {
+	object {
+		x=0
+		y=0
+		width=280
+		height=14
+	}
+	"composite name"=""
+	children {
+		rectangle {
+			object {
+				x=0
+				y=0
+				width=280
+				height=14
+			}
+			"basic attribute" {
+				clr=0
+			}
+		}
+		text {
+			object {
+				x=0
+				y=0
+				width=280
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="$(P)$(H) "
+			align="horiz. centered"
+		}
+	}
+}
+polyline {
+	object {
+		x=0
+		y=15
+		width=279
+		height=3
+	}
+	"basic attribute" {
+		clr=54
+		width=3
+	}
+	points {
+		(1,16)
+		(277,16)
+	}
 }

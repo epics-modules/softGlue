@@ -90,7 +90,7 @@ display {
 text {
 	object {
 		x=65
-		y=10
+		y=35
 		width=180
 		height=20
 	}
@@ -103,7 +103,7 @@ text {
 text {
 	object {
 		x=258
-		y=10
+		y=35
 		width=180
 		height=20
 	}
@@ -168,7 +168,7 @@ composite {
 composite {
 	object {
 		x=5
-		y=40
+		y=65
 		width=457
 		height=319
 	}
@@ -210,6 +210,68 @@ composite {
 				clr=14
 			}
 			textix="POLL TIME (MS)"
+		}
+	}
+}
+composite {
+	object {
+		x=0
+		y=0
+		width=520
+		height=23
+	}
+	"composite name"=""
+	children {
+		composite {
+			object {
+				x=0
+				y=0
+				width=520
+				height=20
+			}
+			"composite name"=""
+			children {
+				rectangle {
+					object {
+						x=0
+						y=0
+						width=520
+						height=20
+					}
+					"basic attribute" {
+						clr=0
+					}
+				}
+				text {
+					object {
+						x=0
+						y=0
+						width=520
+						height=20
+					}
+					"basic attribute" {
+						clr=14
+					}
+					textix="$(P)$(H) "
+					align="horiz. centered"
+				}
+			}
+		}
+		polyline {
+			object {
+				x=0
+				y=20
+				width=520
+				height=3
+			}
+			"basic attribute" {
+				clr=54
+				width=3
+			}
+			points {
+				(1,21)
+				(518,21)
+			}
 		}
 	}
 }

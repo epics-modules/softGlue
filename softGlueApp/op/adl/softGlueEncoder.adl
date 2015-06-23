@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=2
-		y=142
+		x=568
+		y=395
 		width=490
 		height=595
 	}
@@ -100,9 +100,9 @@ rectangle {
 }
 text {
 	object {
-		x=10
+		x=250
 		y=0
-		width=470
+		width=230
 		height=25
 	}
 	"basic attribute" {
@@ -166,4 +166,16 @@ composite {
 	}
 	"composite name"=""
 	"composite file"="softGlue_UpDnCntr_bare.adl;P=$(P),H=$(H),N=2"
+}
+text {
+	object {
+		x=10
+		y=0
+		width=240
+		height=25
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="$(P)$(H)"
 }

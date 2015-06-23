@@ -90,7 +90,7 @@ display {
 composite {
 	object {
 		x=5
-		y=50
+		y=75
 		width=727
 		height=340
 	}
@@ -179,7 +179,7 @@ composite {
 text {
 	object {
 		x=265
-		y=10
+		y=35
 		width=275
 		height=20
 	}
@@ -192,7 +192,7 @@ text {
 text {
 	object {
 		x=545
-		y=10
+		y=35
 		width=180
 		height=20
 	}
@@ -205,7 +205,7 @@ text {
 text {
 	object {
 		x=65
-		y=10
+		y=35
 		width=180
 		height=20
 	}
@@ -218,7 +218,7 @@ text {
 text {
 	object {
 		x=260
-		y=30
+		y=55
 		width=70
 		height=10
 	}
@@ -231,7 +231,7 @@ text {
 text {
 	object {
 		x=260
-		y=41
+		y=66
 		width=70
 		height=10
 	}
@@ -244,7 +244,7 @@ text {
 text {
 	object {
 		x=335
-		y=30
+		y=55
 		width=180
 		height=10
 	}
@@ -256,7 +256,7 @@ text {
 text {
 	object {
 		x=335
-		y=41
+		y=66
 		width=180
 		height=10
 	}
@@ -264,4 +264,66 @@ text {
 		clr=14
 	}
 	textix="VALUE VIA THIS LINK"
+}
+composite {
+	object {
+		x=0
+		y=0
+		width=800
+		height=23
+	}
+	"composite name"=""
+	children {
+		composite {
+			object {
+				x=0
+				y=0
+				width=800
+				height=20
+			}
+			"composite name"=""
+			children {
+				rectangle {
+					object {
+						x=0
+						y=0
+						width=800
+						height=20
+					}
+					"basic attribute" {
+						clr=0
+					}
+				}
+				text {
+					object {
+						x=0
+						y=0
+						width=800
+						height=20
+					}
+					"basic attribute" {
+						clr=14
+					}
+					textix="$(P)$(H) "
+					align="horiz. centered"
+				}
+			}
+		}
+		polyline {
+			object {
+				x=0
+				y=20
+				width=798
+				height=3
+			}
+			"basic attribute" {
+				clr=54
+				width=3
+			}
+			points {
+				(1,21)
+				(796,21)
+			}
+		}
+	}
 }

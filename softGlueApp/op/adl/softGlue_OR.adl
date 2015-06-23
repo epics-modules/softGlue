@@ -100,9 +100,9 @@ rectangle {
 }
 text {
 	object {
-		x=0
+		x=200
 		y=0
-		width=400
+		width=200
 		height=25
 	}
 	"basic attribute" {
@@ -136,4 +136,16 @@ composite {
 	}
 	"composite name"=""
 	"composite file"="softGlue_OR_bare_label.adl;P=$(P),H=$(H),N=$(N)"
+}
+text {
+	object {
+		x=10
+		y=0
+		width=190
+		height=25
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="$(P)$(H)"
 }
