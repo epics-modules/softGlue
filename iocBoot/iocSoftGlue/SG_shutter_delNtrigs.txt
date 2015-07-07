@@ -1,0 +1,51 @@
+This circuit produces a shutter signal, followed after a delay by N trigger
+signals:
+
+
+userStart       _____|---?...
+
+shutter         _____|-----------------------|______
+
+trigEnable      _________|-------------------|______
+
+trigger         _________|---|___|---|___|---|______
+
+time                 0   1   2   3
+
+time(0,1) delay from userStart to first trigger
+time(1,2) ON time of trigger pulses
+time(2,3) OFF time of trigger pulses
+
+MUX2-1
+
+selects manual or hardwired operation.
+
+DFF-4
+
+produces 'shutter' on the rising edge of 'start'.  'shutter*' enables DnCntr-4
+to begin counting the time delay from shutter on to the first trigger.  After
+the rising edge of 'start', we don't care what that signal does.
+
+DnCntr-4
+
+After PRESET clock pulses, produces 'delayedStart', a pulse that sets
+'trigEnable' (DFF-3) and 'trigger' (DFF-2, via OR-4).  'trigger*' rescinds
+DnCntr-1's LOAD input, allowing it to begin counting the trigger ON time.
+
+DnCntr-1
+
+Begins counting when 'trigger' goes high, and produces 'trigEnd' PRESET clock
+ticks later.  'trigEnd' loads DnCntr-2, and clears 'trigger' (DFF-2).
+
+DnCntr-2
+
+Begins counting when 'trigEnable' goes high, but it won't finish (won't roll all
+the way around from 0, backwards again to 0) before it gets loaded with PRESET
+by 'trigEnd'.  After this load, it counts down to zero to implement the trigger
+OFF time, producing 'trigNext'.  'trigNext sets 'trigger' (DFF-2, via OR-4).
+
+DnCntr-3
+
+Counts trigger pulses.  When 'trigEnable' goes true, LOAD is rescinded, allowing
+the counter to count while 'trigEnd' is high.  'trigEnd' (DnCntr-1) stays high
+for only one clock tick, so each trigger decrements DnCntr-3 by one.
