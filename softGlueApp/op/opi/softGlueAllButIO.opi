@@ -3,7 +3,7 @@
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <wuid>-423a1393:14e21bb12d7:-7f46</wuid>
+  <wuid>-f5e3660:14f4caa0e89:-7eb3</wuid>
   <boy_version>3.2.10.20140131</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
@@ -36,7 +36,7 @@
       <include_parent_macros>true</include_parent_macros>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f45</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7eb2</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -78,7 +78,7 @@
       <N>1</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f44</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7eb1</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -120,7 +120,7 @@
       <N>2</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f43</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7eb0</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -162,7 +162,7 @@
       <N>3</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f42</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7eaf</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -204,7 +204,7 @@
       <N>4</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f41</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7eae</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -246,11 +246,11 @@
       <N>3</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f40</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7ead</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
-    <height>73</height>
+    <height>72</height>
     <name>Linking Container</name>
     <scale_options>
       <width_scalable>true</width_scalable>
@@ -288,11 +288,11 @@
       <N>4</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f3f</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7eac</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
-    <height>73</height>
+    <height>72</height>
     <name>Linking Container</name>
     <scale_options>
       <width_scalable>true</width_scalable>
@@ -330,11 +330,11 @@
       <N>1</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f3e</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7eab</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
-    <height>73</height>
+    <height>72</height>
     <name>Linking Container</name>
     <scale_options>
       <width_scalable>true</width_scalable>
@@ -372,11 +372,11 @@
       <N>2</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f3d</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7eaa</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
-    <height>73</height>
+    <height>72</height>
     <name>Linking Container</name>
     <scale_options>
       <width_scalable>true</width_scalable>
@@ -414,7 +414,7 @@
       <N>1</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f3c</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7ea9</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -456,7 +456,7 @@
       <N>2</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f3b</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7ea8</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -498,7 +498,7 @@
       <N>3</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f3a</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7ea7</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -540,7 +540,7 @@
       <N>4</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f39</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7ea6</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -582,7 +582,7 @@
       <N>1</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f38</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7ea5</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -624,7 +624,7 @@
       <N>2</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f37</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7ea4</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -666,7 +666,7 @@
       <N>3</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f36</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7ea3</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -708,7 +708,7 @@
       <N>4</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f35</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7ea2</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -750,7 +750,7 @@
       <N>3</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f34</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7ea1</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -792,7 +792,7 @@
       <N>4</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f33</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7ea0</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -834,7 +834,7 @@
       <N>1</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f32</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7e9f</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -876,7 +876,7 @@
       <N>2</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f31</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7e9e</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -917,7 +917,7 @@
       <include_parent_macros>true</include_parent_macros>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f30</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7e9d</wuid>
     <scripts />
     <height>99</height>
     <name>Grouping Container</name>
@@ -958,7 +958,7 @@
         <N>1</N>
       </macros>
       <visible>true</visible>
-      <wuid>-423a1393:14e21bb12d7:-7f2f</wuid>
+      <wuid>-f5e3660:14f4caa0e89:-7e9c</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <zoom_to_fit>true</zoom_to_fit>
@@ -1000,7 +1000,7 @@
         <N>2</N>
       </macros>
       <visible>true</visible>
-      <wuid>-423a1393:14e21bb12d7:-7f2e</wuid>
+      <wuid>-f5e3660:14f4caa0e89:-7e9b</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <zoom_to_fit>true</zoom_to_fit>
@@ -1043,7 +1043,7 @@
       <N>2</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f2d</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7e9a</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -1085,7 +1085,7 @@
       <N>1</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f2c</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7e99</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -1127,7 +1127,7 @@
       <N>1</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f2b</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7e98</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -1169,7 +1169,7 @@
       <N>2</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f2a</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7e97</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -1211,7 +1211,7 @@
       <N>1</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f29</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7e96</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -1253,7 +1253,7 @@
       <N>2</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f28</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7e95</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -1295,7 +1295,7 @@
       <N>3</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f27</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7e94</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -1337,7 +1337,7 @@
       <N>4</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f26</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7e93</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -1373,38 +1373,39 @@
     <x>450</x>
     <tooltip></tooltip>
   </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
     <macros>
       <include_parent_macros>true</include_parent_macros>
+      <N>1</N>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f25</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7e92</wuid>
+    <auto_size>false</auto_size>
     <scripts />
-    <height>107</height>
-    <name>Grouping Container</name>
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>26</height>
+    <name>Linking Container</name>
     <scale_options>
       <width_scalable>true</width_scalable>
       <height_scalable>true</height_scalable>
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
-    <transparent>true</transparent>
-    <show_scrollbar>false</show_scrollbar>
+    <opi_file>softGlue_BUFFER_bare.opi</opi_file>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
     <background_color>
       <color red="218" green="218" blue="218" />
     </background_color>
+    <group_name></group_name>
     <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
+    <widget_type>Linking Container</widget_type>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
     <width>383</width>
-    <border_style>0</border_style>
+    <border_style>3</border_style>
     <rules />
-    <fc>false</fc>
-    <lock_children>false</lock_children>
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
@@ -1413,181 +1414,139 @@
     <actions hook="false" hook_all="false" />
     <x>450</x>
     <tooltip></tooltip>
-    <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
-      <macros>
-        <include_parent_macros>true</include_parent_macros>
-        <N>1</N>
-      </macros>
-      <visible>true</visible>
-      <wuid>-423a1393:14e21bb12d7:-7f24</wuid>
-      <auto_size>false</auto_size>
-      <scripts />
-      <zoom_to_fit>true</zoom_to_fit>
-      <height>26</height>
-      <name>Linking Container</name>
-      <scale_options>
-        <width_scalable>true</width_scalable>
-        <height_scalable>true</height_scalable>
-        <keep_wh_ratio>false</keep_wh_ratio>
-      </scale_options>
-      <opi_file>softGlue_BUFFER_bare.opi</opi_file>
-      <foreground_color>
-        <color red="0" green="0" blue="0" />
-      </foreground_color>
-      <background_color>
-        <color red="218" green="218" blue="218" />
-      </background_color>
-      <group_name></group_name>
-      <enabled>true</enabled>
-      <widget_type>Linking Container</widget_type>
-      <font>
-        <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
-      </font>
-      <width>383</width>
-      <border_style>3</border_style>
-      <rules />
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255" />
-      </border_color>
-      <y>0</y>
-      <actions hook="false" hook_all="false" />
-      <x>0</x>
-      <tooltip></tooltip>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
-      <macros>
-        <include_parent_macros>true</include_parent_macros>
-        <N>2</N>
-      </macros>
-      <visible>true</visible>
-      <wuid>-423a1393:14e21bb12d7:-7f23</wuid>
-      <auto_size>false</auto_size>
-      <scripts />
-      <zoom_to_fit>true</zoom_to_fit>
-      <height>26</height>
-      <name>Linking Container</name>
-      <scale_options>
-        <width_scalable>true</width_scalable>
-        <height_scalable>true</height_scalable>
-        <keep_wh_ratio>false</keep_wh_ratio>
-      </scale_options>
-      <opi_file>softGlue_BUFFER_bare.opi</opi_file>
-      <foreground_color>
-        <color red="0" green="0" blue="0" />
-      </foreground_color>
-      <background_color>
-        <color red="218" green="218" blue="218" />
-      </background_color>
-      <group_name></group_name>
-      <enabled>true</enabled>
-      <widget_type>Linking Container</widget_type>
-      <font>
-        <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
-      </font>
-      <width>383</width>
-      <border_style>3</border_style>
-      <rules />
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255" />
-      </border_color>
-      <y>27</y>
-      <actions hook="false" hook_all="false" />
-      <x>0</x>
-      <tooltip></tooltip>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
-      <macros>
-        <include_parent_macros>true</include_parent_macros>
-        <N>3</N>
-      </macros>
-      <visible>true</visible>
-      <wuid>-423a1393:14e21bb12d7:-7f22</wuid>
-      <auto_size>false</auto_size>
-      <scripts />
-      <zoom_to_fit>true</zoom_to_fit>
-      <height>26</height>
-      <name>Linking Container</name>
-      <scale_options>
-        <width_scalable>true</width_scalable>
-        <height_scalable>true</height_scalable>
-        <keep_wh_ratio>false</keep_wh_ratio>
-      </scale_options>
-      <opi_file>softGlue_BUFFER_bare.opi</opi_file>
-      <foreground_color>
-        <color red="0" green="0" blue="0" />
-      </foreground_color>
-      <background_color>
-        <color red="218" green="218" blue="218" />
-      </background_color>
-      <group_name></group_name>
-      <enabled>true</enabled>
-      <widget_type>Linking Container</widget_type>
-      <font>
-        <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
-      </font>
-      <width>383</width>
-      <border_style>3</border_style>
-      <rules />
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255" />
-      </border_color>
-      <y>54</y>
-      <actions hook="false" hook_all="false" />
-      <x>0</x>
-      <tooltip></tooltip>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
-      <macros>
-        <include_parent_macros>true</include_parent_macros>
-        <N>4</N>
-      </macros>
-      <visible>true</visible>
-      <wuid>-423a1393:14e21bb12d7:-7f21</wuid>
-      <auto_size>false</auto_size>
-      <scripts />
-      <zoom_to_fit>true</zoom_to_fit>
-      <height>26</height>
-      <name>Linking Container</name>
-      <scale_options>
-        <width_scalable>true</width_scalable>
-        <height_scalable>true</height_scalable>
-        <keep_wh_ratio>false</keep_wh_ratio>
-      </scale_options>
-      <opi_file>softGlue_BUFFER_bare.opi</opi_file>
-      <foreground_color>
-        <color red="0" green="0" blue="0" />
-      </foreground_color>
-      <background_color>
-        <color red="218" green="218" blue="218" />
-      </background_color>
-      <group_name></group_name>
-      <enabled>true</enabled>
-      <widget_type>Linking Container</widget_type>
-      <font>
-        <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
-      </font>
-      <width>383</width>
-      <border_style>3</border_style>
-      <rules />
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255" />
-      </border_color>
-      <y>81</y>
-      <actions hook="false" hook_all="false" />
-      <x>0</x>
-      <tooltip></tooltip>
-    </widget>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>2</N>
+    </macros>
+    <visible>true</visible>
+    <wuid>-f5e3660:14f4caa0e89:-7e91</wuid>
+    <auto_size>false</auto_size>
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>26</height>
+    <name>Linking Container</name>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <opi_file>softGlue_BUFFER_bare.opi</opi_file>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
+    <group_name></group_name>
+    <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>383</width>
+    <border_style>3</border_style>
+    <rules />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>657</y>
+    <actions hook="false" hook_all="false" />
+    <x>450</x>
+    <tooltip></tooltip>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>3</N>
+    </macros>
+    <visible>true</visible>
+    <wuid>-f5e3660:14f4caa0e89:-7e90</wuid>
+    <auto_size>false</auto_size>
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>26</height>
+    <name>Linking Container</name>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <opi_file>softGlue_BUFFER_bare.opi</opi_file>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
+    <group_name></group_name>
+    <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>383</width>
+    <border_style>3</border_style>
+    <rules />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>684</y>
+    <actions hook="false" hook_all="false" />
+    <x>450</x>
+    <tooltip></tooltip>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>4</N>
+    </macros>
+    <visible>true</visible>
+    <wuid>-f5e3660:14f4caa0e89:-7e8f</wuid>
+    <auto_size>false</auto_size>
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>26</height>
+    <name>Linking Container</name>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <opi_file>softGlue_BUFFER_bare.opi</opi_file>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <background_color>
+      <color red="218" green="218" blue="218" />
+    </background_color>
+    <group_name></group_name>
+    <enabled>true</enabled>
+    <widget_type>Linking Container</widget_type>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>383</width>
+    <border_style>3</border_style>
+    <rules />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <y>711</y>
+    <actions hook="false" hook_all="false" />
+    <x>450</x>
+    <tooltip></tooltip>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
     <macros>
       <include_parent_macros>true</include_parent_macros>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f20</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7e8e</wuid>
     <scripts />
     <height>20</height>
     <name>Grouping Container</name>
@@ -1627,7 +1586,7 @@
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
       <show_units>false</show_units>
-      <wuid>-423a1393:14e21bb12d7:-7f1f</wuid>
+      <wuid>-f5e3660:14f4caa0e89:-7e8d</wuid>
       <auto_size>false</auto_size>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
@@ -1676,7 +1635,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>-423a1393:14e21bb12d7:-7f1e</wuid>
+      <wuid>-f5e3660:14f4caa0e89:-7e8c</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>20</height>
@@ -1717,7 +1676,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>-423a1393:14e21bb12d7:-7f1d</wuid>
+      <wuid>-f5e3660:14f4caa0e89:-7e8b</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>20</height>
@@ -1760,7 +1719,7 @@ $(pv_value)</tooltip>
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
       <show_units>false</show_units>
-      <wuid>-423a1393:14e21bb12d7:-7f1c</wuid>
+      <wuid>-f5e3660:14f4caa0e89:-7e8a</wuid>
       <auto_size>false</auto_size>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
@@ -1812,7 +1771,7 @@ $(pv_value)</tooltip>
       <include_parent_macros>true</include_parent_macros>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7f19</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7e87</wuid>
     <scripts />
     <height>20</height>
     <name>Grouping Container</name>
@@ -1854,7 +1813,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>-423a1393:14e21bb12d7:-7f18</wuid>
+      <wuid>-f5e3660:14f4caa0e89:-7e86</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -1907,7 +1866,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>-423a1393:14e21bb12d7:-7f17</wuid>
+      <wuid>-f5e3660:14f4caa0e89:-7e85</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>20</height>
@@ -1950,7 +1909,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-423a1393:14e21bb12d7:-7f1b</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7e89</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2002,7 +1961,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-423a1393:14e21bb12d7:-7f1a</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7e88</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -2056,7 +2015,7 @@ $(pv_value)</tooltip>
     <arrow_length>20</arrow_length>
     <visible>true</visible>
     <fill_level>100.0</fill_level>
-    <wuid>-423a1393:14e21bb12d7:-7f16</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7e84</wuid>
     <rotation_angle>0.0</rotation_angle>
     <scripts />
     <arrows>0</arrows>

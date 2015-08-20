@@ -3,11 +3,11 @@
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <wuid>-423a1393:14e21bb12d7:-7121</wuid>
+  <wuid>-f5e3660:14f4caa0e89:-72d6</wuid>
   <boy_version>3.2.10.20140131</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
-  <height>50</height>
+  <height>41</height>
   <name>softGlue_BUFFER_bare_label</name>
   <snap_to_geometry>false</snap_to_geometry>
   <show_grid>false</show_grid>
@@ -19,7 +19,7 @@
   </foreground_color>
   <widget_type>Display</widget_type>
   <show_close_button>true</show_close_button>
-  <width>400</width>
+  <width>383</width>
   <rules />
   <show_edit_range>true</show_edit_range>
   <grid_space>5</grid_space>
@@ -29,14 +29,14 @@
     <min_height>-1</min_height>
   </auto_scale_widgets>
   <actions hook="false" hook_all="false" />
-  <y>490</y>
-  <x>1072</x>
+  <y>590</y>
+  <x>1075</x>
   <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
     <macros>
       <include_parent_macros>true</include_parent_macros>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-7120</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-72d5</wuid>
     <scripts />
     <height>26</height>
     <name>Grouping Container</name>
@@ -67,9 +67,9 @@
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <y>20</y>
+    <y>15</y>
     <actions hook="false" hook_all="false" />
-    <x>10</x>
+    <x>0</x>
     <tooltip></tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0.0">
       <macros>
@@ -77,7 +77,7 @@
         <SIG>BUFFER-$(N)_IN</SIG>
       </macros>
       <visible>true</visible>
-      <wuid>-423a1393:14e21bb12d7:-711f</wuid>
+      <wuid>-f5e3660:14f4caa0e89:-72d4</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <zoom_to_fit>true</zoom_to_fit>
@@ -119,7 +119,7 @@
         <SIG>BUFFER-$(N)_OUT</SIG>
       </macros>
       <visible>true</visible>
-      <wuid>-423a1393:14e21bb12d7:-711c</wuid>
+      <wuid>-f5e3660:14f4caa0e89:-72d1</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <zoom_to_fit>true</zoom_to_fit>
@@ -161,7 +161,7 @@
       <arrow_length>20</arrow_length>
       <visible>true</visible>
       <fill_level>100.0</fill_level>
-      <wuid>-423a1393:14e21bb12d7:-711e</wuid>
+      <wuid>-f5e3660:14f4caa0e89:-72d3</wuid>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
       <arrows>0</arrows>
@@ -216,7 +216,7 @@ $(pv_value)</tooltip>
       <arrow_length>20</arrow_length>
       <visible>true</visible>
       <fill_level>100.0</fill_level>
-      <wuid>-423a1393:14e21bb12d7:-711d</wuid>
+      <wuid>-f5e3660:14f4caa0e89:-72d2</wuid>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
       <arrows>0</arrows>
@@ -268,7 +268,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>-423a1393:14e21bb12d7:-711b</wuid>
+      <wuid>-f5e3660:14f4caa0e89:-72d0</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>10</height>
@@ -312,7 +312,7 @@ $(pv_value)</tooltip>
       <arrow_length>20</arrow_length>
       <visible>true</visible>
       <fill_level>100.0</fill_level>
-      <wuid>-423a1393:14e21bb12d7:-711a</wuid>
+      <wuid>-f5e3660:14f4caa0e89:-72cf</wuid>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
       <arrows>0</arrows>
@@ -397,7 +397,7 @@ $(pv_value)</tooltip>
     <minimum>-Infinity</minimum>
     <next_focus>0</next_focus>
     <show_units>false</show_units>
-    <wuid>-423a1393:14e21bb12d7:-7119</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-72ce</wuid>
     <rotation_angle>0.0</rotation_angle>
     <style>0</style>
     <name>Text Input</name>
@@ -422,9 +422,9 @@ $(pv_value)</tooltip>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <y>5</y>
+    <y>0</y>
     <actions hook="false" hook_all="false" />
-    <x>10</x>
+    <x>0</x>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
   </widget>

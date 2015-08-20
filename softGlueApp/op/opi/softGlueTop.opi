@@ -3,7 +3,7 @@
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <wuid>-423a1393:14e21bb12d7:-7209</wuid>
+  <wuid>-f5e3660:14f4caa0e89:-73c0</wuid>
   <boy_version>3.2.10.20140131</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
@@ -35,7 +35,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-423a1393:14e21bb12d7:-7208</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-73bf</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>

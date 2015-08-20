@@ -3,7 +3,7 @@
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <wuid>-423a1393:14e21bb12d7:-6ecd</wuid>
+  <wuid>-f5e3660:14f4caa0e89:-705a</wuid>
   <boy_version>3.2.10.20140131</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
@@ -38,7 +38,7 @@
     <line_color>
       <color name="MEDM_COLOR_17" red="51" green="153" blue="0" />
     </line_color>
-    <wuid>-423a1393:14e21bb12d7:-6eca</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7057</wuid>
     <bg_gradient_color>
       <color red="255" green="255" blue="255" />
     </bg_gradient_color>
@@ -105,7 +105,7 @@ $(pv_value)</tooltip>
     <line_color>
       <color red="128" green="0" blue="255" />
     </line_color>
-    <wuid>-423a1393:14e21bb12d7:-6ecc</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7059</wuid>
     <bg_gradient_color>
       <color red="255" green="255" blue="255" />
     </bg_gradient_color>
@@ -168,7 +168,7 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-6ecb</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7058</wuid>
     <scripts />
     <height>20</height>
     <style>1</style>
@@ -231,7 +231,7 @@ $(pv_value)</tooltip>
     <arrow_length>20</arrow_length>
     <visible>true</visible>
     <fill_level>100.0</fill_level>
-    <wuid>-423a1393:14e21bb12d7:-6ec9</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7056</wuid>
     <rotation_angle>0.0</rotation_angle>
     <scripts />
     <arrows>0</arrows>
@@ -311,7 +311,7 @@ $(pv_value)</tooltip>
     <minimum>-Infinity</minimum>
     <next_focus>0</next_focus>
     <show_units>false</show_units>
-    <wuid>-423a1393:14e21bb12d7:-6ec8</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7055</wuid>
     <rotation_angle>0.0</rotation_angle>
     <style>0</style>
     <name>Text Input</name>
@@ -349,7 +349,7 @@ $(pv_value)</tooltip>
     <line_color>
       <color red="128" green="0" blue="255" />
     </line_color>
-    <wuid>-423a1393:14e21bb12d7:-6ec7</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7054</wuid>
     <bg_gradient_color>
       <color red="255" green="255" blue="255" />
     </bg_gradient_color>
@@ -414,11 +414,11 @@ $(pv_value)</tooltip>
     <visible>true</visible>
     <vertical_alignment>1</vertical_alignment>
     <show_units>false</show_units>
-    <wuid>-423a1393:14e21bb12d7:-6ec6</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7053</wuid>
     <auto_size>false</auto_size>
     <rotation_angle>0.0</rotation_angle>
     <scripts />
-    <height>10</height>
+    <height>12</height>
     <name>Text Update</name>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <scale_options>
@@ -442,7 +442,7 @@ $(pv_value)</tooltip>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <precision>0</precision>
     <font>
-      <fontdata fontName="Sans" height="6" style="0" />
+      <fontdata fontName="Sans" height="8" style="0" />
     </font>
     <width>10</width>
     <border_style>0</border_style>
@@ -454,7 +454,7 @@ $(pv_value)</tooltip>
     </border_color>
     <horizontal_alignment>0</horizontal_alignment>
     <actions hook="false" hook_all="false" />
-    <y>3</y>
+    <y>1</y>
     <wrap_words>false</wrap_words>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>

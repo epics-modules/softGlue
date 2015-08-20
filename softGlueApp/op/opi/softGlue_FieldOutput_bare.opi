@@ -3,7 +3,7 @@
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <wuid>-423a1393:14e21bb12d7:-6eff</wuid>
+  <wuid>-f5e3660:14f4caa0e89:-708c</wuid>
   <boy_version>3.2.10.20140131</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
@@ -37,7 +37,7 @@
       <SIG>FO$(N)</SIG>
     </macros>
     <visible>true</visible>
-    <wuid>-423a1393:14e21bb12d7:-6efe</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-708b</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -76,7 +76,7 @@
   <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
     <visible>true</visible>
     <vertical_alignment>1</vertical_alignment>
-    <wuid>-423a1393:14e21bb12d7:-6efd</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-708a</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <height>20</height>
@@ -107,7 +107,7 @@
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <horizontal_alignment>1</horizontal_alignment>
+    <horizontal_alignment>0</horizontal_alignment>
     <actions hook="false" hook_all="false" />
     <y>5</y>
     <wrap_words>false</wrap_words>
@@ -119,11 +119,11 @@
     <visible>true</visible>
     <vertical_alignment>1</vertical_alignment>
     <show_units>false</show_units>
-    <wuid>-423a1393:14e21bb12d7:-6efc</wuid>
+    <wuid>-f5e3660:14f4caa0e89:-7089</wuid>
     <auto_size>false</auto_size>
     <rotation_angle>0.0</rotation_angle>
     <scripts />
-    <height>10</height>
+    <height>12</height>
     <name>Text Update</name>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <scale_options>
@@ -147,7 +147,7 @@
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <precision>0</precision>
     <font>
-      <fontdata fontName="Sans" height="6" style="0" />
+      <fontdata fontName="Sans" height="8" style="0" />
     </font>
     <width>12</width>
     <border_style>0</border_style>
@@ -159,7 +159,7 @@
     </border_color>
     <horizontal_alignment>0</horizontal_alignment>
     <actions hook="false" hook_all="false" />
-    <y>10</y>
+    <y>9</y>
     <wrap_words>false</wrap_words>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
