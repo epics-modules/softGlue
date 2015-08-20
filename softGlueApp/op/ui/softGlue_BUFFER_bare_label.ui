@@ -4,10 +4,10 @@
 <widget class="QMainWindow" name="MainWindow">
     <property name="geometry">
         <rect>
-            <x>1072</x>
-            <y>490</y>
-            <width>400</width>
-            <height>50</height>
+            <x>1075</x>
+            <y>590</y>
+            <width>383</width>
+            <height>41</height>
         </rect>
     </property>
     <property name="styleSheet">
@@ -22,8 +22,8 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <widget class="caFrame" name="caFrame_0">
             <property name="geometry">
                 <rect>
-                    <x>10</x>
-                    <y>20</y>
+                    <x>0</x>
+                    <y>15</y>
                     <width>385</width>
                     <height>28</height>
                 </rect>
@@ -232,8 +232,8 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <widget class="caTextEntry" name="caTextEntry_0">
             <property name="geometry">
                 <rect>
-                    <x>10</x>
-                    <y>5</y>
+                    <x>0</x>
+                    <y>0</y>
                     <width>380</width>
                     <height>16</height>
                 </rect>

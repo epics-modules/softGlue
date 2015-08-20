@@ -153,20 +153,20 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>10</x>
                     <y>130</y>
-                    <width>482</width>
-                    <height>202</height>
+                    <width>469</width>
+                    <height>181</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
                     <y>130</y>
-                    <width>480</width>
-                    <height>200</height>
+                    <width>467</width>
+                    <height>179</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>softGlue_UpDnCntr_bare.adl</string>
+                <string>softGlue_UpDnCntr_bare_label.adl</string>
             </property>
             <property name="macro">
                 <string>P=$(P),H=$(H),N=1</string>
@@ -201,20 +201,20 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>10</x>
                     <y>410</y>
-                    <width>482</width>
-                    <height>202</height>
+                    <width>469</width>
+                    <height>181</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
                     <y>410</y>
-                    <width>480</width>
-                    <height>200</height>
+                    <width>467</width>
+                    <height>179</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>softGlue_UpDnCntr_bare.adl</string>
+                <string>softGlue_UpDnCntr_bare_label.adl</string>
             </property>
             <property name="macro">
                 <string>P=$(P),H=$(H),N=2</string>

@@ -4,10 +4,10 @@
 <widget class="QMainWindow" name="MainWindow">
     <property name="geometry">
         <rect>
-            <x>579</x>
-            <y>274</y>
-            <width>440</width>
-            <height>115</height>
+            <x>974</x>
+            <y>240</y>
+            <width>418</width>
+            <height>95</height>
         </rect>
     </property>
     <property name="styleSheet">
@@ -22,16 +22,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <widget class="caInclude" name="caInclude_0">
             <property name="geometry">
                 <rect>
-                    <x>10</x>
-                    <y>78</y>
+                    <x>0</x>
+                    <y>69</y>
                     <width>158</width>
                     <height>28</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>10</x>
-                    <y>78</y>
+                    <x>0</x>
+                    <y>69</y>
                     <width>156</width>
                     <height>26</height>
                 </rect>
@@ -46,16 +46,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <widget class="caInclude" name="caInclude_1">
             <property name="geometry">
                 <rect>
-                    <x>10</x>
-                    <y>55</y>
+                    <x>0</x>
+                    <y>46</y>
                     <width>158</width>
                     <height>28</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>10</x>
-                    <y>55</y>
+                    <x>0</x>
+                    <y>46</y>
                     <width>156</width>
                     <height>26</height>
                 </rect>
@@ -70,16 +70,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <widget class="caInclude" name="caInclude_2">
             <property name="geometry">
                 <rect>
-                    <x>10</x>
-                    <y>32</y>
+                    <x>0</x>
+                    <y>23</y>
                     <width>158</width>
                     <height>28</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>10</x>
-                    <y>32</y>
+                    <x>0</x>
+                    <y>23</y>
                     <width>156</width>
                     <height>26</height>
                 </rect>
@@ -94,16 +94,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <widget class="caInclude" name="caInclude_3">
             <property name="geometry">
                 <rect>
-                    <x>10</x>
-                    <y>9</y>
+                    <x>0</x>
+                    <y>0</y>
                     <width>158</width>
                     <height>28</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>10</x>
-                    <y>9</y>
+                    <x>0</x>
+                    <y>0</y>
                     <width>156</width>
                     <height>26</height>
                 </rect>
@@ -118,8 +118,8 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <widget class="caPolyLine" name="caPolyLine_0">
             <property name="geometry">
                 <rect>
-                    <x>164</x>
-                    <y>68</y>
+                    <x>154</x>
+                    <y>59</y>
                     <width>13</width>
                     <height>2</height>
                 </rect>
@@ -158,8 +158,8 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <widget class="caPolyLine" name="caPolyLine_1">
             <property name="geometry">
                 <rect>
-                    <x>164</x>
-                    <y>45</y>
+                    <x>154</x>
+                    <y>36</y>
                     <width>12</width>
                     <height>2</height>
                 </rect>
@@ -201,8 +201,8 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             </property>
             <property name="geometry">
                 <rect>
-                    <x>175</x>
-                    <y>38</y>
+                    <x>165</x>
+                    <y>29</y>
                     <width>82</width>
                     <height>41</height>
                 </rect>
@@ -238,8 +238,8 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <widget class="caPolyLine" name="caPolyLine_2">
             <property name="geometry">
                 <rect>
-                    <x>174</x>
-                    <y>61</y>
+                    <x>164</x>
+                    <y>52</y>
                     <width>11</width>
                     <height>16</height>
                 </rect>
@@ -300,8 +300,8 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             </property>
             <property name="geometry">
                 <rect>
-                    <x>179</x>
-                    <y>41</y>
+                    <x>169</x>
+                    <y>32</y>
                     <width>10</width>
                     <height>13</height>
                 </rect>
@@ -336,8 +336,8 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             </property>
             <property name="geometry">
                 <rect>
-                    <x>195</x>
-                    <y>41</y>
+                    <x>185</x>
+                    <y>32</y>
                     <width>40</width>
                     <height>10</height>
                 </rect>
@@ -372,8 +372,8 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             </property>
             <property name="geometry">
                 <rect>
-                    <x>195</x>
-                    <y>67</y>
+                    <x>185</x>
+                    <y>58</y>
                     <width>40</width>
                     <height>10</height>
                 </rect>
@@ -382,8 +382,8 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <widget class="caPolyLine" name="caPolyLine_3">
             <property name="geometry">
                 <rect>
-                    <x>214</x>
-                    <y>85</y>
+                    <x>204</x>
+                    <y>76</y>
                     <width>2</width>
                     <height>9</height>
                 </rect>
@@ -418,8 +418,8 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <widget class="caPolyLine" name="caPolyLine_4">
             <property name="geometry">
                 <rect>
-                    <x>214</x>
-                    <y>21</y>
+                    <x>204</x>
+                    <y>12</y>
                     <width>2</width>
                     <height>13</height>
                 </rect>
@@ -454,8 +454,8 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <widget class="caPolyLine" name="caPolyLine_5">
             <property name="geometry">
                 <rect>
-                    <x>164</x>
-                    <y>91</y>
+                    <x>154</x>
+                    <y>82</y>
                     <width>53</width>
                     <height>2</height>
                 </rect>
@@ -494,8 +494,8 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <widget class="caPolyLine" name="caPolyLine_6">
             <property name="geometry">
                 <rect>
-                    <x>164</x>
-                    <y>22</y>
+                    <x>154</x>
+                    <y>13</y>
                     <width>53</width>
                     <height>2</height>
                 </rect>
@@ -534,8 +534,8 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <widget class="caPolyLine" name="caPolyLine_7">
             <property name="geometry">
                 <rect>
-                    <x>256</x>
-                    <y>46</y>
+                    <x>246</x>
+                    <y>37</y>
                     <width>17</width>
                     <height>2</height>
                 </rect>
@@ -600,8 +600,8 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             </property>
             <property name="geometry">
                 <rect>
-                    <x>242</x>
-                    <y>41</y>
+                    <x>232</x>
+                    <y>32</y>
                     <width>10</width>
                     <height>13</height>
                 </rect>
@@ -610,16 +610,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <widget class="caInclude" name="caInclude_4">
             <property name="geometry">
                 <rect>
-                    <x>271</x>
-                    <y>33</y>
+                    <x>261</x>
+                    <y>24</y>
                     <width>158</width>
                     <height>28</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>271</x>
-                    <y>33</y>
+                    <x>261</x>
+                    <y>24</y>
                     <width>156</width>
                     <height>26</height>
                 </rect>
@@ -637,8 +637,8 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             </property>
             <property name="geometry">
                 <rect>
-                    <x>210</x>
-                    <y>29</y>
+                    <x>200</x>
+                    <y>20</y>
                     <width>10</width>
                     <height>10</height>
                 </rect>
@@ -677,8 +677,8 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             </property>
             <property name="geometry">
                 <rect>
-                    <x>210</x>
-                    <y>78</y>
+                    <x>200</x>
+                    <y>69</y>
                     <width>10</width>
                     <height>10</height>
                 </rect>
@@ -737,8 +737,8 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             </property>
             <property name="geometry">
                 <rect>
-                    <x>199</x>
-                    <y>54</y>
+                    <x>189</x>
+                    <y>45</y>
                     <width>48</width>
                     <height>10</height>
                 </rect>
@@ -753,8 +753,8 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             </property>
             <property name="geometry">
                 <rect>
-                    <x>192</x>
-                    <y>51</y>
+                    <x>182</x>
+                    <y>42</y>
                     <width>45</width>
                     <height>14</height>
                 </rect>

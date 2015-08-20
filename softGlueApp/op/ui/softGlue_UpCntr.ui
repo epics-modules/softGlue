@@ -129,16 +129,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>10</x>
                     <y>30</y>
-                    <width>442</width>
-                    <height>102</height>
+                    <width>422</width>
+                    <height>92</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
                     <y>30</y>
-                    <width>440</width>
-                    <height>100</height>
+                    <width>420</width>
+                    <height>90</height>
                 </rect>
             </property>
             <property name="filename">

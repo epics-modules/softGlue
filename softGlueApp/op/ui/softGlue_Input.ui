@@ -295,9 +295,9 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             <property name="geometry">
                 <rect>
                     <x>132</x>
-                    <y>3</y>
+                    <y>1</y>
                     <width>10</width>
-                    <height>10</height>
+                    <height>12</height>
                 </rect>
             </property>
             <property name="fontScaleMode">

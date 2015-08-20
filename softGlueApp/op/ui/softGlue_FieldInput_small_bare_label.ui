@@ -4,8 +4,8 @@
 <widget class="QMainWindow" name="MainWindow">
     <property name="geometry">
         <rect>
-            <x>970</x>
-            <y>624</y>
+            <x>1244</x>
+            <y>345</y>
             <width>250</width>
             <height>24</height>
         </rect>
@@ -67,25 +67,25 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignRight|Qt::AlignVCenter</set>
-            </property>
             <property name="geometry">
                 <rect>
-                    <x>75</x>
+                    <x>70</x>
                     <y>5</y>
                     <width>48</width>
                     <height>20</height>
                 </rect>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
         <widget class="caLineEdit" name="caLineEdit_0">
             <property name="geometry">
                 <rect>
                     <x>0</x>
-                    <y>10</y>
+                    <y>8</y>
                     <width>60</width>
-                    <height>10</height>
+                    <height>12</height>
                 </rect>
             </property>
             <property name="fontScaleMode">

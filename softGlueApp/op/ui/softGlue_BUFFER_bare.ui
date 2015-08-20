@@ -6,8 +6,8 @@
         <rect>
             <x>1072</x>
             <y>490</y>
-            <width>400</width>
-            <height>35</height>
+            <width>383</width>
+            <height>26</height>
         </rect>
     </property>
     <property name="styleSheet">
@@ -22,8 +22,8 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <widget class="caFrame" name="caFrame_0">
             <property name="geometry">
                 <rect>
-                    <x>10</x>
-                    <y>4</y>
+                    <x>0</x>
+                    <y>0</y>
                     <width>385</width>
                     <height>28</height>
                 </rect>

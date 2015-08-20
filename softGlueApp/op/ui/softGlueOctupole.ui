@@ -4,10 +4,10 @@
 <widget class="QMainWindow" name="MainWindow">
     <property name="geometry">
         <rect>
-            <x>581</x>
-            <y>276</y>
+            <x>916</x>
+            <y>285</y>
             <width>490</width>
-            <height>230</height>
+            <height>270</height>
         </rect>
     </property>
     <property name="styleSheet">
@@ -19,65 +19,55 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
 </string>
     </property>
     <widget class="QWidget" name="centralWidget">
-        <widget class="caFrame" name="caFrame_0">
+        <widget class="caInclude" name="caInclude_0">
             <property name="geometry">
                 <rect>
-                    <x>9</x>
-                    <y>30</y>
-                    <width>477</width>
-                    <height>200</height>
+                    <x>5</x>
+                    <y>150</y>
+                    <width>482</width>
+                    <height>119</height>
                 </rect>
             </property>
-            <widget class="caInclude" name="caInclude_1">
-                <property name="geometry">
-                    <rect>
-                        <x>0</x>
-                        <y>100</y>
-                        <width>492</width>
-                        <height>102</height>
-                    </rect>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>0</x>
-                        <y>100</y>
-                        <width>490</width>
-                        <height>100</height>
-                    </rect>
-                </property>
-                <property name="filename">
-                    <string>softGlue_Shift32_bare.adl</string>
-                </property>
-                <property name="macro">
-                    <string> P=$(P),H=$(H),N=2</string>
-                </property>
-            </widget>
-            <widget class="caInclude" name="caInclude_2">
-                <property name="geometry">
-                    <rect>
-                        <x>0</x>
-                        <y>0</y>
-                        <width>492</width>
-                        <height>102</height>
-                    </rect>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>0</x>
-                        <y>0</y>
-                        <width>490</width>
-                        <height>100</height>
-                    </rect>
-                </property>
-                <property name="filename">
-                    <string>softGlue_Shift32_bare.adl</string>
-                </property>
-                <property name="macro">
-                    <string> P=$(P),H=$(H),N=1</string>
-                </property>
-            </widget>
+            <property name="geometry">
+                <rect>
+                    <x>5</x>
+                    <y>150</y>
+                    <width>480</width>
+                    <height>117</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>softGlue_Shift32_bare_label.adl</string>
+            </property>
+            <property name="macro">
+                <string> P=$(P),H=$(H),N=2</string>
+            </property>
         </widget>
-        <widget class="caFrame" name="caFrame_3">
+        <widget class="caInclude" name="caInclude_1">
+            <property name="geometry">
+                <rect>
+                    <x>5</x>
+                    <y>25</y>
+                    <width>482</width>
+                    <height>119</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>5</x>
+                    <y>25</y>
+                    <width>480</width>
+                    <height>117</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>softGlue_Shift32_bare_label.adl</string>
+            </property>
+            <property name="macro">
+                <string> P=$(P),H=$(H),N=1</string>
+            </property>
+        </widget>
+        <widget class="caFrame" name="caFrame_2">
             <property name="geometry">
                 <rect>
                     <x>0</x>
@@ -86,7 +76,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                     <height>25</height>
                 </rect>
             </property>
-            <widget class="caFrame" name="caFrame_4">
+            <widget class="caFrame" name="caFrame_3">
                 <property name="geometry">
                     <rect>
                         <x>0</x>
@@ -202,14 +192,13 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 </property>
             </widget>
         </widget>
+        <zorder>caInclude_0</zorder>
         <zorder>caInclude_1</zorder>
-        <zorder>caInclude_2</zorder>
-        <zorder>caFrame_0</zorder>
         <zorder>caRectangle_0</zorder>
         <zorder>caLabel_0</zorder>
-        <zorder>caFrame_4</zorder>
-        <zorder>caPolyLine_0</zorder>
         <zorder>caFrame_3</zorder>
+        <zorder>caPolyLine_0</zorder>
+        <zorder>caFrame_2</zorder>
     </widget>
 </widget>
 </ui>

@@ -24,16 +24,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>965</x>
                     <y>715</y>
-                    <width>317</width>
-                    <height>47</height>
+                    <width>287</width>
+                    <height>28</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>965</x>
                     <y>715</y>
-                    <width>315</width>
-                    <height>45</height>
+                    <width>285</width>
+                    <height>26</height>
                 </rect>
             </property>
             <property name="filename">
@@ -48,16 +48,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>935</x>
                     <y>30</y>
-                    <width>442</width>
-                    <height>87</height>
+                    <width>416</width>
+                    <height>74</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>935</x>
                     <y>30</y>
-                    <width>440</width>
-                    <height>85</height>
+                    <width>414</width>
+                    <height>72</height>
                 </rect>
             </property>
             <property name="filename">
@@ -72,16 +72,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>935</x>
                     <y>103</y>
-                    <width>442</width>
-                    <height>87</height>
+                    <width>416</width>
+                    <height>74</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>935</x>
                     <y>103</y>
-                    <width>440</width>
-                    <height>85</height>
+                    <width>414</width>
+                    <height>72</height>
                 </rect>
             </property>
             <property name="filename">
@@ -96,16 +96,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>935</x>
                     <y>176</y>
-                    <width>442</width>
-                    <height>87</height>
+                    <width>416</width>
+                    <height>74</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>935</x>
                     <y>176</y>
-                    <width>440</width>
-                    <height>85</height>
+                    <width>414</width>
+                    <height>72</height>
                 </rect>
             </property>
             <property name="filename">
@@ -120,16 +120,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>935</x>
                     <y>249</y>
-                    <width>442</width>
-                    <height>87</height>
+                    <width>416</width>
+                    <height>74</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>935</x>
                     <y>249</y>
-                    <width>440</width>
-                    <height>85</height>
+                    <width>414</width>
+                    <height>72</height>
                 </rect>
             </property>
             <property name="filename">
@@ -144,16 +144,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>450</x>
                     <y>180</y>
-                    <width>492</width>
-                    <height>92</height>
+                    <width>470</width>
+                    <height>74</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>450</x>
                     <y>180</y>
-                    <width>490</width>
-                    <height>90</height>
+                    <width>468</width>
+                    <height>72</height>
                 </rect>
             </property>
             <property name="filename">
@@ -168,16 +168,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>450</x>
                     <y>255</y>
-                    <width>492</width>
-                    <height>92</height>
+                    <width>470</width>
+                    <height>74</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>450</x>
                     <y>255</y>
-                    <width>490</width>
-                    <height>90</height>
+                    <width>468</width>
+                    <height>72</height>
                 </rect>
             </property>
             <property name="filename">
@@ -192,16 +192,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>450</x>
                     <y>30</y>
-                    <width>492</width>
-                    <height>92</height>
+                    <width>470</width>
+                    <height>74</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>450</x>
                     <y>30</y>
-                    <width>490</width>
-                    <height>90</height>
+                    <width>468</width>
+                    <height>72</height>
                 </rect>
             </property>
             <property name="filename">
@@ -216,16 +216,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>450</x>
                     <y>105</y>
-                    <width>492</width>
-                    <height>92</height>
+                    <width>470</width>
+                    <height>74</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>450</x>
                     <y>105</y>
-                    <width>490</width>
-                    <height>90</height>
+                    <width>468</width>
+                    <height>72</height>
                 </rect>
             </property>
             <property name="filename">
@@ -240,16 +240,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>10</x>
                     <y>30</y>
-                    <width>402</width>
-                    <height>67</height>
+                    <width>377</width>
+                    <height>52</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
                     <y>30</y>
-                    <width>400</width>
-                    <height>65</height>
+                    <width>375</width>
+                    <height>50</height>
                 </rect>
             </property>
             <property name="filename">
@@ -264,16 +264,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>10</x>
                     <y>80</y>
-                    <width>402</width>
-                    <height>67</height>
+                    <width>377</width>
+                    <height>52</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
                     <y>80</y>
-                    <width>400</width>
-                    <height>65</height>
+                    <width>375</width>
+                    <height>50</height>
                 </rect>
             </property>
             <property name="filename">
@@ -288,16 +288,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>10</x>
                     <y>130</y>
-                    <width>402</width>
-                    <height>67</height>
+                    <width>377</width>
+                    <height>52</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
                     <y>130</y>
-                    <width>400</width>
-                    <height>65</height>
+                    <width>375</width>
+                    <height>50</height>
                 </rect>
             </property>
             <property name="filename">
@@ -312,16 +312,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>10</x>
                     <y>180</y>
-                    <width>402</width>
-                    <height>67</height>
+                    <width>377</width>
+                    <height>52</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
                     <y>180</y>
-                    <width>400</width>
-                    <height>65</height>
+                    <width>375</width>
+                    <height>50</height>
                 </rect>
             </property>
             <property name="filename">
@@ -336,16 +336,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>935</x>
                     <y>322</y>
-                    <width>442</width>
-                    <height>117</height>
+                    <width>420</width>
+                    <height>97</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>935</x>
                     <y>322</y>
-                    <width>440</width>
-                    <height>115</height>
+                    <width>418</width>
+                    <height>95</height>
                 </rect>
             </property>
             <property name="filename">
@@ -360,16 +360,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>935</x>
                     <y>419</y>
-                    <width>442</width>
-                    <height>117</height>
+                    <width>420</width>
+                    <height>97</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>935</x>
                     <y>419</y>
-                    <width>440</width>
-                    <height>115</height>
+                    <width>418</width>
+                    <height>95</height>
                 </rect>
             </property>
             <property name="filename">
@@ -384,16 +384,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>935</x>
                     <y>516</y>
-                    <width>442</width>
-                    <height>117</height>
+                    <width>420</width>
+                    <height>97</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>935</x>
                     <y>516</y>
-                    <width>440</width>
-                    <height>115</height>
+                    <width>418</width>
+                    <height>95</height>
                 </rect>
             </property>
             <property name="filename">
@@ -408,16 +408,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>935</x>
                     <y>613</y>
-                    <width>442</width>
-                    <height>117</height>
+                    <width>420</width>
+                    <height>97</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>935</x>
                     <y>613</y>
-                    <width>440</width>
-                    <height>115</height>
+                    <width>418</width>
+                    <height>95</height>
                 </rect>
             </property>
             <property name="filename">
@@ -432,16 +432,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>10</x>
                     <y>330</y>
-                    <width>402</width>
-                    <height>67</height>
+                    <width>377</width>
+                    <height>52</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
                     <y>330</y>
-                    <width>400</width>
-                    <height>65</height>
+                    <width>375</width>
+                    <height>50</height>
                 </rect>
             </property>
             <property name="filename">
@@ -456,16 +456,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>10</x>
                     <y>380</y>
-                    <width>402</width>
-                    <height>67</height>
+                    <width>377</width>
+                    <height>52</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
                     <y>380</y>
-                    <width>400</width>
-                    <height>65</height>
+                    <width>375</width>
+                    <height>50</height>
                 </rect>
             </property>
             <property name="filename">
@@ -480,16 +480,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>10</x>
                     <y>230</y>
-                    <width>402</width>
-                    <height>67</height>
+                    <width>377</width>
+                    <height>52</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
                     <y>230</y>
-                    <width>400</width>
-                    <height>65</height>
+                    <width>375</width>
+                    <height>50</height>
                 </rect>
             </property>
             <property name="filename">
@@ -504,16 +504,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>10</x>
                     <y>280</y>
-                    <width>402</width>
-                    <height>67</height>
+                    <width>377</width>
+                    <height>52</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
                     <y>280</y>
-                    <width>400</width>
-                    <height>65</height>
+                    <width>375</width>
+                    <height>50</height>
                 </rect>
             </property>
             <property name="filename">
@@ -537,16 +537,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>402</width>
-                        <height>67</height>
+                        <width>382</width>
+                        <height>52</height>
                     </rect>
                 </property>
                 <property name="geometry">
                     <rect>
                         <x>0</x>
                         <y>0</y>
-                        <width>400</width>
-                        <height>65</height>
+                        <width>380</width>
+                        <height>50</height>
                     </rect>
                 </property>
                 <property name="filename">
@@ -561,16 +561,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                     <rect>
                         <x>0</x>
                         <y>50</y>
-                        <width>402</width>
-                        <height>67</height>
+                        <width>382</width>
+                        <height>52</height>
                     </rect>
                 </property>
                 <property name="geometry">
                     <rect>
                         <x>0</x>
                         <y>50</y>
-                        <width>400</width>
-                        <height>65</height>
+                        <width>380</width>
+                        <height>50</height>
                     </rect>
                 </property>
                 <property name="filename">
@@ -586,16 +586,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>10</x>
                     <y>727</y>
-                    <width>437</width>
-                    <height>77</height>
+                    <width>414</width>
+                    <height>54</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
                     <y>727</y>
-                    <width>435</width>
-                    <height>75</height>
+                    <width>412</width>
+                    <height>52</height>
                 </rect>
             </property>
             <property name="filename">
@@ -610,16 +610,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>10</x>
                     <y>677</y>
-                    <width>437</width>
-                    <height>77</height>
+                    <width>414</width>
+                    <height>54</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
                     <y>677</y>
-                    <width>435</width>
-                    <height>75</height>
+                    <width>412</width>
+                    <height>52</height>
                 </rect>
             </property>
             <property name="filename">
@@ -634,16 +634,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>10</x>
                     <y>530</y>
-                    <width>432</width>
-                    <height>92</height>
+                    <width>413</width>
+                    <height>74</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
                     <y>530</y>
-                    <width>430</width>
-                    <height>90</height>
+                    <width>411</width>
+                    <height>72</height>
                 </rect>
             </property>
             <property name="filename">
@@ -658,16 +658,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>10</x>
                     <y>605</y>
-                    <width>432</width>
-                    <height>92</height>
+                    <width>413</width>
+                    <height>74</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>10</x>
                     <y>605</y>
-                    <width>430</width>
-                    <height>90</height>
+                    <width>411</width>
+                    <height>72</height>
                 </rect>
             </property>
             <property name="filename">
@@ -682,16 +682,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>450</x>
                     <y>330</y>
-                    <width>492</width>
-                    <height>92</height>
+                    <width>471</width>
+                    <height>74</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>450</x>
                     <y>330</y>
-                    <width>490</width>
-                    <height>90</height>
+                    <width>469</width>
+                    <height>72</height>
                 </rect>
             </property>
             <property name="filename">
@@ -706,16 +706,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>450</x>
                     <y>405</y>
-                    <width>492</width>
-                    <height>92</height>
+                    <width>471</width>
+                    <height>74</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>450</x>
                     <y>405</y>
-                    <width>490</width>
-                    <height>90</height>
+                    <width>469</width>
+                    <height>72</height>
                 </rect>
             </property>
             <property name="filename">
@@ -730,16 +730,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>450</x>
                     <y>480</y>
-                    <width>492</width>
-                    <height>92</height>
+                    <width>471</width>
+                    <height>74</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>450</x>
                     <y>480</y>
-                    <width>490</width>
-                    <height>90</height>
+                    <width>469</width>
+                    <height>72</height>
                 </rect>
             </property>
             <property name="filename">
@@ -754,16 +754,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>450</x>
                     <y>555</y>
-                    <width>492</width>
-                    <height>92</height>
+                    <width>471</width>
+                    <height>74</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>450</x>
                     <y>555</y>
-                    <width>490</width>
-                    <height>90</height>
+                    <width>469</width>
+                    <height>72</height>
                 </rect>
             </property>
             <property name="filename">
@@ -773,113 +773,103 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>P=$(P),H=$(H),N=4</string>
             </property>
         </widget>
-        <widget class="caFrame" name="caFrame_32">
+        <widget class="caInclude" name="caInclude_32">
             <property name="geometry">
                 <rect>
                     <x>450</x>
                     <y>630</y>
                     <width>385</width>
-                    <height>109</height>
+                    <height>28</height>
                 </rect>
             </property>
-            <widget class="caInclude" name="caInclude_33">
-                <property name="geometry">
-                    <rect>
-                        <x>0</x>
-                        <y>0</y>
-                        <width>402</width>
-                        <height>37</height>
-                    </rect>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>0</x>
-                        <y>0</y>
-                        <width>400</width>
-                        <height>35</height>
-                    </rect>
-                </property>
-                <property name="filename">
-                    <string>softGlue_BUFFER_bare.adl</string>
-                </property>
-                <property name="macro">
-                    <string>P=$(P),H=$(H),N=1</string>
-                </property>
-            </widget>
-            <widget class="caInclude" name="caInclude_34">
-                <property name="geometry">
-                    <rect>
-                        <x>0</x>
-                        <y>27</y>
-                        <width>402</width>
-                        <height>37</height>
-                    </rect>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>0</x>
-                        <y>27</y>
-                        <width>400</width>
-                        <height>35</height>
-                    </rect>
-                </property>
-                <property name="filename">
-                    <string>softGlue_BUFFER_bare.adl</string>
-                </property>
-                <property name="macro">
-                    <string>P=$(P),H=$(H),N=2</string>
-                </property>
-            </widget>
-            <widget class="caInclude" name="caInclude_35">
-                <property name="geometry">
-                    <rect>
-                        <x>0</x>
-                        <y>54</y>
-                        <width>402</width>
-                        <height>37</height>
-                    </rect>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>0</x>
-                        <y>54</y>
-                        <width>400</width>
-                        <height>35</height>
-                    </rect>
-                </property>
-                <property name="filename">
-                    <string>softGlue_BUFFER_bare.adl</string>
-                </property>
-                <property name="macro">
-                    <string>P=$(P),H=$(H),N=3</string>
-                </property>
-            </widget>
-            <widget class="caInclude" name="caInclude_36">
-                <property name="geometry">
-                    <rect>
-                        <x>0</x>
-                        <y>81</y>
-                        <width>402</width>
-                        <height>37</height>
-                    </rect>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>0</x>
-                        <y>81</y>
-                        <width>400</width>
-                        <height>35</height>
-                    </rect>
-                </property>
-                <property name="filename">
-                    <string>softGlue_BUFFER_bare.adl</string>
-                </property>
-                <property name="macro">
-                    <string>P=$(P),H=$(H),N=4</string>
-                </property>
-            </widget>
+            <property name="geometry">
+                <rect>
+                    <x>450</x>
+                    <y>630</y>
+                    <width>383</width>
+                    <height>26</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>softGlue_BUFFER_bare.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),N=1</string>
+            </property>
         </widget>
-        <widget class="caFrame" name="caFrame_37">
+        <widget class="caInclude" name="caInclude_33">
+            <property name="geometry">
+                <rect>
+                    <x>450</x>
+                    <y>657</y>
+                    <width>385</width>
+                    <height>28</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>450</x>
+                    <y>657</y>
+                    <width>383</width>
+                    <height>26</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>softGlue_BUFFER_bare.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),N=2</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_34">
+            <property name="geometry">
+                <rect>
+                    <x>450</x>
+                    <y>684</y>
+                    <width>385</width>
+                    <height>28</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>450</x>
+                    <y>684</y>
+                    <width>383</width>
+                    <height>26</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>softGlue_BUFFER_bare.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),N=3</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_35">
+            <property name="geometry">
+                <rect>
+                    <x>450</x>
+                    <y>711</y>
+                    <width>385</width>
+                    <height>28</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>450</x>
+                    <y>711</y>
+                    <width>383</width>
+                    <height>26</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>softGlue_BUFFER_bare.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),H=$(H),N=4</string>
+            </property>
+        </widget>
+        <widget class="caFrame" name="caFrame_36">
             <property name="geometry">
                 <rect>
                     <x>517</x>
@@ -1153,7 +1143,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>true</string>
             </property>
         </widget>
-        <widget class="caFrame" name="caFrame_38">
+        <widget class="caFrame" name="caFrame_37">
             <property name="geometry">
                 <rect>
                     <x>0</x>
@@ -1300,17 +1290,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <zorder>caInclude_29</zorder>
         <zorder>caInclude_30</zorder>
         <zorder>caInclude_31</zorder>
+        <zorder>caInclude_32</zorder>
         <zorder>caInclude_33</zorder>
         <zorder>caInclude_34</zorder>
         <zorder>caInclude_35</zorder>
-        <zorder>caInclude_36</zorder>
-        <zorder>caFrame_32</zorder>
         <zorder>caLabel_0</zorder>
         <zorder>caLabel_1</zorder>
-        <zorder>caFrame_37</zorder>
+        <zorder>caFrame_36</zorder>
         <zorder>caRectangle_0</zorder>
         <zorder>caLabel_2</zorder>
-        <zorder>caFrame_38</zorder>
+        <zorder>caFrame_37</zorder>
         <zorder>caPolyLine_0</zorder>
         <zorder>caLineEdit_0</zorder>
         <zorder>caLineEdit_1</zorder>

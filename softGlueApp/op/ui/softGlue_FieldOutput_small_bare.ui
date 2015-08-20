@@ -67,25 +67,25 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignRight|Qt::AlignVCenter</set>
-            </property>
             <property name="geometry">
                 <rect>
-                    <x>165</x>
+                    <x>160</x>
                     <y>5</y>
                     <width>48</width>
                     <height>20</height>
                 </rect>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
         <widget class="caLineEdit" name="caLineEdit_0">
             <property name="geometry">
                 <rect>
                     <x>185</x>
-                    <y>10</y>
+                    <y>9</y>
                     <width>12</width>
-                    <height>10</height>
+                    <height>12</height>
                 </rect>
             </property>
             <property name="fontScaleMode">
