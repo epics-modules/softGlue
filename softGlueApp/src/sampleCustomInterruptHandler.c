@@ -21,7 +21,7 @@ static int sampleCustomInterruptValues[MAX_VALUES];
  * we'll get called with the bitmask that generated the interrupt.
  */
 void sampleCustomInterruptRoutine(softGlueIntRoutineData *IRData) {
-	ushort mask = IRData->mask;
+	epicsUInt16 mask = IRData->mask;
 	myISRDataStruct *myISRData = (myISRDataStruct *)(IRData->userPvt);
 	epicsUInt16 *addrMSW = myISRData->addrMSW;
 	epicsUInt16 *addrLSW = myISRData->addrLSW;
