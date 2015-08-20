@@ -1,14 +1,14 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps_5_5/support/softGlue/softGlueApp/op/adl/softGlue_DFF_bare.adl"
-	version=030104
+	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue_DFF_bare.adl"
+	version=030107
 }
 display {
 	object {
-		x=579
-		y=274
-		width=440
-		height=115
+		x=974
+		y=240
+		width=418
+		height=95
 	}
 	clr=14
 	bclr=2
@@ -89,8 +89,8 @@ display {
 }
 composite {
 	object {
-		x=10
-		y=78
+		x=0
+		y=69
 		width=155
 		height=26
 	}
@@ -99,8 +99,8 @@ composite {
 }
 composite {
 	object {
-		x=10
-		y=55
+		x=0
+		y=46
 		width=155
 		height=26
 	}
@@ -109,8 +109,8 @@ composite {
 }
 composite {
 	object {
-		x=10
-		y=32
+		x=0
+		y=23
 		width=155
 		height=26
 	}
@@ -119,8 +119,8 @@ composite {
 }
 composite {
 	object {
-		x=10
-		y=9
+		x=0
+		y=0
 		width=155
 		height=26
 	}
@@ -129,8 +129,8 @@ composite {
 }
 polyline {
 	object {
-		x=164
-		y=68
+		x=154
+		y=59
 		width=13
 		height=2
 	}
@@ -140,14 +140,14 @@ polyline {
 		width=2
 	}
 	points {
-		(176,69)
-		(165,69)
+		(166,60)
+		(155,60)
 	}
 }
 polyline {
 	object {
-		x=164
-		y=45
+		x=154
+		y=36
 		width=12
 		height=2
 	}
@@ -157,14 +157,14 @@ polyline {
 		width=2
 	}
 	points {
-		(175,46)
-		(165,46)
+		(165,37)
+		(155,37)
 	}
 }
 rectangle {
 	object {
-		x=175
-		y=38
+		x=165
+		y=29
 		width=82
 		height=41
 	}
@@ -176,8 +176,8 @@ rectangle {
 }
 polyline {
 	object {
-		x=174
-		y=61
+		x=164
+		y=52
 		width=11
 		height=16
 	}
@@ -186,15 +186,15 @@ polyline {
 		width=2
 	}
 	points {
-		(175,62)
-		(184,69)
-		(175,76)
+		(165,53)
+		(174,60)
+		(165,67)
 	}
 }
 text {
 	object {
-		x=179
-		y=41
+		x=169
+		y=32
 		width=10
 		height=13
 	}
@@ -206,8 +206,8 @@ text {
 }
 text {
 	object {
-		x=195
-		y=41
+		x=185
+		y=32
 		width=40
 		height=10
 	}
@@ -219,8 +219,8 @@ text {
 }
 text {
 	object {
-		x=195
-		y=67
+		x=185
+		y=58
 		width=40
 		height=10
 	}
@@ -232,8 +232,8 @@ text {
 }
 polyline {
 	object {
-		x=214
-		y=85
+		x=204
+		y=76
 		width=2
 		height=9
 	}
@@ -242,14 +242,14 @@ polyline {
 		width=2
 	}
 	points {
-		(215,86)
-		(215,93)
+		(205,77)
+		(205,84)
 	}
 }
 polyline {
 	object {
-		x=214
-		y=21
+		x=204
+		y=12
 		width=2
 		height=13
 	}
@@ -258,14 +258,14 @@ polyline {
 		width=2
 	}
 	points {
-		(215,22)
-		(215,33)
+		(205,13)
+		(205,24)
 	}
 }
 polyline {
 	object {
-		x=164
-		y=91
+		x=154
+		y=82
 		width=53
 		height=2
 	}
@@ -275,14 +275,14 @@ polyline {
 		width=2
 	}
 	points {
-		(216,92)
-		(165,92)
+		(206,83)
+		(155,83)
 	}
 }
 polyline {
 	object {
-		x=164
-		y=22
+		x=154
+		y=13
 		width=53
 		height=2
 	}
@@ -292,14 +292,14 @@ polyline {
 		width=2
 	}
 	points {
-		(216,23)
-		(165,23)
+		(206,14)
+		(155,14)
 	}
 }
 polyline {
 	object {
-		x=256
-		y=46
+		x=246
+		y=37
 		width=17
 		height=2
 	}
@@ -309,14 +309,14 @@ polyline {
 		width=2
 	}
 	points {
-		(272,47)
-		(257,47)
+		(262,38)
+		(247,38)
 	}
 }
 text {
 	object {
-		x=242
-		y=41
+		x=232
+		y=32
 		width=10
 		height=13
 	}
@@ -328,8 +328,8 @@ text {
 }
 composite {
 	object {
-		x=271
-		y=33
+		x=261
+		y=24
 		width=157
 		height=26
 	}
@@ -338,8 +338,8 @@ composite {
 }
 oval {
 	object {
-		x=210
-		y=29
+		x=200
+		y=20
 		width=10
 		height=10
 	}
@@ -351,8 +351,8 @@ oval {
 }
 oval {
 	object {
-		x=210
-		y=78
+		x=200
+		y=69
 		width=10
 		height=10
 	}
@@ -364,8 +364,8 @@ oval {
 }
 text {
 	object {
-		x=199
-		y=54
+		x=189
+		y=45
 		width=30
 		height=10
 	}
@@ -376,8 +376,8 @@ text {
 }
 rectangle {
 	object {
-		x=192
-		y=51
+		x=182
+		y=42
 		width=45
 		height=14
 	}

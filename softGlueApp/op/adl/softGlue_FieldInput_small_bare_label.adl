@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=970
-		y=624
+		x=1244
+		y=345
 		width=250
 		height=24
 	}
@@ -99,7 +99,7 @@ composite {
 }
 text {
 	object {
-		x=75
+		x=70
 		y=5
 		width=15
 		height=20
@@ -108,14 +108,13 @@ text {
 		clr=14
 	}
 	textix="$(N)"
-	align="horiz. right"
 }
 "text update" {
 	object {
 		x=0
-		y=10
+		y=8
 		width=60
-		height=10
+		height=12
 	}
 	monitor {
 		chan="$(P)$(H)FI$(N)_Signal.DESC"

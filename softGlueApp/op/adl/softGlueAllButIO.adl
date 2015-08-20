@@ -142,7 +142,7 @@ composite {
 		x=450
 		y=180
 		width=468
-		height=73
+		height=72
 	}
 	"composite name"=""
 	"composite file"="softGlue_DnCntr_bare.adl;P=$(P),H=$(H),N=3"
@@ -152,7 +152,7 @@ composite {
 		x=450
 		y=255
 		width=468
-		height=73
+		height=72
 	}
 	"composite name"=""
 	"composite file"="softGlue_DnCntr_bare.adl;P=$(P),H=$(H),N=4"
@@ -162,7 +162,7 @@ composite {
 		x=450
 		y=30
 		width=468
-		height=73
+		height=72
 	}
 	"composite name"=""
 	"composite file"="softGlue_DnCntr_bare.adl;P=$(P),H=$(H),N=1"
@@ -172,7 +172,7 @@ composite {
 		x=450
 		y=105
 		width=468
-		height=73
+		height=72
 	}
 	"composite name"=""
 	"composite file"="softGlue_DnCntr_bare.adl;P=$(P),H=$(H),N=2"
@@ -413,51 +413,40 @@ composite {
 		x=450
 		y=630
 		width=383
-		height=107
+		height=26
 	}
 	"composite name"=""
-	children {
-		composite {
-			object {
-				x=450
-				y=630
-				width=383
-				height=26
-			}
-			"composite name"=""
-			"composite file"="softGlue_BUFFER_bare.adl;P=$(P),H=$(H),N=1"
-		}
-		composite {
-			object {
-				x=450
-				y=657
-				width=383
-				height=26
-			}
-			"composite name"=""
-			"composite file"="softGlue_BUFFER_bare.adl;P=$(P),H=$(H),N=2"
-		}
-		composite {
-			object {
-				x=450
-				y=684
-				width=383
-				height=26
-			}
-			"composite name"=""
-			"composite file"="softGlue_BUFFER_bare.adl;P=$(P),H=$(H),N=3"
-		}
-		composite {
-			object {
-				x=450
-				y=711
-				width=383
-				height=26
-			}
-			"composite name"=""
-			"composite file"="softGlue_BUFFER_bare.adl;P=$(P),H=$(H),N=4"
-		}
+	"composite file"="softGlue_BUFFER_bare.adl;P=$(P),H=$(H),N=1"
+}
+composite {
+	object {
+		x=450
+		y=657
+		width=383
+		height=26
 	}
+	"composite name"=""
+	"composite file"="softGlue_BUFFER_bare.adl;P=$(P),H=$(H),N=2"
+}
+composite {
+	object {
+		x=450
+		y=684
+		width=383
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_BUFFER_bare.adl;P=$(P),H=$(H),N=3"
+}
+composite {
+	object {
+		x=450
+		y=711
+		width=383
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_BUFFER_bare.adl;P=$(P),H=$(H),N=4"
 }
 composite {
 	object {

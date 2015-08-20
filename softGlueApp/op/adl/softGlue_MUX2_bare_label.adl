@@ -7,8 +7,8 @@ display {
 	object {
 		x=612
 		y=259
-		width=430
-		height=105
+		width=411
+		height=91
 	}
 	clr=14
 	bclr=2
@@ -89,8 +89,8 @@ display {
 }
 composite {
 	object {
-		x=10
-		y=30
+		x=0
+		y=19
 		width=155
 		height=26
 	}
@@ -99,8 +99,8 @@ composite {
 }
 composite {
 	object {
-		x=10
-		y=52
+		x=0
+		y=41
 		width=155
 		height=26
 	}
@@ -109,8 +109,8 @@ composite {
 }
 composite {
 	object {
-		x=10
-		y=75
+		x=0
+		y=64
 		width=155
 		height=26
 	}
@@ -119,8 +119,8 @@ composite {
 }
 polyline {
 	object {
-		x=163
-		y=65
+		x=153
+		y=54
 		width=13
 		height=2
 	}
@@ -130,14 +130,14 @@ polyline {
 		width=2
 	}
 	points {
-		(175,66)
-		(164,66)
+		(165,55)
+		(154,55)
 	}
 }
 polyline {
 	object {
-		x=163
-		y=43
+		x=153
+		y=32
 		width=12
 		height=2
 	}
@@ -147,14 +147,14 @@ polyline {
 		width=2
 	}
 	points {
-		(174,44)
-		(164,44)
+		(164,33)
+		(154,33)
 	}
 }
 rectangle {
 	object {
-		x=174
-		y=33
+		x=164
+		y=22
 		width=82
 		height=43
 	}
@@ -166,9 +166,9 @@ rectangle {
 }
 text {
 	object {
-		x=181
-		y=38
-		width=10
+		x=171
+		y=27
+		width=15
 		height=13
 	}
 	"basic attribute" {
@@ -179,8 +179,8 @@ text {
 }
 text {
 	object {
-		x=194
-		y=64
+		x=184
+		y=53
 		width=40
 		height=10
 	}
@@ -192,8 +192,8 @@ text {
 }
 polyline {
 	object {
-		x=214
-		y=74
+		x=204
+		y=63
 		width=2
 		height=17
 	}
@@ -202,14 +202,14 @@ polyline {
 		width=2
 	}
 	points {
-		(215,75)
-		(215,90)
+		(205,64)
+		(205,79)
 	}
 }
 polyline {
 	object {
-		x=163
-		y=88
+		x=153
+		y=77
 		width=54
 		height=2
 	}
@@ -219,14 +219,14 @@ polyline {
 		width=2
 	}
 	points {
-		(216,89)
-		(164,89)
+		(206,78)
+		(154,78)
 	}
 }
 polyline {
 	object {
-		x=255
-		y=42
+		x=245
+		y=31
 		width=14
 		height=2
 	}
@@ -236,15 +236,15 @@ polyline {
 		width=2
 	}
 	points {
-		(268,43)
-		(256,43)
+		(258,32)
+		(246,32)
 	}
 }
 text {
 	object {
-		x=238
-		y=35
-		width=10
+		x=221
+		y=24
+		width=17
 		height=13
 	}
 	"basic attribute" {
@@ -255,8 +255,8 @@ text {
 }
 composite {
 	object {
-		x=264
-		y=29
+		x=254
+		y=18
 		width=157
 		height=26
 	}
@@ -265,9 +265,9 @@ composite {
 }
 text {
 	object {
-		x=181
-		y=58
-		width=10
+		x=171
+		y=47
+		width=15
 		height=13
 	}
 	"basic attribute" {
@@ -278,8 +278,8 @@ text {
 }
 text {
 	object {
-		x=199
-		y=50
+		x=189
+		y=39
 		width=35
 		height=10
 	}
@@ -290,8 +290,8 @@ text {
 }
 rectangle {
 	object {
-		x=196
-		y=47
+		x=186
+		y=36
 		width=45
 		height=14
 	}
@@ -302,8 +302,8 @@ rectangle {
 }
 "text entry" {
 	object {
-		x=10
-		y=10
+		x=0
+		y=0
 		width=410
 		height=16
 	}

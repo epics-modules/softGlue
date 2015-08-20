@@ -5,10 +5,10 @@ file {
 }
 display {
 	object {
-		x=581
-		y=276
+		x=916
+		y=285
 		width=490
-		height=230
+		height=270
 	}
 	clr=14
 	bclr=2
@@ -89,34 +89,23 @@ display {
 }
 composite {
 	object {
-		x=9
-		y=30
-		width=475
-		height=198
+		x=5
+		y=150
+		width=480
+		height=117
 	}
 	"composite name"=""
-	children {
-		composite {
-			object {
-				x=9
-				y=130
-				width=475
-				height=98
-			}
-			"composite name"=""
-			"composite file"="softGlue_Shift32_bare.adl; P=$(P),H=$(H),N=2"
-		}
-		composite {
-			object {
-				x=9
-				y=30
-				width=475
-				height=98
-			}
-			"composite name"=""
-			"composite file"="softGlue_Shift32_bare.adl; P=$(P),H=$(H),N=1"
-		}
+	"composite file"="softGlue_Shift32_bare_label.adl; P=$(P),H=$(H),N=2"
+}
+composite {
+	object {
+		x=5
+		y=25
+		width=480
+		height=117
 	}
+	"composite name"=""
+	"composite file"="softGlue_Shift32_bare_label.adl; P=$(P),H=$(H),N=1"
 }
 composite {
 	object {

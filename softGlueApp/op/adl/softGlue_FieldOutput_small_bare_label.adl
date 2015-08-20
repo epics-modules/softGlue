@@ -99,7 +99,7 @@ composite {
 }
 text {
 	object {
-		x=165
+		x=160
 		y=5
 		width=15
 		height=20
@@ -108,14 +108,13 @@ text {
 		clr=14
 	}
 	textix="$(N)"
-	align="horiz. right"
 }
 "text update" {
 	object {
 		x=185
-		y=10
+		y=8
 		width=60
-		height=10
+		height=12
 	}
 	monitor {
 		chan="$(P)$(H)FO$(N)_Signal.DESC"

@@ -1,14 +1,14 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps_5_5/support/softGlue/softGlueApp/op/adl/softGlue_BUFFER_bare.adl"
-	version=030104
+	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue_BUFFER_bare.adl"
+	version=030107
 }
 display {
 	object {
 		x=1072
 		y=490
-		width=400
-		height=35
+		width=383
+		height=26
 	}
 	clr=14
 	bclr=2
@@ -89,8 +89,8 @@ display {
 }
 composite {
 	object {
-		x=10
-		y=4
+		x=0
+		y=0
 		width=383
 		height=26
 	}
@@ -98,8 +98,8 @@ composite {
 	children {
 		composite {
 			object {
-				x=10
-				y=4
+				x=0
+				y=0
 				width=155
 				height=26
 			}
@@ -108,8 +108,8 @@ composite {
 		}
 		polyline {
 			object {
-				x=224
-				y=17
+				x=214
+				y=13
 				width=15
 				height=2
 			}
@@ -119,14 +119,14 @@ composite {
 				width=2
 			}
 			points {
-				(238,18)
-				(225,18)
+				(228,14)
+				(215,14)
 			}
 		}
 		polyline {
 			object {
-				x=164
-				y=17
+				x=154
+				y=13
 				width=12
 				height=2
 			}
@@ -135,14 +135,14 @@ composite {
 				width=2
 			}
 			points {
-				(165,18)
-				(175,18)
+				(155,14)
+				(165,14)
 			}
 		}
 		composite {
 			object {
-				x=236
-				y=4
+				x=226
+				y=0
 				width=157
 				height=26
 			}
@@ -151,8 +151,8 @@ composite {
 		}
 		text {
 			object {
-				x=178
-				y=13
+				x=168
+				y=9
 				width=30
 				height=10
 			}
@@ -163,8 +163,8 @@ composite {
 		}
 		polyline {
 			object {
-				x=173
-				y=9
+				x=163
+				y=5
 				width=50
 				height=17
 			}
@@ -174,12 +174,12 @@ composite {
 				width=2
 			}
 			points {
-				(174,10)
-				(208,10)
-				(222,18)
-				(207,25)
-				(174,25)
-				(174,10)
+				(164,6)
+				(198,6)
+				(212,14)
+				(197,21)
+				(164,21)
+				(164,6)
 			}
 		}
 	}

@@ -5,10 +5,10 @@ file {
 }
 display {
 	object {
-		x=10
-		y=67
+		x=20
+		y=25
 		width=1360
-		height=1080
+		height=1085
 	}
 	clr=14
 	bclr=2
@@ -142,7 +142,7 @@ composite {
 		x=450
 		y=245
 		width=470
-		height=91
+		height=90
 	}
 	"composite name"=""
 	"composite file"="softGlue_DnCntr_bare_label.adl;P=$(P),H=$(H),N=3"
@@ -152,7 +152,7 @@ composite {
 		x=450
 		y=340
 		width=470
-		height=91
+		height=90
 	}
 	"composite name"=""
 	"composite file"="softGlue_DnCntr_bare_label.adl;P=$(P),H=$(H),N=4"
@@ -162,7 +162,7 @@ composite {
 		x=450
 		y=55
 		width=470
-		height=91
+		height=90
 	}
 	"composite name"=""
 	"composite file"="softGlue_DnCntr_bare_label.adl;P=$(P),H=$(H),N=1"
@@ -172,7 +172,7 @@ composite {
 		x=450
 		y=150
 		width=470
-		height=91
+		height=90
 	}
 	"composite name"=""
 	"composite file"="softGlue_DnCntr_bare_label.adl;P=$(P),H=$(H),N=2"
@@ -302,7 +302,7 @@ composite {
 		x=10
 		y=615
 		width=380
-		height=67
+		height=65
 	}
 	"composite name"=""
 	"composite file"="softGlue_XOR_bare_label.adl;P=$(P),H=$(H),N=1"
@@ -312,7 +312,7 @@ composite {
 		x=10
 		y=685
 		width=380
-		height=67
+		height=65
 	}
 	"composite name"=""
 	"composite file"="softGlue_XOR_bare_label.adl;P=$(P),H=$(H),N=2"
@@ -320,7 +320,7 @@ composite {
 composite {
 	object {
 		x=10
-		y=1010
+		y=1015
 		width=415
 		height=67
 	}
@@ -330,7 +330,7 @@ composite {
 composite {
 	object {
 		x=10
-		y=940
+		y=945
 		width=415
 		height=67
 	}
@@ -342,7 +342,7 @@ composite {
 		x=10
 		y=755
 		width=411
-		height=91
+		height=90
 	}
 	"composite name"=""
 	"composite file"="softGlue_MUX2_bare_label.adl;P=$(P),H=$(H),N=1"
@@ -352,7 +352,7 @@ composite {
 		x=10
 		y=850
 		width=411
-		height=91
+		height=90
 	}
 	"composite name"=""
 	"composite file"="softGlue_MUX2_bare_label.adl;P=$(P),H=$(H),N=2"

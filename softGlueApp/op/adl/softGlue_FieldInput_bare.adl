@@ -1,7 +1,7 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps_5_5/support/softGlue/softGlueApp/op/adl/softGlue_FieldInput.adl"
-	version=030104
+	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue_FieldInput_bare.adl"
+	version=030107
 }
 display {
 	object {
@@ -108,14 +108,13 @@ text {
 		clr=14
 	}
 	textix="$(N)"
-	align="horiz. right"
 }
 "text update" {
 	object {
 		x=0
-		y=10
+		y=9
 		width=12
-		height=10
+		height=12
 	}
 	monitor {
 		chan="$(P)$(H)FI$(N)_Signal.DESC"

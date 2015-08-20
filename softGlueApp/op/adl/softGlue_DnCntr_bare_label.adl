@@ -5,10 +5,10 @@ file {
 }
 display {
 	object {
-		x=602
-		y=248
-		width=490
-		height=110
+		x=995
+		y=65
+		width=470
+		height=90
 	}
 	clr=14
 	bclr=2
@@ -89,8 +89,8 @@ display {
 }
 composite {
 	object {
-		x=10
-		y=74
+		x=0
+		y=64
 		width=155
 		height=26
 	}
@@ -99,8 +99,8 @@ composite {
 }
 composite {
 	object {
-		x=10
-		y=28
+		x=0
+		y=18
 		width=155
 		height=26
 	}
@@ -109,8 +109,8 @@ composite {
 }
 composite {
 	object {
-		x=10
-		y=51
+		x=0
+		y=41
 		width=155
 		height=26
 	}
@@ -119,8 +119,8 @@ composite {
 }
 polyline {
 	object {
-		x=163
-		y=64
+		x=153
+		y=54
 		width=13
 		height=2
 	}
@@ -130,14 +130,14 @@ polyline {
 		width=2
 	}
 	points {
-		(175,65)
-		(164,65)
+		(165,55)
+		(154,55)
 	}
 }
 polyline {
 	object {
-		x=163
-		y=41
+		x=153
+		y=31
 		width=13
 		height=2
 	}
@@ -147,14 +147,14 @@ polyline {
 		width=2
 	}
 	points {
-		(175,42)
-		(164,42)
+		(165,32)
+		(154,32)
 	}
 }
 polyline {
 	object {
-		x=163
-		y=87
+		x=153
+		y=77
 		width=54
 		height=2
 	}
@@ -164,14 +164,14 @@ polyline {
 		width=2
 	}
 	points {
-		(216,88)
-		(164,88)
+		(206,78)
+		(154,78)
 	}
 }
 rectangle {
 	object {
-		x=173
-		y=36
+		x=163
+		y=26
 		width=132
 		height=37
 	}
@@ -183,8 +183,8 @@ rectangle {
 }
 polyline {
 	object {
-		x=172
-		y=57
+		x=162
+		y=47
 		width=11
 		height=16
 	}
@@ -193,15 +193,15 @@ polyline {
 		width=2
 	}
 	points {
-		(173,58)
-		(182,65)
-		(173,72)
+		(163,48)
+		(172,55)
+		(163,62)
 	}
 }
 polyline {
 	object {
-		x=304
-		y=42
+		x=294
+		y=32
 		width=19
 		height=2
 	}
@@ -211,14 +211,14 @@ polyline {
 		width=2
 	}
 	points {
-		(322,43)
-		(305,43)
+		(312,33)
+		(295,33)
 	}
 }
 text {
 	object {
-		x=290
-		y=39
+		x=280
+		y=29
 		width=10
 		height=13
 	}
@@ -230,8 +230,8 @@ text {
 }
 text {
 	object {
-		x=179
-		y=39
+		x=169
+		y=29
 		width=10
 		height=13
 	}
@@ -243,8 +243,8 @@ text {
 }
 text {
 	object {
-		x=240
-		y=61
+		x=230
+		y=51
 		width=40
 		height=10
 	}
@@ -256,8 +256,8 @@ text {
 }
 polyline {
 	object {
-		x=259
-		y=71
+		x=249
+		y=61
 		width=2
 		height=16
 	}
@@ -266,14 +266,14 @@ polyline {
 		width=2
 	}
 	points {
-		(260,72)
-		(260,86)
+		(250,62)
+		(250,76)
 	}
 }
 "text entry" {
 	object {
-		x=235
-		y=81
+		x=225
+		y=70
 		width=50
 		height=20
 	}
@@ -287,8 +287,8 @@ polyline {
 }
 text {
 	object {
-		x=195
-		y=61
+		x=185
+		y=51
 		width=40
 		height=10
 	}
@@ -300,8 +300,8 @@ text {
 }
 polyline {
 	object {
-		x=214
-		y=71
+		x=204
+		y=61
 		width=2
 		height=19
 	}
@@ -310,14 +310,14 @@ polyline {
 		width=2
 	}
 	points {
-		(215,72)
-		(215,89)
+		(205,62)
+		(205,79)
 	}
 }
 rectangle {
 	object {
-		x=196
-		y=41
+		x=186
+		y=31
 		width=89
 		height=14
 	}
@@ -328,8 +328,8 @@ rectangle {
 }
 composite {
 	object {
-		x=321
-		y=29
+		x=311
+		y=19
 		width=157
 		height=26
 	}
@@ -338,8 +338,8 @@ composite {
 }
 text {
 	object {
-		x=214
-		y=44
+		x=204
+		y=34
 		width=50
 		height=10
 	}
@@ -350,8 +350,8 @@ text {
 }
 "text entry" {
 	object {
-		x=10
-		y=10
+		x=0
+		y=0
 		width=470
 		height=16
 	}

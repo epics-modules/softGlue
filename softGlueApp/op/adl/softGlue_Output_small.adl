@@ -1,7 +1,7 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps_5_5/support/softGlue/softGlueApp/op/adl/softGlue_Output_small.adl"
-	version=030104
+	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue_Output_small.adl"
+	version=030107
 }
 display {
 	object {
@@ -191,9 +191,9 @@ rectangle {
 "text update" {
 	object {
 		x=16
-		y=3
+		y=1
 		width=10
-		height=10
+		height=12
 	}
 	monitor {
 		chan="$(P)$(H)$(SIG)_BI"
