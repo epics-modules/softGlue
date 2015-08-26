@@ -90,7 +90,7 @@ display {
 polyline {
 	object {
 		x=153
-		y=61
+		y=63
 		width=13
 		height=2
 	}
@@ -100,14 +100,31 @@ polyline {
 		width=2
 	}
 	points {
-		(165,62)
-		(154,62)
+		(165,64)
+		(154,64)
+	}
+}
+polyline {
+	object {
+		x=149
+		y=39
+		width=16
+		height=3
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+		width=2
+	}
+	points {
+		(164,41)
+		(150,40)
 	}
 }
 polyline {
 	object {
 		x=153
-		y=38
+		y=86
 		width=13
 		height=2
 	}
@@ -117,31 +134,14 @@ polyline {
 		width=2
 	}
 	points {
-		(165,39)
-		(154,39)
-	}
-}
-polyline {
-	object {
-		x=153
-		y=84
-		width=13
-		height=2
-	}
-	"basic attribute" {
-		clr=14
-		fill="outline"
-		width=2
-	}
-	points {
-		(165,85)
-		(154,85)
+		(165,87)
+		(154,87)
 	}
 }
 polyline {
 	object {
 		x=162
-		y=54
+		y=32
 		width=11
 		height=16
 	}
@@ -150,15 +150,15 @@ polyline {
 		width=2
 	}
 	points {
-		(163,55)
-		(172,62)
-		(163,69)
+		(163,33)
+		(172,40)
+		(163,47)
 	}
 }
 polyline {
 	object {
 		x=153
-		y=107
+		y=109
 		width=13
 		height=2
 	}
@@ -168,14 +168,14 @@ polyline {
 		width=2
 	}
 	points {
-		(165,108)
-		(154,108)
+		(165,110)
+		(154,110)
 	}
 }
 polyline {
 	object {
 		x=153
-		y=130
+		y=17
 		width=13
 		height=2
 	}
@@ -185,8 +185,8 @@ polyline {
 		width=2
 	}
 	points {
-		(165,131)
-		(154,131)
+		(165,18)
+		(154,18)
 	}
 }
 rectangle {
