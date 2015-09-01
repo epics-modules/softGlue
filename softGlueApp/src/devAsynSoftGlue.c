@@ -954,7 +954,7 @@ commonDset softGlueSigNum = {5,0,0,initLo,0,processLo};
 epicsExportAddress(dset, softGlueSigNum);
 
 static long initLo(longoutRecord *plo) {
-	int i;
+	long i;
 	char *c;
 
 	if (plo->out.type==INST_IO) {
@@ -965,8 +965,9 @@ static long initLo(longoutRecord *plo) {
 		if (*c == 'C') {
 			c = &(c[6]); /* point to port name */
 			i = assignPort(c);
+			plo->dpvt = (void *)i; /* save portInfo index */
 			if (devAsynSoftGlueDebug > 1)
-				printf("initLo: '%s' assigned to port %d\n", plo->name, i);
+				printf("initLo: '%s' assigned to port %ld\n", plo->name, i);
 			if (i>=0 && i < MAXPORTS) {
 				/* this record is the "numSignalsInUse record" for the port */
 				portInfo[i].pnumUsedRec = plo;
@@ -977,6 +978,12 @@ static long initLo(longoutRecord *plo) {
 }
 
 static long processLo(longoutRecord *plo) {
+	long i;
 	if (devAsynSoftGlueDebug > 1) printf("processLo:entry\n");
+	i = (long)plo->dpvt;
+	if (plo->val != portInfo[i].numUsedSignals) {
+		plo->val = portInfo[i].numUsedSignals;
+		db_post_events(plo, &plo->val, DBE_VALUE);
+	}
 	return(0);
 }
