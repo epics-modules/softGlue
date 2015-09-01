@@ -12,7 +12,7 @@
 </HEAD>
 <BODY LANG="en-US" BGCOLOR="#ffffff" DIR="LTR">
 
-<h1><center>The synApps softGlue module (v2.4)</center></h1>
+<h1><center>The synApps softGlue module (v2.5)</center></h1>
 <hr>
 <h1>Table of Contents</h1>
 <ul>
@@ -302,13 +302,20 @@ the development of support for add-on packages.
 				<code>dbLoadRecords()</code> commands in your copy of <code>softGlue.cmd</code> to
 				define the macro <code>P</code>, so that it's unique to your IOC.
 
-				<blockquote>If you'll have more than one IP_EP20x module in an IOC, you'll also need
-				to maintain separate definitions for the macro, <code>H</code>, and for asyn port
-				names associated with the modules.  Port names are supplied as arguments
-				to the functions <code>initIP_EP200()</code>, <code>initIP_EP201(), and
+				<blockquote>If you'll have more than one IP_EP20x module in an IOC, you'll also need to
+				maintain separate definitions for the macro, <code>H</code>, for asyn port names associated
+				with the modules, and for the macro <code>READEVENT</code>.  Port names are supplied as
+				arguments to the functions <code>initIP_EP200()</code>, <code>initIP_EP201(), and
 				initIP_EP201SingleRegisterPort()</code>, and they are supplied as the macro definitions
-				<code>PORT</code>, <code>PORT1</code>, <code>PORT2</code>, and <code>PORT3</code>
-				in <code>dbLoadRecords()</code> commands.</blockquote>
+				<code>PORT</code>, <code>PORT1</code>, <code>PORT2</code>, and <code>PORT3</code> in
+				<code>dbLoadRecords()</code> commands.</blockquote>
+				
+				<blockquote>
+				If you specify the same value of <code>READEVENT</code> for N instances of softGlue
+				in a single IOC, the software will still work, but it will use N times the CPU cycles,
+				as each instance will post read events that will cause all other instances to read
+				from the hardware.
+				</blockquote>
 
 			<li>Add the following line to <code>st.cmd</code>, before the call to
 				<code>iocInit()</code>.
@@ -671,7 +678,13 @@ field I/O and make a physical connection.</blockquote>
 connected to, but just tells softGlue to run the signal through an inverter before applying it
 to the input.  Note that output signal names may not end with '<code>*</code>'.
 
-<P>In MEDM, you can use Drag-And-Drop to connect a named signal to some other signal.
+<P>In MEDM, you can use Drag-And-Drop to connect a named signal to some other
+signal.  When you drop, MEDM will put the PV name of the signal you dragged
+from. When you press &lt;Enter&gt;, softGlue's device support will write the
+signal name of the source PV to the destination PV.
+
+<P>In caQtDM, you can select the text of a signal name, and use Copy/Paste
+(^C/^V) to copy the signal name from one text-entry box to another.
 
 </ol>
 
