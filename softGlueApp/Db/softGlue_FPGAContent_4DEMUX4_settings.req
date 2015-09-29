@@ -1,0 +1,11 @@
+# up/dn counters and quadrature decoders
+file DEMUX4_settings.req P=$(P),H=$(H),N=1
+file DEMUX4_settings.req P=$(P),H=$(H),N=2
+file DEMUX4_settings.req P=$(P),H=$(H),N=3
+file DEMUX4_settings.req P=$(P),H=$(H),N=4
+
+# descriptions
+$(P)$(H)DEMUX4-1_desc
+$(P)$(H)DEMUX4-2_desc
+$(P)$(H)DEMUX4-3_desc
+$(P)$(H)DEMUX4-4_desc
