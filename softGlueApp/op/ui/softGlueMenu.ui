@@ -421,16 +421,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>all softGlue;all but I/O;convenience;------------;octupole;velocity gate;encoder</string>
+                <string>all softGlue;all but I/O;convenience;------------;octupole;velocity gate;encoder;4demux4</string>
             </property>
             <property name="files">
-                <string>softGlueAll.adl;softGlueAllButIO.adl;softGlueConvenience.adl;softGlueConvenience.adl;softGlueOctupole.adl;softGlueVgate.adl;softGlueEncoder.adl</string>
+                <string>softGlueAll.adl;softGlueAllButIO.adl;softGlueConvenience.adl;softGlueConvenience.adl;softGlueOctupole.adl;softGlueVgate.adl;softGlueEncoder.adl;softGlue4DEMUX4.adl</string>
             </property>
             <property name="args">
-                <string>P=$(P),H=$(H);P=$(P),H=$(H),N=1,N1=1,N2=2,N3=3,N4=4,N5=5,N6=6,N7=7,N8=8;P=$(P),H=$(H),PORT=$(PORT),IPORT=$(IPORT),OPORT=$(OPORT);P=$(P),H=$(H),PORT=$(PORT),IPORT=$(IPORT),OPORT=$(OPORT);P=$(P),H=$(H);P=$(P),H=$(H);P=$(P),H=$(H)</string>
+                <string>P=$(P),H=$(H);P=$(P),H=$(H),N=1,N1=1,N2=2,N3=3,N4=4,N5=5,N6=6,N7=7,N8=8;P=$(P),H=$(H),PORT=$(PORT),IPORT=$(IPORT),OPORT=$(OPORT);P=$(P),H=$(H),PORT=$(PORT),IPORT=$(IPORT),OPORT=$(OPORT);P=$(P),H=$(H);P=$(P),H=$(H);P=$(P),H=$(H);P=$(P),H=$(H)</string>
             </property>
             <property name="removeParent">
-                <string>false;false;false;false;false;false;false</string>
+                <string>false;false;false;false;false;false;false;false</string>
             </property>
         </widget>
         <widget class="caLabel" name="caLabel_3">
