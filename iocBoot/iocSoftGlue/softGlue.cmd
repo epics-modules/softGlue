@@ -21,8 +21,10 @@
 #initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2.hex")
 #    standard softGlue 2.2 plus two shift registers
 #initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2_Octupole_0_0.hex")
-#    standard softGlue 2.2 plus two up/down counters
-initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2_1ID_Vgate_0_1.hex")
+#    standard softGlue 2.2 plus two up/down counters plus two quadrature decoders
+#initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2_Encoder.hex")
+#    standard softGlue 2.2 plus four four-output demultiplexers
+initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2_demux4.hex")
 
 ################################################################################
 #    Initialize basic field I/O 
@@ -171,6 +173,10 @@ dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent.db", "P=xxx:,H=softGlue:,PORT
 # This database contains the additional records needed for
 # SoftGlue_2_2_1ID_Vgate_0_1.hex
 dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_s1ID_Vgate.db", "P=xxx:,H=softGlue:,PORT=SOFTGLUE,READEVENT=10")
+
+# This database contains the additional records needed for
+# SoftGlue_2_2_demux4.hex
+dbLoadRecords("$(SOFTGLUE)/db/softGlue_FPGAContent_4DEMUX4.db", "P=xxx:,H=softGlue:,PORT=SOFTGLUE,READEVENT=10")
 
 #    Interrupt support.
 #    ('putenv' is used to fit the command into the vxWorks command line space.)
