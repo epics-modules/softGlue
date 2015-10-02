@@ -1059,6 +1059,19 @@ When SEL0==1 and SEL1==0, OUT1=IN, and other OUTs are undefined (currently 0).<b
 When SEL0==0 and SEL1==1, OUT2=IN, and other OUTs are undefined (currently 0).<br>
 When SEL0==1 and SEL1==1, OUT3=IN, and other OUTs are undefined (currently 0).<br>
 
+<P> There are two copies of this add-on component:
+<ol>
+
+<li>SoftGlue_2_2_demux4.hex - the basic component, with all inputs and outputs
+routed to signal names, as usual for softGlue.
+
+<li>SoftGlue_2_2_demux4_HW.hex - the same component, but with multiplexer
+outputs routed to signal names, as usual, and also hardwired to the last 16
+field I/O pins. Thus, DEMUX4-1_OUT0 is connected to pin 33, DEMUX4-1_OUT1 is
+connected to pin 34, ..., and DEMUX4-4_OUT3 is connected to pin 48.
+
+</ol>
+
 </ul>
 
 <hr>
