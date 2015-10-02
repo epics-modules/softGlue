@@ -24,7 +24,10 @@
 #    standard softGlue 2.2 plus two up/down counters plus two quadrature decoders
 #initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2_Encoder.hex")
 #    standard softGlue 2.2 plus four four-output demultiplexers
-initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2_demux4.hex")
+#initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2_demux4.hex")
+#    standard softGlue 2.2 plus four four-output demultiplexers whose outputs
+#    are hardwired to I/O pins 33-48.
+#initIP_EP200_FPGA(0, 2, "$(SOFTGLUE)/softGlueApp/Db/SoftGlue_2_2_demux4_HW.hex")
 
 ################################################################################
 #    Initialize basic field I/O 
