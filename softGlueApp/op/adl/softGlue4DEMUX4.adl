@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/synAppsSVN/support/softGlue/softGlueApp/op/adl/softGlue_4DEMUX4.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/softGlue/softGlueApp/op/adl/softGlue4DEMUX4.adl"
 	version=030107
 }
 display {
@@ -108,7 +108,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="1-4 Demux $(N)"
+	textix="1-4 Demux"
 	align="horiz. centered"
 }
 polyline {
