@@ -471,6 +471,11 @@ text {
 		args="P=$(P),H=$(H)"
 	}
 	display[9] {
+		label="encoderTimeAverage"
+		name="softGlueEncoderAvg.adl"
+		args="P=$(P),H=$(H)"
+	}
+	display[10] {
 		label="4demux4"
 		name="softGlue4DEMUX4.adl"
 		args="P=$(P),H=$(H)"
