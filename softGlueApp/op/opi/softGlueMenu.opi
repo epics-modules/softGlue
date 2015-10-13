@@ -3,7 +3,7 @@
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <wuid>14c27005:1501abaea1c:-7fe4</wuid>
+  <wuid>-7f0056a8:15062559fbb:-7e3d</wuid>
   <boy_version>3.2.10.20140131</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
@@ -36,7 +36,7 @@
       <include_parent_macros>true</include_parent_macros>
     </macros>
     <visible>true</visible>
-    <wuid>14c27005:1501abaea1c:-7fd5</wuid>
+    <wuid>-7f0056a8:15062559fbb:-7e2e</wuid>
     <scripts />
     <height>18</height>
     <name>Grouping Container</name>
@@ -76,7 +76,7 @@
         <include_parent_macros>true</include_parent_macros>
       </macros>
       <visible>true</visible>
-      <wuid>14c27005:1501abaea1c:-7fd4</wuid>
+      <wuid>-7f0056a8:15062559fbb:-7e2d</wuid>
       <scripts />
       <height>14</height>
       <name>Grouping Container</name>
@@ -118,7 +118,7 @@
         <line_color>
           <color red="128" green="0" blue="255" />
         </line_color>
-        <wuid>14c27005:1501abaea1c:-7fd3</wuid>
+        <wuid>-7f0056a8:15062559fbb:-7e2c</wuid>
         <bg_gradient_color>
           <color red="255" green="255" blue="255" />
         </bg_gradient_color>
@@ -171,7 +171,7 @@ $(pv_value)</tooltip>
       <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
         <visible>true</visible>
         <vertical_alignment>1</vertical_alignment>
-        <wuid>14c27005:1501abaea1c:-7fd2</wuid>
+        <wuid>-7f0056a8:15062559fbb:-7e2b</wuid>
         <auto_size>false</auto_size>
         <scripts />
         <height>14</height>
@@ -216,7 +216,7 @@ $(pv_value)</tooltip>
       <arrow_length>20</arrow_length>
       <visible>true</visible>
       <fill_level>100.0</fill_level>
-      <wuid>14c27005:1501abaea1c:-7fd1</wuid>
+      <wuid>-7f0056a8:15062559fbb:-7e2a</wuid>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
       <arrows>0</arrows>
@@ -270,7 +270,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>14c27005:1501abaea1c:-7fe3</wuid>
+    <wuid>-7f0056a8:15062559fbb:-7e3c</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -440,7 +440,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>14c27005:1501abaea1c:-7fe2</wuid>
+    <wuid>-7f0056a8:15062559fbb:-7e3b</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -574,7 +574,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>14c27005:1501abaea1c:-7fe1</wuid>
+    <wuid>-7f0056a8:15062559fbb:-7e3a</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -698,7 +698,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>14c27005:1501abaea1c:-7fe0</wuid>
+    <wuid>-7f0056a8:15062559fbb:-7e39</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -876,7 +876,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>14c27005:1501abaea1c:-7fdf</wuid>
+    <wuid>-7f0056a8:15062559fbb:-7e38</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1001,7 +1001,7 @@ $(pv_value)</tooltip>
     <visible>true</visible>
     <vertical_alignment>1</vertical_alignment>
     <show_units>false</show_units>
-    <wuid>14c27005:1501abaea1c:-7fde</wuid>
+    <wuid>-7f0056a8:15062559fbb:-7e37</wuid>
     <auto_size>false</auto_size>
     <rotation_angle>0.0</rotation_angle>
     <scripts />
@@ -1050,7 +1050,7 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
     <visible>true</visible>
     <vertical_alignment>1</vertical_alignment>
-    <wuid>14c27005:1501abaea1c:-7fdd</wuid>
+    <wuid>-7f0056a8:15062559fbb:-7e36</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <height>10</height>
@@ -1091,7 +1091,7 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
     <visible>true</visible>
     <vertical_alignment>1</vertical_alignment>
-    <wuid>14c27005:1501abaea1c:-7fdc</wuid>
+    <wuid>-7f0056a8:15062559fbb:-7e35</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <height>10</height>
@@ -1132,7 +1132,7 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
     <visible>true</visible>
     <vertical_alignment>1</vertical_alignment>
-    <wuid>14c27005:1501abaea1c:-7fdb</wuid>
+    <wuid>-7f0056a8:15062559fbb:-7e34</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <height>20</height>
@@ -1174,7 +1174,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>14c27005:1501abaea1c:-7fda</wuid>
+    <wuid>-7f0056a8:15062559fbb:-7e33</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1267,6 +1267,14 @@ $(pv_value)</tooltip>
         <description>encoder</description>
       </action>
       <action type="OPEN_DISPLAY">
+        <path>softGlueEncoderAvg.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+        </macros>
+        <replace>0</replace>
+        <description>encoderTimeAverage</description>
+      </action>
+      <action type="OPEN_DISPLAY">
         <path>softGlue4DEMUX4.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
@@ -1282,7 +1290,7 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
     <visible>true</visible>
     <vertical_alignment>1</vertical_alignment>
-    <wuid>14c27005:1501abaea1c:-7fd9</wuid>
+    <wuid>-7f0056a8:15062559fbb:-7e32</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <height>10</height>
@@ -1324,7 +1332,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>true</actions_from_pv>
-    <wuid>14c27005:1501abaea1c:-7fd8</wuid>
+    <wuid>-7f0056a8:15062559fbb:-7e31</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1366,7 +1374,7 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
     <visible>true</visible>
     <vertical_alignment>1</vertical_alignment>
-    <wuid>14c27005:1501abaea1c:-7fd7</wuid>
+    <wuid>-7f0056a8:15062559fbb:-7e30</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <height>10</height>
@@ -1409,7 +1417,7 @@ $(pv_value)</tooltip>
     <visible>true</visible>
     <vertical_alignment>1</vertical_alignment>
     <show_units>false</show_units>
-    <wuid>14c27005:1501abaea1c:-7fd6</wuid>
+    <wuid>-7f0056a8:15062559fbb:-7e2f</wuid>
     <auto_size>false</auto_size>
     <rotation_angle>0.0</rotation_angle>
     <scripts />
