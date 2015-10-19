@@ -32,6 +32,10 @@ DB += softGlue_FPGAContent_s1ID_Vgate.db
 DB_INSTALLS += ../SoftGlue_2_2_Encoder.hex
 DB += softGlue_FPGAContent_Encoder.db
 
+# optional support: extra components needed for encoders
+DB_INSTALLS += ../SoftGlue_2_2_encoder_ave.hex
+DB += softGlue_FPGAContent_EncoderAvg.db
+
 # optional support: extra components needed for four four-output demultiplexers
 DB_INSTALLS += ../SoftGlue_2_2_demux4.hex
 DB += softGlue_FPGAContent_4DEMUX4.db

@@ -12,6 +12,16 @@ record(calc,"$(P)$(H)$(SIG)") {
 	field(INPA,"$(P)$(H)$(SIG)_MSW PP")
 	field(INPB,"$(P)$(H)$(SIG)_LSW NPP")
 	field(CALC,"a*65536+b")
+	field(FLNK,"$(P)$(H)$(SIG)_s")
+}
+record(calc,"$(P)$(H)$(SIG)_s") {
+	field(INPA,"$(P)$(H)$(SIG)")
+	field(CALC,"a>2147483647.?a-4294967296.:a")
+	field(FLNK,"$(P)$(H)$(SIG)_8")
+}
+record(calc,"$(P)$(H)$(SIG)_8") {
+	field(INPA,"$(P)$(H)$(SIG)_LSW")
+	field(CALC,"a&255")
 }
 record(bo,"$(P)$(H)$(SIG)_SCAN") {
 	field(SCAN,"Event")

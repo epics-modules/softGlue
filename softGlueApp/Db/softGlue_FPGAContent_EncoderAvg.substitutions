@@ -11,18 +11,28 @@ pattern {SIG   ADDR}
 {UpDnCntr-2_ENABLE		0x802060}
 {UpDnCntr-2_CLEAR		0x802068}
 {UpDnCntr-2_LOAD		0x802070}
-{QuadDec-1_A			0x8020A0}
-{QuadDec-1_B			0x8020A8}
-{QuadDec-1_CLOCK		0x8020B0}
-{QuadDec-2_A			0x8020C8}
-{QuadDec-2_B			0x8020D0}
-{QuadDec-2_CLOCK		0x8020D8}
-{MagCmp-1_SAMPLE		0x802140}
-{UpDnCntr-3_CLOCK		0x8020f0}
-{UpDnCntr-3_UPDOWN		0x8020f8}
-{UpDnCntr-3_ENABLE		0x802100}
-{UpDnCntr-3_CLEAR		0x802108}
-{UpDnCntr-3_LOAD		0x802110}
+{UpDnCntr-3_CLOCK		0x8020A0}
+{UpDnCntr-3_UPDOWN		0x8020A8}
+{UpDnCntr-3_ENABLE		0x8020B0}
+{UpDnCntr-3_CLEAR		0x8020B8}
+{UpDnCntr-3_LOAD		0x8020C0}
+{UpDnCntr-4_CLOCK		0x8020F0}
+{UpDnCntr-4_UPDOWN		0x8020F8}
+{UpDnCntr-4_ENABLE		0x802100}
+{UpDnCntr-4_CLEAR		0x802108}
+{UpDnCntr-4_LOAD		0x802110}
+{UpDnCntr-5_CLOCK		0x802140}
+{UpDnCntr-5_UPDOWN		0x802148}
+{UpDnCntr-5_ENABLE		0x802150}
+{UpDnCntr-5_CLEAR		0x802158}
+{UpDnCntr-5_LOAD		0x802160}
+{QuadDec-1_A			0x802198}
+{QuadDec-1_B			0x8021A0}
+{QuadDec-1_CLOCK		0x8021A8}
+{QuadDec-2_A			0x8021C0}
+{QuadDec-2_B			0x8021C8}
+{QuadDec-2_CLOCK		0x8021D0}
+{MagCmp-1_SAMPLE		0x8021E8}
 }
 
 
@@ -31,13 +41,17 @@ file "softGlue_Output.db"
 pattern {SIG   ADDR}
 {UpDnCntr-1_OUT			0x802028}
 {UpDnCntr-2_OUT			0x802078}
-{QuadDec-1_STEP			0x8020B8}
-{QuadDec-1_DIR			0x8020C0}
-{QuadDec-2_STEP			0x8020E0}
-{QuadDec-2_DIR			0x8020E8}
-{MagCmp-1_AGTB			0x802148}
-{MagCmp-1_ANEB			0x802150}
-{UpDnCntr-3_Q			0x802118}
+{UpDnCntr-3_OUT			0x8020C8}
+{UpDnCntr-4_OUT			0x802118}
+# Note UpDnCntr-5 is different: OUT->Q8; new output C8
+{UpDnCntr-5_Q8			0x802168}
+{UpDnCntr-5_C8			0x802170}
+{QuadDec-1_STEP			0x8021B0}
+{QuadDec-1_DIR			0x8021B8}
+{QuadDec-2_STEP			0x8021D8}
+{QuadDec-2_DIR			0x8021E0}
+{MagCmp-1_AGTB			0x8021F0}
+{MagCmp-1_ANEB			0x8021F8}
 }
 
 file "softGlue_Register32.db"
@@ -45,7 +59,9 @@ file "softGlue_Register32.db"
 pattern {SIG		ADDR_MSW	ADDR_LSW 	CALC}
 {UpDnCntr-1_PRESET	0x802038	0x802030	A}
 {UpDnCntr-2_PRESET	0x802088	0x802080	A}
-{UpDnCntr-3_PRESET	0x802128	0x802120	A}
+{UpDnCntr-3_PRESET	0x8020D8	0x8020D0	A}
+{UpDnCntr-4_PRESET	0x802128	0x802120	A}
+{UpDnCntr-5_PRESET	0x802180	0x802178	A}
 }
 
 file "softGlue_InRegister32.db"
@@ -53,7 +69,9 @@ file "softGlue_InRegister32.db"
 pattern {SIG     	ADDR_MSW	ADDR_LSW}
 {UpDnCntr-1_COUNTS    0x802048    0x802040}
 {UpDnCntr-2_COUNTS    0x802098    0x802090}
-{UpDnCntr-3_COUNTS    0x802138    0x802130}
+{UpDnCntr-3_COUNTS    0x8020E8    0x8020E0}
+{UpDnCntr-4_COUNTS    0x802138    0x802130}
+{UpDnCntr-5_COUNTS    0x802190    0x802188}
 }
 
 file "softGlue_description.db"
@@ -61,8 +79,10 @@ file "softGlue_description.db"
 pattern {SIG N}
 {UpDnCntr-1 80}
 {UpDnCntr-2 80}
+{UpDnCntr-3 80}
+{UpDnCntr-4 80}
+{UpDnCntr-5 80}
 {QuadDec-1 80}
 {QuadDec-2 80}
 {MagCmp-1 80}
-{UpDnCntr-3 80}
 }
