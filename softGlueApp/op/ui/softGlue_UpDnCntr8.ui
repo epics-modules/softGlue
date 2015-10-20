@@ -4,10 +4,10 @@
 <widget class="QMainWindow" name="MainWindow">
     <property name="geometry">
         <rect>
-            <x>449</x>
-            <y>171</y>
+            <x>347</x>
+            <y>807</y>
             <width>490</width>
-            <height>215</height>
+            <height>235</height>
         </rect>
     </property>
     <property name="styleSheet">
@@ -130,7 +130,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                     <x>10</x>
                     <y>30</y>
                     <width>479</width>
-                    <height>180</height>
+                    <height>202</height>
                 </rect>
             </property>
             <property name="geometry">
@@ -138,11 +138,11 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                     <x>10</x>
                     <y>30</y>
                     <width>477</width>
-                    <height>178</height>
+                    <height>200</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>softGlue_UpDnCntr_bare_label.adl</string>
+                <string>softGlue_UpDnCntr8_bare_label.adl</string>
             </property>
             <property name="macro">
                 <string>P=$(P),H=$(H),N=$(N)</string>

@@ -4,10 +4,10 @@
 <widget class="QMainWindow" name="MainWindow">
     <property name="geometry">
         <rect>
-            <x>988</x>
-            <y>399</y>
-            <width>470</width>
-            <height>140</height>
+            <x>336</x>
+            <y>668</y>
+            <width>477</width>
+            <height>200</height>
         </rect>
     </property>
     <property name="styleSheet">
@@ -73,22 +73,22 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <widget class="caInclude" name="caInclude_0">
             <property name="geometry">
                 <rect>
-                    <x>0</x>
+                    <x>5</x>
                     <y>20</y>
-                    <width>472</width>
-                    <height>122</height>
+                    <width>556</width>
+                    <height>182</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>0</x>
+                    <x>5</x>
                     <y>20</y>
-                    <width>470</width>
-                    <height>120</height>
+                    <width>554</width>
+                    <height>180</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>softGlue_MagCmp_bare.adl</string>
+                <string>softGlue_UpDnCntr8_bare.adl</string>
             </property>
             <property name="macro">
                 <string>P=$(P),H=$(H),N=$(N)</string>

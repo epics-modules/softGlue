@@ -4,10 +4,10 @@
 <widget class="QMainWindow" name="MainWindow">
     <property name="geometry">
         <rect>
-            <x>449</x>
-            <y>171</y>
+            <x>451</x>
+            <y>196</y>
             <width>490</width>
-            <height>130</height>
+            <height>170</height>
         </rect>
     </property>
     <property name="styleSheet">
@@ -166,7 +166,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                     <x>10</x>
                     <y>30</y>
                     <width>472</width>
-                    <height>92</height>
+                    <height>142</height>
                 </rect>
             </property>
             <property name="geometry">
@@ -174,7 +174,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                     <x>10</x>
                     <y>30</y>
                     <width>470</width>
-                    <height>90</height>
+                    <height>140</height>
                 </rect>
             </property>
             <property name="filename">
