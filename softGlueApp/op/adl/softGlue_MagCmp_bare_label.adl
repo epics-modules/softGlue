@@ -8,7 +8,7 @@ display {
 		x=988
 		y=399
 		width=470
-		height=90
+		height=140
 	}
 	clr=14
 	bclr=2
@@ -108,7 +108,7 @@ composite {
 		x=0
 		y=20
 		width=468
-		height=70
+		height=120
 	}
 	"composite name"=""
 	"composite file"="softGlue_MagCmp_bare.adl;P=$(P),H=$(H),N=$(N)"

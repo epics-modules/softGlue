@@ -5,17 +5,17 @@ file {
 }
 display {
 	object {
-		x=964
-		y=254
+		x=371
+		y=315
 		width=470
-		height=70
+		height=120
 	}
 	clr=14
 	bclr=2
 	cmap=""
 	gridSpacing=5
 	gridOn=0
-	snapToGrid=0
+	snapToGrid=1
 }
 "color map" {
 	ncolors=65
@@ -119,7 +119,7 @@ rectangle {
 		x=164
 		y=0
 		width=133
-		height=70
+		height=120
 	}
 	"basic attribute" {
 		clr=14
@@ -159,16 +159,16 @@ polyline {
 }
 text {
 	object {
-		x=261
+		x=250
 		y=25
-		width=30
+		width=40
 		height=13
 	}
 	"basic attribute" {
 		clr=14
 	}
 	textix="A>B"
-	align="horiz. centered"
+	align="horiz. right"
 }
 composite {
 	object {
@@ -179,46 +179,6 @@ composite {
 	}
 	"composite name"=""
 	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=MagCmp-$(N)_AGTB"
-}
-polyline {
-	object {
-		x=294
-		y=55
-		width=19
-		height=2
-	}
-	"basic attribute" {
-		clr=14
-		fill="outline"
-		width=2
-	}
-	points {
-		(312,56)
-		(295,56)
-	}
-}
-text {
-	object {
-		x=257
-		y=50
-		width=30
-		height=13
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="A!=B"
-	align="horiz. centered"
-}
-composite {
-	object {
-		x=311
-		y=42
-		width=157
-		height=26
-	}
-	"composite name"=""
-	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=MagCmp-$(N)_ANEB"
 }
 composite {
 	object {
@@ -254,4 +214,139 @@ composite {
 			textix="MagCmp-$(N)"
 		}
 	}
+}
+polyline {
+	object {
+		x=294
+		y=55
+		width=19
+		height=2
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+		width=2
+	}
+	points {
+		(312,56)
+		(295,56)
+	}
+}
+text {
+	object {
+		x=250
+		y=50
+		width=40
+		height=13
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="A!=B"
+	align="horiz. right"
+}
+composite {
+	object {
+		x=311
+		y=42
+		width=157
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=MagCmp-$(N)_ANEB"
+}
+polyline {
+	object {
+		x=294
+		y=80
+		width=19
+		height=2
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+		width=2
+	}
+	points {
+		(312,81)
+		(295,81)
+	}
+}
+text {
+	object {
+		x=250
+		y=75
+		width=40
+		height=13
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="BCLOCK"
+	align="horiz. right"
+}
+composite {
+	object {
+		x=311
+		y=67
+		width=157
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=MagCmp-$(N)_BCK"
+}
+polyline {
+	object {
+		x=294
+		y=105
+		width=19
+		height=2
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+		width=2
+	}
+	points {
+		(312,106)
+		(295,106)
+	}
+}
+text {
+	object {
+		x=250
+		y=100
+		width=40
+		height=13
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="BDIR"
+	align="horiz. right"
+}
+composite {
+	object {
+		x=311
+		y=92
+		width=157
+		height=26
+	}
+	"composite name"=""
+	"composite file"="softGlue_Output.adl;P=$(P),H=$(H),SIG=MagCmp-$(N)_BDIR"
+}
+"related display" {
+	object {
+		x=220
+		y=90
+		width=25
+		height=20
+	}
+	display[0] {
+		label="help"
+		name="softGlue_MagCmp_help.adl"
+	}
+	clr=0
+	bclr=63
+	label="-?"
 }
