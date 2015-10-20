@@ -19,6 +19,8 @@
   <li><a href="#Overview">Overview</a></li>
   <li><a href="#Installation and deployment">Installation and deployment</a></li>
   <li><a href="#User's Manual">User's Manual</a></li>
+  <li><a href="#Add-on FPGA components">Add-on FPGA components</a></li>
+  <li><a href="#Saving and restoring circuits">Saving and restoring circuits</a></li>
   <li><a href="#Example circuits">Example circuits</a></li>
   <li><a href="#Field wiring">Field wiring</a></li>
   <li><a href="#Custom Interrupt Handlers">Custom Interrupt Handlers</a></li>
@@ -1001,7 +1003,8 @@ CA put will succeed in clearing it and causing its processing to appear done to 
 </ul>
 <hr>
 
-<h3>Add-on FPGA components</h3>
+<a name="Add-on FPGA components"></a>
+<h2><center>Add-on FPGA components</center></h2>
 
 The following components are not in the standard softGlue package, but in
 add-on packages typically made to solve specific problems.
@@ -1072,11 +1075,30 @@ connected to pin 34, ..., and DEMUX4-4_OUT3 is connected to pin 48.
 
 </ol>
 
+<li><P>Encoder Time Average circuit
+<P><img src="encoderTimeAverage.gif" name="Encoder Time Average circuit">
+
+<P>This circuit is for general encoder support, and also for generating a time
+averaged value of an encoder signal.  Up/Down counters 1-4 are copies of the
+32-bit Up/Down counter described above.  Up/Down counter 5 is also a 32-bit
+Up/Down counter, but it has no "Q" output.  Instead, it has "Q8" and "C8"
+outputs.  Q8 is true whenever the 8 least significant bits are all zero.  C8 is
+a ripple carry bit, which allows the eight lsbits of this counter to be combined
+with any 32-bit counter to make a 40-bit counter. 
+
+<P>MagCmp-1 is a 32-bit magnitude comparator, which produces the signals "A>B"
+and "A!=B" on the rising edge of the clock "SAMPLE".  The component also
+produces the signals "BCLOCK" and "BDIR" with the following circuitry, which
+uses the "Q8" signal from Up/Down counter 5:
+
+<P><img src="softGlue_MagCmp_help.gif" name="softGlue_MagCmp_help.adl">
+
 </ul>
 
 <hr>
 
-<h3>Saving and restoring circuits</h3>
+<a name="Saving and restoring circuits"></a>
+<h2><center>Saving and restoring circuits</center></h2>
 	
 	softGlue circuits can be saved and restored using <a
 	href="http://www.aps.anl.gov/bcda/synApps/autosave/autosave.html">autosave</a>,
