@@ -52,6 +52,8 @@ pattern {SIG   ADDR}
 {QuadDec-2_DIR			0x8021E0}
 {MagCmp-1_AGTB			0x8021F0}
 {MagCmp-1_ANEB			0x8021F8}
+{MagCmp-1_BDIR			0x802200}
+{MagCmp-1_BCK			0x802208}
 }
 
 file "softGlue_Register32.db"
