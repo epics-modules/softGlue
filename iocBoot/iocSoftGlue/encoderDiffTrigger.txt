@@ -1,0 +1,78 @@
+encoderDiffTrigger
+
+This circuit accepts digital quadrature signals from two encoders, counts the
+difference between them, and outputs trigger pulses every N counts of the
+difference.  The circuit requires two copies of softGlue, because there aren't
+enough signals to do it with a single copy.
+
+encoderDiffTriggerA
+
+This part of the circuit decodes quadrature signals (a1,b1), (a2,b2) from the
+encoders, and outputs corresponding step/direction signals (step1,dir1),
+(step2,dir2).  The quadrature decoders are run from the 8 MHz clock, one driven
+by the rising edge, the other driven by the falling edge.  This ensures that
+transitions from the two decoders will not coincide in time.  The step and
+direction signals, and the clock used to generate them, are output for use by
+encoderDiffTriggerB.
+
+encoderDiffTriggerB
+
+This part of the circuit accepts signals step1, dir1, step2, dir2, and
+Clock_8MHz from encoderDiffTriggerA, and uses them to drive two UpDown
+counters.  The direction signals are multiplexed by Clock_8MHz and fed to the
+UP/DOWN inputs of the counters.  The step signals cannot be treated in this way,
+because multiplexing would produce rising edges when the signals have different
+values.  Instead, the step signals are shortened to around 20 ns by flipflops 1
+and 2, and the logical OR of those signals is fed to the clock inputs of the
+counters.  In this way, step and direction signals from encoder 1 are counted
+while Clock_8MHz is high, and those signals from encoder 2 are counted while
+Clock_8Mhz is low.
+
+One UpDown counter is used to keep track of the difference between the encoders,
+and to generate triggers when that difference reaches a multiple of N, where N
+is the number presented to the counter's PRESET input.  When that happens, the
+counter is reloaded with the preset N.  But an UpDown counter can only generate
+triggers in this way when the counter value reaches zero, so it can  generate
+triggers when the encoder difference increases, or when it decreases, but not in
+both cases.  So counter 1 generates triggers when the encoder difference
+decreases.  A second counter generates triggers when the encoder difference
+increases.
+
+
+element count
+encoderDiffTriggerA
+	quadDec (2)
+	I/O signals: a1, b1, a2, b2
+	internal signals: , step1, dir1, step2, dir2, Clock
+encoderDiffTriggerB
+	UpDnCntr (2)
+	DFF (3)
+	OR (3)
+	MUX2 (1)
+	I/O signals: trigger
+	internal signals: Clock, step1_pulse, step2_pulse, step1or2, dir1or2,
+		trigUp, trigDown, load
+
+upDownToPixelNum (row/column counter)
+	DFF (3)
+	UpDnCntr (2)
+	AND (2) (delay)
+	OR (2)
+	I/O sgnals: init
+	Internal signals:  up, upp, uppd, dn, dnp, dnpd, step, dir, ldup, lddn, ld
+	
+Total:
+	quadDec (2)
+	UpDnCntr (4)
+	DFF (6)
+	MUX2 (1)
+	OR (5)
+	AND (2)
+	
+total for pixel generator (two copies of above, plus one OR gate):
+	quadDec (4)
+	UpDnCntr (8)
+	DFF (12)
+	MUX2 (2)
+	OR (11)
+	AND (4)

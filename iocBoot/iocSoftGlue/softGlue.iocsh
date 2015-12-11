@@ -214,6 +214,7 @@ doAfterIocInit("create_manual_set('$(CONFIG)Menu.req','P=$(PREFIX),CONFIG=$(CONF
 # Register included example of a custom softGlue interrupt-service routine.
 # This is for interrupts that occur too closely spaced in time for softGlue's
 # normal interrupt service (an output link to an EPICS record) to handle.
-#sampleCustomInterruptPrepare($(IPCARRIER), $(IPSLOT), 0x800010, 0x1)
+# Note that this command must be issued after iocInit.
+#doAfterIocInit("sampleCustomInterruptPrepare($(IPCARRIER), $(IPSLOT), 0x800010, 0x1)")
 
 # END softGlue.cmd ------------------------------------------------------------
