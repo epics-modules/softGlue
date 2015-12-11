@@ -1543,6 +1543,12 @@ time.
 <dd>This file contains everything in SoftGlue_2_2.hex, plus two 32-bit up/down
 counters, plus two quadrature decoders.
 
+<dt>SoftGlue_2_2_encoder_ave.hex
+
+<dd>This file contains everything in SoftGlue_2_2.hex, plus four 32-bit up/down
+counters, two quadrature decoders, one 32-bit magnitude comparator that is
+hardwired to compare counters 1 and 2, and one eight-bit up/down counter.
+
 <dt>SoftGlue_2_2_1ID_Vgate_0_1.hex
 <dd>This file contains everything in SoftGlue_2_2.hex, plus two 32-bit up/down
 counters.
@@ -1573,6 +1579,13 @@ shift registers in <code>SoftGlue_2_2_Octupole_0_0.hex</code>.<P>
 produce the database file <code>softGlue_FPGAContent_Encoder.db</code>.  The
 database file loads records for the two 32-bit up/down counters in
 <code>SoftGlue_2_2_Encoder.hex</code>.<P>
+
+<dt>softGlue_FPGAContent_EncoderAvg.substitutions
+
+<dd>This substitutions file is run through <code>msi</code> at build time to
+produce the database file <code>softGlue_FPGAContent_EncoderAvg.db</code>.  The
+database file loads records for the additional content in
+<code>SoftGlue_2_2_encoder_ave.hex</code>.<P>
 
 <dt>softGlue_FPGAContent_s1ID_Vgate.substitutions
 
