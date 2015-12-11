@@ -15,6 +15,7 @@ extern int logMsg(char *fmt, ...);
 
 typedef struct {
 	epicsUInt16 mask;
+	epicsUInt16 wentLow, wentHigh;
 	void *userPvt;
 } softGlueIntRoutineData;
 

@@ -18,7 +18,7 @@ myISRDataStruct myISRData;
 static int sampleCustomInterruptValues[MAX_VALUES];
 
 /* When an interrupt matching conditions specified by sampleCustomInterruptPrepare() occurs,
- * we'll get called with the bitmask that generated the interrupt.
+ * we'll get called with the bitmask that generated the interrupt, and the bit that went low or high.
  */
 void sampleCustomInterruptRoutine(softGlueIntRoutineData *IRData) {
 	epicsUInt16 mask = IRData->mask;
@@ -29,6 +29,7 @@ void sampleCustomInterruptRoutine(softGlueIntRoutineData *IRData) {
 	int numValues = myISRData->numValues;
 	int *thisValue = &(myISRData->thisValue);
 
+	logMsg("sampleCustomInterruptRoutine(0x%x) wentLow=0x%x, wentHigh=0x%x\n", mask, IRData->wentLow, IRData->wentHigh);
 	logMsg("sampleCustomInterruptRoutine(0x%x) div[%d]=%d\n", mask, *thisValue, DivByN_values[*thisValue]);
 	*addrMSW = (DivByN_values[*thisValue]-1)/65536;
 	*addrLSW = (DivByN_values[*thisValue]-1)%65536;

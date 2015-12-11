@@ -1302,6 +1302,8 @@ STATIC void intFunc(void *drvPvt)
 				if (drvIP_EP201Debug>5) logMsg("intFunc: calling registered interrupt routine %p\n", registeredIntRoutines[i].routine);
 #endif
 				registeredIntRoutines[i].IRData.mask = msg.interruptMask;
+				registeredIntRoutines[i].IRData.wentLow = pendingLow & pPvt->regs->fallingIntEnable;
+				registeredIntRoutines[i].IRData.wentHigh = pendingHigh & pPvt->regs->risingIntEnable;
 				registeredIntRoutines[i].routine(&(registeredIntRoutines[i].IRData));
 				handled = 1;
 			}
