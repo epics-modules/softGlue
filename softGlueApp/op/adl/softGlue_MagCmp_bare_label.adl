@@ -95,7 +95,7 @@ display {
 		height=16
 	}
 	control {
-		chan="$(P)$(H)UpDnCntr-$(N)_desc"
+		chan="$(P)$(H)MagCmp-$(N)_desc"
 		clr=14
 		bclr=2
 	}
