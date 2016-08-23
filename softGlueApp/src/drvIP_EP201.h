@@ -1,17 +1,5 @@
-/* System includes */
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
-#include <ctype.h>
-
-#ifdef vxWorks
-extern int logMsg(char *fmt, ...);
-#endif
-
 /* EPICS includes */
 #include <epicsTypes.h>
-#include <iocsh.h>
-#include <epicsExport.h>
 
 typedef struct {
 	epicsUInt16 mask;
