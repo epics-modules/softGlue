@@ -10,8 +10,8 @@ extern int logMsg(char *fmt, ...);
 
 /* EPICS includes */
 #include <epicsTypes.h>
-#include <epicsExport.h>
 #include <iocsh.h>
+#include <epicsExport.h>
 
 typedef struct {
 	epicsUInt16 mask;
