@@ -127,7 +127,7 @@ extern int logMsg(char *fmt, ...);
 #include <asynUInt32Digital.h>
 #include <asynInt32.h>
 #include <epicsInterrupt.h>
-#include <epicsExport.h>
+
 #include "drvIP_EP201.h"
 
 #define STATIC static
