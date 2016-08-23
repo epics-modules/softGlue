@@ -122,11 +122,14 @@ extern int logMsg(char *fmt, ...);
 #include <epicsExit.h>
 #include <epicsMessageQueue.h>
 #include <iocsh.h>
+#include <epicsInterrupt.h>
+#include <macLib.h>
 #include <asynDriver.h>
 #include <asynDrvUser.h> /* used for setting interrupt enable to rising, falling, or both */
 #include <asynUInt32Digital.h>
 #include <asynInt32.h>
-#include <epicsInterrupt.h>
+
+#include <epicsExport.h>
 
 #include "drvIP_EP201.h"
 
@@ -808,7 +811,6 @@ int initIP_EP201SingleRegisterPort(const char *portName, epicsUInt16 carrier, ep
 #define MAXREAD 1000
 #define MAXCHECK 30
 #define BUF_SIZE 1000
-#include "macLib.h"
 
 int initIP_EP200_FPGA(epicsUInt16 carrier, epicsUInt16 slot, char *filepath)
 {
