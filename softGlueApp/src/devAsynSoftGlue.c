@@ -31,7 +31,6 @@
 #include <dbCommon.h>
 #include <dbScan.h>
 #include <callback.h>
-#include <stringoutRecord.h>
 #include <menuFtype.h>
 #include <recSup.h>
 #include <devSup.h>
@@ -41,13 +40,16 @@
 #include <freeList.h> /* alloc/free userList entries */
 #include <boRecord.h> /* signal show */
 #include <longoutRecord.h> /* number of signals in use */
+#include <stringoutRecord.h>
 
-#include "asynDriver.h"
-#include "asynDrvUser.h"
-#include "asynUInt32Digital.h"
+#include <asynDriver.h>
+#include <asynDrvUser.h>
+#include <asynUInt32Digital.h>
+#include <asynEpicsUtils.h>
+
 /* Ideally, we would use ...SyncIO, but drvIP_EP201 doesn't implement this interface. */
 /* #include "asynUInt32DigitalSyncIO.h" */
-#include "asynEpicsUtils.h"
+
 #include <epicsExport.h>
 
 volatile int devAsynSoftGlueDebug = 0;
