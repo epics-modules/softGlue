@@ -1,9 +1,14 @@
 /* Demonstrate softGlue custom interrupt routine to write new values to DivByN-3_N
  */
 
-#include "drvIP_EP201.h"
-#include <epicsExport.h>
 #include <iocsh.h>
+
+#include <epicsExport.h>
+#include "drvIP_EP201.h"
+
+#ifdef vxWorks
+extern int logMsg(char *fmt, ...);
+#endif
 
 typedef struct {
 	epicsUInt16 *addrMSW;
@@ -29,8 +34,10 @@ void sampleCustomInterruptRoutine(softGlueIntRoutineData *IRData) {
 	int numValues = myISRData->numValues;
 	int *thisValue = &(myISRData->thisValue);
 
+#ifdef vxWorks
 	logMsg("sampleCustomInterruptRoutine(0x%x) wentLow=0x%x, wentHigh=0x%x\n", mask, IRData->wentLow, IRData->wentHigh);
 	logMsg("sampleCustomInterruptRoutine(0x%x) div[%d]=%d\n", mask, *thisValue, DivByN_values[*thisValue]);
+#endif
 	*addrMSW = (DivByN_values[*thisValue]-1)/65536;
 	*addrLSW = (DivByN_values[*thisValue]-1)%65536;
 	if (++(*thisValue) >= numValues) (*thisValue) = 0;
