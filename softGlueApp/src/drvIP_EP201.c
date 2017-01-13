@@ -97,6 +97,9 @@
 
 */
 
+#ifdef vxWorks
+extern int logMsg(char *fmt, ...);
+#endif
 
 
 /* System includes */
@@ -127,6 +130,8 @@ extern int logMsg(char *fmt, ...);
 #include <asynUInt32Digital.h>
 #include <asynInt32.h>
 #include <epicsInterrupt.h>
+#include <iocsh.h>
+#include <epicsExport.h>
 
 #include "drvIP_EP201.h"
 
