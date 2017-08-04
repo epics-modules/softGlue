@@ -1,0 +1,13 @@
+This circuit is partial support for generating data-acquisition triggers at user
+specified motor positions.  It's intended to work with tablePSOFly_ISR.db, and
+to be driven by encoderFly.db and encoderFlyCustom.db.
+
+This circuit expects as input a series of pulses at regular position intervals
+from a motor or encoder.  For example, we might use the step-pulse output of a
+motor as the "PSO" input to this circuit.  Or, we might use encoderFly.db with
+the SG_encoderFly.cfg circuit (in a separate softGlue instance) to read encoder
+pulses and generate triggers every Nth encoder pulse, and use that as our "PSO"
+input.
+
+We also expect as input an array of the numbers of input pulses between the
+pulses we will generate. 
