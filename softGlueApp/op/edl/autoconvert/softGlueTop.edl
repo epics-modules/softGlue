@@ -1,0 +1,58 @@
+4 0 0
+beginScreenProperties
+major 4
+minor 0
+release 0
+x 11
+y 25
+w 100
+h 40
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 64
+bgColor index 1
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+snapToGrid
+gridSize 5
+endScreenProperties
+
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 10
+w 70
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "softGlue"
+numPvs 4
+numDsps 2
+displayFileName {
+  0 softGlueMenu.edl
+  1 softGlueMenu.edl
+}
+menuLabel {
+  0 softGlueMenu
+  1 softGlue2 Menu
+}
+symbols {
+  0 "P=xxx:,H=softGlue:,PORT=SOFTGLUE,IPORT=SGI1,OPORT=SGO1"
+  1 "P=xxx:,H=softGlue2:,PORT=SOFTGLUE2,IPORT=SGI2,OPORT=SGO2"
+}
+endObjectProperties
+

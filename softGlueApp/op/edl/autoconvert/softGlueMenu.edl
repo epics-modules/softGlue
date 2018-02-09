@@ -1,0 +1,641 @@
+4 0 0
+beginScreenProperties
+major 4
+minor 0
+release 0
+x 1080
+y 248
+w 120
+h 220
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 14
+bgColor index 2
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+snapToGrid
+gridSize 5
+endScreenProperties
+
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 50
+y 195
+w 30
+h 20
+controlPv "$(P)$(H)numSignalsInUse"
+font "helvetica-medium-r-8.0"
+fontAlign "right"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 2
+autoHeight
+format decimal
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 195
+w 40
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "#SIGS"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 205
+w 40
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "IN USE"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 85
+y 195
+w 20
+h 20
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "/15"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 160
+w 100
+h 10
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "READ PERIOD"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 20
+w 50
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "VERSION: "
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 60
+y 20
+w 30
+h 10
+controlPv "$(P)$(H)version"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 2
+autoHeight
+format "string"
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 120
+h 18
+
+beginGroup
+
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 120
+h 14
+
+beginGroup
+
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 119
+h 13
+lineColor index 0
+fill
+fillColor index 0
+lineWidth 0
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 120
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "$(P)$(H) "
+}
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 15
+w 119
+h 3
+lineColor index 54
+fillColor index 54
+lineWidth 3
+numPoints 2 {
+xPoints  {
+0 1
+1 117
+}
+yPoints  {
+0 16
+1 16
+}
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 30
+w 100
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Gates"
+numPvs 28
+numDsps 14
+displayFileName {
+  0 softGlue_AND.edl
+  1 softGlue_AND.edl
+  2 softGlue_AND.edl
+  3 softGlue_AND.edl
+  4 softGlue_OR.edl
+  5 softGlue_OR.edl
+  6 softGlue_OR.edl
+  7 softGlue_OR.edl
+  8 softGlue_XOR.edl
+  9 softGlue_XOR.edl
+  10 softGlue_BUFFER.edl
+  11 softGlue_BUFFER.edl
+  12 softGlue_BUFFER.edl
+  13 softGlue_BUFFER.edl
+}
+menuLabel {
+  0 AND 1
+  1 AND 2
+  2 AND 3
+  3 AND 4
+  4 OR 1
+  5 OR 2
+  6 OR 3
+  7 OR 4
+  8 XOR 1
+  9 XOR 2
+  10 BUFFER 1
+  11 BUFFER 2
+  12 BUFFER 3
+  13 BUFFER 4
+}
+symbols {
+  0 "P=$(P),H=$(H),N=1"
+  1 "P=$(P),H=$(H),N=2"
+  2 "P=$(P),H=$(H),N=3"
+  3 "P=$(P),H=$(H),N=4"
+  4 "P=$(P),H=$(H),N=1"
+  5 "P=$(P),H=$(H),N=2"
+  6 "P=$(P),H=$(H),N=3"
+  7 "P=$(P),H=$(H),N=4"
+  8 "P=$(P),H=$(H),N=1"
+  9 "P=$(P),H=$(H),N=2"
+  10 "P=$(P),H=$(H),N=1"
+  11 "P=$(P),H=$(H),N=2"
+  12 "P=$(P),H=$(H),N=3"
+  13 "P=$(P),H=$(H),N=4"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 50
+w 100
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Counters"
+numPvs 20
+numDsps 10
+displayFileName {
+  0 softGlue_UpCntr.edl
+  1 softGlue_UpCntr.edl
+  2 softGlue_UpCntr.edl
+  3 softGlue_UpCntr.edl
+  4 softGlue_DnCntr.edl
+  5 softGlue_DnCntr.edl
+  6 softGlue_DnCntr.edl
+  7 softGlue_DnCntr.edl
+  8 softGlue_UpDnCntr.edl
+  9 softGlue_UpDnCntr.edl
+}
+menuLabel {
+  0 UpCounter 1
+  1 UpCounter 2
+  2 UpCounter 3
+  3 UpCounter 4
+  4 DownCounter 1
+  5 DownCounter 2
+  6 DownCounter 3
+  7 DownCounter 4
+  8 UpDown Counter 1
+  9 UpDown Counter 2
+}
+symbols {
+  0 "P=$(P),H=$(H),N=1"
+  1 "P=$(P),H=$(H),N=2"
+  2 "P=$(P),H=$(H),N=3"
+  3 "P=$(P),H=$(H),N=4"
+  4 "P=$(P),H=$(H),N=1"
+  5 "P=$(P),H=$(H),N=2"
+  6 "P=$(P),H=$(H),N=3"
+  7 "P=$(P),H=$(H),N=4"
+  8 "P=$(P),H=$(H),N=1"
+  9 "P=$(P),H=$(H),N=2"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 90
+w 100
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Field I/O 201"
+numPvs 8
+numDsps 4
+displayFileName {
+  0 softGlueFieldIO.edl
+  1 softGlueFieldIOxx.edl
+  2 softGlueFieldIOxx.edl
+  3 softGlueFieldIOxx.edl
+}
+menuLabel {
+  0 Field I/O All
+  1 Field I/O 1-16
+  2 Field I/O 17-32
+  3 Field I/O 33-48
+}
+symbols {
+  0 "P=$(P),H=$(H)"
+  1 "P=$(P),H=$(H),N1=1,N2=2,N3=3,N4=4,N5=5,N6=6,N7=7,N8=8,N9=9,N10=10,N11=11,N12=12,N13=13,N14=14,N15=15,N16=16"
+  2 "P=$(P),H=$(H),N1=17,N2=18,N3=19,N4=20,N5=21,N6=22,N7=23,N8=24,N9=25,N10=26,N11=27,N12=28,N13=29,N14=30,N15=31,N16=32"
+  3 "P=$(P),H=$(H),N1=33,N2=34,N3=35,N4=36,N5=37,N6=38,N7=39,N8=40,N9=41,N10=42,N11=43,N12=44,N13=45,N14=46,N15=47,N16=48"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 70
+w 100
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Other"
+numPvs 30
+numDsps 15
+displayFileName {
+  0 softGlue_8MHZ_CK_bare.edl
+  1 softGlue_MUX2.edl
+  2 softGlue_MUX2.edl
+  3 softGlue_DEMUX2.edl
+  4 softGlue_DEMUX2.edl
+  5 softGlue_DFF.edl
+  6 softGlue_DFF.edl
+  7 softGlue_DFF.edl
+  8 softGlue_DFF.edl
+  9 softGlue_DivByN.edl
+  10 softGlue_DivByN.edl
+  11 softGlue_DivByN.edl
+  12 softGlue_DivByN.edl
+  13 softGlue_QuadDec.edl
+  14 softGlue_QuadDec.edl
+}
+menuLabel {
+  0 8 MHZ Internal Clock
+  1 2-input multiplexer
+  2 2-input multiplexer
+  3 2-output demultiplexer
+  4 2-output demultiplexer
+  5 D FlipFlop 1
+  6 D FlipFlop 2
+  7 D FlipFlop 3
+  8 D FlipFlop 4
+  9 Divide By N 1
+  10 Divide By N 2
+  11 Divide By N 3
+  12 Divide By N 4
+  13 Quadrature Decoder 1
+  14 Quadrature Decoder 2
+}
+symbols {
+  0 "P=$(P),H=$(H)"
+  1 "P=$(P),H=$(H),N=1"
+  2 "P=$(P),H=$(H),N=2"
+  3 "P=$(P),H=$(H),N=1"
+  4 "P=$(P),H=$(H),N=2"
+  5 "P=$(P),H=$(H),N=1"
+  6 "P=$(P),H=$(H),N=2"
+  7 "P=$(P),H=$(H),N=3"
+  8 "P=$(P),H=$(H),N=4"
+  9 "P=$(P),H=$(H),N=1"
+  10 "P=$(P),H=$(H),N=2"
+  11 "P=$(P),H=$(H),N=3"
+  12 "P=$(P),H=$(H),N=4"
+  13 "P=$(P),H=$(H),N=1"
+  14 "P=$(P),H=$(H),N=2"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 110
+w 100
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Field I/O 202"
+numPvs 8
+numDsps 4
+displayFileName {
+  0 softGlueFieldIO_EP202.edl
+  1 softGlueFieldIOxx_EP202.edl
+  2 softGlueFieldIOxx_EP202.edl
+  3 softGlueFieldIOxx_EP202.edl
+}
+menuLabel {
+  0 Field I/O All
+  1 Field I/O 1-16
+  2 Field I/O 17-32
+  3 Field I/O 33-48
+}
+symbols {
+  0 "P=$(P),H=$(H)"
+  1 "P=$(P),H=$(H),N1=1,N2=2,N3=3,N4=4,N5=5,N6=6,N7=7,N8=8,N9=9,N10=10,N11=11,N12=12,N13=13,N14=14,N15=15,N16=16"
+  2 "P=$(P),H=$(H),N1=17,N2=18,N3=19,N4=20,N5=21,N6=22,N7=23,N8=24,N9=25,N10=26,N11=27,N12=28,N13=29,N14=30,N15=31,N16=32"
+  3 "P=$(P),H=$(H),N1=33,N2=34,N3=35,N4=36,N5=37,N6=38,N7=39,N8=40,N9=41,N10=42,N11=43,N12=44,N13=45,N14=46,N15=47,N16=48"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 130
+w 100
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Collections"
+numPvs 16
+numDsps 8
+displayFileName {
+  0 softGlueAll.edl
+  1 softGlueAllButIO.edl
+  2 softGlueConvenience.edl
+  3 softGlueOctupole.edl
+  4 softGlueVgate.edl
+  5 softGlueEncoder.edl
+  6 softGlueEncoderAvg.edl
+  7 softGlue4DEMUX4.edl
+}
+menuLabel {
+  0 all softGlue
+  1 all but I/O
+  2 convenience
+  3 octupole
+  4 velocity gate
+  5 encoder
+  6 encoderTimeAverage
+  7 4demux4
+}
+symbols {
+  0 "P=$(P),H=$(H)"
+  1 "P=$(P),H=$(H),N=1,N1=1,N2=2,N3=3,N4=4,N5=5,N6=6,N7=7,N8=8"
+  2 "P=$(P),H=$(H),PORT=$(PORT),IPORT=$(IPORT),OPORT=$(OPORT)"
+  3 "P=$(P),H=$(H)"
+  4 "P=$(P),H=$(H)"
+  5 "P=$(P),H=$(H)"
+  6 "P=$(P),H=$(H)"
+  7 "P=$(P),H=$(H)"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 170
+w 100
+h 20
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
+controlPv "$(P)$(H)ReadRate.SCAN"
+indicatorPv "$(P)$(H)ReadRate.SCAN"
+font "helvetica-medium-r-10.0"
+endObjectProperties
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 120
+h 18
+
+beginGroup
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 120
+h 14
+
+beginGroup
+
+
+endGroup
+
+endObjectProperties
+
+
+endGroup
+
+endObjectProperties
+
+

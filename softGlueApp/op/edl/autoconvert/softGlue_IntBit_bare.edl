@@ -1,0 +1,91 @@
+4 0 0
+beginScreenProperties
+major 4
+minor 0
+release 0
+x 900
+y 200
+w 259
+h 24
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 14
+bgColor index 2
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+snapToGrid
+gridSize 5
+endScreenProperties
+
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 77
+y 2
+w 180
+h 20
+controlPv "$(P)$(H)$(NAM)Do.OUT"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 40
+editable
+autoHeight
+format "string"
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 1
+y 1
+w 72
+h 22
+lineColor index 20
+fillColor index 20
+lineWidth 2
+visPv "CALC\\\{(A)\}($(P)$(H)$(NAM)IntEdgeThrottled)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 2
+y 2
+w 70
+h 20
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
+controlPv "$(P)$(H)$(NAM)IntEdge"
+indicatorPv "$(P)$(H)$(NAM)IntEdge"
+font "helvetica-medium-r-10.0"
+endObjectProperties
+

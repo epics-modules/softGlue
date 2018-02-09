@@ -1,0 +1,220 @@
+4 0 0
+beginScreenProperties
+major 4
+minor 0
+release 0
+x 9
+y 38
+w 200
+h 26
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 14
+bgColor index 2
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+snapToGrid
+gridSize 5
+endScreenProperties
+
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 32
+y 1
+w 103
+h 23
+lineColor index 34
+fillColor index 34
+lineWidth 3
+visPv "CALC\\\{(a&&b)\}($(P)$(H)$(SIG)_SigShow, $(P)$(H)SignalBlink)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 32
+y 1
+w 103
+h 23
+lineColor index 20
+fillColor index 20
+lineWidth 3
+lineStyle "dash"
+visPv "CALC\\\{(a)\}($(P)$(H)$(SIG)_SigCheckShow.VAL)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 13
+w 29
+h 2
+lineColor index 14
+fillColor index 14
+lineWidth 2
+numPoints 2 {
+xPoints  {
+0 38
+1 11
+}
+yPoints  {
+0 14
+1 14
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 34
+y 3
+w 100
+h 20
+controlPv "$(P)$(H)$(SIG)_Signal"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 30
+editable
+autoHeight
+format "string"
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 2
+y 9
+w 9
+h 9
+lineColor index 20
+fill
+fillColor index 20
+lineWidth 2
+visPv "CALC\\\{(a)\}($(P)$(H)$(SIG)_BI)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 2
+y 9
+w 9
+h 9
+lineColor index 24
+fill
+fillColor index 24
+lineWidth 2
+visPv "CALC\\\{(a)\}($(P)$(H)$(SIG)_BI)"
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 137
+y 3
+w 20
+h 20
+fgColor index 14
+onColor index 51
+offColor index 51
+topShadowColor index 0
+botShadowColor index 14
+controlPv "$(P)$(H)$(SIG)_Show"
+pressValue "1"
+releaseValue "0"
+onLabel "="
+offLabel "="
+3d
+useEnumNumeric
+font "helvetica-medium-r-10.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 165
+y 6
+w 35
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "debug"
+numPvs 10
+numDsps 5
+displayFileName {
+  0 yySseq.adl
+  1 yysCalcoutRecord.adl
+  2 yySseq.adl
+  3 yysCalcoutRecord.adl
+  4 yyCalcoutRecord.adl
+}
+menuLabel {
+  0 Show sseq
+  1 SigShow scalcout
+  2 Check sseq
+  3 SigCheck scalcout
+  4 SigCheckShow calcout
+}
+symbols {
+  0 "P=$(P),S=$(H)$(SIG)_DoShow"
+  1 "P=$(P),C=$(H)$(SIG)_SigShow"
+  2 "P=$(P),S=$(H)$(SIG)_DoCheck"
+  3 "P=$(P),C=$(H)$(SIG)_SigCheck"
+  4 "P=$(P),C=$(H)$(SIG)_SigCheckShow"
+}
+endObjectProperties
+

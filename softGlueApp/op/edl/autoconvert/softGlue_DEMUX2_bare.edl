@@ -1,0 +1,911 @@
+4 0 0
+beginScreenProperties
+major 4
+minor 0
+release 0
+x 1053
+y 875
+w 412
+h 52
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 14
+bgColor index 2
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+snapToGrid
+gridSize 5
+endScreenProperties
+
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 412
+h 52
+
+beginGroup
+
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 144
+y 12
+w 9
+h 9
+lineColor index 14
+fill
+fillColor index 14
+lineWidth 2
+visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_IN_BI)"
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 21
+y 4
+w 103
+h 23
+lineColor index 17
+fillColor index 17
+lineWidth 3
+visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_IN_SigShow)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 123
+y 16
+w 31
+h 2
+lineColor index 14
+fillColor index 14
+lineWidth 2
+numPoints 2 {
+xPoints  {
+0 153
+1 124
+}
+yPoints  {
+0 17
+1 17
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 23
+y 6
+w 100
+h 20
+controlPv "$(P)$(H)DEMUX2-$(N)_IN_Signal"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 30
+editable
+autoHeight
+format "string"
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 144
+y 12
+w 9
+h 9
+lineColor index 20
+fill
+fillColor index 20
+lineWidth 2
+visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_IN_BI)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 132
+y 6
+w 10
+h 10
+controlPv "$(P)$(H)DEMUX2-$(N)_IN_BI"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 2
+autoHeight
+format decimal
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 144
+y 35
+w 9
+h 9
+lineColor index 14
+fill
+fillColor index 14
+lineWidth 2
+visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_SEL_BI)"
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 21
+y 27
+w 103
+h 23
+lineColor index 17
+fillColor index 17
+lineWidth 3
+visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_SEL_SigShow)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 123
+y 39
+w 31
+h 2
+lineColor index 14
+fillColor index 14
+lineWidth 2
+numPoints 2 {
+xPoints  {
+0 153
+1 124
+}
+yPoints  {
+0 40
+1 40
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 23
+y 29
+w 100
+h 20
+controlPv "$(P)$(H)DEMUX2-$(N)_SEL_Signal"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 30
+editable
+autoHeight
+format "string"
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 144
+y 35
+w 9
+h 9
+lineColor index 20
+fill
+fillColor index 20
+lineWidth 2
+visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_SEL_BI)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 132
+y 29
+w 10
+h 10
+controlPv "$(P)$(H)DEMUX2-$(N)_SEL_BI"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 2
+autoHeight
+format decimal
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 166
+y 6
+w 80
+h 43
+lineColor index 14
+fillColor index 14
+lineWidth 2
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 246
+y 13
+w 14
+h 2
+lineColor index 14
+fillColor index 14
+lineWidth 2
+numPoints 2 {
+xPoints  {
+0 259
+1 247
+}
+yPoints  {
+0 14
+1 14
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 216
+y 6
+w 25
+h 13
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "OUT0"
+}
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 257
+y 9
+w 9
+h 9
+lineColor index 14
+fill
+fillColor index 14
+lineWidth 2
+visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_OUT0_BI)"
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 265
+y 13
+w 29
+h 2
+lineColor index 14
+fillColor index 14
+lineWidth 2
+numPoints 2 {
+xPoints  {
+0 293
+1 266
+}
+yPoints  {
+0 14
+1 14
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 289
+y 3
+w 100
+h 20
+controlPv "$(P)$(H)DEMUX2-$(N)_OUT0_Signal"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 31
+editable
+autoHeight
+format "string"
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 257
+y 9
+w 9
+h 9
+lineColor index 20
+fill
+fillColor index 20
+lineWidth 2
+visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_OUT0_BI)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 287
+y 1
+w 103
+h 23
+lineColor index 34
+fillColor index 34
+lineWidth 3
+visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_OUT0_SigShow)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 271
+y 3
+w 10
+h 10
+controlPv "$(P)$(H)DEMUX2-$(N)_OUT0_BI"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 2
+autoHeight
+format decimal
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 246
+y 37
+w 14
+h 2
+lineColor index 14
+fillColor index 14
+lineWidth 2
+numPoints 2 {
+xPoints  {
+0 259
+1 247
+}
+yPoints  {
+0 38
+1 38
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 216
+y 36
+w 25
+h 13
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "OUT1"
+}
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 257
+y 33
+w 9
+h 9
+lineColor index 14
+fill
+fillColor index 14
+lineWidth 2
+visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_OUT1_BI)"
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 265
+y 37
+w 29
+h 2
+lineColor index 14
+fillColor index 14
+lineWidth 2
+numPoints 2 {
+xPoints  {
+0 293
+1 266
+}
+yPoints  {
+0 38
+1 38
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 289
+y 27
+w 100
+h 20
+controlPv "$(P)$(H)DEMUX2-$(N)_OUT1_Signal"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 31
+editable
+autoHeight
+format "string"
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Circle)
+object activeCircleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 257
+y 33
+w 9
+h 9
+lineColor index 20
+fill
+fillColor index 20
+lineWidth 2
+visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_OUT1_BI)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 287
+y 25
+w 103
+h 23
+lineColor index 34
+fillColor index 34
+lineWidth 3
+visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_OUT1_SigShow)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 271
+y 27
+w 10
+h 10
+controlPv "$(P)$(H)DEMUX2-$(N)_OUT1_BI"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 2
+autoHeight
+format decimal
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 185
+y 23
+w 50
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 53
+useDisplayBg
+value {
+ "DEMUX2-$(N)"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 183
+y 20
+w 55
+h 14
+lineColor index 53
+fillColor index 53
+lineWidth 0
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 154
+y 39
+w 12
+h 2
+lineColor index 14
+fillColor index 14
+lineWidth 2
+numPoints 2 {
+xPoints  {
+0 165
+1 155
+}
+yPoints  {
+0 40
+1 40
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 169
+y 34
+w 20
+h 13
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "SEL"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 169
+y 11
+w 13
+h 13
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "IN"
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 154
+y 16
+w 12
+h 2
+lineColor index 14
+fillColor index 14
+lineWidth 2
+numPoints 2 {
+xPoints  {
+0 165
+1 155
+}
+yPoints  {
+0 17
+1 17
+}
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 412
+h 52
+
+beginGroup
+
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 6
+w 20
+h 20
+fgColor index 14
+onColor index 51
+offColor index 51
+topShadowColor index 0
+botShadowColor index 14
+controlPv "$(P)$(H)DEMUX2-$(N)_IN_Show"
+pressValue "1"
+releaseValue "0"
+onLabel "="
+offLabel "="
+3d
+useEnumNumeric
+font "helvetica-medium-r-10.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 29
+w 20
+h 20
+fgColor index 14
+onColor index 51
+offColor index 51
+topShadowColor index 0
+botShadowColor index 14
+controlPv "$(P)$(H)DEMUX2-$(N)_SEL_Show"
+pressValue "1"
+releaseValue "0"
+onLabel "="
+offLabel "="
+3d
+useEnumNumeric
+font "helvetica-medium-r-10.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 392
+y 3
+w 20
+h 20
+fgColor index 14
+onColor index 51
+offColor index 51
+topShadowColor index 0
+botShadowColor index 14
+controlPv "$(P)$(H)DEMUX2-$(N)_OUT0_Show"
+pressValue "1"
+releaseValue "0"
+onLabel "="
+offLabel "="
+3d
+useEnumNumeric
+font "helvetica-medium-r-10.0"
+endObjectProperties
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 392
+y 27
+w 20
+h 20
+fgColor index 14
+onColor index 51
+offColor index 51
+topShadowColor index 0
+botShadowColor index 14
+controlPv "$(P)$(H)DEMUX2-$(N)_OUT1_Show"
+pressValue "1"
+releaseValue "0"
+onLabel "="
+offLabel "="
+3d
+useEnumNumeric
+font "helvetica-medium-r-10.0"
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+
