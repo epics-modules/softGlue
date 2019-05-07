@@ -40,6 +40,8 @@ DB += softGlue_FPGAContent_EncoderAvg.db
 DB_INSTALLS += ../SoftGlue_2_2_demux4.hex
 DB += softGlue_FPGAContent_4DEMUX4.db
 
+REQ += $(patsubst ../%, %, $(wildcard ../*.req))
+
 include $(TOP)/configure/RULES
 #----------------------------------------
 #  ADD RULES AFTER THIS LINE
