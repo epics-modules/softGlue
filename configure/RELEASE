@@ -4,7 +4,7 @@
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
-SUPPORT=/home/oxygen/MOONEY/epics/synAppsSVN/support
+SUPPORT=/home/oxygen/KLANG/Epics/synApps_5_8/support
 -include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
 
 ASYN=$(SUPPORT)/asyn-4-26
@@ -13,9 +13,15 @@ IPAC=$(SUPPORT)/ipac-2-13
 MSI=msi
 
 # EPICS_BASE usually appears last so other apps can override stuff:
-EPICS_BASE=/home/oxygen/MOONEY/epics/base-3.15.2
+EPICS_BASE=/APSshare/epics/base-3.15.5
 -include $(TOP)/../configure/EPICS_BASE.$(EPICS_HOST_ARCH)
 
 #Capfast users may need the following definitions
 #CAPFAST_TEMPLATES=
 #SCH2EDIF_PATH=
+
+# These lines allow developers to override these RELEASE settings
+# without having to modify this file directly.
+-include $(TOP)/../RELEASE.local
+-include $(TOP)/../RELEASE.$(EPICS_HOST_ARCH).local
+-include $(TOP)/configure/RELEASE.local
