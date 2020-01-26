@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>softGlueAll</name>
+  <x>52</x>
+  <y>27</y>
+  <width>1355</width>
+  <height>1120</height>
+  <background_color>
+    <color red="218" green="218" blue="218">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #6</name>
+    <file>softGlue_8MHZ_CK_bare.bob</file>
+    <x>975</x>
+    <y>710</y>
+    <width>285</width>
+    <height>26</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #8</name>
+    <file>softGlue_UpCntr_bare.bob</file>
+    <macros>
+      <N>1</N>
+    </macros>
+    <x>935</x>
+    <y>25</y>
+    <width>414</width>
+    <height>72</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #10</name>
+    <file>softGlue_UpCntr_bare.bob</file>
+    <macros>
+      <N>2</N>
+    </macros>
+    <x>935</x>
+    <y>98</y>
+    <width>414</width>
+    <height>72</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #12</name>
+    <file>softGlue_UpCntr_bare.bob</file>
+    <macros>
+      <N>3</N>
+    </macros>
+    <x>935</x>
+    <y>171</y>
+    <width>414</width>
+    <height>72</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #14</name>
+    <file>softGlue_UpCntr_bare.bob</file>
+    <macros>
+      <N>4</N>
+    </macros>
+    <x>935</x>
+    <y>244</y>
+    <width>414</width>
+    <height>72</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #16</name>
+    <file>softGlue_DnCntr_bare.bob</file>
+    <macros>
+      <N>3</N>
+    </macros>
+    <x>450</x>
+    <y>175</y>
+    <width>468</width>
+    <height>72</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #18</name>
+    <file>softGlue_DnCntr_bare.bob</file>
+    <macros>
+      <N>4</N>
+    </macros>
+    <x>450</x>
+    <y>250</y>
+    <width>468</width>
+    <height>72</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #20</name>
+    <file>softGlue_DnCntr_bare.bob</file>
+    <macros>
+      <N>1</N>
+    </macros>
+    <x>450</x>
+    <y>25</y>
+    <width>468</width>
+    <height>72</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #22</name>
+    <file>softGlue_DnCntr_bare.bob</file>
+    <macros>
+      <N>2</N>
+    </macros>
+    <x>450</x>
+    <y>100</y>
+    <width>468</width>
+    <height>72</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #24</name>
+    <file>softGlue_AND_bare.bob</file>
+    <macros>
+      <N>1</N>
+    </macros>
+    <x>10</x>
+    <y>25</y>
+    <width>374</width>
+    <height>49</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #26</name>
+    <file>softGlue_AND_bare.bob</file>
+    <macros>
+      <N>2</N>
+    </macros>
+    <x>10</x>
+    <y>75</y>
+    <width>374</width>
+    <height>49</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #28</name>
+    <file>softGlue_AND_bare.bob</file>
+    <macros>
+      <N>3</N>
+    </macros>
+    <x>10</x>
+    <y>125</y>
+    <width>374</width>
+    <height>49</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #30</name>
+    <file>softGlue_AND_bare.bob</file>
+    <macros>
+      <N>4</N>
+    </macros>
+    <x>10</x>
+    <y>175</y>
+    <width>374</width>
+    <height>49</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #32</name>
+    <file>softGlue_DFF_bare.bob</file>
+    <macros>
+      <N>1</N>
+    </macros>
+    <x>935</x>
+    <y>317</y>
+    <width>418</width>
+    <height>95</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #34</name>
+    <file>softGlue_DFF_bare.bob</file>
+    <macros>
+      <N>2</N>
+    </macros>
+    <x>935</x>
+    <y>414</y>
+    <width>418</width>
+    <height>95</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #36</name>
+    <file>softGlue_DFF_bare.bob</file>
+    <macros>
+      <N>3</N>
+    </macros>
+    <x>935</x>
+    <y>511</y>
+    <width>418</width>
+    <height>95</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #38</name>
+    <file>softGlue_DFF_bare.bob</file>
+    <macros>
+      <N>4</N>
+    </macros>
+    <x>935</x>
+    <y>608</y>
+    <width>418</width>
+    <height>95</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #40</name>
+    <file>softGlue_OR_bare.bob</file>
+    <macros>
+      <N>3</N>
+    </macros>
+    <x>10</x>
+    <y>325</y>
+    <width>373</width>
+    <height>49</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #42</name>
+    <file>softGlue_OR_bare.bob</file>
+    <macros>
+      <N>4</N>
+    </macros>
+    <x>10</x>
+    <y>375</y>
+    <width>373</width>
+    <height>49</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #44</name>
+    <file>softGlue_OR_bare.bob</file>
+    <macros>
+      <N>1</N>
+    </macros>
+    <x>10</x>
+    <y>225</y>
+    <width>373</width>
+    <height>49</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #46</name>
+    <file>softGlue_OR_bare.bob</file>
+    <macros>
+      <N>2</N>
+    </macros>
+    <x>10</x>
+    <y>275</y>
+    <width>373</width>
+    <height>49</height>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #48</name>
+    <x>10</x>
+    <y>425</y>
+    <width>379</width>
+    <height>99</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="embedded" version="2.0.0">
+      <name>composite #51</name>
+      <file>softGlue_XOR_bare.bob</file>
+      <macros>
+        <N>1</N>
+      </macros>
+      <width>379</width>
+      <height>49</height>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>composite #53</name>
+      <file>softGlue_XOR_bare.bob</file>
+      <macros>
+        <N>2</N>
+      </macros>
+      <y>50</y>
+      <width>379</width>
+      <height>49</height>
+    </widget>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #55</name>
+    <file>softGlue_DEMUX2_bare.bob</file>
+    <macros>
+      <N>2</N>
+    </macros>
+    <x>10</x>
+    <y>722</y>
+    <width>412</width>
+    <height>52</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #57</name>
+    <file>softGlue_DEMUX2_bare.bob</file>
+    <macros>
+      <N>1</N>
+    </macros>
+    <x>10</x>
+    <y>672</y>
+    <width>412</width>
+    <height>52</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #59</name>
+    <file>softGlue_MUX2_bare.bob</file>
+    <macros>
+      <N>1</N>
+    </macros>
+    <x>10</x>
+    <y>525</y>
+    <width>411</width>
+    <height>72</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #61</name>
+    <file>softGlue_MUX2_bare.bob</file>
+    <macros>
+      <N>2</N>
+    </macros>
+    <x>10</x>
+    <y>600</y>
+    <width>411</width>
+    <height>72</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #63</name>
+    <file>softGlue_DivByN_bare.bob</file>
+    <macros>
+      <N>1</N>
+    </macros>
+    <x>450</x>
+    <y>325</y>
+    <width>469</width>
+    <height>72</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #65</name>
+    <file>softGlue_DivByN_bare.bob</file>
+    <macros>
+      <N>2</N>
+    </macros>
+    <x>450</x>
+    <y>400</y>
+    <width>469</width>
+    <height>72</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #67</name>
+    <file>softGlue_DivByN_bare.bob</file>
+    <macros>
+      <N>3</N>
+    </macros>
+    <x>450</x>
+    <y>475</y>
+    <width>469</width>
+    <height>72</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #69</name>
+    <file>softGlue_DivByN_bare.bob</file>
+    <macros>
+      <N>4</N>
+    </macros>
+    <x>450</x>
+    <y>550</y>
+    <width>469</width>
+    <height>72</height>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #71</name>
+    <x>450</x>
+    <y>625</y>
+    <width>383</width>
+    <height>107</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="embedded" version="2.0.0">
+      <name>composite #74</name>
+      <file>softGlue_BUFFER_bare.bob</file>
+      <macros>
+        <N>3</N>
+      </macros>
+      <y>54</y>
+      <width>383</width>
+      <height>26</height>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>composite #76</name>
+      <file>softGlue_BUFFER_bare.bob</file>
+      <macros>
+        <N>4</N>
+      </macros>
+      <y>81</y>
+      <width>383</width>
+      <height>26</height>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>composite #78</name>
+      <file>softGlue_BUFFER_bare.bob</file>
+      <macros>
+        <N>1</N>
+      </macros>
+      <width>383</width>
+      <height>26</height>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>composite #80</name>
+      <file>softGlue_BUFFER_bare.bob</file>
+      <macros>
+        <N>2</N>
+      </macros>
+      <y>27</y>
+      <width>383</width>
+      <height>26</height>
+    </widget>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #82</name>
+    <file>softGlueFieldIOxx_small_bare.bob</file>
+    <macros>
+      <N1>33</N1>
+      <N10>42</N10>
+      <N11>43</N11>
+      <N12>44</N12>
+      <N13>45</N13>
+      <N14>46</N14>
+      <N15>47</N15>
+      <N16>48</N16>
+      <N2>34</N2>
+      <N3>35</N3>
+      <N4>36</N4>
+      <N5>37</N5>
+      <N6>38</N6>
+      <N7>39</N7>
+      <N8>40</N8>
+      <N9>41</N9>
+    </macros>
+    <x>870</x>
+    <y>780</y>
+    <width>407</width>
+    <height>340</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #84</name>
+    <file>softGlueFieldIOxx_small_bare.bob</file>
+    <macros>
+      <N1>17</N1>
+      <N10>26</N10>
+      <N11>27</N11>
+      <N12>28</N12>
+      <N13>29</N13>
+      <N14>30</N14>
+      <N15>31</N15>
+      <N16>32</N16>
+      <N2>18</N2>
+      <N3>19</N3>
+      <N4>20</N4>
+      <N5>21</N5>
+      <N6>22</N6>
+      <N7>23</N7>
+      <N8>24</N8>
+      <N9>25</N9>
+    </macros>
+    <x>440</x>
+    <y>780</y>
+    <width>407</width>
+    <height>340</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #86</name>
+    <file>softGlueFieldIOxx_small_bare.bob</file>
+    <macros>
+      <N1>1</N1>
+      <N10>10</N10>
+      <N11>11</N11>
+      <N12>12</N12>
+      <N13>13</N13>
+      <N14>14</N14>
+      <N15>15</N15>
+      <N16>16</N16>
+      <N2>2</N2>
+      <N3>3</N3>
+      <N4>4</N4>
+      <N5>5</N5>
+      <N6>6</N6>
+      <N7>7</N7>
+      <N8>8</N8>
+      <N9>9</N9>
+    </macros>
+    <x>10</x>
+    <y>780</y>
+    <width>407</width>
+    <height>340</height>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #88</name>
+    <x>511</x>
+    <y>748</y>
+    <width>350</width>
+    <height>20</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #91</name>
+      <pv_name>$(P)$(H)availableSignals</pv_name>
+      <x>320</x>
+      <width>30</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="218" green="218" blue="218">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #95</name>
+      <text>#Signals In Use:</text>
+      <width>160</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #98</name>
+      <text>#Remaining:</text>
+      <x>210</x>
+      <width>110</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>text update #101</name>
+      <pv_name>$(P)$(H)numSignalsInUse</pv_name>
+      <x>160</x>
+      <width>30</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="218" green="218" blue="218">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #105</name>
+    <actions>
+      <action type="open_display">
+        <file>softGlueAllButIO.opi</file>
+        <target>replace</target>
+        <description>all but I/O</description>
+      </action>
+    </actions>
+    <text>No I/O</text>
+    <x>1305</x>
+    <y>760</y>
+    <width>50</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="40" green="147" blue="21">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #108</name>
+    <actions>
+      <action type="open_display">
+        <file>softGlueAll_label.opi</file>
+        <target>replace</target>
+        <description>all with labels</description>
+      </action>
+    </actions>
+    <text>Labels</text>
+    <x>1304</x>
+    <y>735</y>
+    <width>50</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="40" green="147" blue="21">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #111</name>
+    <width>1355</width>
+    <height>23</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="group" version="2.0.0">
+      <name>composite #114</name>
+      <width>1355</width>
+      <height>20</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="rectangle" version="2.0.0">
+        <name>rectangle #117</name>
+        <width>1355</width>
+        <line_color>
+          <color red="255" green="255" blue="255">
+          </color>
+        </line_color>
+        <background_color>
+          <color red="255" green="255" blue="255">
+          </color>
+        </background_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #120</name>
+        <text>$(P)$(H)</text>
+        <width>1355</width>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="16.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #123</name>
+      <y>20</y>
+      <width>1354</width>
+      <height>3</height>
+      <line_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </line_color>
+      <points>
+        <point x="1.0" y="1.0">
+        </point>
+        <point x="1352.0" y="1.0">
+        </point>
+      </points>
+    </widget>
+  </widget>
+</display>
