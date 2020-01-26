@@ -72,7 +72,7 @@
     <x>450</x>
     <y>245</y>
     <width>470</width>
-    <height>90</height>
+    <height>91</height>
   </widget>
   <widget type="embedded" version="2.0.0">
     <name>composite #18</name>
@@ -83,7 +83,7 @@
     <x>450</x>
     <y>340</y>
     <width>470</width>
-    <height>90</height>
+    <height>91</height>
   </widget>
   <widget type="embedded" version="2.0.0">
     <name>composite #20</name>
@@ -94,7 +94,7 @@
     <x>450</x>
     <y>55</y>
     <width>470</width>
-    <height>90</height>
+    <height>91</height>
   </widget>
   <widget type="embedded" version="2.0.0">
     <name>composite #22</name>
@@ -105,7 +105,7 @@
     <x>450</x>
     <y>150</y>
     <width>470</width>
-    <height>90</height>
+    <height>91</height>
   </widget>
   <widget type="embedded" version="2.0.0">
     <name>composite #24</name>
@@ -248,7 +248,7 @@
     <x>10</x>
     <y>615</y>
     <width>380</width>
-    <height>65</height>
+    <height>67</height>
   </widget>
   <widget type="embedded" version="2.0.0">
     <name>composite #50</name>
@@ -259,7 +259,7 @@
     <x>10</x>
     <y>685</y>
     <width>380</width>
-    <height>65</height>
+    <height>67</height>
   </widget>
   <widget type="embedded" version="2.0.0">
     <name>composite #52</name>
@@ -292,7 +292,7 @@
     <x>10</x>
     <y>755</y>
     <width>411</width>
-    <height>90</height>
+    <height>91</height>
   </widget>
   <widget type="embedded" version="2.0.0">
     <name>composite #58</name>
@@ -303,7 +303,7 @@
     <x>10</x>
     <y>850</y>
     <width>411</width>
-    <height>90</height>
+    <height>91</height>
   </widget>
   <widget type="embedded" version="2.0.0">
     <name>composite #60</name>
