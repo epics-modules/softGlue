@@ -1,45 +1,46 @@
-4 0 0
+4 0 1
 beginScreenProperties
 major 4
 minor 0
-release 0
+release 1
 x 900
 y 200
 w 257
 h 50
 font "helvetica-medium-r-18.0"
-ctlFont "helvetica-medium-r-8.0"
+ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
-fgColor index 14
-bgColor index 2
-textColor index 14
-ctlFgColor1 index 30
-ctlFgColor2 index 32
-ctlBgColor1 index 34
-ctlBgColor2 index 35
-topShadowColor index 37
-botShadowColor index 44
+fgColor rgb 0 0 0
+bgColor rgb 55808 55808 55808
+textColor rgb 0 0 0
+ctlFgColor1 rgb 64256 62208 18944
+ctlFgColor2 rgb 60928 46592 11008
+ctlBgColor1 rgb 52480 24832 0
+ctlBgColor2 rgb 65280 45056 65280
+topShadowColor rgb 44544 19968 48128
+botShadowColor rgb 13312 13056 34304
+showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
-
 
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 0
 y 0
 w 257
 h 20
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "Interrupt $(NAM)"
+  "Interrupt $(NAM)"
 }
 endObjectProperties
 
@@ -60,26 +61,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 20
 w 257
 h 24
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_IntBit_bare.edl;P=$(P),H=$(H),NAM=$(NAM)"
+file "softGlue_IntBit_bare.edl;P=$(P),H=$(H),NAM=$(NAM)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_IntBit_bare.edl;P=$(P),H=$(H),NAM=$(NAM)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties

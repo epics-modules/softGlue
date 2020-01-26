@@ -1,29 +1,29 @@
-4 0 0
+4 0 1
 beginScreenProperties
 major 4
 minor 0
-release 0
+release 1
 x 612
 y 259
 w 411
 h 91
 font "helvetica-medium-r-18.0"
-ctlFont "helvetica-medium-r-8.0"
+ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
-fgColor index 14
-bgColor index 2
-textColor index 14
-ctlFgColor1 index 30
-ctlFgColor2 index 32
-ctlBgColor1 index 34
-ctlBgColor2 index 35
-topShadowColor index 37
-botShadowColor index 44
+fgColor rgb 0 0 0
+bgColor rgb 55808 55808 55808
+textColor rgb 0 0 0
+ctlFgColor1 rgb 64256 62208 18944
+ctlFgColor2 rgb 60928 46592 11008
+ctlBgColor1 rgb 52480 24832 0
+ctlBgColor2 rgb 65280 45056 65280
+topShadowColor rgb 44544 19968 48128
+botShadowColor rgb 13312 13056 34304
+showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
 
-
 # (Group)
 object activeGroupClass
 beginObjectProperties
@@ -41,26 +41,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 19
 w 155
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_Input.edl;P=$(P),H=$(H),SIG=MUX2-$(N)_IN0"
+file "softGlue_Input.edl;P=$(P),H=$(H),SIG=MUX2-$(N)_IN0"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_Input.edl;P=$(P),H=$(H),SIG=MUX2-$(N)_IN0"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -82,26 +84,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 41
 w 155
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_Input.edl;P=$(P),H=$(H),SIG=MUX2-$(N)_IN1"
+file "softGlue_Input.edl;P=$(P),H=$(H),SIG=MUX2-$(N)_IN1"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_Input.edl;P=$(P),H=$(H),SIG=MUX2-$(N)_IN1"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -123,26 +127,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 64
 w 155
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_Input.edl;P=$(P),H=$(H),SIG=MUX2-$(N)_SEL"
+file "softGlue_Input.edl;P=$(P),H=$(H),SIG=MUX2-$(N)_SEL"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_Input.edl;P=$(P),H=$(H),SIG=MUX2-$(N)_SEL"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -157,8 +163,8 @@ x 153
 y 54
 w 13
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -181,8 +187,8 @@ x 153
 y 32
 w 12
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -205,8 +211,8 @@ x 165
 y 23
 w 80
 h 41
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 endObjectProperties
 
@@ -214,18 +220,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
-x 171
+minor 1
+release 1
+x 165
 y 27
-w 15
+w 28
 h 13
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-10.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "IN0"
+  "IN0"
 }
 endObjectProperties
 
@@ -233,18 +240,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 184
 y 53
 w 40
 h 10
 font "helvetica-medium-r-8.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "SEL"
+  "SEL"
 }
 endObjectProperties
 
@@ -258,8 +266,8 @@ x 204
 y 63
 w 2
 h 17
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -282,8 +290,8 @@ x 153
 y 77
 w 54
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -306,8 +314,8 @@ x 245
 y 31
 w 14
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -324,18 +332,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
-x 221
+minor 1
+release 1
+x 214
 y 24
-w 17
+w 32
 h 13
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-10.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "OUT"
+  "OUT"
 }
 endObjectProperties
 
@@ -356,26 +365,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 254
 y 18
 w 157
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_Output.edl;P=$(P),H=$(H),SIG=MUX2-$(N)_OUT"
+file "softGlue_Output.edl;P=$(P),H=$(H),SIG=MUX2-$(N)_OUT"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_Output.edl;P=$(P),H=$(H),SIG=MUX2-$(N)_OUT"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -384,18 +395,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
-x 171
+minor 1
+release 1
+x 165
 y 47
-w 15
+w 28
 h 13
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-10.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "IN1"
+  "IN1"
 }
 endObjectProperties
 
@@ -403,17 +415,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 189
 y 39
-w 35
+w 52
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 53
+fgColor rgb 10752 25344 58368
+bgColor index 3
 useDisplayBg
 value {
- "MUX2-$(N)"
+  "MUX2-$(N)"
 }
 endObjectProperties
 
@@ -427,8 +440,8 @@ x 186
 y 36
 w 45
 h 14
-lineColor index 53
-fillColor index 53
+lineColor rgb 10752 25344 58368
+fillColor rgb 10752 25344 58368
 lineWidth 0
 endObjectProperties
 
@@ -436,25 +449,25 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 0
+minor 7
 release 0
 x 0
 y 0
 w 410
 h 16
 controlPv "$(P)$(H)MUX2-$(N)_desc"
+format "string"
 font "helvetica-medium-r-8.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 55808 55808 55808
+editable
+motifWidget
+limitsFromDb
+nullColor rgb 60928 46592 11008
 smartRefresh
 fastUpdate
-fgColor index 14
-bgColor index 2
-editable
-autoHeight
-format "string"
-motifWidget
-nullColor index 32
-useHexPrefix
-objType "controls"
 newPos
+objType "controls"
 endObjectProperties
 

@@ -1,28 +1,28 @@
-4 0 0
+4 0 1
 beginScreenProperties
 major 4
 minor 0
-release 0
+release 1
 x 859
 y 536
 w 380
 h 50
 font "helvetica-medium-r-18.0"
-ctlFont "helvetica-medium-r-8.0"
+ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
-fgColor index 14
-bgColor index 2
-textColor index 14
-ctlFgColor1 index 30
-ctlFgColor2 index 32
-ctlBgColor1 index 34
-ctlBgColor2 index 35
-topShadowColor index 37
-botShadowColor index 44
+fgColor rgb 0 0 0
+bgColor rgb 55808 55808 55808
+textColor rgb 0 0 0
+ctlFgColor1 rgb 64256 62208 18944
+ctlFgColor2 rgb 60928 46592 11008
+ctlBgColor1 rgb 52480 24832 0
+ctlBgColor2 rgb 65280 45056 65280
+topShadowColor rgb 44544 19968 48128
+botShadowColor rgb 13312 13056 34304
+showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
-
 
 # (Group)
 object activeGroupClass
@@ -37,7 +37,6 @@ h 49
 
 beginGroup
 
-
 # (Group)
 object activeGroupClass
 beginObjectProperties
@@ -55,26 +54,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 0
 w 155
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "			composite file softGlue_Input.edl;P=$(P),H=$(H),SIG=XOR-$(N)_IN1"
+file "softGlue_Input.edl;P=$(P),H=$(H),SIG=XOR-$(N)_IN1"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_Input.edl;P=$(P),H=$(H),SIG=XOR-$(N)_IN1"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -96,26 +97,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 23
 w 155
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "			composite file softGlue_Input.edl;P=$(P),H=$(H),SIG=XOR-$(N)_IN2"
+file "softGlue_Input.edl;P=$(P),H=$(H),SIG=XOR-$(N)_IN2"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_Input.edl;P=$(P),H=$(H),SIG=XOR-$(N)_IN2"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -130,8 +133,8 @@ x 143
 y 0
 w 25
 h 48
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 startAngle  305
 totalAngle  115
@@ -148,8 +151,8 @@ x 151
 y 0
 w 25
 h 48
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 startAngle  305
 totalAngle  115
@@ -166,8 +169,8 @@ x 154
 y 36
 w 13
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -190,8 +193,8 @@ x 154
 y 13
 w 13
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -214,8 +217,8 @@ x 213
 y 24
 w 14
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -238,8 +241,8 @@ x 170
 y 4
 w 46
 h 21
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 8 {
 xPoints  {
@@ -274,8 +277,8 @@ x 171
 y 23
 w 46
 h 21
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 8 {
 xPoints  {
@@ -317,26 +320,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 222
 y 11
 w 157
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "			composite file softGlue_Output.edl;P=$(P),H=$(H),SIG=XOR-$(N)_OUT"
+file "softGlue_Output.edl;P=$(P),H=$(H),SIG=XOR-$(N)_OUT"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_Output.edl;P=$(P),H=$(H),SIG=XOR-$(N)_OUT"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -345,17 +350,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 179
 y 20
-w 30
+w 46
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 53
+fgColor rgb 10752 25344 58368
+bgColor index 3
 useDisplayBg
 value {
- "XOR-$(N)"
+  "XOR-$(N)"
 }
 endObjectProperties
 
@@ -375,7 +381,6 @@ w 379
 h 49
 
 beginGroup
-
 
 endGroup
 

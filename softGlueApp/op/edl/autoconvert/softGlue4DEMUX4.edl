@@ -1,28 +1,28 @@
-4 0 0
+4 0 1
 beginScreenProperties
 major 4
 minor 0
-release 0
+release 1
 x 621
 y 295
 w 435
 h 552
 font "helvetica-medium-r-18.0"
-ctlFont "helvetica-medium-r-8.0"
+ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
-fgColor index 14
-bgColor index 2
-textColor index 14
-ctlFgColor1 index 30
-ctlFgColor2 index 32
-ctlBgColor1 index 34
-ctlBgColor2 index 35
-topShadowColor index 37
-botShadowColor index 44
+fgColor rgb 0 0 0
+bgColor rgb 55808 55808 55808
+textColor rgb 0 0 0
+ctlFgColor1 rgb 64256 62208 18944
+ctlFgColor2 rgb 60928 46592 11008
+ctlBgColor1 rgb 52480 24832 0
+ctlBgColor2 rgb 65280 45056 65280
+topShadowColor rgb 44544 19968 48128
+botShadowColor rgb 13312 13056 34304
+showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
-
 
 # (Rectangle)
 object activeRectangleClass
@@ -34,9 +34,9 @@ x 0
 y 0
 w 437
 h 24
-lineColor index 0
+lineColor rgb 65280 65280 65280
 fill
-fillColor index 0
+fillColor rgb 65280 65280 65280
 lineWidth 0
 endObjectProperties
 
@@ -44,18 +44,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 200
 y 0
 w 230
 h 25
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-18.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "1-4 Demux"
+  "1-4 Demux"
 }
 endObjectProperties
 
@@ -69,8 +70,8 @@ x 0
 y 25
 w 439
 h 3
-lineColor index 54
-fillColor index 54
+lineColor rgb 2560 0 47104
+fillColor rgb 2560 0 47104
 lineWidth 3
 numPoints 2 {
 xPoints  {
@@ -100,26 +101,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 10
 y 30
 w 415
 h 122
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_DEMUX4_bare_label.edl;P=$(P),H=$(H),N=1"
+file "softGlue_DEMUX4_bare_label.edl;P=$(P),H=$(H),N=1"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_DEMUX4_bare_label.edl;P=$(P),H=$(H),N=1"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -128,17 +131,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 10
 y 0
 w 190
 h 25
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-18.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "$(P)$(H)"
+  "$(P)$(H)"
 }
 endObjectProperties
 
@@ -159,26 +163,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 10
 y 160
 w 415
 h 122
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_DEMUX4_bare_label.edl;P=$(P),H=$(H),N=2"
+file "softGlue_DEMUX4_bare_label.edl;P=$(P),H=$(H),N=2"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_DEMUX4_bare_label.edl;P=$(P),H=$(H),N=2"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -200,26 +206,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 10
 y 290
 w 415
 h 122
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_DEMUX4_bare_label.edl;P=$(P),H=$(H),N=3"
+file "softGlue_DEMUX4_bare_label.edl;P=$(P),H=$(H),N=3"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_DEMUX4_bare_label.edl;P=$(P),H=$(H),N=3"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -241,26 +249,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 5
 y 420
 w 415
 h 122
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_DEMUX4_bare_label.edl;P=$(P),H=$(H),N=4"
+file "softGlue_DEMUX4_bare_label.edl;P=$(P),H=$(H),N=4"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_DEMUX4_bare_label.edl;P=$(P),H=$(H),N=4"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties

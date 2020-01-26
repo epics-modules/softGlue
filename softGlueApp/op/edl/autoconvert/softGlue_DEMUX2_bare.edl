@@ -1,28 +1,28 @@
-4 0 0
+4 0 1
 beginScreenProperties
 major 4
 minor 0
-release 0
+release 1
 x 1053
 y 875
 w 412
 h 52
 font "helvetica-medium-r-18.0"
-ctlFont "helvetica-medium-r-8.0"
+ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
-fgColor index 14
-bgColor index 2
-textColor index 14
-ctlFgColor1 index 30
-ctlFgColor2 index 32
-ctlBgColor1 index 34
-ctlBgColor2 index 35
-topShadowColor index 37
-botShadowColor index 44
+fgColor rgb 0 0 0
+bgColor rgb 55808 55808 55808
+textColor rgb 0 0 0
+ctlFgColor1 rgb 64256 62208 18944
+ctlFgColor2 rgb 60928 46592 11008
+ctlBgColor1 rgb 52480 24832 0
+ctlBgColor2 rgb 65280 45056 65280
+topShadowColor rgb 44544 19968 48128
+botShadowColor rgb 13312 13056 34304
+showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
-
 
 # (Group)
 object activeGroupClass
@@ -37,7 +37,6 @@ h 52
 
 beginGroup
 
-
 # (Circle)
 object activeCircleClass
 beginObjectProperties
@@ -48,9 +47,9 @@ x 144
 y 12
 w 9
 h 9
-lineColor index 14
+lineColor rgb 0 0 0
 fill
-fillColor index 14
+fillColor rgb 0 0 0
 lineWidth 2
 visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_IN_BI)"
 visMin 0
@@ -67,8 +66,8 @@ x 21
 y 4
 w 103
 h 23
-lineColor index 17
-fillColor index 17
+lineColor rgb 13056 39168 0
+fillColor rgb 13056 39168 0
 lineWidth 3
 visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_IN_SigShow)"
 visInvert
@@ -86,8 +85,8 @@ x 123
 y 16
 w 31
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -104,26 +103,26 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 0
+minor 7
 release 0
 x 23
 y 6
 w 100
 h 20
 controlPv "$(P)$(H)DEMUX2-$(N)_IN_Signal"
-font "helvetica-medium-r-8.0"
+format "string"
+font "helvetica-medium-r-12.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 64256 62208 18944
+editable
+motifWidget
+limitsFromDb
+nullColor rgb 60928 46592 11008
 smartRefresh
 fastUpdate
-fgColor index 14
-bgColor index 30
-editable
-autoHeight
-format "string"
-motifWidget
-nullColor index 32
-useHexPrefix
-objType "controls"
 newPos
+objType "controls"
 endObjectProperties
 
 # (Circle)
@@ -136,9 +135,9 @@ x 144
 y 12
 w 9
 h 9
-lineColor index 20
+lineColor rgb 64768 0 0
 fill
-fillColor index 20
+fillColor rgb 64768 0 0
 lineWidth 2
 visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_IN_BI)"
 visInvert
@@ -146,28 +145,28 @@ visMin 0
 visMax 1
 endObjectProperties
 
-# (Text Control)
-object activeXTextDspClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
-minor 0
+minor 7
 release 0
 x 132
 y 6
 w 10
 h 10
 controlPv "$(P)$(H)DEMUX2-$(N)_IN_BI"
+format "decimal"
 font "helvetica-medium-r-8.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 55808 55808 55808
+limitsFromDb
+nullColor rgb 60928 46592 11008
 smartRefresh
 fastUpdate
-fgColor index 14
-bgColor index 2
-autoHeight
-format decimal
-nullColor index 32
-useHexPrefix
-objType "controls"
 newPos
+objType "controls"
 endObjectProperties
 
 # (Circle)
@@ -180,9 +179,9 @@ x 144
 y 35
 w 9
 h 9
-lineColor index 14
+lineColor rgb 0 0 0
 fill
-fillColor index 14
+fillColor rgb 0 0 0
 lineWidth 2
 visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_SEL_BI)"
 visMin 0
@@ -199,8 +198,8 @@ x 21
 y 27
 w 103
 h 23
-lineColor index 17
-fillColor index 17
+lineColor rgb 13056 39168 0
+fillColor rgb 13056 39168 0
 lineWidth 3
 visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_SEL_SigShow)"
 visInvert
@@ -218,8 +217,8 @@ x 123
 y 39
 w 31
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -236,26 +235,26 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 0
+minor 7
 release 0
 x 23
 y 29
 w 100
 h 20
 controlPv "$(P)$(H)DEMUX2-$(N)_SEL_Signal"
-font "helvetica-medium-r-8.0"
+format "string"
+font "helvetica-medium-r-12.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 64256 62208 18944
+editable
+motifWidget
+limitsFromDb
+nullColor rgb 60928 46592 11008
 smartRefresh
 fastUpdate
-fgColor index 14
-bgColor index 30
-editable
-autoHeight
-format "string"
-motifWidget
-nullColor index 32
-useHexPrefix
-objType "controls"
 newPos
+objType "controls"
 endObjectProperties
 
 # (Circle)
@@ -268,9 +267,9 @@ x 144
 y 35
 w 9
 h 9
-lineColor index 20
+lineColor rgb 64768 0 0
 fill
-fillColor index 20
+fillColor rgb 64768 0 0
 lineWidth 2
 visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_SEL_BI)"
 visInvert
@@ -278,28 +277,28 @@ visMin 0
 visMax 1
 endObjectProperties
 
-# (Text Control)
-object activeXTextDspClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
-minor 0
+minor 7
 release 0
 x 132
 y 29
 w 10
 h 10
 controlPv "$(P)$(H)DEMUX2-$(N)_SEL_BI"
+format "decimal"
 font "helvetica-medium-r-8.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 55808 55808 55808
+limitsFromDb
+nullColor rgb 60928 46592 11008
 smartRefresh
 fastUpdate
-fgColor index 14
-bgColor index 2
-autoHeight
-format decimal
-nullColor index 32
-useHexPrefix
-objType "controls"
 newPos
+objType "controls"
 endObjectProperties
 
 # (Rectangle)
@@ -312,8 +311,8 @@ x 166
 y 6
 w 80
 h 43
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 endObjectProperties
 
@@ -327,8 +326,8 @@ x 246
 y 13
 w 14
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -345,18 +344,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
-x 216
+minor 1
+release 1
+x 210
 y 6
-w 25
+w 38
 h 13
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-10.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "OUT0"
+  "OUT0"
 }
 endObjectProperties
 
@@ -370,9 +370,9 @@ x 257
 y 9
 w 9
 h 9
-lineColor index 14
+lineColor rgb 0 0 0
 fill
-fillColor index 14
+fillColor rgb 0 0 0
 lineWidth 2
 visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_OUT0_BI)"
 visMin 0
@@ -389,8 +389,8 @@ x 265
 y 13
 w 29
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -407,26 +407,26 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 0
+minor 7
 release 0
 x 289
 y 3
 w 100
 h 20
 controlPv "$(P)$(H)DEMUX2-$(N)_OUT0_Signal"
-font "helvetica-medium-r-8.0"
+format "string"
+font "helvetica-medium-r-12.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 63744 55808 15360
+editable
+motifWidget
+limitsFromDb
+nullColor rgb 60928 46592 11008
 smartRefresh
 fastUpdate
-fgColor index 14
-bgColor index 31
-editable
-autoHeight
-format "string"
-motifWidget
-nullColor index 32
-useHexPrefix
-objType "controls"
 newPos
+objType "controls"
 endObjectProperties
 
 # (Circle)
@@ -439,9 +439,9 @@ x 257
 y 9
 w 9
 h 9
-lineColor index 20
+lineColor rgb 64768 0 0
 fill
-fillColor index 20
+fillColor rgb 64768 0 0
 lineWidth 2
 visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_OUT0_BI)"
 visInvert
@@ -459,8 +459,8 @@ x 287
 y 1
 w 103
 h 23
-lineColor index 34
-fillColor index 34
+lineColor rgb 52480 24832 0
+fillColor rgb 52480 24832 0
 lineWidth 3
 visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_OUT0_SigShow)"
 visInvert
@@ -468,28 +468,28 @@ visMin 0
 visMax 1
 endObjectProperties
 
-# (Text Control)
-object activeXTextDspClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
-minor 0
+minor 7
 release 0
 x 271
 y 3
 w 10
 h 10
 controlPv "$(P)$(H)DEMUX2-$(N)_OUT0_BI"
+format "decimal"
 font "helvetica-medium-r-8.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 55808 55808 55808
+limitsFromDb
+nullColor rgb 60928 46592 11008
 smartRefresh
 fastUpdate
-fgColor index 14
-bgColor index 2
-autoHeight
-format decimal
-nullColor index 32
-useHexPrefix
-objType "controls"
 newPos
+objType "controls"
 endObjectProperties
 
 # (Lines)
@@ -502,8 +502,8 @@ x 246
 y 37
 w 14
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -520,18 +520,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
-x 216
+minor 1
+release 1
+x 210
 y 36
-w 25
+w 38
 h 13
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-10.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "OUT1"
+  "OUT1"
 }
 endObjectProperties
 
@@ -545,9 +546,9 @@ x 257
 y 33
 w 9
 h 9
-lineColor index 14
+lineColor rgb 0 0 0
 fill
-fillColor index 14
+fillColor rgb 0 0 0
 lineWidth 2
 visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_OUT1_BI)"
 visMin 0
@@ -564,8 +565,8 @@ x 265
 y 37
 w 29
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -582,26 +583,26 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 0
+minor 7
 release 0
 x 289
 y 27
 w 100
 h 20
 controlPv "$(P)$(H)DEMUX2-$(N)_OUT1_Signal"
-font "helvetica-medium-r-8.0"
+format "string"
+font "helvetica-medium-r-12.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 63744 55808 15360
+editable
+motifWidget
+limitsFromDb
+nullColor rgb 60928 46592 11008
 smartRefresh
 fastUpdate
-fgColor index 14
-bgColor index 31
-editable
-autoHeight
-format "string"
-motifWidget
-nullColor index 32
-useHexPrefix
-objType "controls"
 newPos
+objType "controls"
 endObjectProperties
 
 # (Circle)
@@ -614,9 +615,9 @@ x 257
 y 33
 w 9
 h 9
-lineColor index 20
+lineColor rgb 64768 0 0
 fill
-fillColor index 20
+fillColor rgb 64768 0 0
 lineWidth 2
 visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_OUT1_BI)"
 visInvert
@@ -634,8 +635,8 @@ x 287
 y 25
 w 103
 h 23
-lineColor index 34
-fillColor index 34
+lineColor rgb 52480 24832 0
+fillColor rgb 52480 24832 0
 lineWidth 3
 visPv "CALC\\\{(a)\}($(P)$(H)DEMUX2-$(N)_OUT1_SigShow)"
 visInvert
@@ -643,45 +644,46 @@ visMin 0
 visMax 1
 endObjectProperties
 
-# (Text Control)
-object activeXTextDspClass
+# (Text Monitor)
+object activeXTextDspClass:noedit
 beginObjectProperties
 major 4
-minor 0
+minor 7
 release 0
 x 271
 y 27
 w 10
 h 10
 controlPv "$(P)$(H)DEMUX2-$(N)_OUT1_BI"
+format "decimal"
 font "helvetica-medium-r-8.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 55808 55808 55808
+limitsFromDb
+nullColor rgb 60928 46592 11008
 smartRefresh
 fastUpdate
-fgColor index 14
-bgColor index 2
-autoHeight
-format decimal
-nullColor index 32
-useHexPrefix
-objType "controls"
 newPos
+objType "controls"
 endObjectProperties
 
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 185
 y 23
-w 50
+w 64
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 53
+fgColor rgb 10752 25344 58368
+bgColor index 3
 useDisplayBg
 value {
- "DEMUX2-$(N)"
+  "DEMUX2-$(N)"
 }
 endObjectProperties
 
@@ -695,8 +697,8 @@ x 183
 y 20
 w 55
 h 14
-lineColor index 53
-fillColor index 53
+lineColor rgb 10752 25344 58368
+fillColor rgb 10752 25344 58368
 lineWidth 0
 endObjectProperties
 
@@ -710,8 +712,8 @@ x 154
 y 39
 w 12
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -728,18 +730,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
-x 169
+minor 1
+release 1
+x 164
 y 34
-w 20
+w 31
 h 13
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-10.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "SEL"
+  "SEL"
 }
 endObjectProperties
 
@@ -747,18 +750,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
-x 169
+minor 1
+release 1
+x 165
 y 11
-w 13
+w 22
 h 13
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-10.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "IN"
+  "IN"
 }
 endObjectProperties
 
@@ -772,8 +776,8 @@ x 154
 y 16
 w 12
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -803,7 +807,6 @@ h 52
 
 beginGroup
 
-
 # (Message Button)
 object activeMessageButtonClass
 beginObjectProperties
@@ -814,11 +817,11 @@ x 0
 y 6
 w 20
 h 20
-fgColor index 14
-onColor index 51
-offColor index 51
-topShadowColor index 0
-botShadowColor index 14
+fgColor rgb 0 0 0
+onColor rgb 29440 57088 65280
+offColor rgb 29440 57088 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 controlPv "$(P)$(H)DEMUX2-$(N)_IN_Show"
 pressValue "1"
 releaseValue "0"
@@ -826,7 +829,7 @@ onLabel "="
 offLabel "="
 3d
 useEnumNumeric
-font "helvetica-medium-r-10.0"
+font "helvetica-medium-r-12.0"
 endObjectProperties
 
 # (Message Button)
@@ -839,11 +842,11 @@ x 0
 y 29
 w 20
 h 20
-fgColor index 14
-onColor index 51
-offColor index 51
-topShadowColor index 0
-botShadowColor index 14
+fgColor rgb 0 0 0
+onColor rgb 29440 57088 65280
+offColor rgb 29440 57088 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 controlPv "$(P)$(H)DEMUX2-$(N)_SEL_Show"
 pressValue "1"
 releaseValue "0"
@@ -851,7 +854,7 @@ onLabel "="
 offLabel "="
 3d
 useEnumNumeric
-font "helvetica-medium-r-10.0"
+font "helvetica-medium-r-12.0"
 endObjectProperties
 
 # (Message Button)
@@ -864,11 +867,11 @@ x 392
 y 3
 w 20
 h 20
-fgColor index 14
-onColor index 51
-offColor index 51
-topShadowColor index 0
-botShadowColor index 14
+fgColor rgb 0 0 0
+onColor rgb 29440 57088 65280
+offColor rgb 29440 57088 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 controlPv "$(P)$(H)DEMUX2-$(N)_OUT0_Show"
 pressValue "1"
 releaseValue "0"
@@ -876,7 +879,7 @@ onLabel "="
 offLabel "="
 3d
 useEnumNumeric
-font "helvetica-medium-r-10.0"
+font "helvetica-medium-r-12.0"
 endObjectProperties
 
 # (Message Button)
@@ -889,11 +892,11 @@ x 392
 y 27
 w 20
 h 20
-fgColor index 14
-onColor index 51
-offColor index 51
-topShadowColor index 0
-botShadowColor index 14
+fgColor rgb 0 0 0
+onColor rgb 29440 57088 65280
+offColor rgb 29440 57088 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 controlPv "$(P)$(H)DEMUX2-$(N)_OUT1_Show"
 pressValue "1"
 releaseValue "0"
@@ -901,7 +904,7 @@ onLabel "="
 offLabel "="
 3d
 useEnumNumeric
-font "helvetica-medium-r-10.0"
+font "helvetica-medium-r-12.0"
 endObjectProperties
 
 endGroup

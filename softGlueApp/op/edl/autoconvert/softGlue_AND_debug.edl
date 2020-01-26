@@ -1,28 +1,28 @@
-4 0 0
+4 0 1
 beginScreenProperties
 major 4
 minor 0
-release 0
+release 1
 x 1099
 y 226
 w 467
 h 65
 font "helvetica-medium-r-18.0"
-ctlFont "helvetica-medium-r-8.0"
+ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
-fgColor index 14
-bgColor index 2
-textColor index 14
-ctlFgColor1 index 30
-ctlFgColor2 index 32
-ctlBgColor1 index 34
-ctlBgColor2 index 35
-topShadowColor index 37
-botShadowColor index 44
+fgColor rgb 0 0 0
+bgColor rgb 55808 55808 55808
+textColor rgb 0 0 0
+ctlFgColor1 rgb 64256 62208 18944
+ctlFgColor2 rgb 60928 46592 11008
+ctlBgColor1 rgb 52480 24832 0
+ctlBgColor2 rgb 65280 45056 65280
+topShadowColor rgb 44544 19968 48128
+botShadowColor rgb 13312 13056 34304
+showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
-
 
 # (Lines)
 object activeLineClass
@@ -34,8 +34,8 @@ x 202
 y 15
 w 22
 h 41
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 4 {
 xPoints  {
@@ -62,8 +62,8 @@ x 201
 y 14
 w 42
 h 41
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 startAngle  270
 totalAngle  180
@@ -80,8 +80,8 @@ x 239
 y 18
 w 8
 h 8
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 endObjectProperties
 
@@ -95,8 +95,8 @@ x 245
 y 22
 w 11
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -119,8 +119,8 @@ x 236
 y 47
 w 20
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -143,8 +143,8 @@ x 31
 y 36
 w 103
 h 23
-lineColor index 17
-fillColor index 17
+lineColor rgb 13056 39168 0
+fillColor rgb 13056 39168 0
 lineWidth 3
 visPv "CALC\\\{(a)\}($(P)$(H)AND-$(N)_IN2_SigShow)"
 visInvert
@@ -162,8 +162,8 @@ x 130
 y 48
 w 64
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -180,26 +180,26 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 0
+minor 7
 release 0
 x 33
 y 38
 w 100
 h 20
 controlPv "$(P)$(H)AND-$(N)_IN2_Signal"
-font "helvetica-medium-r-8.0"
+format "string"
+font "helvetica-medium-r-12.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 64256 62208 18944
+editable
+motifWidget
+limitsFromDb
+nullColor rgb 60928 46592 11008
 smartRefresh
 fastUpdate
-fgColor index 14
-bgColor index 30
-editable
-autoHeight
-format "string"
-motifWidget
-nullColor index 32
-useHexPrefix
-objType "controls"
 newPos
+objType "controls"
 endObjectProperties
 
 # (Group)
@@ -215,7 +215,6 @@ h 13
 
 beginGroup
 
-
 # (Circle)
 object activeCircleClass
 beginObjectProperties
@@ -226,9 +225,9 @@ x 182
 y 44
 w 9
 h 9
-lineColor index 20
+lineColor rgb 64768 0 0
 fill
-fillColor index 20
+fillColor rgb 64768 0 0
 lineWidth 2
 visPv "CALC\\\{(a)\}($(P)$(H)AND-$(N)_IN2_BI)"
 visInvert
@@ -246,9 +245,9 @@ x 182
 y 44
 w 9
 h 9
-lineColor index 24
+lineColor rgb 33280 1024 0
 fill
-fillColor index 24
+fillColor rgb 33280 1024 0
 lineWidth 2
 visPv "CALC\\\{(a)\}($(P)$(H)AND-$(N)_IN2_BI)"
 visMin 0
@@ -270,8 +269,8 @@ x 31
 y 11
 w 103
 h 23
-lineColor index 17
-fillColor index 17
+lineColor rgb 13056 39168 0
+fillColor rgb 13056 39168 0
 lineWidth 3
 visPv "CALC\\\{(a)\}($(P)$(H)AND-$(N)_IN1_SigShow)"
 visInvert
@@ -289,8 +288,8 @@ x 130
 y 23
 w 64
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -307,26 +306,26 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 0
+minor 7
 release 0
 x 33
 y 13
 w 100
 h 20
 controlPv "$(P)$(H)AND-$(N)_IN1_Signal"
-font "helvetica-medium-r-8.0"
+format "string"
+font "helvetica-medium-r-12.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 64256 62208 18944
+editable
+motifWidget
+limitsFromDb
+nullColor rgb 60928 46592 11008
 smartRefresh
 fastUpdate
-fgColor index 14
-bgColor index 30
-editable
-autoHeight
-format "string"
-motifWidget
-nullColor index 32
-useHexPrefix
-objType "controls"
 newPos
+objType "controls"
 endObjectProperties
 
 # (Group)
@@ -342,7 +341,6 @@ h 13
 
 beginGroup
 
-
 # (Circle)
 object activeCircleClass
 beginObjectProperties
@@ -353,9 +351,9 @@ x 182
 y 19
 w 9
 h 9
-lineColor index 20
+lineColor rgb 64768 0 0
 fill
-fillColor index 20
+fillColor rgb 64768 0 0
 lineWidth 2
 visPv "CALC\\\{(a)\}($(P)$(H)AND-$(N)_IN1_BI)"
 visInvert
@@ -373,9 +371,9 @@ x 182
 y 19
 w 9
 h 9
-lineColor index 24
+lineColor rgb 33280 1024 0
 fill
-fillColor index 24
+fillColor rgb 33280 1024 0
 lineWidth 2
 visPv "CALC\\\{(a)\}($(P)$(H)AND-$(N)_IN1_BI)"
 visMin 0
@@ -397,8 +395,8 @@ x 191
 y 22
 w 12
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -421,8 +419,8 @@ x 191
 y 47
 w 12
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -445,8 +443,8 @@ x 286
 y 11
 w 103
 h 23
-lineColor index 34
-fillColor index 34
+lineColor rgb 52480 24832 0
+fillColor rgb 52480 24832 0
 lineWidth 3
 visPv "CALC\\\{(a&&b)\}($(P)$(H)AND-$(N)_NOUT_SigShow, $(P)$(H)SignalBlink)"
 visInvert
@@ -464,8 +462,8 @@ x 286
 y 11
 w 103
 h 23
-lineColor index 20
-fillColor index 20
+lineColor rgb 64768 0 0
+fillColor rgb 64768 0 0
 lineWidth 3
 lineStyle "dash"
 visPv "CALC\\\{(a)\}($(P)$(H)AND-$(N)_NOUT_SigCheckShow.VAL)"
@@ -484,8 +482,8 @@ x 264
 y 23
 w 29
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -502,26 +500,26 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 0
+minor 7
 release 0
 x 288
 y 13
 w 100
 h 20
 controlPv "$(P)$(H)AND-$(N)_NOUT_Signal"
-font "helvetica-medium-r-8.0"
+format "string"
+font "helvetica-medium-r-12.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 64256 62208 18944
+editable
+motifWidget
+limitsFromDb
+nullColor rgb 60928 46592 11008
 smartRefresh
 fastUpdate
-fgColor index 14
-bgColor index 30
-editable
-autoHeight
-format "string"
-motifWidget
-nullColor index 32
-useHexPrefix
-objType "controls"
 newPos
+objType "controls"
 endObjectProperties
 
 # (Circle)
@@ -534,9 +532,9 @@ x 256
 y 19
 w 9
 h 9
-lineColor index 20
+lineColor rgb 64768 0 0
 fill
-fillColor index 20
+fillColor rgb 64768 0 0
 lineWidth 2
 visPv "CALC\\\{(a)\}($(P)$(H)AND-$(N)_NOUT_BI)"
 visInvert
@@ -554,9 +552,9 @@ x 256
 y 19
 w 9
 h 9
-lineColor index 24
+lineColor rgb 33280 1024 0
 fill
-fillColor index 24
+fillColor rgb 33280 1024 0
 lineWidth 2
 visPv "CALC\\\{(a)\}($(P)$(H)AND-$(N)_NOUT_BI)"
 visMin 0
@@ -573,8 +571,8 @@ x 286
 y 36
 w 103
 h 23
-lineColor index 34
-fillColor index 34
+lineColor rgb 52480 24832 0
+fillColor rgb 52480 24832 0
 lineWidth 3
 visPv "CALC\\\{(a&&b)\}($(P)$(H)AND-$(N)_POUT_SigShow, $(P)$(H)SignalBlink)"
 visInvert
@@ -592,8 +590,8 @@ x 286
 y 36
 w 103
 h 23
-lineColor index 20
-fillColor index 20
+lineColor rgb 64768 0 0
+fillColor rgb 64768 0 0
 lineWidth 3
 lineStyle "dash"
 visPv "CALC\\\{(a)\}($(P)$(H)AND-$(N)_POUT_SigCheckShow.VAL)"
@@ -612,8 +610,8 @@ x 264
 y 48
 w 29
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -630,26 +628,26 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 0
+minor 7
 release 0
 x 288
 y 38
 w 100
 h 20
 controlPv "$(P)$(H)AND-$(N)_POUT_Signal"
-font "helvetica-medium-r-8.0"
+format "string"
+font "helvetica-medium-r-12.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 64256 62208 18944
+editable
+motifWidget
+limitsFromDb
+nullColor rgb 60928 46592 11008
 smartRefresh
 fastUpdate
-fgColor index 14
-bgColor index 30
-editable
-autoHeight
-format "string"
-motifWidget
-nullColor index 32
-useHexPrefix
-objType "controls"
 newPos
+objType "controls"
 endObjectProperties
 
 # (Circle)
@@ -662,9 +660,9 @@ x 256
 y 44
 w 9
 h 9
-lineColor index 20
+lineColor rgb 64768 0 0
 fill
-fillColor index 20
+fillColor rgb 64768 0 0
 lineWidth 2
 visPv "CALC\\\{(a)\}($(P)$(H)AND-$(N)_POUT_BI)"
 visInvert
@@ -682,9 +680,9 @@ x 256
 y 44
 w 9
 h 9
-lineColor index 24
+lineColor rgb 33280 1024 0
 fill
-fillColor index 24
+fillColor rgb 33280 1024 0
 lineWidth 2
 visPv "CALC\\\{(a)\}($(P)$(H)AND-$(N)_POUT_BI)"
 visMin 0
@@ -701,11 +699,11 @@ x 10
 y 38
 w 20
 h 20
-fgColor index 14
-onColor index 51
-offColor index 51
-topShadowColor index 0
-botShadowColor index 14
+fgColor rgb 0 0 0
+onColor rgb 29440 57088 65280
+offColor rgb 29440 57088 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 controlPv "$(P)$(H)AND-$(N)_IN2_Show"
 pressValue "1"
 releaseValue "0"
@@ -713,7 +711,7 @@ onLabel "="
 offLabel "="
 3d
 useEnumNumeric
-font "helvetica-medium-r-10.0"
+font "helvetica-medium-r-12.0"
 endObjectProperties
 # (Group)
 object activeGroupClass
@@ -727,7 +725,6 @@ w 13
 h 13
 
 beginGroup
-
 
 endGroup
 
@@ -744,11 +741,11 @@ x 10
 y 13
 w 20
 h 20
-fgColor index 14
-onColor index 51
-offColor index 51
-topShadowColor index 0
-botShadowColor index 14
+fgColor rgb 0 0 0
+onColor rgb 29440 57088 65280
+offColor rgb 29440 57088 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 controlPv "$(P)$(H)AND-$(N)_IN1_Show"
 pressValue "1"
 releaseValue "0"
@@ -756,7 +753,7 @@ onLabel "="
 offLabel "="
 3d
 useEnumNumeric
-font "helvetica-medium-r-10.0"
+font "helvetica-medium-r-12.0"
 endObjectProperties
 # (Group)
 object activeGroupClass
@@ -770,7 +767,6 @@ w 13
 h 13
 
 beginGroup
-
 
 endGroup
 
@@ -787,11 +783,11 @@ x 391
 y 13
 w 20
 h 20
-fgColor index 14
-onColor index 51
-offColor index 51
-topShadowColor index 0
-botShadowColor index 14
+fgColor rgb 0 0 0
+onColor rgb 29440 57088 65280
+offColor rgb 29440 57088 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 controlPv "$(P)$(H)AND-$(N)_NOUT_Show"
 pressValue "1"
 releaseValue "0"
@@ -799,7 +795,7 @@ onLabel "="
 offLabel "="
 3d
 useEnumNumeric
-font "helvetica-medium-r-10.0"
+font "helvetica-medium-r-12.0"
 endObjectProperties
 
 # (Related Display)
@@ -812,21 +808,21 @@ x 419
 y 16
 w 35
 h 20
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
 buttonLabel "debug"
 numPvs 12
 numDsps 6
 displayFileName {
-  0 yySseq.adl
-  1 yysCalcoutRecord.adl
-  2 yySseq.adl
-  3 yysCalcoutRecord.adl
-  4 yyCalcoutRecord.adl
-  5 yysCalcoutRecord.adl
+  0 yySseq.edl
+  1 yysCalcoutRecord.edl
+  2 yySseq.edl
+  3 yysCalcoutRecord.edl
+  4 yyCalcoutRecord.edl
+  5 yysCalcoutRecord.edl
 }
 menuLabel {
   0 Show sseq
@@ -844,6 +840,14 @@ symbols {
   4 "P=$(P),C=$(H)AND-$(N)_NOUT_SigCheckShow"
   5 "P=$(P),C=$(H)AND-$(N)_NOUT_autoRead"
 }
+replaceSymbols {
+  0 1
+  1 1
+  2 1
+  3 1
+  4 1
+  5 1
+}
 endObjectProperties
 
 # (Message Button)
@@ -856,11 +860,11 @@ x 391
 y 38
 w 20
 h 20
-fgColor index 14
-onColor index 51
-offColor index 51
-topShadowColor index 0
-botShadowColor index 14
+fgColor rgb 0 0 0
+onColor rgb 29440 57088 65280
+offColor rgb 29440 57088 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 controlPv "$(P)$(H)AND-$(N)_POUT_Show"
 pressValue "1"
 releaseValue "0"
@@ -868,7 +872,7 @@ onLabel "="
 offLabel "="
 3d
 useEnumNumeric
-font "helvetica-medium-r-10.0"
+font "helvetica-medium-r-12.0"
 endObjectProperties
 
 # (Related Display)
@@ -881,21 +885,21 @@ x 419
 y 41
 w 35
 h 20
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
 buttonLabel "debug"
 numPvs 12
 numDsps 6
 displayFileName {
-  0 yySseq.adl
-  1 yysCalcoutRecord.adl
-  2 yySseq.adl
-  3 yysCalcoutRecord.adl
-  4 yyCalcoutRecord.adl
-  5 yysCalcoutRecord.adl
+  0 yySseq.edl
+  1 yysCalcoutRecord.edl
+  2 yySseq.edl
+  3 yysCalcoutRecord.edl
+  4 yyCalcoutRecord.edl
+  5 yysCalcoutRecord.edl
 }
 menuLabel {
   0 Show sseq
@@ -913,6 +917,14 @@ symbols {
   4 "P=$(P),C=$(H)AND-$(N)_POUT_SigCheckShow"
   5 "P=$(P),C=$(H)AND-$(N)_POUT_autoRead"
 }
+replaceSymbols {
+  0 1
+  1 1
+  2 1
+  3 1
+  4 1
+  5 1
+}
 endObjectProperties
 
 # (Related Display)
@@ -925,18 +937,18 @@ x 139
 y 0
 w 35
 h 20
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
 buttonLabel "debug"
 numPvs 6
 numDsps 3
 displayFileName {
-  0 yySseq.adl
-  1 yysCalcoutRecord.adl
-  2 yysCalcoutRecord.adl
+  0 yySseq.edl
+  1 yysCalcoutRecord.edl
+  2 yysCalcoutRecord.edl
 }
 menuLabel {
   0 Show sseq
@@ -947,6 +959,11 @@ symbols {
   0 "P=$(P),S=$(H)AND-$(N)_IN1_DoShow"
   1 "P=$(P),C=$(H)AND-$(N)_IN1_SigShow"
   2 "P=$(P),C=$(H)AND-$(N)_IN1_autoRead"
+}
+replaceSymbols {
+  0 1
+  1 1
+  2 1
 }
 endObjectProperties
 
@@ -960,18 +977,18 @@ x 139
 y 27
 w 35
 h 20
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-12.0"
 buttonLabel "debug"
 numPvs 6
 numDsps 3
 displayFileName {
-  0 yySseq.adl
-  1 yysCalcoutRecord.adl
-  2 yysCalcoutRecord.adl
+  0 yySseq.edl
+  1 yysCalcoutRecord.edl
+  2 yysCalcoutRecord.edl
 }
 menuLabel {
   0 Show sseq
@@ -982,6 +999,11 @@ symbols {
   0 "P=$(P),S=$(H)AND-$(N)_IN2_DoShow"
   1 "P=$(P),C=$(H)AND-$(N)_IN2_SigShow"
   2 "P=$(P),C=$(H)AND-$(N)_IN2_autoRead"
+}
+replaceSymbols {
+  0 1
+  1 1
+  2 1
 }
 endObjectProperties
 

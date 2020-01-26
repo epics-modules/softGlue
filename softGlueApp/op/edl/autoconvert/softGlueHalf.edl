@@ -1,29 +1,29 @@
-4 0 0
+4 0 1
 beginScreenProperties
 major 4
 minor 0
-release 0
+release 1
 x 34
 y 186
 w 970
 h 560
 font "helvetica-medium-r-18.0"
-ctlFont "helvetica-medium-r-8.0"
+ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
-fgColor index 14
-bgColor index 2
-textColor index 14
-ctlFgColor1 index 30
-ctlFgColor2 index 32
-ctlBgColor1 index 34
-ctlBgColor2 index 35
-topShadowColor index 37
-botShadowColor index 44
+fgColor rgb 0 0 0
+bgColor rgb 55808 55808 55808
+textColor rgb 0 0 0
+ctlFgColor1 rgb 64256 62208 18944
+ctlFgColor2 rgb 60928 46592 11008
+ctlBgColor1 rgb 52480 24832 0
+ctlBgColor2 rgb 65280 45056 65280
+topShadowColor rgb 44544 19968 48128
+botShadowColor rgb 13312 13056 34304
+showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
 
-
 # (Group)
 object activeGroupClass
 beginObjectProperties
@@ -41,26 +41,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 10
 y 35
 w 374
 h 49
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_AND_bare.edl;P=$(P),H=$(H),N=$(N)"
+file "softGlue_AND_bare.edl;P=$(P),H=$(H),N=$(N)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_AND_bare.edl;P=$(P),H=$(H),N=$(N)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -82,26 +84,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 10
 y 102
 w 373
 h 49
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_OR_bare.edl;P=$(P),H=$(H),N=$(N)"
+file "softGlue_OR_bare.edl;P=$(P),H=$(H),N=$(N)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_OR_bare.edl;P=$(P),H=$(H),N=$(N)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -123,26 +127,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 470
 y 35
 w 468
 h 73
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_DnCntr_bare.edl;P=$(P),H=$(H),N=$(N)"
+file "softGlue_DnCntr_bare.edl;P=$(P),H=$(H),N=$(N)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_DnCntr_bare.edl;P=$(P),H=$(H),N=$(N)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -164,26 +170,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 470
 y 124
 w 418
 h 95
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_DFF_bare.edl;P=$(P),H=$(H),N=$(N)"
+file "softGlue_DFF_bare.edl;P=$(P),H=$(H),N=$(N)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_DFF_bare.edl;P=$(P),H=$(H),N=$(N)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -205,26 +213,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 10
 y 167
 w 379
 h 49
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_XOR_bare.edl;P=$(P),H=$(H),N=$(N)"
+file "softGlue_XOR_bare.edl;P=$(P),H=$(H),N=$(N)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_XOR_bare.edl;P=$(P),H=$(H),N=$(N)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -246,26 +256,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 470
 y 241
 w 469
 h 72
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_DivByN_bare.edl;P=$(P),H=$(H),N=$(N)"
+file "softGlue_DivByN_bare.edl;P=$(P),H=$(H),N=$(N)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_DivByN_bare.edl;P=$(P),H=$(H),N=$(N)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -287,26 +299,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 470
 y 331
 w 411
 h 72
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_MUX2_bare.edl;P=$(P),H=$(H),N=$(N)"
+file "softGlue_MUX2_bare.edl;P=$(P),H=$(H),N=$(N)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_MUX2_bare.edl;P=$(P),H=$(H),N=$(N)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -328,26 +342,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 10
 y 232
 w 412
 h 52
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_DEMUX2_bare.edl;P=$(P),H=$(H),N=$(N)"
+file "softGlue_DEMUX2_bare.edl;P=$(P),H=$(H),N=$(N)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_DEMUX2_bare.edl;P=$(P),H=$(H),N=$(N)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -369,26 +385,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 470
 y 419
 w 414
 h 72
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_UpCntr_bare.edl;P=$(P),H=$(H),N=$(N)"
+file "softGlue_UpCntr_bare.edl;P=$(P),H=$(H),N=$(N)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_UpCntr_bare.edl;P=$(P),H=$(H),N=$(N)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -406,23 +424,23 @@ h 15
 
 beginGroup
 
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 220
 y 331
 w 180
 h 15
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-12.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "Field Output Bits"
+  "Field Output Bits"
 }
 endObjectProperties
 
@@ -430,18 +448,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 20
 y 331
 w 180
 h 15
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-12.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "Field Input Bits"
+  "Field Input Bits"
 }
 endObjectProperties
 
@@ -463,22 +482,22 @@ h 10
 
 beginGroup
 
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 350
 y 551
 w 70
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 20
+fgColor rgb 64768 0 0
+bgColor index 3
 useDisplayBg
 value {
- "CONNECTOR #"
+  "CONNECTOR #"
 }
 endObjectProperties
 
@@ -486,17 +505,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 10
 y 551
 w 80
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 20
+fgColor rgb 64768 0 0
+bgColor index 3
 useDisplayBg
 value {
- "CONNECTOR #"
+  "CONNECTOR #"
 }
 endObjectProperties
 
@@ -522,26 +542,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 10
 y 345
 w 195
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N1)"
+file "softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N1)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N1)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -563,26 +585,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 10
 y 370
 w 195
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N2)"
+file "softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N2)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N2)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -604,26 +628,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 10
 y 395
 w 195
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N3)"
+file "softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N3)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N3)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -645,26 +671,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 10
 y 420
 w 195
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N4)"
+file "softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N4)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N4)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -686,26 +714,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 10
 y 445
 w 195
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N5)"
+file "softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N5)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N5)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -727,26 +757,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 10
 y 470
 w 195
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N6)"
+file "softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N6)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N6)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -768,26 +800,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 10
 y 495
 w 195
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N7)"
+file "softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N7)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N7)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -809,26 +843,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 10
 y 520
 w 195
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N8)"
+file "softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N8)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_FieldInput_bare.edl;P=$(P),H=$(H),N=$(N8)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -850,26 +886,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 220
 y 345
 w 197
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N1)"
+file "softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N1)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N1)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -891,26 +929,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 220
 y 370
 w 197
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N2)"
+file "softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N2)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N2)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -932,26 +972,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 220
 y 395
 w 197
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N3)"
+file "softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N3)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N3)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -973,26 +1015,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 220
 y 420
 w 197
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N4)"
+file "softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N4)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N4)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1014,26 +1058,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 220
 y 445
 w 197
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N5)"
+file "softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N5)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N5)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1055,26 +1101,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 220
 y 470
 w 197
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N6)"
+file "softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N6)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N6)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1096,26 +1144,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 220
 y 495
 w 197
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N7)"
+file "softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N7)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N7)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1137,26 +1187,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 220
 y 520
 w 197
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N8)"
+file "softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N8)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_FieldOutput_bare.edl;P=$(P),H=$(H),N=$(N8)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1178,26 +1230,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 471
 y 522
 w 285
 h 26
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file softGlue_8MHZ_CK_bare.edl;P=$(P),H=$(H)"
+file "softGlue_8MHZ_CK_bare.edl;P=$(P),H=$(H)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "softGlue_8MHZ_CK_bare.edl;P=$(P),H=$(H)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1215,7 +1269,6 @@ h 23
 
 beginGroup
 
-
 # (Group)
 object activeGroupClass
 beginObjectProperties
@@ -1229,7 +1282,6 @@ h 20
 
 beginGroup
 
-
 # (Rectangle)
 object activeRectangleClass
 beginObjectProperties
@@ -1240,9 +1292,9 @@ x 0
 y 0
 w 969
 h 19
-lineColor index 0
+lineColor rgb 65280 65280 65280
 fill
-fillColor index 0
+fillColor rgb 65280 65280 65280
 lineWidth 0
 endObjectProperties
 
@@ -1250,18 +1302,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 0
 y 0
 w 970
 h 20
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "$(P)$(H) "
+  "$(P)$(H) "
 }
 endObjectProperties
 
@@ -1280,8 +1333,8 @@ x 0
 y 20
 w 968
 h 3
-lineColor index 54
-fillColor index 54
+lineColor rgb 2560 0 47104
+fillColor rgb 2560 0 47104
 lineWidth 3
 numPoints 2 {
 xPoints  {
@@ -1311,7 +1364,6 @@ h 15
 
 beginGroup
 
-
 endGroup
 
 endObjectProperties
@@ -1329,7 +1381,6 @@ h 10
 
 beginGroup
 
-
 endGroup
 
 endObjectProperties
@@ -1346,7 +1397,6 @@ w 970
 h 23
 
 beginGroup
-
 # (Group)
 object activeGroupClass
 beginObjectProperties
@@ -1359,7 +1409,6 @@ w 970
 h 20
 
 beginGroup
-
 
 endGroup
 

@@ -1,28 +1,28 @@
-4 0 0
+4 0 1
 beginScreenProperties
 major 4
 minor 0
-release 0
+release 1
 x 1046
 y 246
 w 285
 h 26
 font "helvetica-medium-r-18.0"
-ctlFont "helvetica-medium-r-8.0"
+ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
-fgColor index 14
-bgColor index 2
-textColor index 14
-ctlFgColor1 index 30
-ctlFgColor2 index 32
-ctlBgColor1 index 34
-ctlBgColor2 index 35
-topShadowColor index 37
-botShadowColor index 44
+fgColor rgb 0 0 0
+bgColor rgb 55808 55808 55808
+textColor rgb 0 0 0
+ctlFgColor1 rgb 64256 62208 18944
+ctlFgColor2 rgb 60928 46592 11008
+ctlBgColor1 rgb 52480 24832 0
+ctlBgColor2 rgb 65280 45056 65280
+topShadowColor rgb 44544 19968 48128
+botShadowColor rgb 13312 13056 34304
+showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
-
 
 # (Lines)
 object activeLineClass
@@ -34,8 +34,8 @@ x 119
 y 13
 w 41
 h 2
-lineColor index 14
-fillColor index 14
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
 lineWidth 2
 numPoints 2 {
 xPoints  {
@@ -52,26 +52,26 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 0
+minor 7
 release 0
 x 162
 y 3
 w 100
 h 20
 controlPv "$(P)$(H)8MHZ_CLOCK_Signal"
-font "helvetica-medium-r-8.0"
+format "string"
+font "helvetica-medium-r-12.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 63744 55808 15360
+editable
+motifWidget
+limitsFromDb
+nullColor rgb 60928 46592 11008
 smartRefresh
 fastUpdate
-fgColor index 14
-bgColor index 31
-editable
-autoHeight
-format "string"
-motifWidget
-nullColor index 32
-useHexPrefix
-objType "controls"
 newPos
+objType "controls"
 endObjectProperties
 
 # (Rectangle)
@@ -84,8 +84,8 @@ x 160
 y 1
 w 103
 h 23
-lineColor index 34
-fillColor index 34
+lineColor rgb 52480 24832 0
+fillColor rgb 52480 24832 0
 lineWidth 3
 visPv "CALC\\\{(a)\}($(P)$(H)8MHZ_CLOCK_SigShow)"
 visInvert
@@ -97,17 +97,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 0
 y 5
-w 30
+w 96
 h 20
-font "helvetica-medium-r-8.0"
-fgColor index 53
+font "helvetica-medium-r-14.0"
+fgColor rgb 10752 25344 58368
+bgColor index 3
 useDisplayBg
 value {
- "8 MHz Clock"
+  "8 MHz Clock"
 }
 endObjectProperties
 
@@ -121,11 +122,11 @@ x 265
 y 3
 w 20
 h 20
-fgColor index 14
-onColor index 51
-offColor index 51
-topShadowColor index 0
-botShadowColor index 14
+fgColor rgb 0 0 0
+onColor rgb 29440 57088 65280
+offColor rgb 29440 57088 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 controlPv "$(P)$(H)8MHZ_CLOCK_Show"
 pressValue "1"
 releaseValue "0"
@@ -133,6 +134,6 @@ onLabel "="
 offLabel "="
 3d
 useEnumNumeric
-font "helvetica-medium-r-10.0"
+font "helvetica-medium-r-12.0"
 endObjectProperties
 
