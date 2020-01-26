@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>softGlue_QuadDec_bare</name>
+  <x>770</x>
+  <y>47</y>
+  <width>460</width>
+  <height>95</height>
+  <background_color>
+    <color red="218" green="218" blue="218">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #6</name>
+    <file>softGlue_Input.bob</file>
+    <macros>
+      <SIG>QuadDec-$(N)_CLOCK</SIG>
+    </macros>
+    <x>10</x>
+    <y>55</y>
+    <width>155</width>
+    <height>26</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #8</name>
+    <file>softGlue_Input.bob</file>
+    <macros>
+      <SIG>QuadDec-$(N)_B</SIG>
+    </macros>
+    <x>10</x>
+    <y>32</y>
+    <width>155</width>
+    <height>26</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #10</name>
+    <file>softGlue_Input.bob</file>
+    <macros>
+      <SIG>QuadDec-$(N)_A</SIG>
+    </macros>
+    <x>10</x>
+    <y>9</y>
+    <width>155</width>
+    <height>26</height>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>polyline #12</name>
+    <x>164</x>
+    <y>68</y>
+    <width>13</width>
+    <height>2</height>
+    <line_width>2</line_width>
+    <line_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </line_color>
+    <points>
+      <point x="12.0" y="1.0">
+      </point>
+      <point x="1.0" y="1.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>polyline #16</name>
+    <x>164</x>
+    <y>45</y>
+    <width>12</width>
+    <height>2</height>
+    <line_width>2</line_width>
+    <line_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </line_color>
+    <points>
+      <point x="11.0" y="1.0">
+      </point>
+      <point x="1.0" y="1.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #20</name>
+    <x>175</x>
+    <y>15</y>
+    <width>102</width>
+    <height>64</height>
+    <line_width>2</line_width>
+    <line_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>polyline #23</name>
+    <x>174</x>
+    <y>61</y>
+    <width>11</width>
+    <height>16</height>
+    <line_width>2</line_width>
+    <line_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </line_color>
+    <points>
+      <point x="1.0" y="1.0">
+      </point>
+      <point x="10.0" y="8.0">
+      </point>
+      <point x="1.0" y="15.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #27</name>
+    <text>B</text>
+    <x>179</x>
+    <y>40</y>
+    <width>10</width>
+    <height>13</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>polyline #30</name>
+    <x>164</x>
+    <y>22</y>
+    <width>13</width>
+    <height>2</height>
+    <line_width>2</line_width>
+    <line_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </line_color>
+    <points>
+      <point x="12.0" y="1.0">
+      </point>
+      <point x="1.0" y="1.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #34</name>
+    <text>QuadDec-$(N)</text>
+    <x>199</x>
+    <y>44</y>
+    <width>70</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #37</name>
+    <x>192</x>
+    <y>41</y>
+    <width>80</width>
+    <height>14</height>
+    <line_width>1</line_width>
+    <line_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #40</name>
+    <text>A</text>
+    <x>179</x>
+    <y>17</y>
+    <width>10</width>
+    <height>13</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>polyline #43</name>
+    <x>276</x>
+    <y>31</y>
+    <width>17</width>
+    <height>2</height>
+    <line_width>2</line_width>
+    <line_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </line_color>
+    <points>
+      <point x="16.0" y="1.0">
+      </point>
+      <point x="1.0" y="1.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #47</name>
+    <text>STEP</text>
+    <x>246</x>
+    <y>26</y>
+    <width>25</width>
+    <height>13</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #50</name>
+    <file>softGlue_Output.bob</file>
+    <macros>
+      <SIG>QuadDec-$(N)_STEP</SIG>
+    </macros>
+    <x>291</x>
+    <y>18</y>
+    <width>157</width>
+    <height>26</height>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>polyline #52</name>
+    <x>276</x>
+    <y>64</y>
+    <width>17</width>
+    <height>2</height>
+    <line_width>2</line_width>
+    <line_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </line_color>
+    <points>
+      <point x="16.0" y="1.0">
+      </point>
+      <point x="1.0" y="1.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #56</name>
+    <text>DIR</text>
+    <x>251</x>
+    <y>59</y>
+    <width>20</width>
+    <height>13</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #59</name>
+    <file>softGlue_Output.bob</file>
+    <macros>
+      <SIG>QuadDec-$(N)_DIR</SIG>
+    </macros>
+    <x>291</x>
+    <y>51</y>
+    <width>157</width>
+    <height>26</height>
+  </widget>
+</display>
