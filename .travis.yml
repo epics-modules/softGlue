@@ -14,7 +14,7 @@ cache:
 env:
   global:
     - SETUP_PATH=.ci
-    - MODULES="sncseq asyn"
+    - MODULES="sncseq ipac asyn"
     - SNCSEQ=R2-2-8
     - ASYN=R4-38
     - IPAC=master
