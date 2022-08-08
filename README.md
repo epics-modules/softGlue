@@ -1,3 +1,5 @@
+[![SOFTGLUE](https://github.com/epics-modules/softGlue/actions/workflows/ci-scripts-build.yml/badge.svg)](https://github.com/epics-modules/softGlue/actions/workflows/ci-scripts-build.yml)
+
 # softGlue
 APS BCDA synApps module: softGlue
 
