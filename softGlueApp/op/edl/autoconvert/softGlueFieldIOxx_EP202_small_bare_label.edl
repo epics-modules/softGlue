@@ -24,24 +24,11 @@ snapToGrid
 gridSize 4
 endScreenProperties
 
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 0
-y 0
-w 195
-h 25
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 0
 y 0
@@ -61,30 +48,11 @@ displayFileName {
 noScroll
 endObjectProperties
 
-endGroup
-
-visMin "A"
-visMax "1"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 0
-y 42
-w 195
-h 25
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 0
 y 42
@@ -104,30 +72,11 @@ displayFileName {
 noScroll
 endObjectProperties
 
-endGroup
-
-visMin "A"
-visMax "1"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 0
-y 84
-w 195
-h 25
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 0
 y 84
@@ -147,30 +96,11 @@ displayFileName {
 noScroll
 endObjectProperties
 
-endGroup
-
-visMin "A"
-visMax "1"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 0
-y 126
-w 195
-h 25
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 0
 y 126
@@ -190,30 +120,11 @@ displayFileName {
 noScroll
 endObjectProperties
 
-endGroup
-
-visMin "A"
-visMax "1"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 0
-y 168
-w 195
-h 25
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 0
 y 168
@@ -233,30 +144,11 @@ displayFileName {
 noScroll
 endObjectProperties
 
-endGroup
-
-visMin "A"
-visMax "1"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 0
-y 210
-w 195
-h 25
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 0
 y 210
@@ -276,30 +168,11 @@ displayFileName {
 noScroll
 endObjectProperties
 
-endGroup
-
-visMin "A"
-visMax "1"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 0
-y 252
-w 195
-h 25
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 0
 y 252
@@ -319,30 +192,11 @@ displayFileName {
 noScroll
 endObjectProperties
 
-endGroup
-
-visMin "A"
-visMax "1"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 0
-y 294
-w 195
-h 25
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 0
 y 294
@@ -362,12 +216,6 @@ displayFileName {
 noScroll
 endObjectProperties
 
-endGroup
-
-visMin "A"
-visMax "1"
-endObjectProperties
-
 # (Group)
 object activeGroupClass
 beginObjectProperties
@@ -381,24 +229,11 @@ h 319
 
 beginGroup
 
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 260
-y 0
-w 197
-h 25
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 260
 y 0
@@ -418,30 +253,11 @@ displayFileName {
 noScroll
 endObjectProperties
 
-endGroup
-
-visMin "A"
-visMax "1"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 260
-y 42
-w 197
-h 25
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 260
 y 42
@@ -461,30 +277,11 @@ displayFileName {
 noScroll
 endObjectProperties
 
-endGroup
-
-visMin "A"
-visMax "1"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 260
-y 84
-w 197
-h 25
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 260
 y 84
@@ -504,30 +301,11 @@ displayFileName {
 noScroll
 endObjectProperties
 
-endGroup
-
-visMin "A"
-visMax "1"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 260
-y 126
-w 197
-h 25
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 260
 y 126
@@ -547,30 +325,11 @@ displayFileName {
 noScroll
 endObjectProperties
 
-endGroup
-
-visMin "A"
-visMax "1"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 260
-y 168
-w 197
-h 25
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 260
 y 168
@@ -590,30 +349,11 @@ displayFileName {
 noScroll
 endObjectProperties
 
-endGroup
-
-visMin "A"
-visMax "1"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 260
-y 210
-w 197
-h 25
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 260
 y 210
@@ -633,30 +373,11 @@ displayFileName {
 noScroll
 endObjectProperties
 
-endGroup
-
-visMin "A"
-visMax "1"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 260
-y 252
-w 197
-h 25
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 260
 y 252
@@ -676,30 +397,11 @@ displayFileName {
 noScroll
 endObjectProperties
 
-endGroup
-
-visMin "A"
-visMax "1"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 260
-y 294
-w 197
-h 25
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 260
 y 294
@@ -717,12 +419,6 @@ displayFileName {
   0 "softGlue_FieldOutput_small_bare_label.edl;P=$(P),H=$(H),N=$(N15)"
 }
 noScroll
-endObjectProperties
-
-endGroup
-
-visMin "A"
-visMax "1"
 endObjectProperties
 
 endGroup

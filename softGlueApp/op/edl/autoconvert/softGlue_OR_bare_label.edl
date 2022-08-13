@@ -55,24 +55,11 @@ totalAngle  115
 fillMode "pie"
 endObjectProperties
 
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 0
-y 15
-w 155
-h 26
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 0
 y 15
@@ -92,30 +79,11 @@ displayFileName {
 noScroll
 endObjectProperties
 
-endGroup
-
-visMin "A"
-visMax "1"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 0
-y 38
-w 155
-h 26
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 0
 y 38
@@ -133,12 +101,6 @@ displayFileName {
   0 "softGlue_Input.edl;P=$(P),H=$(H),SIG=OR-$(N)_IN2"
 }
 noScroll
-endObjectProperties
-
-endGroup
-
-visMin "A"
-visMax "1"
 endObjectProperties
 
 # (Lines)

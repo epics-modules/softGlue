@@ -199,18 +199,18 @@ buttonLabel "DEBUG"
 numPvs 10
 numDsps 5
 displayFileName {
-  0 yyCalcoutRecord.edl
-  1 yysCalcoutRecord.edl
-  2 yysCalcoutRecord.edl
-  3 yySseq.edl
-  4 yySseq.edl
+  0 "yyCalcoutRecord.edl"
+  1 "yysCalcoutRecord.edl"
+  2 "yysCalcoutRecord.edl"
+  3 "yySseq.edl"
+  4 "yySseq.edl"
 }
 menuLabel {
-  0 trigCalc
-  1 IntLinkPV
-  2 IntEnablePV
-  3 armSseq
-  4 trigSseq
+  0 "trigCalc"
+  1 "IntLinkPV"
+  2 "IntEnablePV"
+  3 "armSseq"
+  4 "trigSseq"
 }
 symbols {
   0 "P=$(P),C=$(Q)trigCalc"

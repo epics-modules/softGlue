@@ -24,24 +24,11 @@ snapToGrid
 gridSize 4
 endScreenProperties
 
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 0
-y 20
-w 250
-h 25
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 0
 y 20
@@ -59,12 +46,6 @@ displayFileName {
   0 "softGlue_FieldInput_small_bare_label.edl;P=$(P),H=$(H),N=$(N),SIG=FI$(N)"
 }
 noScroll
-endObjectProperties
-
-endGroup
-
-visMin "A"
-visMax "1"
 endObjectProperties
 
 # (Static Text)

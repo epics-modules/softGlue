@@ -438,24 +438,11 @@ h 190
 
 beginGroup
 
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 10
-y 155
-w 472
-h 178
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 10
 y 155
@@ -475,30 +462,11 @@ displayFileName {
 noScroll
 endObjectProperties
 
-endGroup
-
-visMin "A"
-visMax "1"
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 495
-y 155
-w 472
-h 178
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 495
 y 155
@@ -516,12 +484,6 @@ displayFileName {
   0 "softGlue_UpDnCntr_bare_label.edl;P=$(P),H=$(H),N=2"
 }
 noScroll
-endObjectProperties
-
-endGroup
-
-visMin "A"
-visMax "1"
 endObjectProperties
 
 # (Rectangle)

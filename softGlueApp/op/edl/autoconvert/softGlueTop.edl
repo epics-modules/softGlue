@@ -43,12 +43,12 @@ buttonLabel "softGlue"
 numPvs 4
 numDsps 2
 displayFileName {
-  0 softGlueMenu.edl
-  1 softGlueMenu.edl
+  0 "softGlueMenu.edl"
+  1 "softGlueMenu.edl"
 }
 menuLabel {
-  0 softGlueMenu
-  1 softGlue2 Menu
+  0 "softGlueMenu"
+  1 "softGlue2 Menu"
 }
 symbols {
   0 "P=xxx:,H=softGlue:,PORT=SOFTGLUE,IPORT=SGI1,OPORT=SGO1"

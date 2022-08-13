@@ -34,24 +34,28 @@
       </rule>
     </rules>
   </widget>
-  <widget type="action_button" version="3.0.0">
+  <widget type="bool_button" version="2.0.0">
     <name>message button #10</name>
-    <actions>
-      <action type="write_pv">
-        <pv_name>$(P)$(H)$(SIG)_Show</pv_name>
-        <value>1</value>
-        <description>Write</description>
-      </action>
-    </actions>
     <pv_name>$(P)$(H)$(SIG)_Show</pv_name>
-    <text></text>
     <y>3</y>
     <width>20</width>
     <height>20</height>
+    <off_label></off_label>
+    <off_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </off_color>
+    <on_label></on_label>
+    <on_color>
+      <color red="92" green="178" blue="204">
+      </color>
+    </on_color>
+    <show_led>false</show_led>
     <background_color>
       <color red="115" green="223" blue="255">
       </color>
     </background_color>
+    <mode>1</mode>
   </widget>
   <widget type="rectangle" version="2.0.0">
     <name>rectangle #13</name>

@@ -196,18 +196,18 @@ buttonLabel "debug"
 numPvs 10
 numDsps 5
 displayFileName {
-  0 yySseq.edl
-  1 yysCalcoutRecord.edl
-  2 yySseq.edl
-  3 yysCalcoutRecord.edl
-  4 yyCalcoutRecord.edl
+  0 "yySseq.edl"
+  1 "yysCalcoutRecord.edl"
+  2 "yySseq.edl"
+  3 "yysCalcoutRecord.edl"
+  4 "yyCalcoutRecord.edl"
 }
 menuLabel {
-  0 Show sseq
-  1 SigShow scalcout
-  2 Check sseq
-  3 SigCheck scalcout
-  4 SigCheckShow calcout
+  0 "Show sseq"
+  1 "SigShow scalcout"
+  2 "Check sseq"
+  3 "SigCheck scalcout"
+  4 "SigCheckShow calcout"
 }
 symbols {
   0 "P=$(P),S=$(H)$(SIG)_DoShow"

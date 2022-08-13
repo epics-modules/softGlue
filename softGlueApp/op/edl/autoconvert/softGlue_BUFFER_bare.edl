@@ -37,24 +37,11 @@ h 26
 
 beginGroup
 
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 0
-y 0
-w 155
-h 26
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 0
 y 0
@@ -72,12 +59,6 @@ displayFileName {
   0 "softGlue_Input.edl;P=$(P),H=$(H),SIG=BUFFER-$(N)_IN"
 }
 noScroll
-endObjectProperties
-
-endGroup
-
-visMin "A"
-visMax "1"
 endObjectProperties
 
 # (Lines)

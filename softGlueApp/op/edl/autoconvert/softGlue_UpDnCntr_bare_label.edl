@@ -50,24 +50,11 @@ newPos
 objType "controls"
 endObjectProperties
 
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 5
-y 20
-w 467
-h 158
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 5
 y 20
@@ -85,11 +72,5 @@ displayFileName {
   0 "softGlue_UpDnCntr_bare.edl;P=$(P),H=$(H),N=$(N)"
 }
 noScroll
-endObjectProperties
-
-endGroup
-
-visMin "A"
-visMax "1"
 endObjectProperties
 

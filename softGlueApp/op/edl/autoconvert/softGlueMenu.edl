@@ -284,36 +284,36 @@ buttonLabel "Gates"
 numPvs 28
 numDsps 14
 displayFileName {
-  0 softGlue_AND.edl
-  1 softGlue_AND.edl
-  2 softGlue_AND.edl
-  3 softGlue_AND.edl
-  4 softGlue_OR.edl
-  5 softGlue_OR.edl
-  6 softGlue_OR.edl
-  7 softGlue_OR.edl
-  8 softGlue_XOR.edl
-  9 softGlue_XOR.edl
-  10 softGlue_BUFFER.edl
-  11 softGlue_BUFFER.edl
-  12 softGlue_BUFFER.edl
-  13 softGlue_BUFFER.edl
+  0 "softGlue_AND.edl"
+  1 "softGlue_AND.edl"
+  2 "softGlue_AND.edl"
+  3 "softGlue_AND.edl"
+  4 "softGlue_OR.edl"
+  5 "softGlue_OR.edl"
+  6 "softGlue_OR.edl"
+  7 "softGlue_OR.edl"
+  8 "softGlue_XOR.edl"
+  9 "softGlue_XOR.edl"
+  10 "softGlue_BUFFER.edl"
+  11 "softGlue_BUFFER.edl"
+  12 "softGlue_BUFFER.edl"
+  13 "softGlue_BUFFER.edl"
 }
 menuLabel {
-  0 AND 1
-  1 AND 2
-  2 AND 3
-  3 AND 4
-  4 OR 1
-  5 OR 2
-  6 OR 3
-  7 OR 4
-  8 XOR 1
-  9 XOR 2
-  10 BUFFER 1
-  11 BUFFER 2
-  12 BUFFER 3
-  13 BUFFER 4
+  0 "AND 1"
+  1 "AND 2"
+  2 "AND 3"
+  3 "AND 4"
+  4 "OR 1"
+  5 "OR 2"
+  6 "OR 3"
+  7 "OR 4"
+  8 "XOR 1"
+  9 "XOR 2"
+  10 "BUFFER 1"
+  11 "BUFFER 2"
+  12 "BUFFER 3"
+  13 "BUFFER 4"
 }
 symbols {
   0 "P=$(P),H=$(H),N=1"
@@ -368,28 +368,28 @@ buttonLabel "Counters"
 numPvs 20
 numDsps 10
 displayFileName {
-  0 softGlue_UpCntr.edl
-  1 softGlue_UpCntr.edl
-  2 softGlue_UpCntr.edl
-  3 softGlue_UpCntr.edl
-  4 softGlue_DnCntr.edl
-  5 softGlue_DnCntr.edl
-  6 softGlue_DnCntr.edl
-  7 softGlue_DnCntr.edl
-  8 softGlue_UpDnCntr.edl
-  9 softGlue_UpDnCntr.edl
+  0 "softGlue_UpCntr.edl"
+  1 "softGlue_UpCntr.edl"
+  2 "softGlue_UpCntr.edl"
+  3 "softGlue_UpCntr.edl"
+  4 "softGlue_DnCntr.edl"
+  5 "softGlue_DnCntr.edl"
+  6 "softGlue_DnCntr.edl"
+  7 "softGlue_DnCntr.edl"
+  8 "softGlue_UpDnCntr.edl"
+  9 "softGlue_UpDnCntr.edl"
 }
 menuLabel {
-  0 UpCounter 1
-  1 UpCounter 2
-  2 UpCounter 3
-  3 UpCounter 4
-  4 DownCounter 1
-  5 DownCounter 2
-  6 DownCounter 3
-  7 DownCounter 4
-  8 UpDown Counter 1
-  9 UpDown Counter 2
+  0 "UpCounter 1"
+  1 "UpCounter 2"
+  2 "UpCounter 3"
+  3 "UpCounter 4"
+  4 "DownCounter 1"
+  5 "DownCounter 2"
+  6 "DownCounter 3"
+  7 "DownCounter 4"
+  8 "UpDown Counter 1"
+  9 "UpDown Counter 2"
 }
 symbols {
   0 "P=$(P),H=$(H),N=1"
@@ -436,16 +436,16 @@ buttonLabel "Field I/O 201"
 numPvs 8
 numDsps 4
 displayFileName {
-  0 softGlueFieldIO.edl
-  1 softGlueFieldIOxx.edl
-  2 softGlueFieldIOxx.edl
-  3 softGlueFieldIOxx.edl
+  0 "softGlueFieldIO.edl"
+  1 "softGlueFieldIOxx.edl"
+  2 "softGlueFieldIOxx.edl"
+  3 "softGlueFieldIOxx.edl"
 }
 menuLabel {
-  0 Field I/O All
-  1 Field I/O 1-16
-  2 Field I/O 17-32
-  3 Field I/O 33-48
+  0 "Field I/O All"
+  1 "Field I/O 1-16"
+  2 "Field I/O 17-32"
+  3 "Field I/O 33-48"
 }
 symbols {
   0 "P=$(P),H=$(H)"
@@ -480,38 +480,38 @@ buttonLabel "Other"
 numPvs 30
 numDsps 15
 displayFileName {
-  0 softGlue_8MHZ_CK_bare.edl
-  1 softGlue_MUX2.edl
-  2 softGlue_MUX2.edl
-  3 softGlue_DEMUX2.edl
-  4 softGlue_DEMUX2.edl
-  5 softGlue_DFF.edl
-  6 softGlue_DFF.edl
-  7 softGlue_DFF.edl
-  8 softGlue_DFF.edl
-  9 softGlue_DivByN.edl
-  10 softGlue_DivByN.edl
-  11 softGlue_DivByN.edl
-  12 softGlue_DivByN.edl
-  13 softGlue_QuadDec.edl
-  14 softGlue_QuadDec.edl
+  0 "softGlue_8MHZ_CK_bare.edl"
+  1 "softGlue_MUX2.edl"
+  2 "softGlue_MUX2.edl"
+  3 "softGlue_DEMUX2.edl"
+  4 "softGlue_DEMUX2.edl"
+  5 "softGlue_DFF.edl"
+  6 "softGlue_DFF.edl"
+  7 "softGlue_DFF.edl"
+  8 "softGlue_DFF.edl"
+  9 "softGlue_DivByN.edl"
+  10 "softGlue_DivByN.edl"
+  11 "softGlue_DivByN.edl"
+  12 "softGlue_DivByN.edl"
+  13 "softGlue_QuadDec.edl"
+  14 "softGlue_QuadDec.edl"
 }
 menuLabel {
-  0 8 MHZ Internal Clock
-  1 2-input multiplexer
-  2 2-input multiplexer
-  3 2-output demultiplexer
-  4 2-output demultiplexer
-  5 D FlipFlop 1
-  6 D FlipFlop 2
-  7 D FlipFlop 3
-  8 D FlipFlop 4
-  9 Divide By N 1
-  10 Divide By N 2
-  11 Divide By N 3
-  12 Divide By N 4
-  13 Quadrature Decoder 1
-  14 Quadrature Decoder 2
+  0 "8 MHZ Internal Clock"
+  1 "2-input multiplexer"
+  2 "2-input multiplexer"
+  3 "2-output demultiplexer"
+  4 "2-output demultiplexer"
+  5 "D FlipFlop 1"
+  6 "D FlipFlop 2"
+  7 "D FlipFlop 3"
+  8 "D FlipFlop 4"
+  9 "Divide By N 1"
+  10 "Divide By N 2"
+  11 "Divide By N 3"
+  12 "Divide By N 4"
+  13 "Quadrature Decoder 1"
+  14 "Quadrature Decoder 2"
 }
 symbols {
   0 "P=$(P),H=$(H)"
@@ -568,16 +568,16 @@ buttonLabel "Field I/O 202"
 numPvs 8
 numDsps 4
 displayFileName {
-  0 softGlueFieldIO_EP202.edl
-  1 softGlueFieldIOxx_EP202.edl
-  2 softGlueFieldIOxx_EP202.edl
-  3 softGlueFieldIOxx_EP202.edl
+  0 "softGlueFieldIO_EP202.edl"
+  1 "softGlueFieldIOxx_EP202.edl"
+  2 "softGlueFieldIOxx_EP202.edl"
+  3 "softGlueFieldIOxx_EP202.edl"
 }
 menuLabel {
-  0 Field I/O All
-  1 Field I/O 1-16
-  2 Field I/O 17-32
-  3 Field I/O 33-48
+  0 "Field I/O All"
+  1 "Field I/O 1-16"
+  2 "Field I/O 17-32"
+  3 "Field I/O 33-48"
 }
 symbols {
   0 "P=$(P),H=$(H)"
@@ -612,24 +612,24 @@ buttonLabel "Collections"
 numPvs 16
 numDsps 8
 displayFileName {
-  0 softGlueAll.edl
-  1 softGlueAllButIO.edl
-  2 softGlueConvenience.edl
-  3 softGlueOctupole.edl
-  4 softGlueVgate.edl
-  5 softGlueEncoder.edl
-  6 softGlueEncoderAvg.edl
-  7 softGlue4DEMUX4.edl
+  0 "softGlueAll.edl"
+  1 "softGlueAllButIO.edl"
+  2 "softGlueConvenience.edl"
+  3 "softGlueOctupole.edl"
+  4 "softGlueVgate.edl"
+  5 "softGlueEncoder.edl"
+  6 "softGlueEncoderAvg.edl"
+  7 "softGlue4DEMUX4.edl"
 }
 menuLabel {
-  0 all softGlue
-  1 all but I/O
-  2 convenience
-  3 octupole
-  4 velocity gate
-  5 encoder
-  6 encoderTimeAverage
-  7 4demux4
+  0 "all softGlue"
+  1 "all but I/O"
+  2 "convenience"
+  3 "octupole"
+  4 "velocity gate"
+  5 "encoder"
+  6 "encoderTimeAverage"
+  7 "4demux4"
 }
 symbols {
   0 "P=$(P),H=$(H)"

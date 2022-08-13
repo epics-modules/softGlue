@@ -265,12 +265,12 @@ buttonLabel "busy records"
 numPvs 4
 numDsps 2
 displayFileName {
-  0 xxBusyRecord.edl
-  1 xxBusyRecord.edl
+  0 "xxBusyRecord.edl"
+  1 "xxBusyRecord.edl"
 }
 menuLabel {
-  0 busy record 1
-  1 busy record 2
+  0 "busy record 1"
+  1 "busy record 2"
 }
 symbols {
   0 "P=$(P),R=$(H)busy1"
@@ -391,12 +391,12 @@ buttonLabel "sseq records"
 numPvs 4
 numDsps 2
 displayFileName {
-  0 yySseq.edl
-  1 yySseq.edl
+  0 "yySseq.edl"
+  1 "yySseq.edl"
 }
 menuLabel {
-  0 sseq record 1
-  1 sseq record 2
+  0 "sseq record 1"
+  1 "sseq record 2"
 }
 symbols {
   0 "P=$(P),S=$(H)sseq1"

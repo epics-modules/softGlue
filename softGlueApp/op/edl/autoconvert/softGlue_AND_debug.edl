@@ -817,20 +817,20 @@ buttonLabel "debug"
 numPvs 12
 numDsps 6
 displayFileName {
-  0 yySseq.edl
-  1 yysCalcoutRecord.edl
-  2 yySseq.edl
-  3 yysCalcoutRecord.edl
-  4 yyCalcoutRecord.edl
-  5 yysCalcoutRecord.edl
+  0 "yySseq.edl"
+  1 "yysCalcoutRecord.edl"
+  2 "yySseq.edl"
+  3 "yysCalcoutRecord.edl"
+  4 "yyCalcoutRecord.edl"
+  5 "yysCalcoutRecord.edl"
 }
 menuLabel {
-  0 Show sseq
-  1 SigShow scalcout
-  2 Check sseq
-  3 SigCheck scalcout
-  4 SigCheckShow calcout
-  5 autoread scalcout
+  0 "Show sseq"
+  1 "SigShow scalcout"
+  2 "Check sseq"
+  3 "SigCheck scalcout"
+  4 "SigCheckShow calcout"
+  5 "autoread scalcout"
 }
 symbols {
   0 "P=$(P),S=$(H)AND-$(N)_NOUT_DoShow"
@@ -894,20 +894,20 @@ buttonLabel "debug"
 numPvs 12
 numDsps 6
 displayFileName {
-  0 yySseq.edl
-  1 yysCalcoutRecord.edl
-  2 yySseq.edl
-  3 yysCalcoutRecord.edl
-  4 yyCalcoutRecord.edl
-  5 yysCalcoutRecord.edl
+  0 "yySseq.edl"
+  1 "yysCalcoutRecord.edl"
+  2 "yySseq.edl"
+  3 "yysCalcoutRecord.edl"
+  4 "yyCalcoutRecord.edl"
+  5 "yysCalcoutRecord.edl"
 }
 menuLabel {
-  0 Show sseq
-  1 SigShow scalcout
-  2 Check sseq
-  3 SigCheck scalcout
-  4 SigCheckShow calcout
-  5 autoread scalcout
+  0 "Show sseq"
+  1 "SigShow scalcout"
+  2 "Check sseq"
+  3 "SigCheck scalcout"
+  4 "SigCheckShow calcout"
+  5 "autoread scalcout"
 }
 symbols {
   0 "P=$(P),S=$(H)AND-$(N)_POUT_DoShow"
@@ -946,14 +946,14 @@ buttonLabel "debug"
 numPvs 6
 numDsps 3
 displayFileName {
-  0 yySseq.edl
-  1 yysCalcoutRecord.edl
-  2 yysCalcoutRecord.edl
+  0 "yySseq.edl"
+  1 "yysCalcoutRecord.edl"
+  2 "yysCalcoutRecord.edl"
 }
 menuLabel {
-  0 Show sseq
-  1 SigShow scalcout
-  2 autoread scalcout
+  0 "Show sseq"
+  1 "SigShow scalcout"
+  2 "autoread scalcout"
 }
 symbols {
   0 "P=$(P),S=$(H)AND-$(N)_IN1_DoShow"
@@ -986,14 +986,14 @@ buttonLabel "debug"
 numPvs 6
 numDsps 3
 displayFileName {
-  0 yySseq.edl
-  1 yysCalcoutRecord.edl
-  2 yysCalcoutRecord.edl
+  0 "yySseq.edl"
+  1 "yysCalcoutRecord.edl"
+  2 "yysCalcoutRecord.edl"
 }
 menuLabel {
-  0 Show sseq
-  1 SigShow scalcout
-  2 autoread scalcout
+  0 "Show sseq"
+  1 "SigShow scalcout"
+  2 "autoread scalcout"
 }
 symbols {
   0 "P=$(P),S=$(H)AND-$(N)_IN2_DoShow"

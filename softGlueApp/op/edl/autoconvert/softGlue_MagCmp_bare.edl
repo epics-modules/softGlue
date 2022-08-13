@@ -24,24 +24,11 @@ snapToGrid
 gridSize 4
 endScreenProperties
 
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 0
-y 31
-w 155
-h 26
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 0
 y 31
@@ -59,12 +46,6 @@ displayFileName {
   0 "softGlue_Input.edl;P=$(P),H=$(H),SIG=MagCmp-$(N)_SAMPLE"
 }
 noScroll
-endObjectProperties
-
-endGroup
-
-visMin "A"
-visMax "1"
 endObjectProperties
 
 # (Lines)
@@ -562,10 +543,10 @@ buttonLabel "?"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 softGlue_MagCmp_help.edl
+  0 "softGlue_MagCmp_help.edl"
 }
 menuLabel {
-  0 help
+  0 "help"
 }
 symbols {
   0 

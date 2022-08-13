@@ -44,24 +44,11 @@ value {
 }
 endObjectProperties
 
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 0
-y 20
-w 257
-h 24
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 0
 y 20
@@ -79,11 +66,5 @@ displayFileName {
   0 "softGlue_IntBit_bare.edl;P=$(P),H=$(H),NAM=$(NAM)"
 }
 noScroll
-endObjectProperties
-
-endGroup
-
-visMin "A"
-visMax "1"
 endObjectProperties
 

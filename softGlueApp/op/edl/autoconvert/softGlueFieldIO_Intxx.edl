@@ -24,24 +24,11 @@ snapToGrid
 gridSize 4
 endScreenProperties
 
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 5
-y 75
-w 727
-h 340
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 5
 y 75
@@ -59,12 +46,6 @@ displayFileName {
   0 "softGlueFieldIO_Intxx_small_bare_label.edl;"
 }
 noScroll
-endObjectProperties
-
-endGroup
-
-visMin "A"
-visMax "1"
 endObjectProperties
 
 # (Static Text)
@@ -421,10 +402,10 @@ buttonLabel "Less"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 softGlueFieldIOxx.edl
+  0 "softGlueFieldIOxx.edl"
 }
 menuLabel {
-  0 Plain I/O
+  0 "Plain I/O"
 }
 symbols {
   0 "P=$(P),H=$(H),N1=$(N1),N2=$(N2),N3=$(N3),N4=$(N4),N5=$(N5),N6=$(N6),N7=$(N7),N8=$(N8),N9=$(N9),N10=$(N10),N11=$(N11),N12=$(N12),N13=$(N13),N14=$(N14),N15=$(N15),N16=$(N16)"
