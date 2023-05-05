@@ -109,7 +109,8 @@ Installation and deployment
 ### Deploying softGlue to an IOC
 
  To configure an EPICS IOC application to use softGlue, you must make modifications in the following directories, and then rebuild the application: - `configure/RELEASE`
-    - Edit the `RELEASE` file to define the following names: 
+    - Edit the `RELEASE` file to define the following names:  
+    
     ```
     SOFTGLUE=<path to the softGlue module>
     ASYN=<path to the asyn module>
@@ -117,7 +118,7 @@ Installation and deployment
     BUSY=<path to the busy module>
     ```
         
-        > `BUSY` is an optional add-on for you to use with softGlue. If the busy module is available, you can arrange for EPICS database processing to wait for a signal from softGlue hardware before declaring itself to be finished. The `softGlue_convenience.db` database loads busy records for this purpose, and the `softGlueConvenience.adl` display file contains menu items to display the records. Nothing else in softGlue depends on the busy module.
+    `BUSY` is an optional add-on for you to use with softGlue. If the busy module is available, you can arrange for EPICS database processing to wait for a signal from softGlue hardware before declaring itself to be finished. The `softGlue_convenience.db` database loads busy records for this purpose, and the `softGlueConvenience.adl` display file contains menu items to display the records. Nothing else in softGlue depends on the busy module.
         
 - `xxxApp/src`
     - Edit `Makefile` or a `*Include.dbd` file so that the file `softGlueSupport.dbd` is included in the `.dbd` file the IOC loads at boot time. You'll also need files from asyn, ipac, and busy, if you're not already including them.  
@@ -244,7 +245,9 @@ The IP-EP20x board must be configured to permit programming the FPGA via the Ind
                     203 module, pins 25/26 through 47/48 are differential pairs.
     ```
     
-    Correspondence between dataDir bits (0-8) and I/O pins (1-48) | dataDir bit | 201 | 202 or 204 | 203 |
+    Correspondence between dataDir bits (0-8) and I/O pins (1-48) 
+    
+    | dataDir bit | 201 | 202 or 204 | 203 |
     |---|---|---|---|
     | bit 0 | pins 1-8 | pins 1, 3,25,27 | pins 25,27 |
     | bit 1 | pins 9-16 | pins 5, 7,29,31 | pins 29,31 |
@@ -634,16 +637,29 @@ Saving and restoring circuits
 
 If you have autosave R5-1 or higher, you can use configMenu to save and restore circuits. Here are the steps needed to implement a menu of softGlue circuits, and to give the user a GUI display for saving and restoring them. (In the following, SG is the name of this instance of configMenu. The files it loads and saves will be named "SG\_&lt;*config Name*&gt;.cfg". For examples, the configMenu instance pictured above has files named "SG\_clear.cfg", "SG\_encoderTest.cfg", etc..)
 
-> 1. In the IOC's startup directory, create an autosave request file, which I'll call "SGMenu.req", with the following content: `	file configMenu.req P=$(P),CONFIG=$(CONFIG)<br></br>	file softGlue_settings.req  P=$(P),H=$(H)	`
-> 2. Uncomment the following line in the IOC's copy of `softGlue.cmd`: `dbLoadRecords("$(AUTOSAVE)/asApp/Db/configMenu.db","P=xxx:,CONFIG=<font color="blue">SG</font>")`
-> 3. Add the following line to `st.cmd`: `create_manual_set("<font color="blue">SG</font>Menu.req","P=xxx:,CONFIG=<font color="blue">SG</font>")`
-> 4. Add an MEDM related-display entry to bring up the configMenu.adl display. `	label="SGMenu"<br></br>	name="configMenu.adl"<br></br>	args="P=xxx:,CONFIG=<font color="blue">SG</font>"	`
+> 1. In the IOC's startup directory, create an autosave request file, which I'll call "SGMenu.req", with the following content: 
+    ```
+    file configMenu.req P=$(P),CONFIG=$(CONFIG)
+    file softGlue_settings.req  P=$(P),H=$(H)
+    ```
+> 2. Uncomment the following line in the IOC's copy of `softGlue.cmd`: 
+    ```
+    dbLoadRecords("$(AUTOSAVE)/asApp/Db/configMenu.db","P=xxx:,CONFIG=SG")
+    ```
+> 3. Add the following line to `st.cmd`: 
+    ```
+    create_manual_set("SGMenu.req","P=xxx:,CONFIG=SG")
+    ```
+> 4. Add an MEDM related-display entry to bring up the configMenu.adl display.
+    ```
+    label="SGMenu" name="configMenu.adl" args="P=xxx:,CONFIG=SG"
+    ```
 
 softGlue includes configMenu files (\*.cfg) for standard example circuits in the iocBoot/iocSoftGlue directory. In actual use, these .cfg files would be placed in your application's iocBoot/iocxxx/autosave directory. For more information on configMenu, see the autosave documentation.
 
 #### Saving and restoring circuits with BURT
 
- The BURT request file `softGlueApp/op/burt/softGlue.snap` can be used to save all softGlue user modifiable PV's. For example, the following command saves the state of softGlue to the file `myCircuit.snap`. 
+The BURT request file `softGlueApp/op/burt/softGlue.snap` can be used to save all softGlue user modifiable PV's. For example, the following command saves the state of softGlue to the file `myCircuit.snap`. 
  
 ```
 burtrb -f softGlue.req -DPREFIX=xxx:softGlue -o myCircuit.snap
@@ -720,17 +736,17 @@ The following circuits have been tested and saved in BURT snapshot files, and as
     
     ![](accelDecelGate.gif)
         
-        Down counter `DnCntr-1`, and flipflop `DFF-1`, together produce a gate signal that is 0 after a reset, and that goes to 1 after `DnCntr-1_PRESET` motor pulses. Down counter `DnCntr-2`, and flipflop `DFF-2`, together produce a gate signal that is 1 after a reset, and that goes to 0 after `DnCntr-2_PRESET` motor pulses. We load the number of acceleration steps into `DnCntr-1_PRESET`, and the number of acceleration steps plus constant-speed steps into `DnCntr-2_PRESET`.
-        
-        `AND-1` combines the gate signals produced above into a signal that is 1 while the motor is moving at constant speed.
-        
-        `AND-2` gates the negative-going motor pulses, using what was described in the "Motor-pulse gate" example as a positive-going-pulse gate, by inverting the "motor" signal before applying it to the gate.
-        
-        Note that the down counters are clocked by (rising edges of) "motor", to produce the signal used to gate "motor`*`". This choice avoids a race condition between simultaneous rising edges of "gateOut" and "motor". (This circuit gates negative-going motor pulses, so another way to make the point is to say that the trailing edge of a motor pulse is used to produce a gate that will be ready in plenty of time for the leading edge of the next motor pulse.)
-        
-        Calculations for the circuit are shown in the following screen capture of a transform record.
-        
-        ![](accelDecelGateCalc.gif)
+    Down counter `DnCntr-1`, and flipflop `DFF-1`, together produce a gate signal that is 0 after a reset, and that goes to 1 after `DnCntr-1_PRESET` motor pulses. Down counter `DnCntr-2`, and flipflop `DFF-2`, together produce a gate signal that is 1 after a reset, and that goes to 0 after `DnCntr-2_PRESET` motor pulses. We load the number of acceleration steps into `DnCntr-1_PRESET`, and the number of acceleration steps plus constant-speed steps into `DnCntr-2_PRESET`.
+    
+    `AND-1` combines the gate signals produced above into a signal that is 1 while the motor is moving at constant speed.
+    
+    `AND-2` gates the negative-going motor pulses, using what was described in the "Motor-pulse gate" example as a positive-going-pulse gate, by inverting the "motor" signal before applying it to the gate.
+    
+    Note that the down counters are clocked by (rising edges of) "motor", to produce the signal used to gate "motor`*`". This choice avoids a race condition between simultaneous rising edges of "gateOut" and "motor". (This circuit gates negative-going motor pulses, so another way to make the point is to say that the trailing edge of a motor pulse is used to produce a gate that will be ready in plenty of time for the leading edge of the next motor pulse.)
+    
+    Calculations for the circuit are shown in the following screen capture of a transform record.
+    
+    ![](accelDecelGateCalc.gif)
 
 For more softGlue-circuit examples, see [https://subversion.xray.aps.anl.gov/admin\_bcdaext/softGlue\_examples](https://subversion.xray.aps.anl.gov/admin_bcdaext/softGlue_examples)Currently, the following circuits are documented:
 
