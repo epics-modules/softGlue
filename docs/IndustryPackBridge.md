@@ -1,3 +1,10 @@
+---
+layout: default
+title: Industry Pack Bridge
+nav_order: 4
+---
+
+
 Industry Pack Bridge
 ====================
 
