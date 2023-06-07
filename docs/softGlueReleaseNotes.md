@@ -8,6 +8,12 @@ nav_order: 3
 softGlue Release Notes
 ----------------------
 
+Release 2-8-4
+-------------
+
+- Updated autoconversion of bob and edl files
+- Documentation moved to github pages
+
 Release 2-8-3
 -------------
 
