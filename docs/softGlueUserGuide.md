@@ -15,29 +15,10 @@ nav_order: 4
 
 ## User interface
 
-Most of the essential user-interface information -- how to connect
-signals, what the display elements mean, etc. -- is contained in
-the descriptions of the "User Menu" and "AND" sections below. The
-remaining sections are mostly for completeness, though some
-circuit elements do require further explanation, and the counter
-sections introduce new display elements for registers containing
-decimal numbers.
-
-We're going to have a little trouble with the meanings of "input"
-and "output", because they imply a viewpoint, and because we're
-going to be taking three different viewpoints: those of EPICS
-records, circuit elements, and field-wiring connectors. Usually,
-in EPICS, we think of an output as something to which an EPICS
-record can write, but that definition would be awkward here,
-because it would eventually require us, for example, to refer to
-the output of an AND gate as an "input". You just can't discuss
-digital circuitry intelligibly from that viewpoint.
-
-Therefore, in this documentation, "input" and "output" will
-normally be from the viewpoint of one of the circuit elements
-we'll be wiring. Field I/O will be an exception, because it's
-most conveniently discussed from the viewpoint of the field-wiring
-connector.
+In this documentation, "input" and "output" are from the
+viewpoint of the circuit elements being wired, not from the EPICS
+viewpoint. Field I/O is an exception, discussed from the viewpoint
+of the field-wiring connector.
 
 ### User menu
 
@@ -57,19 +38,16 @@ sampled for display to the user.
 > CPU, and we've found that it's confusing for users if the poll
 > period is greater than around 1 second.
 
-### AND
+### Display elements
 
-![AND gate display](AND.gif)
-
-On the left of the AND gate are the inputs, each comprised of a
-blue `=` button, a yellow text-entry field, a number, and what's
-intended to look like a red LED. On the right are essentially
-the same things in reverse order, but an output's text-entry
-field is a different color. The text-entry fields are used to
-connect signals together, and the color difference is intended
-to remind you of the only rule governing signal connections: if
-you connect two or more outputs together, those outputs won't
-work.
+Each circuit element display follows the same layout. On the
+left are the inputs, each comprised of a blue `=` button, a
+yellow text-entry field, a number, and a red LED indicator. On the
+right are essentially the same things in reverse order, but an
+output's text-entry field is a different color. The color
+difference is intended to remind you of the only rule governing
+signal connections: if you connect two or more outputs together,
+those outputs won't work.
 
 {: .note }
 > softGlue outputs are engineered to ensure that you can't break
@@ -77,6 +55,22 @@ work.
 > be useful until you fix the error, because the states of outputs
 > connected together are undefined. Currently, softGlue doesn't
 > signal this error by putting offenders into an alarm state.
+
+The little red and black filled circles (LEDs), and the numbers
+next to them, display the states of their signals. These display
+elements are updated at the period specified in the
+`softGlueMenu.adl` display. If you want the EPICS PV name
+corresponding to a signal's logic value, this is the PV name to
+use.
+
+A signal's blue `=` button is used to find all other signals to
+which the signal is connected. While a signal's `=` button is
+pressed, input signals connected to it are bordered in green, and
+output signals connected to it are bordered in orange. If you
+ever see two or more orange borders at the same time, you have
+outputs connected together, and your circuit won't work.
+
+### Connecting signals
 
 The yellow text-entry box controls an input. You have three
 options:
@@ -111,10 +105,10 @@ options:
    followed by `*`, as described below). Case is significant in
    comparing signal names.
 
-Note that a "signal", as the word is used in this documentation,
-is a named connection between softGlue circuit elements. It might
-be more intuitive to think of a "signal" as a wire, to avoid
-confusing it with, say, field I/O.
+A "signal", as the word is used in this documentation, is a named
+connection between softGlue circuit elements. It might be more
+intuitive to think of a "signal" as a wire, to avoid confusing it
+with field I/O.
 
 {: .important }
 > If you're using more than one IP-EP20x module, you can't
@@ -122,29 +116,22 @@ confusing it with, say, field I/O.
 > their text-entry boxes. To accomplish this, you must connect the
 > signals to field I/O and make a physical connection.
 
+#### Signal inversion
+
 If you want to use the inverted value of a signal for input to
 some component, append `*` to the signal name. This doesn't
 change the signal that the input is connected to, but just tells
 softGlue to run the signal through an inverter before applying it
 to the input. Note that output signal names may not end with `*`.
 
-In MEDM, you can use Drag-And-Drop to connect a named signal to
-some other signal. When you drop, MEDM will put the PV name of
-the signal you dragged from. When you press `Enter`, softGlue's
-device support will write the signal name of the source PV to the
-destination PV.
+#### Signal name limits
 
-In caQtDM, you can select the text of a signal name, and use
-Copy/Paste (Ctrl-C/Ctrl-V) to copy the signal name from one
-text-entry box to another.
-
-Whatever option you choose, you can define at most fifteen
-different signal names. When you try to define the 16th name,
-softGlue will erase whatever you wrote, and put the record into
-the "INVALID" alarm state. (But note, for example, that `reset`
-and `reset*` are not different signal names, because the trailing
-`*` is not regarded as part of the name; it merely describes how
-the signal should be used.)
+You can define at most fifteen different signal names. When you
+try to define the 16th name, softGlue will erase whatever you
+wrote, and put the record into the "INVALID" alarm state. (But
+note, for example, that `reset` and `reset*` are not different
+signal names, because the trailing `*` is not regarded as part of
+the name; it merely describes how the signal should be used.)
 
 Text-entry boxes for output signals won't accept names beginning
 with a number, or ending with `*`. (softGlue will simply strip
@@ -158,21 +145,28 @@ the offending characters, and leave the rest.)
 > logically sensible, but are not permitted; this simplifies the
 > implementation of `*` appended to input-signal names.
 
-A signal's blue `=` button is used to find all other signals to
-which the signal is connected. While a signal's `=` button is
-pressed, input signals connected to it are bordered in green, and
-output signals connected to it are bordered in orange. If you
-ever see two or more orange borders at the same time, you have
-outputs connected together, and your circuit won't work.
+#### Drag-and-drop / copy-paste
 
-The little red and black filled circles (LEDs), and the numbers
-next to them, display the states of their signals. These display
-elements are updated at the period specified in the
-`softGlueMenu.adl` display. If you want the EPICS PV name
-corresponding to a signal's logic value, this is the PV name to
-use.
+In MEDM, you can use Drag-And-Drop to connect a named signal to
+some other signal. When you drop, MEDM will put the PV name of
+the signal you dragged from. When you press `Enter`, softGlue's
+device support will write the signal name of the source PV to the
+destination PV.
 
-For completeness, here's the truth table for an AND gate:
+In caQtDM, you can select the text of a signal name, and use
+Copy/Paste (Ctrl-C/Ctrl-V) to copy the signal name from one
+text-entry box to another.
+
+### Circuit element reference
+
+The following sections describe each circuit element available in
+softGlue. In truth tables, `x` means "either 0 or 1".
+
+#### Logic gates
+
+**AND**
+
+![AND gate display](AND.gif)
 
 | input1 | input2 | output |
 | - | - | - |
@@ -180,9 +174,9 @@ For completeness, here's the truth table for an AND gate:
 | x | 0 | 0 |
 | 1 | 1 | 1 |
 
-*`x` means "either 0 or 1".*
+---
 
-### OR
+**OR**
 
 ![OR gate display](OR.gif)
 
@@ -192,25 +186,9 @@ For completeness, here's the truth table for an AND gate:
 | 1 | x | 1 |
 | x | 1 | 1 |
 
-### Buffer
+---
 
-![Buffer display](BUFFER.gif)
-
-The purpose of the buffer element is to permit EPICS to drive
-several softGlue inputs by writing to a single PV, without
-using up a more valuable circuit element, such as the XOR gate.
-
-### Inverting buffer
-
-![Inverting buffer display](INVERTING_BUFFER.gif)
-
-There is no inverting buffer -- or any other inverting gate -- in
-softGlue. Signal inversion is accomplished by appending `*` to
-the name of a signal used as input to any logic element, as
-demonstrated above for the buffer element. Note that `*` appended
-to the name of an output signal will be removed.
-
-### XOR
+**XOR**
 
 ![XOR gate display](XOR.gif)
 
@@ -221,7 +199,31 @@ to the name of an output signal will be removed.
 | 1 | 0 | 1 |
 | 1 | 1 | 0 |
 
-### D flip-flop
+---
+
+**Buffer**
+
+![Buffer display](BUFFER.gif)
+
+The purpose of the buffer element is to permit EPICS to drive
+several softGlue inputs by writing to a single PV, without
+using up a more valuable circuit element, such as the XOR gate.
+
+---
+
+**Inverting buffer**
+
+![Inverting buffer display](INVERTING_BUFFER.gif)
+
+There is no inverting buffer -- or any other inverting gate -- in
+softGlue. Signal inversion is accomplished by appending `*` to
+the name of a signal used as input to any logic element, as
+demonstrated above for the buffer element. Note that `*` appended
+to the name of an output signal will be removed.
+
+#### Flip-flops and multiplexers
+
+**D flip-flop**
 
 ![D flip-flop display](DFF.gif)
 
@@ -241,27 +243,35 @@ output to be "cleared" (given the value 0).
 | 1 | 0 | x | x | 0 |
 | 1 | 1 | any | rising edge | D_BEFORE (value D had immediately before the rising edge of the clock signal) |
 
-### 2-input multiplexer
+---
+
+**2-input multiplexer**
 
 ![2-input multiplexer display](MUX2.gif)
 
 When `SEL==0`, `OUT=IN0`. When `SEL==1`, `OUT=IN1`.
 
-### 2-output demultiplexer
+---
+
+**2-output demultiplexer**
 
 ![2-output demultiplexer display](DEMUX2.gif)
 
 When `SEL==0`, `OUT0=IN`, and `OUT1` is undefined (currently 0).
 When `SEL==1`, `OUT1=IN`, and `OUT0` is undefined (currently 0).
 
-### Up counter
+#### Counters and timers
+
+**Up counter (32-bit)**
 
 ![Up counter display](UpCntr.gif)
 
 `EN==1` enables the clock (`>`) input, whose rising edge
 increments the counter value.
 
-### Down counter
+---
+
+**Down counter (32-bit preset)**
 
 ![Down counter display](DnCntr.gif)
 
@@ -274,7 +284,9 @@ When the counter value reaches `0`, the output `Q` goes to `1`;
 the next rising edge of the clock returns `Q` to `0` (regardless
 of the states of `EN` and `LOAD`).
 
-### 32-bit divide by N
+---
+
+**32-bit divide by N**
 
 ![Divide by N display](DivByN.gif)
 
@@ -295,7 +307,9 @@ after `N` rising edges of the clock. `RESET` does not clear the
 output `Q`. If `Q` is `1`, it will be cleared on the first rising
 edge of the clock.
 
-### 8 MHz internal clock
+---
+
+**8 MHz internal clock**
 
 ![8 MHz clock display](8MHz_clock.gif)
 
@@ -430,7 +444,9 @@ If the link writes to a PV in a different IOC, the specified link
 attribute will be ignored, and the attribute `CA` will be used
 instead.
 
-### All components display
+### Displays
+
+**All components**
 
 ![All components with signal highlighting](AllBlink.gif)
 
@@ -443,7 +459,9 @@ green, and connections to outputs are bordered in orange.
 This display shows everything in softGlue except interrupt
 support.
 
-### Convenience
+---
+
+**Convenience**
 
 ![Convenience display](Convenience.gif)
 
@@ -457,7 +475,9 @@ The use of EPICS links (the purple boxes in the above display) is
 described above in the section "About EPICS links", in the
 documentation of "Field I/O interrupt support".
 
-### Busy record
+---
+
+**Busy record**
 
 ![Busy record display](BusyRecord.gif)
 
