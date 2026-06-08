@@ -493,7 +493,7 @@ The following components are not in the standard softGlue
 package, but in add-on packages typically made to solve specific
 problems.
 
-### 32-bit up/down counter
+**32-bit up/down counter**
 
 ![Up/Down counter display](UpDnCntr.gif)
 
@@ -502,7 +502,9 @@ current count and the output value `Q` to zero. When
 `UP/DOWN==1` the counter counts up. `LOAD` sets the current
 count to `PRESET`.
 
-### Quadrature decoder
+---
+
+**Quadrature decoder**
 
 ![Quadrature decoder display](QuadDec.gif)
 
@@ -515,7 +517,9 @@ edge, the travel direction implied by the change is output to
 to the period of the `CLOCK` signal, and the input frequency may
 not be greater than half the clock frequency.
 
-### Shift register
+---
+
+**Shift register**
 
 ![Shift register display](ShiftReg.gif)
 
@@ -532,7 +536,9 @@ For serial-to-parallel conversion, the input `D` is sampled on
 the rising edge of the clock input, and that value is shifted
 into the least significant bit of the register.
 
-### Four-output demultiplexer
+---
+
+**Four-output demultiplexer**
 
 ![Four-output demultiplexer display](softGlue4DEMUX4.gif)
 
@@ -560,7 +566,9 @@ There are two copies of this add-on component:
    connected to pin 34, ..., and `DEMUX4-4_OUT3` is connected to
    pin 48.
 
-### Encoder time average circuit
+---
+
+**Encoder time average circuit**
 
 ![Encoder time average circuit display](encoderTimeAverage.gif)
 
