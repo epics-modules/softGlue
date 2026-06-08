@@ -65,7 +65,7 @@ To use softGlue, you must have the following hardware and software.
 - [asyn](https://github.com/epics-modules/asyn), version 4.6 or higher.
 - [ipac](https://github.com/epics-modules/ipac), version 2.11 or higher.
   To use an earlier version, see "Building softGlue" in the
-  [User Guide](softGlueUserGuide.html).
+  [Installation](softGlueInstallation.html) page.
 - The EPICS extension
   [msi](http://www.aps.anl.gov/epics/extensions/msi/index.php), version
   1-5 or higher. This tool is needed to build some softGlue databases.
@@ -158,3 +158,15 @@ package. Thus, there is a clear path to standard softGlue plus
 application-specific FPGA content and support. softGlue databases and
 display files are engineered to simplify the development of support for
 add-on packages.
+
+## Credits
+
+The essential enabling work underlying softGlue is Eric Norum's
+[IndustryPack Bridge](IndustryPackBridge.html). David Kline
+engineered a proof-of-principle implementation, working from
+another of Eric's bus-interface solutions, for a non-VME
+architecture. Marty Smith wrote a driver to talk to custom FPGA
+content interfaced to Eric's IndustryPack Bridge. Kurt Goetze and
+Marty Smith implemented the FPGA content included with softGlue,
+and Tim Mooney extended Marty's driver and wrote the EPICS
+application.
