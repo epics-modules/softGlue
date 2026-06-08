@@ -16,6 +16,8 @@ LIB_LIBS += asyn Ipac
 
 LIB_LIBS += $(EPICS_BASE_IOC_LIBS)
 
+CFG += SOFTGLUE_DEPS
+
 include $(TOP)/configure/RULES
 #----------------------------------------
 #  ADD RULES AFTER THIS LINE

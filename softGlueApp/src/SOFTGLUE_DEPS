@@ -1,0 +1,2 @@
+SOFTGLUE_IOC_DBDS = softGlueSupport.dbd
+SOFTGLUE_IOC_LIBS = softGlue
