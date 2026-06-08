@@ -20,13 +20,6 @@ viewpoint of the circuit elements being wired, not from the EPICS
 viewpoint. Field I/O is an exception, discussed from the viewpoint
 of the field-wiring connector.
 
-The following display shows all standard softGlue components on
-one screen, with the signal named "clock" highlighted to show its
-connections. Input connections are bordered in green, and output
-connections are bordered in orange.
-
-![All components with signal highlighting](AllBlink.gif)
-
 ### User menu
 
 ![softGlue menu display](Menu.gif)
@@ -46,6 +39,13 @@ sampled for display to the user.
 > period is greater than around 1 second.
 
 ### Display elements
+
+The following display shows all standard softGlue components on
+one screen, with the signal named "clock" highlighted to show its
+connections. Input connections are bordered in green, and output
+connections are bordered in orange.
+
+![All components with signal highlighting](AllBlink.gif)
 
 Each circuit element display follows the same layout. On the
 left are the inputs, each comprised of a blue `=` button, a
