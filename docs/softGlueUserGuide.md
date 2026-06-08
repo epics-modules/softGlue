@@ -20,6 +20,13 @@ viewpoint of the circuit elements being wired, not from the EPICS
 viewpoint. Field I/O is an exception, discussed from the viewpoint
 of the field-wiring connector.
 
+The following display shows all standard softGlue components on
+one screen, with the signal named "clock" highlighted to show its
+connections. Input connections are bordered in green, and output
+connections are bordered in orange.
+
+![All components with signal highlighting](AllBlink.gif)
+
 ### User menu
 
 ![softGlue menu display](Menu.gif)
@@ -157,165 +164,6 @@ In caQtDM, you can select the text of a signal name, and use
 Copy/Paste (Ctrl-C/Ctrl-V) to copy the signal name from one
 text-entry box to another.
 
-### Circuit element reference
-
-The following sections describe each circuit element available in
-softGlue. In truth tables, `x` means "either 0 or 1".
-
-#### Logic gates
-
-**AND**
-
-![AND gate display](AND.gif)
-
-| input1 | input2 | output |
-| - | - | - |
-| 0 | x | 0 |
-| x | 0 | 0 |
-| 1 | 1 | 1 |
-
----
-
-**OR**
-
-![OR gate display](OR.gif)
-
-| input1 | input2 | output |
-| - | - | - |
-| 0 | 0 | 0 |
-| 1 | x | 1 |
-| x | 1 | 1 |
-
----
-
-**XOR**
-
-![XOR gate display](XOR.gif)
-
-| input1 | input2 | output |
-| - | - | - |
-| 0 | 0 | 0 |
-| 0 | 1 | 1 |
-| 1 | 0 | 1 |
-| 1 | 1 | 0 |
-
----
-
-**Buffer**
-
-![Buffer display](BUFFER.gif)
-
-The purpose of the buffer element is to permit EPICS to drive
-several softGlue inputs by writing to a single PV, without
-using up a more valuable circuit element, such as the XOR gate.
-
----
-
-**Inverting buffer**
-
-![Inverting buffer display](INVERTING_BUFFER.gif)
-
-There is no inverting buffer -- or any other inverting gate -- in
-softGlue. Signal inversion is accomplished by appending `*` to
-the name of a signal used as input to any logic element, as
-demonstrated above for the buffer element. Note that `*` appended
-to the name of an output signal will be removed.
-
-#### Flip-flops and multiplexers
-
-**D flip-flop**
-
-![D flip-flop display](DFF.gif)
-
-The input signal labelled `>` is the "clock" input. Unlike other
-signals, clock inputs are edge sensitive. All clock inputs in
-softGlue act on the rising edge of the input signal.
-
-The open circle ("bubble") in the `SET` and `CLEAR` inputs'
-signal paths indicate that these signals are inverted before
-being used. Thus, applying `0` to the `CLEAR` input causes the
-output to be "cleared" (given the value 0).
-
-| SET | CLEAR | D | `>` (clock) | Q |
-| - | - | - | - | - |
-| 0 | 0 | x | x | undefined |
-| 0 | 1 | x | x | 1 |
-| 1 | 0 | x | x | 0 |
-| 1 | 1 | any | rising edge | D_BEFORE (value D had immediately before the rising edge of the clock signal) |
-
----
-
-**2-input multiplexer**
-
-![2-input multiplexer display](MUX2.gif)
-
-When `SEL==0`, `OUT=IN0`. When `SEL==1`, `OUT=IN1`.
-
----
-
-**2-output demultiplexer**
-
-![2-output demultiplexer display](DEMUX2.gif)
-
-When `SEL==0`, `OUT0=IN`, and `OUT1` is undefined (currently 0).
-When `SEL==1`, `OUT1=IN`, and `OUT0` is undefined (currently 0).
-
-#### Counters and timers
-
-**Up counter (32-bit)**
-
-![Up counter display](UpCntr.gif)
-
-`EN==1` enables the clock (`>`) input, whose rising edge
-increments the counter value.
-
----
-
-**Down counter (32-bit preset)**
-
-![Down counter display](DnCntr.gif)
-
-`EN==1` enables the clock (`>`) input, whose rising edge
-decrements the counter value. When `LOAD==1` the counter is
-loaded with the value applied to the `PRESET` input. While
-`LOAD==1`, the counter does not count down. While `LOAD==0` and
-`EN==1`, a rising edge at the clock input decrements the counter.
-When the counter value reaches `0`, the output `Q` goes to `1`;
-the next rising edge of the clock returns `Q` to `0` (regardless
-of the states of `EN` and `LOAD`).
-
----
-
-**32-bit divide by N**
-
-![Divide by N display](DivByN.gif)
-
-`EN==1` enables the clock (`>`) input. Every `N`th rising edge
-of the clock drives `Q` to `1`. The next rising edge returns `Q`
-to `0`. This behavior produces the correct number of rising edges
-of the output signal, but it does not guarantee the same number
-of falling edges. Therefore, using an inverted copy of the output
-to clock downstream electronics will in some cases have
-inconsistent results. When `N==0`, the divide circuitry is
-bypassed, and the clock is connected directly to `Q`. This is an
-error; the output should still be gated by the `EN` signal.
-
-In softGlue version 2.1 and earlier, the `RESET` signal doesn't
-do anything. Beginning with softGlue 2.2, the `RESET` signal
-loads the counter with `N`, so that `Q` will be driven to `1`
-after `N` rising edges of the clock. `RESET` does not clear the
-output `Q`. If `Q` is `1`, it will be cleared on the first rising
-edge of the clock.
-
----
-
-**8 MHz internal clock**
-
-![8 MHz clock display](8MHz_clock.gif)
-
-An 8 MHz clock derived from the IndustryPack clock is available
-to softGlue circuitry as a free standing output.
-
 ### Field I/O
 
 ![Field I/O display](Field_IO.gif)
@@ -444,24 +292,7 @@ If the link writes to a PV in a different IOC, the specified link
 attribute will be ignored, and the attribute `CA` will be used
 instead.
 
-### Displays
-
-**All components**
-
-![All components with signal highlighting](AllBlink.gif)
-
-Everything on one display, with the signal named "clock"
-highlighted so that all of its connections are evident. A signal
-name gets this treatment when the `=` button next to an input or
-output is pressed. Note that connections to inputs are bordered in
-green, and connections to outputs are bordered in orange.
-
-This display shows everything in softGlue except interrupt
-support.
-
----
-
-**Convenience**
+### Convenience
 
 ![Convenience display](Convenience.gif)
 
@@ -472,12 +303,9 @@ in EPICS. The display also has MEDM related-display callups for
 two busy records.
 
 The use of EPICS links (the purple boxes in the above display) is
-described above in the section "About EPICS links", in the
-documentation of "Field I/O interrupt support".
+described in "About EPICS links" above.
 
----
-
-**Busy record**
+### Busy record
 
 ![Busy record display](BusyRecord.gif)
 
@@ -500,6 +328,164 @@ link).
 > record that is already processing. The busy record is written
 > so that a CA put will succeed in clearing it and causing its
 > processing to appear done to EPICS.
+
+## Circuit element reference
+
+In truth tables, `x` means "either 0 or 1".
+
+### Logic gates
+
+**AND**
+
+![AND gate display](AND.gif)
+
+| input1 | input2 | output |
+| - | - | - |
+| 0 | x | 0 |
+| x | 0 | 0 |
+| 1 | 1 | 1 |
+
+---
+
+**OR**
+
+![OR gate display](OR.gif)
+
+| input1 | input2 | output |
+| - | - | - |
+| 0 | 0 | 0 |
+| 1 | x | 1 |
+| x | 1 | 1 |
+
+---
+
+**XOR**
+
+![XOR gate display](XOR.gif)
+
+| input1 | input2 | output |
+| - | - | - |
+| 0 | 0 | 0 |
+| 0 | 1 | 1 |
+| 1 | 0 | 1 |
+| 1 | 1 | 0 |
+
+---
+
+**Buffer**
+
+![Buffer display](BUFFER.gif)
+
+The purpose of the buffer element is to permit EPICS to drive
+several softGlue inputs by writing to a single PV, without
+using up a more valuable circuit element, such as the XOR gate.
+
+---
+
+**Inverting buffer**
+
+![Inverting buffer display](INVERTING_BUFFER.gif)
+
+There is no inverting buffer -- or any other inverting gate -- in
+softGlue. Signal inversion is accomplished by appending `*` to
+the name of a signal used as input to any logic element, as
+demonstrated above for the buffer element. Note that `*` appended
+to the name of an output signal will be removed.
+
+### Flip-flops and multiplexers
+
+**D flip-flop**
+
+![D flip-flop display](DFF.gif)
+
+The input signal labelled `>` is the "clock" input. Unlike other
+signals, clock inputs are edge sensitive. All clock inputs in
+softGlue act on the rising edge of the input signal.
+
+The open circle ("bubble") in the `SET` and `CLEAR` inputs'
+signal paths indicate that these signals are inverted before
+being used. Thus, applying `0` to the `CLEAR` input causes the
+output to be "cleared" (given the value 0).
+
+| SET | CLEAR | D | `>` (clock) | Q |
+| - | - | - | - | - |
+| 0 | 0 | x | x | undefined |
+| 0 | 1 | x | x | 1 |
+| 1 | 0 | x | x | 0 |
+| 1 | 1 | any | rising edge | D_BEFORE (value D had immediately before the rising edge of the clock signal) |
+
+---
+
+**2-input multiplexer**
+
+![2-input multiplexer display](MUX2.gif)
+
+When `SEL==0`, `OUT=IN0`. When `SEL==1`, `OUT=IN1`.
+
+---
+
+**2-output demultiplexer**
+
+![2-output demultiplexer display](DEMUX2.gif)
+
+When `SEL==0`, `OUT0=IN`, and `OUT1` is undefined (currently 0).
+When `SEL==1`, `OUT1=IN`, and `OUT0` is undefined (currently 0).
+
+### Counters and timers
+
+**Up counter (32-bit)**
+
+![Up counter display](UpCntr.gif)
+
+`EN==1` enables the clock (`>`) input, whose rising edge
+increments the counter value.
+
+---
+
+**Down counter (32-bit preset)**
+
+![Down counter display](DnCntr.gif)
+
+`EN==1` enables the clock (`>`) input, whose rising edge
+decrements the counter value. When `LOAD==1` the counter is
+loaded with the value applied to the `PRESET` input. While
+`LOAD==1`, the counter does not count down. While `LOAD==0` and
+`EN==1`, a rising edge at the clock input decrements the counter.
+When the counter value reaches `0`, the output `Q` goes to `1`;
+the next rising edge of the clock returns `Q` to `0` (regardless
+of the states of `EN` and `LOAD`).
+
+---
+
+**32-bit divide by N**
+
+![Divide by N display](DivByN.gif)
+
+`EN==1` enables the clock (`>`) input. Every `N`th rising edge
+of the clock drives `Q` to `1`. The next rising edge returns `Q`
+to `0`. This behavior produces the correct number of rising edges
+of the output signal, but it does not guarantee the same number
+of falling edges. Therefore, using an inverted copy of the output
+to clock downstream electronics will in some cases have
+inconsistent results. When `N==0`, the divide circuitry is
+bypassed, and the clock is connected directly to `Q`. This is an
+error; the output should still be gated by the `EN` signal.
+
+In softGlue version 2.1 and earlier, the `RESET` signal doesn't
+do anything. Beginning with softGlue 2.2, the `RESET` signal
+loads the counter with `N`, so that `Q` will be driven to `1`
+after `N` rising edges of the clock. `RESET` does not clear the
+output `Q`. If `Q` is `1`, it will be cleared on the first rising
+edge of the clock.
+
+---
+
+**8 MHz internal clock**
+
+![8 MHz clock display](8MHz_clock.gif)
+
+An 8 MHz clock derived from the IndustryPack clock is available
+to softGlue circuitry as a free standing output.
 
 ## Add-on FPGA components
 
